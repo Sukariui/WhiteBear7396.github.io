@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>白色的阿吉的博客</title>
+  <title>白色的阿吉</title>
   <icon>https://www.gravatar.com/avatar/844763b569c6f0d500f74ace7b9befc2</icon>
   
   <link href="http://whitebear7396.top/atom.xml" rel="self"/>
   
   <link href="http://whitebear7396.top/"/>
-  <updated>2020-08-27T03:27:12.576Z</updated>
+  <updated>2020-08-28T03:04:32.655Z</updated>
   <id>http://whitebear7396.top/</id>
   
   <author>
@@ -18,16 +18,20 @@
   
   <entry>
     <title></title>
-    <link href="http://whitebear7396.top/2020/08/27/my-new-post/"/>
-    <id>http://whitebear7396.top/2020/08/27/my-new-post/</id>
-    <published>2020-08-27T08:52:59.324Z</published>
-    <updated>2020-08-27T03:27:12.576Z</updated>
+    <link href="http://whitebear7396.top/2020/08/28/article/first-post/"/>
+    <id>http://whitebear7396.top/2020/08/28/article/first-post/</id>
+    <published>2020-08-28T00:29:04.429Z</published>
+    <updated>2020-08-28T03:04:32.655Z</updated>
     
-    <content type="html"><![CDATA[<hr><p>title: 我的新文章             #中英文都可以<br>date: 2020-08-27 11:23:13   #发表日期<br>categories: blog            #文章类型<br>tags: [文章]                 #文章标签，文章标签，多于一项时用这种格式，只有一项时使用tags: blog<br>–<br>这里是正文，用markdown写，你可以选择写一段显示在首页的简介后，加上</p><a id="more"></a>，在<!--more-->之前的内容会显示在首页，之后的内容会被隐藏，当游客点击Read more    才能看到。]]></content>
+    <content type="html"><![CDATA[<hr /><h2 id="title-我的新文章-中英文都可以date-2020-08-27-112313-发表日期categories-编程-文章类型tags-programme-文章标签文章标签多于一项时用这种格式只有一项时使用tags-blog"><a class="anchor" href="#title-我的新文章-中英文都可以date-2020-08-27-112313-发表日期categories-编程-文章类型tags-programme-文章标签文章标签多于一项时用这种格式只有一项时使用tags-blog">#</a> title: 我的新文章             #中英文都可以<br /> date: 2020-08-27 11:23:13   #发表日期<br /> categories: 编程           #文章类型<br /> tags:   programme          #文章标签，文章标签，多于一项时用这种格式，只有一项时使用 tags: blog</h2><p>这里是正文，用 markdown 写，你可以选择写一段显示在首页的简介后，加上<br /><a id="more"></a>，在<!--more-->之前的内容会显示在首页，之后的内容会被隐藏，当游客点击Read more    才能看到。<br /><em>斜体</em>    <strong>粗体</strong>  或者  <strong>粗体</strong>       <em><strong>粗斜体</strong></em>     <s>删除线</s></p><blockquote><p><em><strong>人民网最新新闻显示</strong></em>：公路和民航方面。从今天（7 日）开始，公路客流也开始增加，预计 2 月 10 日，集中返程流量预计达到整个春运期间最高峰值。</p><blockquote><p>民航方面今天全国计划飞行执行航班较昨天的<strong> 16523</strong> 班基本持平。</p></blockquote></blockquote><p><img data-src="https://upload-images.jianshu.io/upload_images/6641072-c400c431ccf033d8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="我就是我" title="提示" /></p><p>![图片名称](图片地址 '' 图片 alt'')</p><p>图片名称：显示在图片下面的文字。<br />图片 alt：当鼠标移到图片上时显示的内容，alt 可加可不加</p><p>上面的操作称为行内式，也可以使用参数式（效果同上）<br />[我就是我]:<span class="exturl" data-url="aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy82NjQxMDcyLWM0MDBjNDMxY2NmMDMzZDguanBnP2ltYWdlTW9ncjIvYXV0by1vcmllbnQvc3RyaXAlN0NpbWFnZVZpZXcyLzIvdy8xMjQw">https://upload-images.jianshu.io/upload_images/6641072-c400c431ccf033d8.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/1240</span>  &quot;提示&quot;<br />![我就是我]</p><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vdS8yZWRjYWNiMTI5Y2I=">我的主页</span></p><p><a href="%E8%B6%85%E9%93%BE%E6%8E%A5%E5%9C%B0%E5%9D%80" title="超链接alt">超链接名</a></p><p>同图片用法，与图片的区别是一个有 '!', 一个没有.</p><table><thead><tr><th>姓名</th><th>年龄</th><th>爱好 (默认左对齐格式)</th></tr></thead><tbody><tr><td>张三</td><td>50</td><td>广场舞</td></tr><tr><td>李四</td><td>30</td><td>慢嗨</td></tr><tr><td>王麻子</td><td>24</td><td>敲代码</td></tr></tbody><tbody><tr><td>姓名</td><td>年龄</td><td>爱好</td><td>（':' 在左左对齐，在右右对齐，都有居中）</td></tr><tr><td>:----:</td><td>:------</td><td>-----:</td></tr><tr><td>张三</td><td>50</td><td>广场舞</td></tr><tr><td>李四</td><td>30</td><td>慢嗨</td></tr><tr><td>王麻子</td><td>24</td><td>敲代码</td></tr></tbody></table>]]></content>
     
     
-    <summary type="html">&lt;hr&gt;
-&lt;p&gt;title: 我的新文章             #中英文都可以&lt;br&gt;date: 2020-08-27 11:23:13   #发表日期&lt;br&gt;categories: blog            #文章类型&lt;br&gt;tags: [文章]                 #文章标签，文章标签，多于一项时用这种格式，只有一项时使用tags: blog&lt;br&gt;–&lt;br&gt;这里是正文，用markdown写，你可以选择写一段显示在首页的简介后，加上&lt;/p&gt;</summary>
+    <summary type="html">&lt;hr /&gt;
+&lt;h2 id=&quot;title-我的新文章-中英文都可以date-2020-08-27-112313-发表日期categories-编程-文章类型tags-programme-文章标签文章标签多于一项时用这种格式只有一项时使用tags-blog&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#title-我的新文章-中英文都可以date-2020-08-27-112313-发表日期categories-编程-文章类型tags-programme-文章标签文章标签多于一项时用这种格式只有一项时使用tags-blog&quot;&gt;#&lt;/a&gt; title: 我的新文章             #中英文都可以&lt;br /&gt;
+ date: 2020-08-27 11:23:13   #发表日期&lt;br /&gt;
+ categories: 编程           #文章类型&lt;br /&gt;
+ tags:   programme          #文章标签，文章标签，多于一项时用这种格式，只有一项时使用 tags: blog&lt;/h2&gt;
+&lt;p&gt;这里是正文，用 markdown 写，你可以选择写一段显示在首页的简介后，加上&lt;br /&gt;</summary>
     
     
     
@@ -36,14 +40,201 @@
   
   <entry>
     <title>second post</title>
-    <link href="http://whitebear7396.top/2020/08/27/second-post/"/>
-    <id>http://whitebear7396.top/2020/08/27/second-post/</id>
+    <link href="http://whitebear7396.top/2020/08/27/design/second-post/"/>
+    <id>http://whitebear7396.top/2020/08/27/design/second-post/</id>
     <published>2020-08-27T05:20:52.000Z</published>
-    <updated>2020-08-27T05:20:52.178Z</updated>
+    <updated>2020-08-28T02:48:48.439Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一级标题"><a class="anchor" href="#一级标题">#</a> 一级标题</h1><h2 id="二级标题"><a class="anchor" href="#二级标题">#</a> 二级标题</h2><h3 id="三级标题"><a class="anchor" href="#三级标题">#</a> 三级标题</h3><h4 id="四级标题"><a class="anchor" href="#四级标题">#</a> 四级标题</h4><h5 id="五级标题"><a class="anchor" href="#五级标题">#</a> 五级标题</h5><h6 id="六级标题"><a class="anchor" href="#六级标题">#</a> 六级标题</h6><p>####### 七级标题<br /> title: Gallery Post</p><ul><li>assets/wallpaper-2572384.jpg</li><li>assets/wallpaper-2311325.jpg</li><li>assets/wallpaper-878514.jpg</li><li><span class="exturl" data-url="aHR0cDovL3BsYWNlaG9sZC5pdC8zNTB4MTUwLmpwZw==">http://placehold.it/350x150.jpg</span></li></ul><p><strong>女生择偶标准（摘自网友）</strong></p><ul><li>要会耍帅耍酷</li><li>要有漂亮的房子</li><li>要有很多钱</li><li>要会心疼人</li></ul><p><strong>男生择偶标准（摘自网友）</strong></p><ol><li>不圆不肥不瘦</li><li>吃的不多</li><li>用的不多</li><li>穿的不多</li></ol><p><em><strong>多级嵌套</strong></em></p><ul><li><strong>岳母的要求</strong><ol><li>有房有车</li><li>工作体面</li><li>收入要高</li></ol></li><li><strong>岳父的要求</strong> (注：有序列表只会读取第一个的索引，后面开始累加)<br /> 3. 疼爱女儿<br /> 2. 会做家务<ol><li>不抽烟，少喝酒</li></ol></li></ul><hr />]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;一级标题&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#一级标题&quot;&gt;#&lt;/a&gt; 一级标题&lt;/h1&gt;
+&lt;h2 id=&quot;二级标题&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#二级标题&quot;&gt;#&lt;/a&gt; 二级标题&lt;/h2&gt;
+&lt;h3 id=&quot;三级标题&quot;&gt;&lt;a c</summary>
+      
     
     
     
+    <category term="设计" scheme="http://whitebear7396.top/categories/design/"/>
     
+    
+    <category term="design  draw" scheme="http://whitebear7396.top/tags/design-draw/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>炉石传说</title>
+    <link href="http://whitebear7396.top/2020/08/27/game/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4/"/>
+    <id>http://whitebear7396.top/2020/08/27/game/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4/</id>
+    <published>2020-08-27T05:20:52.000Z</published>
+    <updated>2020-08-28T03:14:31.328Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一级标题"><a class="anchor" href="#一级标题">#</a> 一级标题</h1><h2 id="二级标题"><a class="anchor" href="#二级标题">#</a> 二级标题</h2><h3 id="三级标题"><a class="anchor" href="#三级标题">#</a> 三级标题</h3><h4 id="四级标题"><a class="anchor" href="#四级标题">#</a> 四级标题</h4><h5 id="五级标题"><a class="anchor" href="#五级标题">#</a> 五级标题</h5><h6 id="六级标题"><a class="anchor" href="#六级标题">#</a> 六级标题</h6><p>####### 七级标题<br /> title: Gallery Post</p><ul><li>assets/wallpaper-2572384.jpg</li><li>assets/wallpaper-2311325.jpg</li><li>assets/wallpaper-878514.jpg</li><li><span class="exturl" data-url="aHR0cDovL3BsYWNlaG9sZC5pdC8zNTB4MTUwLmpwZw==">http://placehold.it/350x150.jpg</span></li></ul><p><strong>女生择偶标准（摘自网友）</strong></p><ul><li>要会耍帅耍酷</li><li>要有漂亮的房子</li><li>要有很多钱</li><li>要会心疼人</li></ul><p><strong>男生择偶标准（摘自网友）</strong></p><ol><li>不圆不肥不瘦</li><li>吃的不多</li><li>用的不多</li><li>穿的不多</li></ol><p><em><strong>多级嵌套</strong></em></p><ul><li><strong>岳母的要求</strong><ol><li>有房有车</li><li>工作体面</li><li>收入要高</li></ol></li><li><strong>岳父的要求</strong> (注：有序列表只会读取第一个的索引，后面开始累加)<br /> 3. 疼爱女儿<br /> 2. 会做家务<ol><li>不抽烟，少喝酒</li></ol></li></ul><hr />]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;一级标题&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#一级标题&quot;&gt;#&lt;/a&gt; 一级标题&lt;/h1&gt;
+&lt;h2 id=&quot;二级标题&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#二级标题&quot;&gt;#&lt;/a&gt; 二级标题&lt;/h2&gt;
+&lt;h3 id=&quot;三级标题&quot;&gt;&lt;a c</summary>
+      
+    
+    
+    
+    <category term="游戏" scheme="http://whitebear7396.top/categories/game/"/>
+    
+    
+    <category term="炉石传说" scheme="http://whitebear7396.top/tags/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>插画</title>
+    <link href="http://whitebear7396.top/2020/08/27/inbetweening/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4/"/>
+    <id>http://whitebear7396.top/2020/08/27/inbetweening/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4/</id>
+    <published>2020-08-27T05:20:52.000Z</published>
+    <updated>2020-08-28T05:11:39.286Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><p> ####### 七级标题<br>title: Gallery Post</p><ul><li>assets/wallpaper-2572384.jpg</li><li>assets/wallpaper-2311325.jpg</li><li>assets/wallpaper-878514.jpg</li><li><span class="exturl" data-url="aHR0cDovL3BsYWNlaG9sZC5pdC8zNTB4MTUwLmpwZw==">http://placehold.it/350x150.jpg</span></li></ul><p><strong>女生择偶标准（摘自网友）</strong></p><ul><li>要会耍帅耍酷</li><li>要有漂亮的房子</li><li>要有很多钱</li><li>要会心疼人</li></ul><p><strong>男生择偶标准（摘自网友）</strong></p><ol><li>不圆不肥不瘦</li><li>吃的不多</li><li>用的不多</li><li>穿的不多</li></ol><p><strong><em>多级嵌套</em></strong></p><ul><li><strong>岳母的要求</strong><ol><li>有房有车</li><li>工作体面</li><li>收入要高</li></ol></li><li><strong>岳父的要求</strong> (注：有序列表只会读取第一个的索引，后面开始累加)<ol start="3"><li>疼爱女儿</li><li>会做家务</li><li>不抽烟，少喝酒</li></ol></li></ul><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;一级标题&quot;&gt;&lt;a href=&quot;#一级标题&quot; class=&quot;headerlink&quot; title=&quot;一级标题&quot;&gt;&lt;/a&gt;一级标题&lt;/h1&gt;&lt;h2 id=&quot;二级标题&quot;&gt;&lt;a href=&quot;#二级标题&quot; class=&quot;headerlink&quot; title=&quot;二级标题&quot;&gt;&lt;/a</summary>
+      
+    
+    
+    
+    <category term="插画" scheme="http://whitebear7396.top/categories/inbetweening/"/>
+    
+    
+    <category term="插画" scheme="http://whitebear7396.top/tags/%E6%8F%92%E7%94%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>编程</title>
+    <link href="http://whitebear7396.top/2020/08/27/programme/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4/"/>
+    <id>http://whitebear7396.top/2020/08/27/programme/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4/</id>
+    <published>2020-08-27T05:20:52.000Z</published>
+    <updated>2020-08-28T05:11:50.773Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><p> ####### 七级标题<br>title: Gallery Post</p><ul><li>assets/wallpaper-2572384.jpg</li><li>assets/wallpaper-2311325.jpg</li><li>assets/wallpaper-878514.jpg</li><li><span class="exturl" data-url="aHR0cDovL3BsYWNlaG9sZC5pdC8zNTB4MTUwLmpwZw==">http://placehold.it/350x150.jpg</span></li></ul><p><strong>女生择偶标准（摘自网友）</strong></p><ul><li>要会耍帅耍酷</li><li>要有漂亮的房子</li><li>要有很多钱</li><li>要会心疼人</li></ul><p><strong>男生择偶标准（摘自网友）</strong></p><ol><li>不圆不肥不瘦</li><li>吃的不多</li><li>用的不多</li><li>穿的不多</li></ol><p><strong><em>多级嵌套</em></strong></p><ul><li><strong>岳母的要求</strong><ol><li>有房有车</li><li>工作体面</li><li>收入要高</li></ol></li><li><strong>岳父的要求</strong> (注：有序列表只会读取第一个的索引，后面开始累加)<ol start="3"><li>疼爱女儿</li><li>会做家务</li><li>不抽烟，少喝酒</li></ol></li></ul><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;一级标题&quot;&gt;&lt;a href=&quot;#一级标题&quot; class=&quot;headerlink&quot; title=&quot;一级标题&quot;&gt;&lt;/a&gt;一级标题&lt;/h1&gt;&lt;h2 id=&quot;二级标题&quot;&gt;&lt;a href=&quot;#二级标题&quot; class=&quot;headerlink&quot; title=&quot;二级标题&quot;&gt;&lt;/a</summary>
+      
+    
+    
+    
+    <category term="编程" scheme="http://whitebear7396.top/categories/programme/"/>
+    
+    
+    <category term="编程" scheme="http://whitebear7396.top/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>其他</title>
+    <link href="http://whitebear7396.top/2020/08/27/rests/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4/"/>
+    <id>http://whitebear7396.top/2020/08/27/rests/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4/</id>
+    <published>2020-08-27T05:20:52.000Z</published>
+    <updated>2020-08-28T05:12:01.477Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><p> ####### 七级标题<br>title: Gallery Post</p><ul><li>assets/wallpaper-2572384.jpg</li><li>assets/wallpaper-2311325.jpg</li><li>assets/wallpaper-878514.jpg</li><li><span class="exturl" data-url="aHR0cDovL3BsYWNlaG9sZC5pdC8zNTB4MTUwLmpwZw==">http://placehold.it/350x150.jpg</span></li></ul><p><strong>女生择偶标准（摘自网友）</strong></p><ul><li>要会耍帅耍酷</li><li>要有漂亮的房子</li><li>要有很多钱</li><li>要会心疼人</li></ul><p><strong>男生择偶标准（摘自网友）</strong></p><ol><li>不圆不肥不瘦</li><li>吃的不多</li><li>用的不多</li><li>穿的不多</li></ol><p><strong><em>多级嵌套</em></strong></p><ul><li><strong>岳母的要求</strong><ol><li>有房有车</li><li>工作体面</li><li>收入要高</li></ol></li><li><strong>岳父的要求</strong> (注：有序列表只会读取第一个的索引，后面开始累加)<ol start="3"><li>疼爱女儿</li><li>会做家务</li><li>不抽烟，少喝酒</li></ol></li></ul><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;一级标题&quot;&gt;&lt;a href=&quot;#一级标题&quot; class=&quot;headerlink&quot; title=&quot;一级标题&quot;&gt;&lt;/a&gt;一级标题&lt;/h1&gt;&lt;h2 id=&quot;二级标题&quot;&gt;&lt;a href=&quot;#二级标题&quot; class=&quot;headerlink&quot; title=&quot;二级标题&quot;&gt;&lt;/a</summary>
+      
+    
+    
+    
+    <category term="其他" scheme="http://whitebear7396.top/categories/rests/"/>
+    
+    
+    <category term="其他" scheme="http://whitebear7396.top/tags/%E5%85%B6%E4%BB%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计</title>
+    <link href="http://whitebear7396.top/2020/08/27/design/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4/"/>
+    <id>http://whitebear7396.top/2020/08/27/design/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4/</id>
+    <published>2020-08-27T05:20:52.000Z</published>
+    <updated>2020-08-28T05:10:00.734Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><p> ####### 七级标题<br>title: Gallery Post</p><ul><li>assets/wallpaper-2572384.jpg</li><li>assets/wallpaper-2311325.jpg</li><li>assets/wallpaper-878514.jpg</li><li><span class="exturl" data-url="aHR0cDovL3BsYWNlaG9sZC5pdC8zNTB4MTUwLmpwZw==">http://placehold.it/350x150.jpg</span></li></ul><p><strong>女生择偶标准（摘自网友）</strong></p><ul><li>要会耍帅耍酷</li><li>要有漂亮的房子</li><li>要有很多钱</li><li>要会心疼人</li></ul><p><strong>男生择偶标准（摘自网友）</strong></p><ol><li>不圆不肥不瘦</li><li>吃的不多</li><li>用的不多</li><li>穿的不多</li></ol><p><strong><em>多级嵌套</em></strong></p><ul><li><strong>岳母的要求</strong><ol><li>有房有车</li><li>工作体面</li><li>收入要高</li></ol></li><li><strong>岳父的要求</strong> (注：有序列表只会读取第一个的索引，后面开始累加)<ol start="3"><li>疼爱女儿</li><li>会做家务</li><li>不抽烟，少喝酒</li></ol></li></ul><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;一级标题&quot;&gt;&lt;a href=&quot;#一级标题&quot; class=&quot;headerlink&quot; title=&quot;一级标题&quot;&gt;&lt;/a&gt;一级标题&lt;/h1&gt;&lt;h2 id=&quot;二级标题&quot;&gt;&lt;a href=&quot;#二级标题&quot; class=&quot;headerlink&quot; title=&quot;二级标题&quot;&gt;&lt;/a</summary>
+      
+    
+    
+    
+    <category term="设计" scheme="http://whitebear7396.top/categories/design/"/>
+    
+    
+    <category term="设计" scheme="http://whitebear7396.top/tags/%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>电影</title>
+    <link href="http://whitebear7396.top/2020/08/27/film/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4/"/>
+    <id>http://whitebear7396.top/2020/08/27/film/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4/</id>
+    <published>2020-08-27T05:20:52.000Z</published>
+    <updated>2020-08-28T05:11:09.367Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><p> ####### 七级标题<br>title: Gallery Post</p><ul><li>assets/wallpaper-2572384.jpg</li><li>assets/wallpaper-2311325.jpg</li><li>assets/wallpaper-878514.jpg</li><li><span class="exturl" data-url="aHR0cDovL3BsYWNlaG9sZC5pdC8zNTB4MTUwLmpwZw==">http://placehold.it/350x150.jpg</span></li></ul><p><strong>女生择偶标准（摘自网友）</strong></p><ul><li>要会耍帅耍酷</li><li>要有漂亮的房子</li><li>要有很多钱</li><li>要会心疼人</li></ul><p><strong>男生择偶标准（摘自网友）</strong></p><ol><li>不圆不肥不瘦</li><li>吃的不多</li><li>用的不多</li><li>穿的不多</li></ol><p><strong><em>多级嵌套</em></strong></p><ul><li><strong>岳母的要求</strong><ol><li>有房有车</li><li>工作体面</li><li>收入要高</li></ol></li><li><strong>岳父的要求</strong> (注：有序列表只会读取第一个的索引，后面开始累加)<ol start="3"><li>疼爱女儿</li><li>会做家务</li><li>不抽烟，少喝酒</li></ol></li></ul><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;一级标题&quot;&gt;&lt;a href=&quot;#一级标题&quot; class=&quot;headerlink&quot; title=&quot;一级标题&quot;&gt;&lt;/a&gt;一级标题&lt;/h1&gt;&lt;h2 id=&quot;二级标题&quot;&gt;&lt;a href=&quot;#二级标题&quot; class=&quot;headerlink&quot; title=&quot;二级标题&quot;&gt;&lt;/a</summary>
+      
+    
+    
+    
+    <category term="电影" scheme="http://whitebear7396.top/categories/film/"/>
+    
+    
+    <category term="电影" scheme="http://whitebear7396.top/tags/%E7%94%B5%E5%BD%B1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第1篇 记录博客网站搭建</title>
+    <link href="http://whitebear7396.top/2020/08/27/article/%E6%96%87%E7%AB%A0/"/>
+    <id>http://whitebear7396.top/2020/08/27/article/%E6%96%87%E7%AB%A0/</id>
+    <published>2020-08-27T05:20:52.000Z</published>
+    <updated>2020-08-28T06:37:40.535Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一级标题"><a class="anchor" href="#一级标题">#</a> 一级标题</h1><h2 id="二级标题"><a class="anchor" href="#二级标题">#</a> 二级标题</h2><h3 id="三级标题"><a class="anchor" href="#三级标题">#</a> 三级标题</h3><h4 id="四级标题"><a class="anchor" href="#四级标题">#</a> 四级标题</h4><h5 id="五级标题"><a class="anchor" href="#五级标题">#</a> 五级标题</h5><h6 id="六级标题"><a class="anchor" href="#六级标题">#</a> 六级标题</h6><p>####### 七级标题<br /> title: Gallery Post</p><ul><li>assets/wallpaper-2572384.jpg</li><li>assets/wallpaper-2311325.jpg</li><li>assets/wallpaper-878514.jpg</li><li><span class="exturl" data-url="aHR0cDovL3BsYWNlaG9sZC5pdC8zNTB4MTUwLmpwZw==">http://placehold.it/350x150.jpg</span></li></ul><p><strong>女生择偶标准（摘自网友）</strong></p><ul><li>要会耍帅耍酷</li><li>要有漂亮的房子</li><li>要有很多钱</li><li>要会心疼人</li></ul><p><strong>男生择偶标准（摘自网友）</strong></p><ol><li>不圆不肥不瘦</li><li>吃的不多</li><li>用的不多</li><li>穿的不多</li></ol><p><em><strong>多级嵌套</strong></em></p><ul><li><strong>岳母的要求</strong><ol><li>有房有车</li><li>工作体面</li><li>收入要高</li></ol></li><li><strong>岳父的要求</strong> (注：有序列表只会读取第一个的索引，后面开始累加)<br /> 3. 疼爱女儿<br /> 2. 会做家务<ol><li>不抽烟，少喝酒</li></ol></li></ul><hr />]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;一级标题&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#一级标题&quot;&gt;#&lt;/a&gt; 一级标题&lt;/h1&gt;
+&lt;h2 id=&quot;二级标题&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#二级标题&quot;&gt;#&lt;/a&gt; 二级标题&lt;/h2&gt;
+&lt;h3 id=&quot;三级标题&quot;&gt;&lt;a c</summary>
+      
+    
+    
+    
+    <category term="文章" scheme="http://whitebear7396.top/categories/article/"/>
+    
+    
+    <category term="标签1" scheme="http://whitebear7396.top/tags/%E6%A0%87%E7%AD%BE1/"/>
+    
+    <category term="标签2" scheme="http://whitebear7396.top/tags/%E6%A0%87%E7%AD%BE2/"/>
     
   </entry>
   
