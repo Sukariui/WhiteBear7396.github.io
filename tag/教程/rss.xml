@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>浮生偷得半日闲 • Posts by &#34;教程&#34; tag</title>
+        <link>http://whitebear7396.top</link>
+        <description>你我皆为星辰之子，每一个细胞都书写着整个宇宙的历史，当你凝视自己，也望见了宇宙的轮廓。</description>
+        <language>zh-Hans</language>
+        <pubDate>Thu, 27 Aug 2020 13:20:52 +0800</pubDate>
+        <lastBuildDate>Thu, 27 Aug 2020 13:20:52 +0800</lastBuildDate>
+        <category>Shoka</category>
+        <category>教程</category>
+        <category>插画</category>
+        <category>编程</category>
+        <category>JaveScript</category>
+        <category>知识点</category>
+        <category>Hexo</category>
+        <category>日剧</category>
+        <category>炉石传说</category>
+        <category>脚本</category>
+        <category>Python</category>
+        <category>Notion</category>
+        <item>
+            <guid isPermalink="true">http://whitebear7396.top/2020/08/27/Learning%20notes/Shoka%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/</guid>
+            <title>Shoka博客网站搭建</title>
+            <link>http://whitebear7396.top/2020/08/27/Learning%20notes/Shoka%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/</link>
+            <category>Shoka</category>
+            <category>教程</category>
+            <pubDate>Thu, 27 Aug 2020 13:20:52 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;&lt;img data-src=&#34;https://baisedeeji.coding.net/p/blog_img/d/blog_img/git/raw/master/img/20200908210255.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;h1 id=&#34;创建博客缘由&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#创建博客缘由&#34;&gt;#&lt;/a&gt; 创建博客缘由&lt;/h1&gt;
+&lt;p&gt;         新奇的事物总是能给人带来惊喜，我超爱的！！！博客作为互联网时代初期的产物，听上去现在是有些老古董了，可是这也太好玩了吧！！！而且他有着独特的味道，想一想几年之后翻看博客，一篇篇文章条理清晰，脉络框架完整，还不用担心那一天就会被和谐，虽然互动很少，但是能沉下心来看的，便是知己，这可比某些社交平台好多了，现在的网络喷子啊，以前是小米加步枪，现在是加特林，哒哒哒。有时候一天好心情就没有了，可恶啊。可惜之后便被后浪打翻在地，移动设备终端的普及，社会节奏的加快，至少在我印象中，身边使用博客的几乎没有。相比较于现在流行的微博、微信之类的，我更喜欢慢一点的节奏，慢下来才能去思考，&lt;strong&gt;你如果仍然试图通过互联网来寻求表达思想、帮助思考，依然会愿意认真对待言论的话，那么你需要去减少阅读、撰写短内容而尝试长内容，因为碎片化的知识始终无法取代系统化的学习。&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&#34;博客搭建过程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#博客搭建过程&#34;&gt;#&lt;/a&gt; 博客搭建过程&lt;/h1&gt;
+&lt;p&gt;         之前也尝试过博客的搭建，可是由于太过于繁琐，~~（主要还是懒，一个拖延症晚期，这篇文章拖了半个月）~~ 这几天在网上学习白嫖云函数（云函数超棒的！每天白嫖很快乐啊），偶然间在 CDSN 上面看到了一篇文章关于了 Hexo 搭建博客的过程，相逢恨晚啊，恨晚！！！一看日期还是 15 年的时候就已经发布了，优秀的人太多了，吾辈当自强。&lt;/p&gt;
+&lt;h2 id=&#34;博客的搭建&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#博客的搭建&#34;&gt;#&lt;/a&gt; 博客的搭建&lt;/h2&gt;
+&lt;p&gt;其实现在网上的资源已经足够多了了，我真的不敢班门弄斧，大家所欠缺的只是一点点思路，而我刚好能能帮你们节省一点鼠标耐久度，就放几个我在搭建过程中参考的链接，里面写的超级详细，实际操作起来行云流水，我试过了是没有什么问题的。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d2EubGFuem91cy5jb20vYjAwdHRtbjlp&#34;&gt;Git 和 Node 的蓝奏云链接&lt;/span&gt;          密码：5qkz（节省大家去网站上下载的时间）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly94dWFud28uaW8vMjAxNS8wMy8yNi9oZXhvLWludG9yLw==&#34;&gt;史上最详细的 Hexo 博客搭建图文教程&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0FpblVzZXIvYXJ0aWNsZS9kZXRhaWxzLzc3NjA5MTgwP3V0bV9tZWRpdW09ZGlzdHJpYnV0ZS5wY19yZWxldmFudC5ub25lLXRhc2stYmxvZy1CbG9nQ29tbWVuZEZyb21NYWNoaW5lTGVhcm5QYWkyLTEuY2hhbm5lbF9wYXJhbSZhbXA7ZGVwdGhfMS11dG1fc291cmNlPWRpc3RyaWJ1dGUucGNfcmVsZXZhbnQubm9uZS10YXNrLWJsb2ctQmxvZ0NvbW1lbmRGcm9tTWFjaGluZUxlYXJuUGFpMi0xLmNoYW5uZWxfcGFyYW0=&#34;&gt;hexo+github 搭建个人博客 (超详细教程)&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9mOGI4N2M5NjUwZDI=&#34;&gt;hexo 干货系列：（一）hexo+gitHub 搭建个人独立博客&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3JvZ2VyZHVkbGVyLmdpdGh1Yi5pby9naXQtZ3VpZGUvaW5kZXguemguaHRtbA==&#34;&gt;git - 简明指南&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;强烈吐槽：搭建博客千万不要放到 github 上面去，可以放但是没必要，放了也需要 jsDelivr 加速，这玩意至少我现在还没弄懂。我一开始就是放在 github 上面，可是打开很慢，有的时候还会链接打不开～～（404 警告）~~，推荐国内的代码存放仓库，&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3huLS1jb25kaW5nLWkyMm1zNTdrLm1l&#34;&gt;比如 conding.me&lt;/span&gt;（码云）之类的，如果你不小心已经上传到了 github，没关系下面还会有教程帮助你换仓库的。&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;主题的选择&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#主题的选择&#34;&gt;#&lt;/a&gt; 主题的选择&lt;/h2&gt;
+&lt;p&gt;         Hxeo 官方主题仓库存放了相当多的主题了，各种类型的都有，下载使用也很简单，还有一些民间大神的主题安装教程，不怕你不喜欢，就怕太多你挑不过来，小孩子才做选择，大人我全都要。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL3RoZW1lcy8=&#34;&gt;Hxeo 官方主题&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9kZjE5YmI1MWM2ZWE=&#34;&gt;hexo 干货系列：（二）hexo 主题下载及配置&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zaG9rYS5sb3N0eXUubWUvY29tcHV0ZXItc2NpZW5jZS9ub3RlL3RoZW1lLXNob2thLWRvYy8=&#34;&gt;Hexo 主题 Shoka &amp;amp; multi-markdown-it 渲染器使用说明&lt;/span&gt;&lt;br /&gt;
+我的这个主题是在仓库里面找到的一个，链接就是这个安装方法在他的主页上面也有。我现在还不太会，后期会逐步修改，可不能抄袭。~~ 学不会&lt;sub&gt;学不会&lt;/sub&gt;～&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;选主题的时候要慎重，虽然说之后你还是可以修改主题，可是随着你发布的文章越来越多，之后修改起来的难度也会越来越大，而且作为新手，在前期我连代码都看不懂，只能看一步做一步，然后在给自己备注一下，后悔当初怎么就没有好好学英语呢！！！现在看代码都是用有道云去翻译，作孽啊。&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;域名的选择&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#域名的选择&#34;&gt;#&lt;/a&gt; 域名的选择&lt;/h2&gt;
+&lt;p&gt;         我是直接去阿里云上面买的，理由就是阿里云可以用支付宝直接登录，不需要多余的注册，过程也很简单，但是有一点要注意，购买域名需要实名认证及审核，我差不多是网上 8 点提交申请 12 点审核通过。在域名里面，com、cn、选这种知名的买就对了，我买的是 top，理由就是便宜，我一个个人博客还能有啥高贵的，有钱的大佬可以考虑一下去买一个 gov。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuYWxpeXVuLmNvbS8=&#34;&gt;阿里云&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;买域名千万不要被首年的价格诱惑，注意看看 10 年价格是多少，有的首年便宜后面老贵了，不过就是有一点，我也不知道能不能活过 10 年，万一没到那不就是亏了。&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;网站的搬迁与发布&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#网站的搬迁与发布&#34;&gt;#&lt;/a&gt; 网站的搬迁与发布&lt;/h2&gt;
+&lt;p&gt;         之前我的仓库是在 github 上面，后来搬到了 coding.me 上面，反正都不要钱，为什么不白嫖呢。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmcvYXJ0aWNsZS9kZXRhaWxzLzEwNTg3MTk1NQ==&#34;&gt;将 Hexo 博客部署到 Coding（码云）&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9kZGRkNzVmNjI3NTE=&#34;&gt;最安全的 hexo 多电脑同步博客解决方案 -- 非新建分支&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;部署到 coding 的博客可以获得 https 的 ssl 安全证书，都不用申请超级方便，没有&lt;br /&gt;
+证书的话，在网址那里会显示不安全的链接。&lt;/p&gt;
+&lt;/div&gt;
+&lt;h1 id=&#34;结语&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#结语&#34;&gt;#&lt;/a&gt; 结语&lt;/h1&gt;
+&lt;p&gt;博客的搭建和资料的查询共花费 3 天时间，主要还是主题的修改占用了大部分时间。这里就记录一下，为自己之后搭建别的做个准备，不用再很麻烦，同时希望自己可以保持初心，继续前进，也祝愿文章前的你，可以不断进步，成为一个优秀的人。&lt;br /&gt;
+永远相信美好的事情即将发生&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>
