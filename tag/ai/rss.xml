@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <rss version="2.0">
     <channel>
-        <title>浮生偷得半日闲 • Posts by &#34;ai&#34; tag</title>
+        <title>想养一只大金毛 • Posts by &#34;ai&#34; tag</title>
         <link>http://whitebear7396.top</link>
         <description>你我皆为星辰之子，每一个细胞都书写着整个宇宙的历史，当你凝视自己，也望见了宇宙的轮廓。</description>
-        <language>zh-Hans</language>
+        <language>zh-CN</language>
         <pubDate>Thu, 27 Aug 2020 13:20:52 +0800</pubDate>
         <lastBuildDate>Thu, 27 Aug 2020 13:20:52 +0800</lastBuildDate>
         <category>知识点</category>
         <category>Hexo</category>
         <category>Shoka</category>
         <category>教程</category>
-        <category>Ai</category>
         <category>日剧</category>
+        <category>Ai</category>
         <category>编程</category>
         <category>JaveScript</category>
         <category>炉石传说</category>
@@ -25,7 +25,8 @@
             <link>http://whitebear7396.top/2020/08/27/inbetweening/%E6%8F%8F%E8%BE%B9%E6%8F%92%E7%94%BB/</link>
             <category>Ai</category>
             <pubDate>Thu, 27 Aug 2020 13:20:52 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;描边插画&#34;&gt;&lt;a href=&#34;#描边插画&#34; class=&#34;headerlink&#34; title=&#34;描边插画&#34;&gt;&lt;/a&gt;描边插画&lt;/h1&gt; ]]></description>
+            <description><![CDATA[ &lt;h1 id=&#34;描边插画&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#描边插画&#34;&gt;#&lt;/a&gt; 描边插画&lt;/h1&gt;
+ ]]></description>
         </item>
     </channel>
 </rss>
