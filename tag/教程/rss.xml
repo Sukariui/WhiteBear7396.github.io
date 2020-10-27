@@ -7,6 +7,9 @@
         <language>zh-CN</language>
         <pubDate>Thu, 27 Aug 2020 13:20:52 +0800</pubDate>
         <lastBuildDate>Thu, 27 Aug 2020 13:20:52 +0800</lastBuildDate>
+        <category>Serverless</category>
+        <category>酷推</category>
+        <category>日志</category>
         <category>知识点</category>
         <category>Hexo</category>
         <category>Shoka</category>
@@ -18,8 +21,6 @@
         <category>炉石传说</category>
         <category>脚本</category>
         <category>Python</category>
-        <category>Serverless</category>
-        <category>酷推</category>
         <category>Notion</category>
         <item>
             <guid isPermalink="true">http://whitebear7396.top/2020/08/27/Learning%20notes/Shoka%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/</guid>
@@ -28,7 +29,7 @@
             <category>Shoka</category>
             <category>教程</category>
             <pubDate>Thu, 27 Aug 2020 13:20:52 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;&lt;img data-src=&#34;https://baisedeeji.coding.net/p/blog_img/d/blog_img/git/raw/master/img/20200908210255.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+            <description><![CDATA[ &lt;p&gt;&lt;img data-src=&#34;https://baisedeeji.coding.net/p/blog_img/d/blog_img/git/raw/master/img/20200908210255.jpg&#34; alt&gt;&lt;/p&gt;
 &lt;h1 id=&#34;创建博客缘由&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#创建博客缘由&#34;&gt;#&lt;/a&gt; 创建博客缘由&lt;/h1&gt;
 &lt;p&gt;         新奇的事物总是能给人带来惊喜，我超爱的！！！博客作为互联网时代初期的产物，听上去现在是有些老古董了，可是这也太好玩了吧！！！而且他有着独特的味道，想一想几年之后翻看博客，一篇篇文章条理清晰，脉络框架完整，还不用担心那一天就会被和谐，虽然互动很少，但是能沉下心来看的，便是知己，这可比某些社交平台好多了，现在的网络喷子啊，以前是小米加步枪，现在是加特林，哒哒哒。有时候一天好心情就没有了，可恶啊。可惜之后便被后浪打翻在地，移动设备终端的普及，社会节奏的加快，至少在我印象中，身边使用博客的几乎没有。相比较于现在流行的微博、微信之类的，我更喜欢慢一点的节奏，慢下来才能去思考，&lt;strong&gt;你如果仍然试图通过互联网来寻求表达思想、帮助思考，依然会愿意认真对待言论的话，那么你需要去减少阅读、撰写短内容而尝试长内容，因为碎片化的知识始终无法取代系统化的学习。&lt;/strong&gt;&lt;/p&gt;
 &lt;h1 id=&#34;博客搭建过程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#博客搭建过程&#34;&gt;#&lt;/a&gt; 博客搭建过程&lt;/h1&gt;
@@ -65,7 +66,7 @@
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9kZjE5YmI1MWM2ZWE=&#34;&gt;hexo 干货系列：（二）hexo 主题下载及配置&lt;/span&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zaG9rYS5sb3N0eXUubWUvY29tcHV0ZXItc2NpZW5jZS9ub3RlL3RoZW1lLXNob2thLWRvYy8=&#34;&gt;Hexo 主题 Shoka &amp;amp; multi-markdown-it 渲染器使用说明&lt;/span&gt;&lt;br /&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zaG9rYS5sb3N0eXUubWUvY29tcHV0ZXItc2NpZW5jZS9ub3RlL3RoZW1lLXNob2thLWRvYy8=&#34;&gt;Hexo 主题 Shoka &amp;amp; multi-markdown-it 渲染器使用说明&lt;/span&gt;&lt;br&gt;
 我的这个主题是在仓库里面找到的一个，链接就是这个安装方法在他的主页上面也有。我现在还不太会，后期会逐步修改，可不能抄袭。~~ 学不会&lt;sub&gt;学不会&lt;/sub&gt;～&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -91,11 +92,11 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;note info&#34;&gt;
-&lt;p&gt;部署到 coding 的博客可以获得 https 的 ssl 安全证书，都不用申请超级方便，没有&lt;br /&gt;
+&lt;p&gt;部署到 coding 的博客可以获得 https 的 ssl 安全证书，都不用申请超级方便，没有&lt;br&gt;
 证书的话，在网址那里会显示不安全的链接。&lt;/p&gt;
 &lt;/div&gt;
 &lt;h1 id=&#34;结语&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#结语&#34;&gt;#&lt;/a&gt; 结语&lt;/h1&gt;
-&lt;p&gt;博客的搭建和资料的查询共花费 3 天时间，主要还是主题的修改占用了大部分时间。这里就记录一下，为自己之后搭建别的做个准备，不用再很麻烦，同时希望自己可以保持初心，继续前进，也祝愿文章前的你，可以不断进步，成为一个优秀的人。&lt;br /&gt;
+&lt;p&gt;博客的搭建和资料的查询共花费 3 天时间，主要还是主题的修改占用了大部分时间。这里就记录一下，为自己之后搭建别的做个准备，不用再很麻烦，同时希望自己可以保持初心，继续前进，也祝愿文章前的你，可以不断进步，成为一个优秀的人。&lt;br&gt;
 永远相信美好的事情即将发生&lt;/p&gt;
  ]]></description>
         </item>

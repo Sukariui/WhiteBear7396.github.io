@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://whitebear7396.top</id>
+    <title>想养一只大金毛 • Posts by &#34;python&#34; category</title>
+    <link href="http://whitebear7396.top" />
+    <updated>2020-08-27T05:20:52.000Z</updated>
+    <category term="Serverless" />
+    <category term="酷推" />
+    <category term="日志" />
+    <category term="知识点" />
+    <category term="Hexo" />
+    <category term="Shoka" />
+    <category term="教程" />
+    <category term="日剧" />
+    <category term="Ai" />
+    <category term="编程" />
+    <category term="JaveScript" />
+    <category term="炉石传说" />
+    <category term="脚本" />
+    <category term="Python" />
+    <category term="Notion" />
+    <entry>
+        <id>http://whitebear7396.top/2020/08/27/programme/Python/JS%E7%AC%AC1%E5%91%A8/</id>
+        <title>第1周</title>
+        <link rel="alternate" href="http://whitebear7396.top/2020/08/27/programme/Python/JS%E7%AC%AC1%E5%91%A8/"/>
+        <content type="html">&lt;h1 id=&#34;什么是语言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#什么是语言&#34;&gt;#&lt;/a&gt; 什么是语言&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;计算机就是一个由人来控制的机器，人让它干嘛，它就得干嘛。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;我们要学习的语言就是人和计算机交流的工具，人类通过语言来控制、操作计算机。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;编程语言和我们说的中文、英文本质上没有区别，只是语法比较特殊。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;语言的发展:&lt;/p&gt;
+&lt;p&gt;-- 纸带机：机器语言&lt;/p&gt;
+&lt;p&gt;-- 汇编语言：符号语言&lt;/p&gt;
+&lt;p&gt;-- 现代语言：高级语言&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;起源&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#起源&#34;&gt;#&lt;/a&gt; 起源&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;JavaScript 诞生于 1995 年，它的出现主要是用于处理网页中的前端验证。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;所谓的前端验证，就是指检查用户输入的内容是否符合一定的规则。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;比如：用户名的长度，密码的长度，邮箱的格式等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;简史&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#简史&#34;&gt;#&lt;/a&gt; 简史&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;JavaScript 是由网景公司发明，起初命名为 LiveScript , 后来由于 SUN 公司的介入更名为了 JavaScript.&lt;/li&gt;
+&lt;li&gt;1996 年微软公司在其最新的 IE3 浏览器中引入了自己对 Javascript 的实现 JScript.&lt;/li&gt;
+&lt;li&gt;于是市面上存在两个版本的 JavaScript, 一个网景公司的 JavaScript 和微软的 JScript.&lt;/li&gt;
+&lt;li&gt;为了确保不同的浏览器上运行的 JavaScript 标准一致，所以几个公司共同定制了 JS 的标准名命名为 ECMAScript.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;时间表&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#时间表&#34;&gt;#&lt;/a&gt; 时间表&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;年份&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;事件&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1995&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;网景公司开发了 JavaScript&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1996&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;微软发布了和 JavaScript 兼容的 JScript&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1997&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ECMAScript 第 1 版 (ECMA-262)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1998&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ECMASCript 第 2 版、DOM Level1 的制定、新型语言 DHTML 登场&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1999&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ECMAScript 第 3 版&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2000&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DOM Level2 的制定&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2002&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ISO/ IEC 16262:2002 的确立&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2004&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DOM Level3 的制定&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2005&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;新型语言 AJAX 登场&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2009&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ECMAScript 第 5 版、新型语言 HTML5 登场&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;实现&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#实现&#34;&gt;#&lt;/a&gt; 实现&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;浏览器&lt;/th&gt;
+&lt;th&gt;Javascript 实现方式&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;FireFox&lt;/td&gt;
+&lt;td&gt;SpiderMonkey&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Internet Explorer&lt;/td&gt;
+&lt;td&gt;JScript/Chakra&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Safari&lt;/td&gt;
+&lt;td&gt;JavaScriptCore&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Chrome&lt;/td&gt;
+&lt;td&gt;v8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Carakan&lt;/td&gt;
+&lt;td&gt;Carakan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;我们已经知道 ECMAScript 是 JavaScript 标准，所以一般情况下这两个词我们认为是一个意思。&lt;/li&gt;
+&lt;li&gt;但是实际上 JavaScript 的含义却要更大一些。&lt;/li&gt;
+&lt;li&gt;一个完整的 JavaScript 实现应该由以下三个部分构成:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;特点&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#特点&#34;&gt;#&lt;/a&gt; 特点&lt;/h2&gt;
+&lt;p&gt;JS 的特点&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;解释型语言&lt;/li&gt;
+&lt;li&gt;类似于 C 和 Java 的语法结构&lt;/li&gt;
+&lt;li&gt;动态语言&lt;/li&gt;
+&lt;li&gt;基于原型的面向对象&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;实操&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#实操&#34;&gt;#&lt;/a&gt; 实操&lt;/h1&gt;
+&lt;p&gt;alert ()// 控制浏览器弹出一个警告框&lt;/p&gt;
+&lt;p&gt;document. write ()// 让计算机在页面中输出一个内容&lt;/p&gt;
+&lt;p&gt;console.1og ()// 向控制台输出一个内容&lt;/p&gt;
+</content>
+        <category term="编程" />
+        <category term="Python" />
+        <updated>2020-08-27T05:20:52.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://whitebear7396.top/2020/08/27/programme/Python/%E7%AC%AC1%E5%91%A8/</id>
+        <title>第1周</title>
+        <link rel="alternate" href="http://whitebear7396.top/2020/08/27/programme/Python/%E7%AC%AC1%E5%91%A8/"/>
+        <content type="html">&lt;h1 id=&#34;待开始&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#待开始&#34;&gt;#&lt;/a&gt; 待开始&lt;/h1&gt;
+</content>
+        <category term="编程" />
+        <category term="Python" />
+        <updated>2020-08-27T05:20:52.000Z</updated>
+    </entry>
+</feed>

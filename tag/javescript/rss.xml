@@ -7,6 +7,9 @@
         <language>zh-CN</language>
         <pubDate>Thu, 27 Aug 2020 13:20:52 +0800</pubDate>
         <lastBuildDate>Thu, 27 Aug 2020 13:20:52 +0800</lastBuildDate>
+        <category>Serverless</category>
+        <category>酷推</category>
+        <category>日志</category>
         <category>知识点</category>
         <category>Hexo</category>
         <category>Shoka</category>
@@ -18,8 +21,6 @@
         <category>炉石传说</category>
         <category>脚本</category>
         <category>Python</category>
-        <category>Serverless</category>
-        <category>酷推</category>
         <category>Notion</category>
         <item>
             <guid isPermalink="true">http://whitebear7396.top/2020/08/27/programme/CleanUpWeChatZombieFans%E7%AC%94%E8%AE%B0/</guid>
@@ -32,7 +33,7 @@
 &lt;p&gt;通过对 &amp;lt;清理微信僵尸粉.js&amp;gt; 脚本的分析，了解其运行原理，补充相关 JS 知识点。&lt;/p&gt;
 &lt;h1 id=&#34;第一周&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第一周&#34;&gt;#&lt;/a&gt; 第一周&lt;/h1&gt;
 &lt;h2 id=&#34;匿名函数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#匿名函数&#34;&gt;#&lt;/a&gt; 匿名函数&lt;/h2&gt;
-&lt;p&gt;（（）=&amp;gt; {} ）、(function(){})&lt;br /&gt;
+&lt;p&gt;（（）=&amp;gt; {} ）、(function(){})&lt;br&gt;
  标准的函数，没有赋值给任何变量，没有名字的函数，叫匿名函数。主要是利用函数内的变量作用。避免产生全局变量，影响整体页面环境，增加代码的兼容性。因为没有名字，所以在定义完成就要调用，（（）=&amp;gt; {} ）（），后面的（）是调用运行这个匿名函数的意思.&lt;/p&gt;
  ]]></description>
         </item>
