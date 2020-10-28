@@ -1,393 +1,1092 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>想养一只大金毛</title>
-  <icon>https://www.gravatar.com/avatar/844763b569c6f0d500f74ace7b9befc2</icon>
-  <subtitle>Golden Retriever</subtitle>
-  <link href="http://whitebear7396.top/atom.xml" rel="self"/>
-  
-  <link href="http://whitebear7396.top/"/>
-  <updated>2020-10-27T05:34:46.000Z</updated>
-  <id>http://whitebear7396.top/</id>
-  
-  <author>
-    <name>阿吉</name>
-    <email>2509036926@qq.com</email>
-  </author>
-  
-  <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>运行日志</title>
-    <link href="http://whitebear7396.top/%E8%BF%90%E8%A1%8C%E6%97%A5%E5%BF%97/"/>
-    <id>http://whitebear7396.top/%E8%BF%90%E8%A1%8C%E6%97%A5%E5%BF%97/</id>
-    <published>2020-10-27T05:34:46.000Z</published>
+    <id>http://whitebear7396.top</id>
+    <title>想养一只大金毛</title>
+    <link href="http://whitebear7396.top" />
     <updated>2020-10-27T05:34:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="运行日志"><a class="anchor" href="#运行日志">#</a> 运行日志</h1><h2 id="1028"><a class="anchor" href="#1028">#</a> 10.28</h2><ul><li>更新了网站主页，修改豆瓣图标为绿色，调整链接。</li><li>修改文章《【云函数系列】每日推送天气信息》，修改图片链接。</li><li>出现错误：部署到 coding 正常，部署到 github 出现错误，提示无权限。</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;运行日志&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#运行日志&quot;&gt;#&lt;/a&gt; 运行日志&lt;/h1&gt;
-&lt;h2 id=&quot;1028&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#1028&quot;&gt;#&lt;/a&gt; 10.28&lt;/h2&gt;
+    <category term="Serverless" />
+    <category term="酷推" />
+    <category term="日志" />
+    <category term="知识点" />
+    <category term="Hexo" />
+    <category term="Shoka" />
+    <category term="教程" />
+    <category term="日剧" />
+    <category term="Ai" />
+    <category term="编程" />
+    <category term="JaveScript" />
+    <category term="炉石传说" />
+    <category term="脚本" />
+    <category term="Python" />
+    <category term="Notion" />
+    <entry>
+        <id>http://whitebear7396.top/%E8%BF%90%E8%A1%8C%E6%97%A5%E5%BF%97/</id>
+        <title>运行日志</title>
+        <link rel="alternate" href="http://whitebear7396.top/%E8%BF%90%E8%A1%8C%E6%97%A5%E5%BF%97/"/>
+        <content type="html">&lt;h1 id=&#34;运行日志&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#运行日志&#34;&gt;#&lt;/a&gt; 运行日志&lt;/h1&gt;
+&lt;h2 id=&#34;1028&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1028&#34;&gt;#&lt;/a&gt; 10.28&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;更新了网站主页，</summary>
-      
-    
-    
-    
-    <category term="学习笔记" scheme="http://whitebear7396.top/categories/LEARNING-NOTES/"/>
-    
-    
-    <category term="日志" scheme="http://whitebear7396.top/tags/%E6%97%A5%E5%BF%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【云函数系列】每日推送天气信息</title>
-    <link href="http://whitebear7396.top/%E8%BF%90%E8%A1%8C%E6%97%A5%E5%BF%97%20-%20%E5%89%AF%E6%9C%AC/"/>
-    <id>http://whitebear7396.top/%E8%BF%90%E8%A1%8C%E6%97%A5%E5%BF%97%20-%20%E5%89%AF%E6%9C%AC/</id>
-    <published>2020-10-26T05:20:52.000Z</published>
-    <updated>2020-10-26T05:20:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="云函数系列每日推送天气信息"><a class="anchor" href="#云函数系列每日推送天气信息">#</a> 【云函数系列】每日推送天气信息</h1><h2 id="关键词云函数serverless-天气推送-酷推微信或qq"><a class="anchor" href="#关键词云函数serverless-天气推送-酷推微信或qq">#</a> 关键词：云函数（Serverless）、天气推送、酷推（微信或 QQ）</h2><p>预览：<br /><img data-src="https://raw.githubusercontent.com/WhiteBear7396/WhiteBear7396.github.io/master/postimg/%E3%80%90%E4%BA%91%E5%87%BD%E6%95%B0%E7%B3%BB%E5%88%97%E3%80%91%E6%AF%8F%E6%97%A5%E6%8E%A8%E9%80%81%E5%A4%A9%E6%B0%94%E4%BF%A1%E6%81%AF/%E3%80%90%E4%BA%91%E5%87%BD%E6%95%B0%E7%B3%BB%E5%88%97%E3%80%91%E6%AF%8F%E6%97%A5%E6%8E%A8%E9%80%81%E5%A4%A9%E6%B0%94%E4%BF%A1%E6%81%AF1.jpg" alt="QQ" /><br />（以下云函数部署默认为腾讯云，其他服务器亲自行更改，不作描述）</p><h2 id="第一步"><a class="anchor" href="#第一步">#</a> 第一步</h2><p>注册登录腾讯云函数→新建云函数→设置函数名称→设置运行环境→点击下一步<img data-src="http://wx4.sinaimg.cn/large/006Bg7Vtly1gk3pjrk742j31910ddgod.jpg" alt="配置项" /><br />设置描述（选填）→点击完成<br /><img data-src="https://wx4.sinaimg.cn/large/006Bg7Vtly1gk3pizjy3xj30uo0mhacc.jpg" alt="配置项" /></p><h2 id="第二步"><a class="anchor" href="#第二步">#</a> 第二步</h2><p>填入云函数代码<br /> <figure class="highlight python"><figcaption><span>天气函数代码</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"><span class="comment">#coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> requests, json</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="comment"># -- 配置 --</span></span><br><span class="line"><span class="comment"># ------------------------------</span></span><br><span class="line"><span class="comment">#酷推服务官网 https://cp.xuthus.cc/</span></span><br><span class="line">SKEY = <span class="string">&#x27;**************************&#x27;</span>           <span class="comment">#酷推的key</span></span><br><span class="line"><span class="comment">#自己改发送方式,不需要的话注销一个用#号</span></span><br><span class="line">url_1 = <span class="string">&#x27;https://push.xuthus.cc/send/&#x27;</span>+SKEY         <span class="comment">#这个是酷推的QQ推送服务            </span></span><br><span class="line"><span class="comment">#url_2 = &#x27;https://push.xuthus.cc/wx/&#x27;+SKEY+&#x27;?c=&#x27;    #这个是酷推的微信推送服务，默认关闭。（更改完了记得修改55、56行推送方式）</span></span><br><span class="line"><span class="comment">#城市设置</span></span><br><span class="line"><span class="comment">#查询你的城市代码，将ID填入下方 https://where.heweather.com/index.html</span></span><br><span class="line">city_ID = <span class="string">&#x27;********&#x27;</span>                            </span><br><span class="line"><span class="comment"># ------------------------------</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_iciba_everyday</span>():</span></span><br><span class="line">    icbapi = <span class="string">&#x27;http://open.iciba.com/dsapi/&#x27;</span></span><br><span class="line">    eed = requests.get(icbapi)</span><br><span class="line">    bee = eed.json()               <span class="comment">#返回的数据</span></span><br><span class="line">    english = eed.json()[<span class="string">&#x27;content&#x27;</span>]</span><br><span class="line">    zh_CN = eed.json()[<span class="string">&#x27;note&#x27;</span>]</span><br><span class="line">    <span class="built_in">str</span> = <span class="string">&#x27;\n【奇怪的知识】\n&#x27;</span> + english + <span class="string">&#x27;\n&#x27;</span> + zh_CN</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">str</span></span><br><span class="line">print(get_iciba_everyday())</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>(<span class="params">*args</span>):</span></span><br><span class="line">    api =<span class="string">&#x27;http://t.weather.itboy.net/api/weather/city/&#x27;</span></span><br><span class="line">    tqurl = api + city_ID</span><br><span class="line">    response = requests.get(tqurl)</span><br><span class="line">    d = response.json()         <span class="comment">#将数据以json形式返回，这个d就是返回的json数据</span></span><br><span class="line">    <span class="keyword">if</span>(d[<span class="string">&#x27;status&#x27;</span>] == <span class="number">200</span>):     <span class="comment">#当返回状态码为200，输出天气状况</span></span><br><span class="line">        print(<span class="string">&quot;城市：&quot;</span>,d[<span class="string">&quot;cityInfo&quot;</span>][<span class="string">&quot;parent&quot;</span>], d[<span class="string">&quot;cityInfo&quot;</span>][<span class="string">&quot;city&quot;</span>])</span><br><span class="line">        print(<span class="string">&quot;更新时间：&quot;</span>,d[<span class="string">&quot;time&quot;</span>])</span><br><span class="line">        print(<span class="string">&quot;日期：&quot;</span>,d[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;forecast&quot;</span>][<span class="number">0</span>][<span class="string">&quot;ymd&quot;</span>])</span><br><span class="line">        print(<span class="string">&quot;星期：&quot;</span>,d[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;forecast&quot;</span>][<span class="number">0</span>][<span class="string">&quot;week&quot;</span>])</span><br><span class="line">        print(<span class="string">&quot;天气：&quot;</span>,d[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;forecast&quot;</span>][<span class="number">0</span>][<span class="string">&quot;type&quot;</span>])</span><br><span class="line">        print(<span class="string">&quot;温度：&quot;</span>,d[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;forecast&quot;</span>][<span class="number">0</span>][<span class="string">&quot;high&quot;</span>],d[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;forecast&quot;</span>][<span class="number">0</span>][<span class="string">&quot;low&quot;</span>])</span><br><span class="line">        print(<span class="string">&quot;湿度：&quot;</span>,d[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;shidu&quot;</span>])</span><br><span class="line">        print(<span class="string">&quot;PM25:&quot;</span>,d[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;pm25&quot;</span>])</span><br><span class="line">        print(<span class="string">&quot;PM10:&quot;</span>,d[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;pm10&quot;</span>])</span><br><span class="line">        print(<span class="string">&quot;空气质量：&quot;</span>,d[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;quality&quot;</span>])</span><br><span class="line">        print(<span class="string">&quot;风力风向：&quot;</span>,d[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;forecast&quot;</span>][<span class="number">0</span>][<span class="string">&quot;fx&quot;</span>],d[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;forecast&quot;</span>][<span class="number">0</span>][<span class="string">&quot;fl&quot;</span>])</span><br><span class="line">        print(<span class="string">&quot;感冒指数：&quot;</span>,d[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;ganmao&quot;</span>])</span><br><span class="line">        print(<span class="string">&quot;温馨提示：&quot;</span>,d[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;forecast&quot;</span>][<span class="number">0</span>][<span class="string">&quot;notice&quot;</span>],<span class="string">&quot;。&quot;</span>)</span><br><span class="line">        tdwt = <span class="string">&#x27;【今日份天气】\n城市：&#x27;</span>+d[<span class="string">&#x27;cityInfo&#x27;</span>][<span class="string">&#x27;parent&#x27;</span>]+<span class="string">&#x27; &#x27;</span>+d[<span class="string">&#x27;cityInfo&#x27;</span>][<span class="string">&#x27;city&#x27;</span>]+<span class="string">&#x27;\n日期：&#x27;</span>+d[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;forecast&quot;</span>][<span class="number">0</span>][<span class="string">&quot;ymd&quot;</span>]+<span class="string">&#x27; &#x27;</span>+d[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;forecast&quot;</span>][<span class="number">0</span>][<span class="string">&quot;week&quot;</span>]+<span class="string">&#x27;\n天气：&#x27;</span>+d[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;forecast&quot;</span>][<span class="number">0</span>][<span class="string">&quot;type&quot;</span>]+<span class="string">&#x27;\n温度：&#x27;</span>+d[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;forecast&quot;</span>][<span class="number">0</span>][<span class="string">&quot;high&quot;</span>]+<span class="string">&#x27; &#x27;</span>+d[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;forecast&quot;</span>][<span class="number">0</span>][<span class="string">&quot;low&quot;</span>]+<span class="string">&#x27;\n湿度：&#x27;</span>+d[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;shidu&quot;</span>]+<span class="string">&#x27;\n空气质量：&#x27;</span>+d[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;quality&quot;</span>]+<span class="string">&#x27;\n风力风向：&#x27;</span>+d[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;forecast&quot;</span>][<span class="number">0</span>][<span class="string">&quot;fx&quot;</span>]+<span class="string">&#x27; &#x27;</span>+d[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;forecast&quot;</span>][<span class="number">0</span>][<span class="string">&quot;fl&quot;</span>]+<span class="string">&#x27;\n温馨提示：&#x27;</span>+d[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;forecast&quot;</span>][<span class="number">0</span>][<span class="string">&quot;notice&quot;</span>]+<span class="string">&#x27;。\n[更新时间：&#x27;</span>+d[<span class="string">&quot;time&quot;</span>]+<span class="string">&#x27;]\n--------------------------------------------&#x27;</span>+get_iciba_everyday()         </span><br><span class="line">        <span class="comment">#天气提示内容，基本上该有的都做好了，如果要添加信息可以看上面的print，我感觉有用的我都弄进来了。</span></span><br><span class="line">        requests.post(url_1,tdwt.encode(<span class="string">&#x27;utf-8&#x27;</span>))     <span class="comment">#这个是酷推QQ</span></span><br><span class="line">        <span class="comment">#requests.post(url_2,tdwt.encode(&#x27;utf-8&#x27;))    #这个是酷推微信</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        error = <span class="string">&#x27;【出现错误】\n　　今日天气推送错误，请检查服务状态！&#x27;</span></span><br><span class="line">        requests.post(url_1,error.encode(<span class="string">&#x27;utf-8&#x27;</span>))<span class="comment">#如果报错，会发生这样的事情。</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main_handler</span>(<span class="params">event, context</span>):</span></span><br><span class="line">    <span class="keyword">return</span> main()</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure></p><h2 id="第三步"><a class="anchor" href="#第三步">#</a> 第三步</h2><p>修改酷推 SKEY 和测试代码<br /><span class="exturl" data-url="aHR0cHM6Ly9jcC54dXRodXMuY2Mv">酷推官网</span><br /><img data-src="https://wx3.sinaimg.cn/large/006Bg7Vtly1gk3pjgxt96j30s70g0aai.jpg" alt="复制skey" /><br /><span class="exturl" data-url="aHR0cHM6Ly93aGVyZS5oZXdlYXRoZXIuY29tL2luZGV4Lmh0bWw="> 城市代码查询入口</span><br /><img data-src="https://wx1.sinaimg.cn/large/006Bg7Vtly1gk3pjjqz38j30oy0ezmxd.jpg" alt="天气官网" /><br />复制城市 ID<br /><img data-src="https://wx2.sinaimg.cn/large/006Bg7Vtly1gk3pjct62kj30fa08qgls.jpg" alt="城市ID" /><br /> 修改好了之后测试代码<br /><img data-src="https://wx3.sinaimg.cn/large/006Bg7Vtly1gk3pj1r92sj314c0hoq3l.jpg" alt="点击测试" /></p><h2 id="第四步"><a class="anchor" href="#第四步">#</a> 第四步</h2><p>部署触发器，实现每日推送。<br /><img data-src="https://wx4.sinaimg.cn/large/006Bg7Vtly1gk3piy4watj30oa09ewep.jpg" alt="配置项" /></p><h2 id="结尾"><a class="anchor" href="#结尾">#</a> 结尾</h2><p>现在手机基本上都会自带天气服务，这个也只是为了学习云函数服务以及 python。对于服务 api 有了一定得了解，不得不说 python 易上手，修改起来也简单，服务器也可选择阿里云等，推送服务微信有 Server 酱（实用性不大）QQ 有 Qmsg，都可自行更换，搞定收工，搓炉石去！！！</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;云函数系列每日推送天气信息&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#云函数系列每日推送天气信息&quot;&gt;#&lt;/a&gt; 【云函数系列】每日推送天气信息&lt;/h1&gt;
-&lt;h2 id=&quot;关键词云函数serverless-天气推送-酷推微信或qq&quot;&gt;&lt;a class=&quot;a</summary>
-      
-    
-    
-    
-    <category term="程序汇编语言" scheme="http://whitebear7396.top/categories/PROGRAMME/"/>
-    
-    <category term="Serverless" scheme="http://whitebear7396.top/categories/PROGRAMME/SERVERLESS/"/>
-    
-    
-    <category term="Serverless" scheme="http://whitebear7396.top/tags/SERVERLESS/"/>
-    
-    <category term="酷推" scheme="http://whitebear7396.top/tags/%E9%85%B7%E6%8E%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Notion上手推荐</title>
-    <link href="http://whitebear7396.top/Learning%20notes/Notion%E4%B8%8A%E6%89%8B%E6%8E%A8%E8%8D%90/"/>
-    <id>http://whitebear7396.top/Learning%20notes/Notion%E4%B8%8A%E6%89%8B%E6%8E%A8%E8%8D%90/</id>
-    <published>2020-09-21T14:14:29.000Z</published>
-    <updated>2020-09-21T14:14:29.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a class="anchor" href="#前言">#</a> 前言</h1><p>说到笔记应用和协作工具，Evernote、OneNote、Google Doc、Quip…… 还有一众国内笔记应用，都在争夺着用户设备上的一席之地。然而纵使竞争再激烈，这个领域也从不缺乏挑战者，Notion 绝对是一款前所未见的笔记协作工具。</p><p>或许许多人不知道，Notion 的创始人 Ivan 是一位中国人，他在五六年前创立了 Notion。曾因一个版本的 Notion 不够稳定，解雇了全公司的员工。之后与联合创始人搬去了日本京都从头编程，才有了如今的 Notion。</p><p><span class="exturl" data-url="aHR0cHM6Ly93d3cubm90aW9uLnNvLw==">Notion</span> 是一款将笔记、知识库和任务管理整合的协作工具。将笔记、任务管理及知识库相结合，<span class="exturl" data-url="aHR0cHM6Ly9ub3Rpb24uc28v">Notion</span> 打造出了一款「瑞士军刀」般的协作工具： Notion 不仅是一款全平台、设计还不错的文档工具，更是在 2.0 版本加入了对表格、看板和日历等功能的支持，真正成为了一款结合文档、知识库以及任务管理功能的全能协作工具</p><p>经过了几年时间的考验，这款工具在许多方面都得到了进一步优化，越来越多的国内用户也开始上手这款应用，受到了许多人的喜爱。但不少用户苦于没有一份完整的中文教程做参考。或许你曾被许多人推荐过 Notion，但却不知道从何下手。又或者你已经上手了 Notion，却碍于想象力不知如何挖掘它的潜力。这篇会从基础功能到应用实例，帮你快速上手 Notion。</p><h1 id="notionall-in-one-的协作平台"><a class="anchor" href="#notionall-in-one-的协作平台">#</a> Notion：All in One 的协作平台</h1><p>将 Notion 直译成中文，是「概念、观念」的意思。不同于大部分笔记应用的笔记本 + 笔记 + 标签，也不同于 Markdown 编辑器或是富文本编辑器。Notion 最具创造性的地方就在于推翻了用户脑子里对笔记应用的刻板印象，<strong>从头设计了一套仿佛来自未来的页面、编辑器、表格</strong>，分别对应着 Page、Block、Database，这三个部分，无论在哪个领域都算得上是独家功能，确实对得起它的名字。</p><p>我们通常向别人介绍 Notion 时会说它是一款「笔记应用」，但在我深入使用过后，我觉得它已经远远超出了「笔记应用」的范畴。要是简单的罗列一下功能：编辑器、看板、数据库、多人协作，是不是有点像 Word + Trello + Airtable 的组合？</p><p>而官方提供的使用模板就更多了：团队 Wiki、待办事项、笔记和草稿、设计规范、阅读清单、每周议程、团队日历…… 甚至是路线图，你都可以在 Notion 里完成。正如官方给它的定义：一款「将笔记、知识库和任务管理无缝整合的协作平台」。</p><h2 id="基础功能"><a class="anchor" href="#基础功能">#</a> 基础功能</h2><h3 id="pages兼任笔记和笔记本"><a class="anchor" href="#pages兼任笔记和笔记本">#</a> Pages：兼任笔记和笔记本</h3><p>Notion 的内容单位为「页」(Page)，你可以将 Notion 中的页面理解为传统笔记工具中的一条笔记。不同的是，Notion 中的页面支持无限层级，相当于有了类似于文件夹的功能，我们又能在 Notion 的每个页面中记录笔记。可以说，Pages 既是笔记、又是笔记本。</p><h4 id="无限层级"><a class="anchor" href="#无限层级">#</a> 无限层级</h4><p>传统的笔记应用以「笔记」和「笔记本」来区分「文件」和「文件夹」。</p><p>以印象笔记为例，它的 <strong>笔记本组、笔记本、笔记</strong> 设计，最多只支持三个层级。层级之外还有<strong>标签</strong>来联系笔记。最大特点是<strong>笔记本只能存储笔记列表，笔记中存储文本。</strong></p><p>Notion 则采用了<strong>无限层级 Pages</strong> 设计，有下面几个特点：</p><ol><li>每一个 Page 中都可以正常书写内容。</li><li>如果需要嵌套关系时，可以让一个 Page 中包含多个 Page。</li><li>Notion 没有标签体系，通过 /Link to Page 来实现 Pages 之间的跳转，或用 /Create Linked Database 来连接到数据库。</li></ol><p>为了方便大家理解，可以把它的每个 Page 当成「档案袋」，你可以直接往档案袋上写字（直接书写）、往档案袋里放一些新的 Page 信纸（形成嵌套关系），也可以把所有的东西塞进一个大档案袋（更多嵌套层级）。</p><h4 id="美观为先"><a class="anchor" href="#美观为先">#</a> 美观为先</h4><p>每个 Page 从上往下依次有名称、封面、Emoji、标题、评论和正文这 6 个部分组成。</p><p>每个页面都有一个名称，当你将页面分享出去时，这个名称就是网页的标题。官方提供了一些封面，也可以自己上传。Emoji 在不同的系统下有不同的显示，图中的 Emoji 就是在 Windows 下的表现。</p><p>在右上角的 <strong>…</strong> 中可以调整文字的风格，支持中文，Default 是宋体，Serif 是楷体，Mono 是微软雅黑。Small Text 会让字体小一号，Full Width 则是宽屏模式，这两个选项可以让页面显示更多的内容。</p><h4 id="分享权限"><a class="anchor" href="#分享权限">#</a> 分享权限</h4><p>Notion 支持页面公开分享，有两种级别可选：<strong>允许评论</strong>和<strong>仅允许阅读</strong>。然后复制 Page Link 即可让所有人访问这个页面。</p><p>如果需要和别人协作，则需要在 Invite a Person 中输入协作者的邮箱，邀请他们加入文档。有四种级别可选：<strong>全部权限、允许修改、允许评论、允许阅读</strong>。分享后，该 Page 的子页面也会被一同分享出去。</p><p>换句话说，只要你愿意，也可以把 Notion 的页面当作一个产品展示页面分享出去。</p><h4 id="你需要掌握这些快捷键"><a class="anchor" href="#你需要掌握这些快捷键">#</a> 你需要掌握这些快捷键：</h4><p>在 Notion 中有许多页面，为了在这些页面中也能进行快速操作，就需要掌握一些快捷键：</p><p><strong>页面操作</strong></p><ul><li>Ctrl + N：创建新页面</li><li>Ctrl + Shift + N ：打开一个新的 Notion 窗口</li><li>Ctrl + P ：快速查找页面（可用于快速跳转到其他页面）</li><li>Ctrl + [ ：返回上一页</li><li>Ctrl + ] ：进入下一页</li><li>Ctrl + U ：转到父页面</li><li>Ctrl + Shift + L ：切换黑暗模式</li><li>Ctrl + \ ：打开 / 关闭侧边栏</li><li>Ctrl + Shift + P（仅适用于创建新页面时）：用于选择添加页面的位置</li></ul><p>好了，理解了 Pages 的基本概念，我们终于要进入本文的重点：编辑器。</p><p>Notion 页面支持「允许评论」「只读」2 种分享方式，在页面右上角设置页面权限之后，我们就可以复制页面的链接分享给其他人查看了。我们还可以输入其他人的邮箱，邀请其他人加入页面进行编辑。</p><h3 id="block-editor块状的动态编辑器"><a class="anchor" href="#block-editor块状的动态编辑器">#</a> Block Editor：块状的动态编辑器</h3><p>Notion 采用了独具一格的块状动态编辑器。</p><p>从编辑角度来看，它本质上是一个介于 Markdown 和富文本之间的编辑器。它有着富文本的所见即所得的特点，便于排版；又具有 Markdown 的许多特性且可以直接使用部分 Markdown 语法，适合编辑。</p><p>从排版角度来看，它的内容都是由许许多多 Block 组成的。一段文字是一个 Block、一张图片是一个 Block、一个列表是一个大 Block 里套着许多小 Block。</p><p>从视觉角度来看，它的最终结果可以直接作为展示内容，并通过动态的 Block 来实现 Word 和 Markdown 编辑器无法显示的效果。</p><p>另外，Notion 的编辑器还支持「嵌入模块」(Embed Block)，我们可以在页面中嵌入来自其它网站或者服务的内容，比如一条推文、Google Map 的位置地图等，由于 Notion 只是提取了嵌入网页的信息进行显示，只要嵌入网页中的内容发生变化，Notion 页面中的显示内容会同步进行更新，我们甚至可以在 Notion 页面中直接于其它网页中的内容进行交互，比如在 Notion 中直接查看和缩放 Google Map 中的位置和地图信息。</p><h4 id="强大的-block"><a class="anchor" href="#强大的-block">#</a> 强大的 Block</h4><p>编辑器中的 Block 分为 5 类，可以在每段的开头输入  <code>/</code>  并输入 Block 的名字，来快速使用它们：</p><ul><li>Basic ：基础类型的 Block。新建标题、引用、列表等类 Markdown 格式都属于 Basic Block。新建页面（/Page）也在此列。</li><li>Database：数据库类型的 Block。与多数人理解的表格不同，Notion 中的 Database 更接近于数据库，你可以创建一个单独的 Database 页面（Full Page），也可以在一个页面中插入 Database（Inline）然后在其他地方调用其中的数据（Linked Database）。</li><li>Media：多媒体附件统称为 Media Block。图片、视频、音频、代码框、网页书签、文件附件都在此列。</li><li>Embeds：动态的网络服务是 Embeds Block。支持插入 Google Drive、Tweet、Github Gist 等网络服务的动态页面。</li><li>Advanced：高级模块。目前有 3 种：TeX 公式、新建自定义模板、当前路径。</li></ul><p>这么一看是不是很复杂？在实际使用中，你不必在意到底用什么 Block，需要用到的时候 Notion 会自动识别链接插入相关的 Block。当你从外部粘贴一个网址进来时，就会自动提示是否转为 Web Bookmark，图片和文件同理。</p><p>我们在 Notion 中使用最频繁的是 Basic 和 Database，接着就是 Media 中的网页书签和图片，体验上和在普通编辑器中插入图片没有什么区别。</p><p>Block 的另一个特点是便于统一调整，把鼠标放在 Block 前面，拖动六个点的图标可以改变顺序，拖动时按住 Option / Alt 键可以复制。按下则是改变 Block 的类型和样式。用鼠标框选就可以直接选中多个 Block，进行批量拖拽。</p><p>问题也有不少，Block 内不能单独调整文字的颜色和样式，只能统一调整。这种形式带来的好处和劣势，下面就会有专门讨论，这里暂且不提。</p><h4 id="动态的编辑器"><a class="anchor" href="#动态的编辑器">#</a> 动态的编辑器</h4><p>普通的 Markdown 编辑器通常是不支持动态内容的，一个纯文本编辑器，一个静态的浏览页面，再也没有其他东西了。</p><p>而 Notion 的编辑器不一样，它的 Media、Embeds、Advenced 模块都是动态的，你可以往编辑器里直接放一个视频、放 Google 地图、放一个自定义模板。然后在编辑器里点击它们、与它们交互。</p><p>举几个例子，Toggle List，输入  <code>&gt;</code>  或是  <code>/toggle</code>  再回车，生成一个可以折叠的列表；Video Block，可以添加一个视频文件直接播放；PDF Block，可以插入一个 PDF 文件预览…… 浏览的界面可大可小，可以为它们添加备注，也可以点右上角的 Original 查看原文件。</p><p>其中最令人称道的是支持直接插入特定区域的 Google Maps 网页，Google Maps Block 不像其他编辑器只能贴一张图片，而是从 Google Maps 挖了一块贴在了编辑器里，放大缩小、卫星地图、星标保存、规划路线都能直接完成，一篇笔记中还能添加多个 Maps Block。在 PC 端完成旅游规划编辑，手机端查看、缩放完整版的地图。这在其他应用中是不可想象的。仅凭这一项优势，就从根本上完爆了其他所有的旅行规划工具。</p><p>总之，这些动态功能在 Markdown 和 Word 中是无法实现的。在 Notion 的编辑器里，你更像是在编辑一个网页，随意组织串联各种内容、文件、服务，我称之为动态编辑器。</p><h4 id="markdown-富文本有得有失"><a class="anchor" href="#markdown-富文本有得有失">#</a> Markdown + 富文本，有得有失</h4><p>作为网站编辑，Markdown 编辑器一直都是我的首选，Word 的打开次数非常低。这是由于我不需要为文章调整特殊的样式、特殊的字体、不一样的字体颜色…… 直到有一天，有人跟我抱怨 Markdown 怎么连个居中都做不到。我才顿悟，无论 Markdown 有多少优点，它也无法替代一些特定的工作 —— 它的能力本来就是有限的。</p><p>但在 Word 中，我又会深刻地感受到 Markdown 给我带来的便利。一个不注意，文本的样式就改变了。想要写一篇符合格式的论文，你需要多次调整文本的样式、标题层级、字体、字体大小。用上了格式刷和自定义格式也不见得方便多少 —— 它太复杂了。</p><p>而 Notion 很巧妙地结合了两者的优点，各删去了一些功能，从而在 Markdown 和富文本之间找到了一个平衡点，一款全新的编辑器诞生了。</p><p>这里介绍一下 Notion 编辑器与它们的异同。</p><h4 id="markdown-方面的调整"><a class="anchor" href="#markdown-方面的调整">#</a> Markdown 方面的调整</h4><p>Notion 对 Markdown 编辑的支持并不完整（主要是标题级别），但它<strong>支持 Markdown 文件的导入和直接复制</strong>。</p><p><strong>Markdown 标记</strong>：使用  <code> 、</code> * <code>、</code> **` 时需要先打字，再标记。同时需要在文字前加上一个空格才会生效。（这可能和中文输入环境有关系，将来或许会改进）</p><p><strong>不支持表格</strong>：Notion 取消这一点改用 Database 是一次合理的改进，毕竟 Markdown 形式的表格难用是有目共睹的。</p><p><strong>仅支持一级标题和二级标题</strong>：也就是只能用  <code>#</code>  和  <code>##</code>  ， <code>###</code>  之后就不能用了。这在官方文档中被描述为「标题」和「子标题」。我个人的解读是官方觉得超过三级的标题就可以用新开一个 Page 来完成了，但在习惯使用 Markdown 语法之后，这确实是个挺影响体验的问题。</p><p><strong>引用由  <code>&gt;</code>  变成了  <code>&quot;</code> </strong> ： <code>&gt;</code>  变成了一个 Toggle List，也就是折叠列表，而引用则变成了  <code>&quot;</code> 。此外，在段落的开头输入  <code>[]</code>  可以创建待办事项。无序列表和有序列表则与普通 Markdown 没有区别。</p><h4 id="富文本方面的小加成"><a class="anchor" href="#富文本方面的小加成">#</a> 富文本方面的小加成</h4><p>Notion 还谨慎地支持了一小部分类似富文本的功能，这让 Markdown 中无法实现的许多功能也在 Notion 中实现了。</p><p><strong>所见即所得</strong>：Notion 直接砍掉了 Markdown 的预览模式，而所见即所得一直都是富文本的特征。</p><p><strong>多功能拖放</strong>：Block 的最大好处可能就是拖拽了，上面已经讲过 Block 的拖拽方法。</p><p><strong>允许分列</strong>：这是 Word 中比较的独特功能，在 Notion 中可以通过拖拽来快速实现列宽。仅限 PC 端，移动端查看时按顺序显示。</p><p><strong>字体颜色和背景色</strong>：给 Block 的文字或是背景上色，来突出一些内容（不能同时生效）。</p><p><strong>全文件类型支持</strong>：想在笔记中插入其他附件时，普通 Markdown 编辑器通常只支持图片。而 Notion 编辑器支持图片、视频、音频、代码、网页书签、文件，而且每一样的体验都做的很不错。</p><h4 id="关于图床"><a class="anchor" href="#关于图床">#</a> 关于图床</h4><p>Notion 有自己的图床，不支持自定义。用到图片时可能有两种情况：</p><ul><li>如果从本地上传文件，会把原图上传到 Notion 的图床。导出 Markdown 文件时，Markdown 中引用的是图片的相对地址，图片会被一起打包进压缩包。</li><li>如果从链接粘贴图片，会直接使用图片原链接。导出 Markdown 文件时，Markdown 中会直接引用图片原地址，不会打包进压缩包。</li></ul><p>所以大家自己在写作时，我推荐免费用户完全使用外部图床，节省容量空间；推荐付费用户从本地直接上传到 Notion 的图床，导出功能很完善。</p><h4 id="你需要掌握这些快捷键-2"><a class="anchor" href="#你需要掌握这些快捷键-2">#</a> 你需要掌握这些快捷键：</h4><p>Block 除了可以通过鼠标操作，还可以用这些快捷键来调整 Block（macOS 下将 Ctrl 替换为 Commend）：</p><h5 id="选取-block"><a class="anchor" href="#选取-block">#</a> <strong>选取 Block</strong></h5><ul><li>Esc 键：选中当前编辑的 Block，逻辑是退出编辑，进入 Block 操作。</li><li>Shift 键：多选 Block</li><li>选中 Block 时，↑ ↓ ← → 方向键：上下选取 Block</li><li>选中 Block 时，Ctrl + A：全选所有的 Block</li></ul><h5 id="对-block-操作"><a class="anchor" href="#对-block-操作">#</a> <strong>对 Block 操作</strong></h5><ul><li>选中 Block 时，Ctrl + D：复制一份 Block。</li><li>选中 Block 时，Ctrl + Enter：激活，可以用于按钮、选中、切换待办事项、或者进入全屏图片</li><li>选中 Page Block 时，Ctrl + Shift + R：重命名这个 Page</li><li>选中 Image Block 时，空格键：进入图片全屏浏览</li></ul><p><strong>格式方面</strong></p><p>由于上面这些调整，再加上没有预览界面，使得在 Notion 中使用 Markdown 标记时显得不够友好。所以学会使用快捷键就变得很有必要了，我建议每一位 Norion 用户都熟练掌握这几个改变文字样式的快捷键。</p><ul><li>Ctrl + B：加粗文字</li><li>Ctrl + I：斜体文字</li><li>Ctrl + K：添加超链接</li><li>Ctrl + E：添加代码格式（同时变为等宽字体）</li><li>Ctrl + Shift + S：添加删除线</li></ul><p>格式方面的调整，还可以选取文字后用鼠标在工具栏上进行。</p><p>这些快捷键是比较常用的，如果希望学习完整的快捷键，Notion 已经在官方文档中提供了所有的快捷键使用方法，你可以在页面的右下角的 <strong>？</strong> 图标中看到 <span class="exturl" data-url="aHR0cHM6Ly93d3cubm90aW9uLnNvL3Bvd2VycGx1cy9LZXlib2FyZC1hbmQtTWFya2Rvd24tU2hvcnRjdXRzLTY2ZTI4Y2VjODEwNTQ4YzNhNDA2MTUxMzEyNjc2NmIw">Tutorial &amp; Guides</span>。</p><h4 id="为何-notion-要采用-block-形式"><a class="anchor" href="#为何-notion-要采用-block-形式">#</a> 为何 Notion 要采用 Block 形式？</h4><p>块状 + 动态的设计着实新颖，但越是基础的东西，人的使用习惯越是根深蒂固。这种形式前所未见，它的实际体验究竟如何？</p><p>许多人遇到的第一个问题就是 <strong>Notion 的门槛高</strong>，与平日用的普通编辑器有太多不一样的地方。比如只支持到二级标题，Markdown 的许多语法不再靠符号来实现（更多的使用快捷键），再一看 Block 之间竟然不允许「跨段落选取」直接劝退…… 所以给人第一印象可能会比较差，「难用」往往是第一个贴上的标签。</p><p>但只要稍微了解一番快捷键，逐渐适应它的编辑器之后，就会<strong>有截然不同的感觉</strong>。除了三四级标题仍然无法实现，大多数 Markdown 能做到的功能都能做到。网络服务的加持，让 Notion 的编辑器更是获得了质的提升，许多不曾想过的功能都可以在一个页面中实现。</p><p>那么为什么 Notion 要采用这种形式的编辑器呢？我个人认为有这几个原因：</p><ol><li>为了动态页面：Notion 希望展现的内容是动态的，直接采用纯文本或富文本编辑器无法支持这种内容动态显示，排除了使用传统编辑器的可能。</li><li>为了规范文本：如果内容是动态的，就很难保证用户不会在段落内随意插入一些组件（比如代码段里加一个视频文件），引起结构的混乱。需要 Block 来规范文本内容，禁止这种情况的出现。</li><li>为了兼容性：独有格式之所以不受欢迎，是因为不通用，难以导入导出（比如印象笔记的 .enex 格式）。Notion 在这点上选择了完全放弃独有格式，尽可能去兼容 Markdown、Word、Excel 等传统格式。这是出于兼容性和通用性的考虑。</li></ol><p>所以，我认为 Notion 的编辑器完全称得上是一款新时代编辑器，为了深度结合网页的动态效果而诞生的动态编辑器。至于 Block，或许只是妥协的产物，是为了兼容老格式而采取的一种措施，可拖动、可排版则是附带的优势。</p><h3 id="database数据库而非表格"><a class="anchor" href="#database数据库而非表格">#</a> Database：数据库而非表格</h3><h3 id="这个表格不一般"><a class="anchor" href="#这个表格不一般">#</a> 这个表格不一般</h3><p>许多人第一眼看到 Notion 的 Database 功能下意识的认为这是表格，但在实际使用时又觉得不是那么一回事。这个表格既不是 Markdown 下那种简陋的字符表格，也不同于 Word 和 Excel 中的多功能表格。</p><p>我们习惯中新建表格时除了方方正正的格子之外别无他物。而 Notion 中的 Databse 不仅可以单独使用，还能添加其他的视图，当做看板、列表甚至是日历来用。感叹表格功能强大之余又有些疑惑，这个表格怎么和我们习惯上的表格差别这么大？</p><h3 id="实际上是数据库"><a class="anchor" href="#实际上是数据库">#</a> 实际上是数据库</h3><p>实际上，Notion 的 Database 更像是一个数据库，将其理解为「表格」是一种误读。数据都在数据库中，表格只能算是其中的一种表现形式。</p><p>Database 可以有 5 类视图：</p><ul><li>Table：表格形式，类似于 Airtable 表格，便于做数据统计。每一行都可以单独打开变成一个 Page，添加更多的内容。</li><li>Board：看板形式，类似于 Trello 看板，便于任务分配、分类。卡片中的选项可以完全由自己定义，看板的分组也可以用选项来改变。</li><li>Gallery：画廊形式，便于查看多张卡片中的开头部分，可以在卡片开头添加一些概要内容。</li><li>List：列表形式，便于查看一部分关键性的信息，比如只显示名称和进度，来明确任务的进度。</li><li>Calendar：日历形式，便于查看时间相关的信息，可以在日历上按时间顺序查看任务。</li></ul><p>在使用时，Database 有 3 种表现形式，覆盖了大多数可能遇到的情况：</p><ul><li>Full Page Databse：整页数据库。就像 Excel 一样，整个页面就是一个数据库。</li><li>Inline Database：段落内数据库。则像是在 Word 中插入的表格一样，可以在文章中间放一个表格或是日历。</li><li>Create Linked Database：连接到现有数据库。同样是在 Word 中插入表格，但内容是调用现有的 Database 中的数据，通过过滤和筛选来使用其中的一部分数据。在文章中修改时，也会对原有的 Database 数据进行修改。</li></ul><h3 id="筛选-排序-搜索-隐藏列一个都不少"><a class="anchor" href="#筛选-排序-搜索-隐藏列一个都不少">#</a> 筛选、排序、搜索、隐藏列，一个都不少</h3><p>在右上方，可以对表格内容进行筛选、排序、搜索和隐藏特定列。</p><p>相比在 Word 中做表格，在 Notion 文章内的表格同样具备完整的功能，使用体验高度一致。</p><h2 id="import导入全类型文档"><a class="anchor" href="#import导入全类型文档">#</a> Import：导入全类型文档</h2><p>不过，正是因为 Notion 的设计如此超前，最初使用 Notion 的用户常常会一头雾水，冒出许多问题：「为什么在 Pages 里还能再新建一个 Pages？编辑的时候怎么是一块一块的？这是 Markdown 还是富文本？」…… 这种对工具的陌生感发生在我身边的许多人身上。</p><p>相信许多人在认识 Notion 之前，已经有一部分文档了。为了减少从头学起的陌生感，我们可以先从历史文档中导入一部分，然后逐渐深入。</p><p>你可以在空白 Page 中选择 Import，也可以在右上角的「…」中选择 Import 来导入文档。</p><p>Notion 的导入支持 5 种基础格式： TXT、Markdown、CSV（Excel）、Word、HTML，以及 7 种服务：Trello、Asana、Google Docs、Dropbox Paper、Quip、Evernote、Workflowy。由此可见，Notion 主要支持的文件类型是<strong>纯文本、富文本、表格、列表，以及 Trello 独有的看板</strong>，支持批量导入。</p><p>除了不支持 PPT 和 PDF 导入之外，该有的导入功能都有了。当然，你也可以把 PPT 和 PDF 作为附件添加在页面中。</p><p>导入之后也先别急着高兴，Notion 尽可能地对多种格式进行了兼容，但对 Markdown 和 Word 格式仍然有一定的要求，主要表现为「Markdown 的双回车换行」和「Word 大纲级别」等要求，一级标题会变成 #，二级和更高的标题级别都会变成 ##。</p><p>如果你的文档格式一团糟，Notion 是无法识别的。如果遇到了这种问题，可以通过转换工具格式化一下，用更标准的 Markdown 导入。</p><h2 id="template组合无限可能"><a class="anchor" href="#template组合无限可能">#</a> Template：组合无限可能</h2><p>Notion 的开发团队在官方帮助文档中提到了这样一句话：使用数据库的最大障碍是想象力。</p><blockquote><p>The biggest hurdle when it comes to using databases is one of imagination.</p></blockquote><p>没错，只要合理的使用 Notion 中的各个模块，你就能发现它几乎可以实现无限多的需求。仅仅是官方的内置模板就有 19 种之多，涉及到工作的方方面面。</p><p>这些 Template 不仅制作精美，使用方便，还能起到开拓使用思路的作用。</p><p>这里也有一些实用的模板：</p><ul><li>博客文章：利用 Notion 的分栏功能，轻松排版出一篇图文并茂的博客文章。</li><li>每周议程：把一页分栏成五列，分别安排周一到周五的任务。</li><li>阅读清单：在数据库中添加希望阅读的书籍、链接、概述、作者，来督促自己看书、实时记录读书笔记、查阅阅读进度都是不错的选择。</li></ul><p>如果你正在初次上手 Notion，我非常建议先去看一看这些模板的使用方法，可以帮助你更快的熟悉它的方方面面。</p><h2 id="web纯网页应用的胜利"><a class="anchor" href="#web纯网页应用的胜利">#</a> Web：纯网页应用的胜利</h2><p>在这方面，Notion 其实和 Slack 一样，是一个纯网页应用。你会发现网页端的界面和客户端的界面几乎是完全一致的，也就是我们常说的套壳应用。</p><p>纯 Web 应用让 Notion 轻易地<strong>完成了全平台客户端的设计</strong>，支持 macOS、Windows、Android、iOS，<strong>而且优化做的相当不错</strong>，实现了完全一致的操作逻辑。在不同系统的设备上登录、写作、排版都有着一致的体验，这在人人都有 2 个以上设备的今天是一件非常重要的事情，有效降低了学习的成本。</p><p>就我个人而言，我很少在手机上大篇幅写作的原因主要是<strong>效率低下</strong>。手机屏幕小，电脑上轻松完成的排序、加图，手机上都可能要戳好多下才能完成，相当低效。但在 Notion 中就异常高效，在手机上也可以对段落进行拖拽排列，插入附件。而且电脑版跟手机版的显示效果几乎完全一致，当我想到一些细节需要补充时，打开手机就可以直接调整段落顺序、增补内容。</p><p>Notion 的看板功能和 Trello 较为相似，它也能像 Trello 一样实现拖拽管理卡片、添加组员和日期的功能。但和 Trello 相比，Notion 缺少了订阅、归档等团队协作常用的功能。</p><h2 id="目前尚存的一些问题"><a class="anchor" href="#目前尚存的一些问题">#</a> 目前尚存的一些问题</h2><p>尽管我很喜欢 Notion，有时也不得不承认还有不完善的地方，而且问题还不小，最主要的问题是以下三点：</p><ol><li>不支持剪藏：与印象笔记的方向不同，Notion 不以网页剪藏为主要目的。</li><li>不支持自动化：Notion 不支持 IFTTT 等自动化功能，只有一个「打开」的 URL Scheme。</li><li>本地存储功能糟糕：由于是纯 Web 应用，只能通过「导出」把文件存到本地。没有网络时只能查看当前正在编辑，或者近期打开过的少量文档。</li></ol><p>那么这三个问题该怎么解决？这里也给出我的建议。</p><ol><li>如果你更希望用剪藏，那还是印象笔记类的工具更适合你。</li><li>自动化方面，我目前在同时使用印象笔记和 Notion，一个专门负责剪藏，一个专门产生内容。利用好印象笔记的 API 就可以了，两者其实并不冲突。</li><li>离线问题，在我的使用过程中，我发现彻底没网的情况其实很少，手机 4G 流量也是逐年增多，着急时开个热点其实用不了太多流量。</li></ol><p>当然，如果真的经常需要在无网环境下使用，非常重视离线，不离线很多工作无法完成，那就不建议迁移了，有许多笔记应用在这方面做得更好。</p><h2 id="总结"><a class="anchor" href="#总结">#</a> 总结</h2><p>Notion 就像是一本精致的手账，它不像论文那么严肃，也不像日记一样随性。比纯文本多了一份个性，比富文本少了一份复杂。既兼容了老的文档，又诞生了新的规则。</p><p>我一直相信，选择工具的关键在于找准工具的特性，Notion 的特性就是<strong>兼容性强、功能丰富、整合完善</strong>，兼具广度和深度。从简单记事到写作长文，从创建表格到数据仓库，从规范文档到项目管理，种种功能都能在 Notion 中以不同的形式实现。我想，这就是 Notion 的魅力所在。</p><p>Notion 的概念之领先，近乎一款来自未来的工具。在各类工具百花齐放的今天，它依旧能采各家之所长，走出自己的独特道路，实属难能可贵。</p><p>除了任务管理，你可以用 Notion 的看板做点別的事，比如用不同的看板表示家中不同的收纳空间来记录物品位置、或者整理阅读清单等等。</p><h3 id="表格"><a class="anchor" href="#表格">#</a> 表格</h3><p>在 Notion 的表格中，每一列的列首决定该列的属性，可选的属性有文字、数字、单选、多选、日期、成员等，你可以利用这些属性中的一个或多个表格内容进行排序和筛选。表格支持简单的数据处理，比如计数、计算时间跨度、加总等。</p><p>表格也贯彻了它「无限层级」的设计理念，表格中的每一行都可以展开为一个空白页，以便补充更多细节内容。</p><h3 id="日历"><a class="anchor" href="#日历">#</a> 日历</h3><p>你还可以在 Notion 中插入日历，在相应日期上点击即可添加事件，事件可以发生在一天，也可以通过添加终止时间横跨某一个期间段。</p><p>可惜的是，Notion 的日历不支持与第三方服务同步，也不能订阅，它的用途更多是作为笔记中的时间索引，帮你更好地将一个时间段内的任务串联起来。</p><p>值得一提的是，表格、看板和日历功能在 Notion 不是相互独立的三部分，它们可以相互进行转换，为一个项目提供不同的视角。</p><p>只要点击左上角的「view」，都可以将当前视图转换成另两种视图。举个例子，当你将一个表格转换成看板视图后，表格中的每一行都会转换成看板中的一张卡片，看板视图中的变化与表格是联动的，如果你在看板视图中将一张 Tag 为「iOS」的卡片拖到了「Android」群组，该张卡片的属性会变成「Android」，在日历视图中亦然。</p><p><strong>关联阅读：</strong><span class="exturl" data-url="aHR0cHM6Ly9zc3BhaS5jb20vcG9zdC81MjE3Ng==">Notion 使用详解：来自未来的笔记协作工具</span></p><h2 id="实用模版"><a class="anchor" href="#实用模版">#</a> 实用模版</h2><p>要说谁最了解 Notion，那么答案肯定是它自己。Notion 提供了涵盖了从个人生活到团队协作等各方面的模板，对 Notion 功能也应用得十分深入，方便我们可以直接套用。</p><p>&gt; <span class="exturl" data-url="aHR0cHM6Ly93d3cubm90aW9uLnNvL05vdGlvbi1UZW1wbGF0ZS1HYWxsZXJ5LTE4MWU5NjFhZWI1YzRlZTY5MTUzMDdjMGRmZDUxNTZk">Notion 官方模版库</span></p><h3 id="个人团队主页personalteam-home"><a class="anchor" href="#个人团队主页personalteam-home">#</a> 个人 / 团队主页：Personal/Team Home</h3><p>如果你想将 Notion 打造为自己的工作区，你肯定希望所有页面都能井井有条地整理好，在你需要时，可以迅速找到特定页面。这时候，一个可以将所有页面分门别类放置好的主页显得尤为重要。</p><p>Notion 官方为我们分别准备了 <span class="exturl" data-url="aHR0cHM6Ly93d3cubm90aW9uLnNvL1BlcnNvbmFsLXdvcmtzcGFjZS1hZTcwYWQwZjNjNDY0MDA5OTJkYzFkYWFiZmJiMTkyNw==">个人主页</span> 和 <span class="exturl" data-url="aHR0cHM6Ly93d3cubm90aW9uLnNvL1RlYW0taG9tZS00MGU4MDE0ZjI5M2E0Y2M3YmYwODJlNzIzMTk5M2Y1OA==">团队主页</span> 的模板，我们可以参照它来布局自己的 Notion 主页。</p><p>这个模板的原理并不复杂，仅仅是用标题（Header）和页面（Page）将不同类别的页面归纳好，让你的工作区变得更有条理。主页模板的用法也非常简单，只要按照一定的格式将页面整理好，就能得到一个井井有条的主页。</p><h3 id="追踪游戏进度video-game-tracker"><a class="anchor" href="#追踪游戏进度video-game-tracker">#</a> 追踪游戏进度：Video Game Tracker</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cubm90aW9uLnNvL1ZpZGVvLWdhbWUtdHJhY2tlci03YWRlZTlkOGYwMmQ0ODU3OTNmZDQ1MDNiNjBlNTkxZA==">Video Game Tracker</span> 是一款来自社区的优秀模板，它可以用于追踪游戏的进度。除了游戏外，你也可以用它来追踪正在看的电影、书籍。随着《复仇者联盟 4：终局之战》的上映，不妨用这个模板来追踪自己补电影的进度。</p><p>要在画廊中添加内容，只要点击右上角的「新建」（New），随后在弹出的窗口中填写游戏所在的平台、价格等信息即可完成将卡片收入画廊。如果你想用它来追踪阅读进度，也可以通过「添加类目」（Add a Property）来自定义模板。</p><p>这个模板用到了 Notion 的「画廊」（Gallery）功能，它可以让我们快速查看多张卡片的概要内容。配合封面图，你可以一目了然地分辨出不同卡片的内容。画廊也支持添加过滤选项，我们可以把所有卡片按照特定的规则筛选出来。你可以在画廊右上角的菜单键中找到「过滤器」（Filter）的选项，并创建自己的过滤规则。</p><h3 id="人际关系管理intentional-relationship-aid"><a class="anchor" href="#人际关系管理intentional-relationship-aid">#</a> 人际关系管理：Intentional Relationship Aid</h3><p>在当今社会，人与人之间的关系逐渐疏远。我们的微信里添加了许多好友，可真正有交集的却寥寥无几。<span class="exturl" data-url="aHR0cHM6Ly93d3cubm90aW9uLnNvL0ludGVudGlvbmFsLXJlbGF0aW9uc2hpcC1haWQtYTYyNjFkY2IwNjNhNGY3MDk3OWQzMjM0YmVmNWZjMDM=">Intentional Relationship Aid</span> 是用于管理人际关系的一个模板，它可以帮助我们清晰地查看到自己与好友的互动情况。</p><p>这个模板用到了 Notion 的表格（Table）及函数功能（Formula），表格可以让我们清晰地看到所有好友的姓名、关系和联系频率等信息。每一行代表一个好友，点击好友名称即可打开一个单独的页面，你可以在这里添加好友的联系方式或是照片。</p><p>这个模板还通过函数做出了「近期联系的可能性」及「多久联系一次」的推算，它将根据你为好友设置的联系频率和上次联系时间进行运算。作者将具体函数放在了模板中，你可以查看并根据自己的需求进行修改。</p><h3 id="个人财务管理personal-finances"><a class="anchor" href="#个人财务管理personal-finances">#</a> 个人财务管理：Personal Finances</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cubm90aW9uLnNvL1BlcnNvbmFsLWZpbmFuY2VzLTMyZGY3NmEzYTY5MDRjNmY5ZTU4OGYzNGQ5N2U1YTEx">Personal Finances</span> 是一款个人财务管理的模板。你不需要拥有相关知识，只需要按照自己的需求对它的内容进行简单修改，就能得到一个自己的财务管理页面。</p><p>这个模板分为三个部分：</p><ol><li><strong>文字信息</strong>：用于放置消费目标、超支金额等文字内容。</li><li><strong>消费流水</strong>：以日历形式呈现每日的消费流水，可以清晰查看到消费内容与金额。</li><li><strong>每月消费</strong>：以看板形式呈现每月消费，可以根据分类进行过滤筛选。</li></ol><p>你可以随意修改文字信息，用它来做一个简单的消费计划。要添加消费流水，只需要点击日历右上角的「添加」，随后填入金额、日期等信息即可。你还可以选择消费的方式，比如订阅、预付费或是一次性付费。</p><p>Personal Finances 模板用到了日历（Calendar）及看板（Board）功能，让我们可以通过不同的方式查看到自己的消费情况。即使你不需要进行财务管理，也可以学习它的思路，打造一个集合日历与看板的任务管理工具。</p><h3 id="目标进程追踪okrs"><a class="anchor" href="#目标进程追踪okrs">#</a> 目标进程追踪：OKRs</h3><p>OKR（Objectives and Key Results，即目标与关键成果法）是用于跟踪目标的工作法，许多团队都会用它来明确自己的目标及关键成果。<span class="exturl" data-url="aHR0cHM6Ly93d3cubm90aW9uLnNvL09LUnMtMzJjZjBkMzkyM2U1NDVkZmJlNDVlNDE1YTY3NWVjZTE=">OKRs</span> 就是根据 OKR 工作法所制作的 Notion 模板。</p><p>OKRs 通过行内表格的方式来实现目标管理，点击项目名称即可设置目标的参数。设置完成后，你可以在表格中看到当前的数值和完成进度，你也可以随时修改当前数值，进度会自动随之改变。</p><p>OKRs 比较亮眼的一点是它用到了模板按钮（Template Button），你只需要点击「添加 OKR」即可快速添加一个新的表格，而不用从头创建新的表格。模板按钮可以用于快速创建模板化的内容，十分方便。</p><h3 id="看板式任务管理tasks-and-issues"><a class="anchor" href="#看板式任务管理tasks-and-issues">#</a> 看板式任务管理：Tasks and Issues</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cubm90aW9uLnNvL1Rhc2tzLWFuZC1pc3N1ZXMtOTYzMDI1ZjVjNWQ5NDNkOWE2MWRlOTA4M2QyY2MyMTM=">Tasks and Issues</span> 是 Notion 官方提供的一个看板式任务管理模板，如果你用过 Trello 或 Teambition，相信你对这个模板不会陌生。看板式任务管理可以让我们更加清晰地看到每个任务的执行情况。</p><p>这个模板不但支持对任务进行分类管理，还支持多人协作，你可以将任务分配给相应的同事。此外，你也可以通过自带的过滤器来筛选出分配给自己的任务。你也可以将其打造成自己的任务管理系统，时刻追踪任务完成情况。</p><p>在看板的时间设置中，你也可以添加提醒，让自己不再错过重要的任务。</p><h3 id="会议记录meeting-notes"><a class="anchor" href="#会议记录meeting-notes">#</a> 会议记录：Meeting Notes</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cubm90aW9uLnNvL01lZXRpbmctbm90ZXMtMjFmMThiOTEyY2ExNDgyN2JjNWM2MjFkNTIwMjQ2Y2M=">Meeting Notes</span> 是一个会议记录的模板，它将以列表的形式把会议记录整理起来，你可以清晰地看到与具体会议相关的人员、部门。每一个会议都是一个单独的页面，你可以在页面中进行会议记录和归纳。</p><p>会议记录同样支持过滤，你可以按照部门、时间等条件筛选出符合规则的记录。除了套用这个模板进行会议记录外，我们也可以在这个模板的范例里学习到一些会议记录的方式和技巧。</p><p>除了 Notion 官方模版库，也有用户为 Notion 建立了第三方模版库。如果你想找到更多关于 Notion 的实用模版，可以阅读我们之前的介绍文章：</p><p>&gt; <span class="exturl" data-url="aHR0cHM6Ly9zc3BhaS5jb20vcG9zdC81NDE0OA==">用好这些实用模板，把 Notion 打造成全能助理</span></p><h2 id="工具实例"><a class="anchor" href="#工具实例">#</a> 工具实例</h2><p>如果在了解 Notion 的基础功能以及模版之后，你仍然不知道能用 Notion 做什么事，不妨跟着下面几个实例实现几个实用小工具，学习其他人的 Notion 使用思路和技巧。</p><h3 id="打造个性化-notion-进度条"><a class="anchor" href="#打造个性化-notion-进度条">#</a> 打造个性化 Notion 进度条</h3><p>先来试试用 Notion 实现展示年时间进度条的工具，在这个实例中，我们需要用到计算日期已经过去多久的函数，整个进度条是由十个方块■组成，一个方块■代表 10%，0 – 10% 就占一个方块■，11% – 20% 就占两个方块■■，以此类推。</p><p>比如，今年已经过去 180 天，经过计算，我们可以得出今年已经走完了 180 / 365 = 49%，49% 在 41% – 50% 之间，占用五个方块，显示效果为「■■■■■ 49%」。</p><p><strong>关联阅读：</strong><span class="exturl" data-url="aHR0cHM6Ly9zc3BhaS5jb20vcG9zdC81Njc3Nw==">Notion 还能这么玩：手把手教你打造个性化进度条</span></p><h3 id="学会使用-notion-分栏"><a class="anchor" href="#学会使用-notion-分栏">#</a> 学会使用 Notion 分栏</h3><p>虽然说是介绍 Notion 分栏功能使用场景的实例，但是这里还会介绍更多串联 Database 一些 Notion 用法，能够帮助你真正地在实际使用过程中用好这项功能。</p><p>在 Notion 分栏功能的使用实例中，你会了解到这些内容：</p><ul><li>丰富内容排版，让文章增添一些「生气」：</li></ul><p>系统性地整合视频的笔记内容以及与多人协作翻译文档：</p><p>总而言之，你只需要将 Notion 想象成积木一样，你可以自由地组合其中的内容，组合它为你提供的各种 Block，这些小工具的实现其实没有你想的那么难。</p><p><strong>关联阅读：</strong><span class="exturl" data-url="aHR0cHM6Ly9zc3BhaS5jb20vcG9zdC81NzExMA==">你也可以做出好看的排版：三个场景玩转 Notion 分栏</span></p><h3 id="制作个人数据库管理订阅服务"><a class="anchor" href="#制作个人数据库管理订阅服务">#</a> 制作个人数据库，管理订阅服务</h3><p>这个小工具利用了 Notion 的数据库功能，让我们通过制作一个小工具，方便地管理我们的订阅服务，以便及时取消不需要的服务或者进行续费。</p><p>通过学习这个实例，你可以了解到这些内容：</p><ul><li>从零开始制作订阅服务管理库，包含激活码管理、素材教程管理、续费提醒功能等。</li><li>快速组织个人电脑配置清单。</li><li>Notion Database 基础使用教程。</li><li>Notion Database 模板使用教程。</li><li>Notion formula 实践。</li></ul><p>当然，这个小工具只是作为一个 Notion 使用思路的参考，你也可以利用 Notion 的数据库功能实现其它需求，比如：</p><ul><li>管理服务器、SSL 到期、物品打折提醒等。</li><li>集合笔记，方便随时管理。</li><li>制作 CRM、邮寄清单。</li><li>借助 Notion 便捷的协作分享功能，提高不会编程的用户的效率。</li><li>……</li></ul><p><strong>关联阅读：</strong><span class="exturl" data-url="aHR0cHM6Ly9zc3BhaS5jb20vcG9zdC81NzMzNw==">避免多花冤枉钱，用 Notion 管理你的订阅服务</span></p><p>从功能介绍到应用实例，不知道你学会如何使用 Notion 了吗？如果你想了解更多关于 Notion 的使用方法和技巧，欢迎阅读少数派为你准备的 Notion 专题：</p><p>🔗 <span class="exturl" data-url="aHR0cHM6Ly9zc3BhaS5jb20vdG9waWMvMjY3">如何玩转 Notion</span></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#前言&quot;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
-&lt;p&gt;说到笔记应用和协作工具，Evernote、OneNote、Google Doc、Quip…… 还有一众国内笔记应用，都在争夺着用户设备上的一席之地。然而纵使竞争再激</summary>
-      
-    
-    
-    
-    <category term="学习笔记" scheme="http://whitebear7396.top/categories/LEARNING-NOTES/"/>
-    
-    <category term="Notion" scheme="http://whitebear7396.top/categories/LEARNING-NOTES/NOTION/"/>
-    
-    
-    <category term="Notion" scheme="http://whitebear7396.top/tags/NOTION/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo知识点</title>
-    <link href="http://whitebear7396.top/Learning%20notes/Hexo%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
-    <id>http://whitebear7396.top/Learning%20notes/Hexo%E7%9F%A5%E8%AF%86%E7%82%B9/</id>
-    <published>2020-09-08T14:14:29.000Z</published>
-    <updated>2020-09-08T14:14:29.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="hexo知识点"><a class="anchor" href="#hexo知识点">#</a> Hexo 知识点</h1><h2 id="hexo更新与主题升级"><a class="anchor" href="#hexo更新与主题升级">#</a> hexo 更新与主题升级</h2><h3 id="检查"><a class="anchor" href="#检查">#</a> 检查</h3><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm outdated</span><br></pre></td></tr></table></figure></p><p>用于查看当前有哪些软件包已过期</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Package                          Current  Wanted  Latest  Location</span><br><span class="line">hexo                               5.1.1   5.2.0   5.2.0  hexo-site</span><br><span class="line">hexo-renderer-marked               3.1.0   3.3.0   3.3.0  hexo-site</span><br><span class="line">hexo-renderer-multi-markdown-it   0.0.13  0.0.13   0.1.3  hexo-site</span><br><span class="line">hexo-renderer-stylus               2.0.0   2.0.1   2.0.1  hexo-site</span><br><span class="line"></span><br></pre></td></tr></table></figure></p><p>packag：包名</p><p>current: 当前</p><p>wanted：想要</p><p>lates：最新的</p><p>location：位置</p><h3 id="升级"><a class="anchor" href="#升级">#</a> 升级</h3><h4 id="升级core-js尾数3代表版本"><a class="anchor" href="#升级core-js尾数3代表版本">#</a> 升级 core-js，尾数 3 代表版本</h4><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save core-js@^3</span><br></pre></td></tr></table></figure></p><h4 id="升级npm版本"><a class="anchor" href="#升级npm版本">#</a> 升级 npm 版本</h4><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g npm</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;hexo知识点&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#hexo知识点&quot;&gt;#&lt;/a&gt; Hexo 知识点&lt;/h1&gt;
-&lt;h2 id=&quot;hexo更新与主题升级&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#hexo更新与主题升级&quot;&gt;#&lt;/a&gt; hexo</summary>
-      
-    
-    
-    
-    <category term="学习笔记" scheme="http://whitebear7396.top/categories/LEARNING-NOTES/"/>
-    
-    <category term="Hexo" scheme="http://whitebear7396.top/categories/LEARNING-NOTES/HEXO/"/>
-    
-    
-    <category term="知识点" scheme="http://whitebear7396.top/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
-    
-    <category term="Hexo" scheme="http://whitebear7396.top/tags/HEXO/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shoka博客网站搭建</title>
-    <link href="http://whitebear7396.top/Learning%20notes/Shoka%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/"/>
-    <id>http://whitebear7396.top/Learning%20notes/Shoka%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/</id>
-    <published>2020-08-27T05:20:52.000Z</published>
-    <updated>2020-08-27T05:20:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img data-src="https://baisedeeji.coding.net/p/blog_img/d/blog_img/git/raw/master/img/20200908210255.jpg" alt="" /></p><h1 id="创建博客缘由"><a class="anchor" href="#创建博客缘由">#</a> 创建博客缘由</h1><p>         新奇的事物总是能给人带来惊喜，我超爱的！！！博客作为互联网时代初期的产物，听上去现在是有些老古董了，可是这也太好玩了吧！！！而且他有着独特的味道，想一想几年之后翻看博客，一篇篇文章条理清晰，脉络框架完整，还不用担心那一天就会被和谐，虽然互动很少，但是能沉下心来看的，便是知己，这可比某些社交平台好多了，现在的网络喷子啊，以前是小米加步枪，现在是加特林，哒哒哒。有时候一天好心情就没有了，可恶啊。可惜之后便被后浪打翻在地，移动设备终端的普及，社会节奏的加快，至少在我印象中，身边使用博客的几乎没有。相比较于现在流行的微博、微信之类的，我更喜欢慢一点的节奏，慢下来才能去思考，<strong>你如果仍然试图通过互联网来寻求表达思想、帮助思考，依然会愿意认真对待言论的话，那么你需要去减少阅读、撰写短内容而尝试长内容，因为碎片化的知识始终无法取代系统化的学习。</strong></p><h1 id="博客搭建过程"><a class="anchor" href="#博客搭建过程">#</a> 博客搭建过程</h1><p>         之前也尝试过博客的搭建，可是由于太过于繁琐，~~（主要还是懒，一个拖延症晚期，这篇文章拖了半个月）~~ 这几天在网上学习白嫖云函数（云函数超棒的！每天白嫖很快乐啊），偶然间在 CDSN 上面看到了一篇文章关于了 Hexo 搭建博客的过程，相逢恨晚啊，恨晚！！！一看日期还是 15 年的时候就已经发布了，优秀的人太多了，吾辈当自强。</p><h2 id="博客的搭建"><a class="anchor" href="#博客的搭建">#</a> 博客的搭建</h2><p>其实现在网上的资源已经足够多了了，我真的不敢班门弄斧，大家所欠缺的只是一点点思路，而我刚好能能帮你们节省一点鼠标耐久度，就放几个我在搭建过程中参考的链接，里面写的超级详细，实际操作起来行云流水，我试过了是没有什么问题的。</p><ul><li><p><span class="exturl" data-url="aHR0cHM6Ly93d2EubGFuem91cy5jb20vYjAwdHRtbjlp">Git 和 Node 的蓝奏云链接</span>          密码：5qkz（节省大家去网站上下载的时间）</p></li><li><p><span class="exturl" data-url="aHR0cHM6Ly94dWFud28uaW8vMjAxNS8wMy8yNi9oZXhvLWludG9yLw==">史上最详细的 Hexo 博客搭建图文教程</span></p></li><li><p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0FpblVzZXIvYXJ0aWNsZS9kZXRhaWxzLzc3NjA5MTgwP3V0bV9tZWRpdW09ZGlzdHJpYnV0ZS5wY19yZWxldmFudC5ub25lLXRhc2stYmxvZy1CbG9nQ29tbWVuZEZyb21NYWNoaW5lTGVhcm5QYWkyLTEuY2hhbm5lbF9wYXJhbSZhbXA7ZGVwdGhfMS11dG1fc291cmNlPWRpc3RyaWJ1dGUucGNfcmVsZXZhbnQubm9uZS10YXNrLWJsb2ctQmxvZ0NvbW1lbmRGcm9tTWFjaGluZUxlYXJuUGFpMi0xLmNoYW5uZWxfcGFyYW0=">hexo+github 搭建个人博客 (超详细教程)</span></p></li><li><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9mOGI4N2M5NjUwZDI=">hexo 干货系列：（一）hexo+gitHub 搭建个人独立博客</span></p></li><li><p><span class="exturl" data-url="aHR0cDovL3JvZ2VyZHVkbGVyLmdpdGh1Yi5pby9naXQtZ3VpZGUvaW5kZXguemguaHRtbA==">git - 简明指南</span></p></li></ul><p>:::note info<br /> 强烈吐槽：搭建博客千万不要放到 github 上面去，可以放但是没必要，放了也需要 jsDelivr 加速，这玩意至少我现在还没弄懂。我一开始就是放在 github 上面，可是打开很慢，有的时候还会链接打不开～～（404 警告）~~，推荐国内的代码存放仓库，<span class="exturl" data-url="aHR0cDovL3huLS1jb25kaW5nLWkyMm1zNTdrLm1l">比如 conding.me</span>（码云）之类的，如果你不小心已经上传到了 github，没关系下面还会有教程帮助你换仓库的。<br />:::</p><h2 id="主题的选择"><a class="anchor" href="#主题的选择">#</a> 主题的选择</h2><p>         Hxeo 官方主题仓库存放了相当多的主题了，各种类型的都有，下载使用也很简单，还有一些民间大神的主题安装教程，不怕你不喜欢，就怕太多你挑不过来，小孩子才做选择，大人我全都要。</p><ul><li><p><span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL3RoZW1lcy8=">Hxeo 官方主题</span></p></li><li><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9kZjE5YmI1MWM2ZWE=">hexo 干货系列：（二）hexo 主题下载及配置</span></p></li><li><p><span class="exturl" data-url="aHR0cHM6Ly9zaG9rYS5sb3N0eXUubWUvY29tcHV0ZXItc2NpZW5jZS9ub3RlL3RoZW1lLXNob2thLWRvYy8=">Hexo 主题 Shoka &amp; multi-markdown-it 渲染器使用说明</span><br />我的这个主题是在仓库里面找到的一个，链接就是这个安装方法在他的主页上面也有。我现在还不太会，后期会逐步修改，可不能抄袭。~~ 学不会<sub>学不会</sub>～<br />:::note info<br /> 选主题的时候要慎重，虽然说之后你还是可以修改主题，可是随着你发布的文章越来越多，之后修改起来的难度也会越来越大，而且作为新手，在前期我连代码都看不懂，只能看一步做一步，然后在给自己备注一下，后悔当初怎么就没有好好学英语呢！！！现在看代码都是用有道云去翻译，作孽啊。<br />:::</p></li></ul><h2 id="域名的选择"><a class="anchor" href="#域名的选择">#</a> 域名的选择</h2><p>         我是直接去阿里云上面买的，理由就是阿里云可以用支付宝直接登录，不需要多余的注册，过程也很简单，但是有一点要注意，购买域名需要实名认证及审核，我差不多是网上 8 点提交申请 12 点审核通过。在域名里面，com、cn、选这种知名的买就对了，我买的是 top，理由就是便宜，我一个个人博客还能有啥高贵的，有钱的大佬可以考虑一下去买一个 gov。</p><ul><li><span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxpeXVuLmNvbS8=">阿里云</span><br />:::note info<br /> 买域名千万不要被首年的价格诱惑，注意看看 10 年价格是多少，有的首年便宜后面老贵了，不过就是有一点，我也不知道能不能活过 10 年，万一没到那不就是亏了。<br />:::</li></ul><h2 id="网站的搬迁与发布"><a class="anchor" href="#网站的搬迁与发布">#</a> 网站的搬迁与发布</h2><p>         之前我的仓库是在 github 上面，后来搬到了 coding.me 上面，反正都不要钱，为什么不白嫖呢。</p><ul><li><p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmcvYXJ0aWNsZS9kZXRhaWxzLzEwNTg3MTk1NQ==">将 Hexo 博客部署到 Coding（码云）</span></p></li><li><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9kZGRkNzVmNjI3NTE=">最安全的 hexo 多电脑同步博客解决方案 -- 非新建分支</span><br />:::note info<br /> 部署到 coding 的博客可以获得 https 的 ssl 安全证书，都不用申请超级方便，没有<br />证书的话，在网址那里会显示不安全的链接。<br />:::</p></li></ul><h1 id="结语"><a class="anchor" href="#结语">#</a> 结语</h1><p>博客的搭建和资料的查询共花费 3 天时间，主要还是主题的修改占用了大部分时间。这里就记录一下，为自己之后搭建别的做个准备，不用再很麻烦，同时希望自己可以保持初心，继续前进，也祝愿文章前的你，可以不断进步，成为一个优秀的人。<br />永远相信美好的事情即将发生</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img data-src=&quot;https://baisedeeji.coding.net/p/blog_img/d/blog_img/git/raw/master/img/20200908210255.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-&lt;h1 id=&quot;创建博客缘由&quot;&gt;&lt;</summary>
-      
-    
-    
-    
-    <category term="学习笔记" scheme="http://whitebear7396.top/categories/LEARNING-NOTES/"/>
-    
-    
-    <category term="Shoka" scheme="http://whitebear7396.top/tags/SHOKA/"/>
-    
-    <category term="教程" scheme="http://whitebear7396.top/tags/%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>不知道也无妨</title>
-    <link href="http://whitebear7396.top/film/%E4%B8%8D%E7%9F%A5%E9%81%93%E4%B9%9F%E6%97%A0%E5%A6%A8/"/>
-    <id>http://whitebear7396.top/film/%E4%B8%8D%E7%9F%A5%E9%81%93%E4%B9%9F%E6%97%A0%E5%A6%A8/</id>
-    <published>2020-08-27T05:20:52.000Z</published>
-    <updated>2020-08-27T05:20:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>不知道也无妨</p><h2 id="图案列表-no1"><a class="anchor" href="#图案列表-no1">#</a> 图案列表 No.1</h2><p class="gallery"><img data-src="https://tva3.sinaimg.cn/large/6833939bly1giclfdu6exj20zk0m87hw.jpg" alt="" title="这里是 title" /><br /><img data-src="https://tva3.sinaimg.cn/large/6833939bly1giclflwv2aj20zk0m84qp.jpg" alt="" /><br /><img data-src="https://tva3.sinaimg.cn/large/6833939bly1giclg5ms2rj20zk0m8u0x.jpg" alt="" /><br /><img data-src="https://tva3.sinaimg.cn/large/6833939bly1giclhnx9glj20zk0m8npd.jpg" alt="" /></p><h2 id="图案列表-no2"><a class="anchor" href="#图案列表-no2">#</a> 图案列表 No.2</h2><h1 class="gallery" data-height="220" id=""><a class="anchor" href="#">#</a> <img data-src="https://tva3.sinaimg.cn/large/6833939bly1gicitht3xtj20zk0m8k5v.jpg" alt="" /><br /><img data-src="https://tva3.sinaimg.cn/large/6833939bly1giclil3m4ej20zk0m8tn8.jpg" alt="" /><br /><img data-src="https://tva3.sinaimg.cn/large/6833939bly1gicljgocqbj20zk0m8e81.jpg" alt="" /><br /><img data-src="https://tva3.sinaimg.cn/large/6833939bly1gipetfk5zwj20zk0m8e81.jpg" alt="" /></h1>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;不知道也无妨&lt;/p&gt;
-&lt;h2 id=&quot;图案列表-no1&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#图案列表-no1&quot;&gt;#&lt;/a&gt; 图案列表 No.1&lt;/h2&gt;
-&lt;p class=&quot;gallery&quot;&gt;&lt;img data-src=&quot;https://tva3.sinai</summary>
-      
-    
-    
-    
-    <category term="休闲观影指南" scheme="http://whitebear7396.top/categories/FILM/"/>
-    
-    
-    <category term="日剧" scheme="http://whitebear7396.top/tags/%E6%97%A5%E5%89%A7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>描边插画</title>
-    <link href="http://whitebear7396.top/inbetweening/%E6%8F%8F%E8%BE%B9%E6%8F%92%E7%94%BB/"/>
-    <id>http://whitebear7396.top/inbetweening/%E6%8F%8F%E8%BE%B9%E6%8F%92%E7%94%BB/</id>
-    <published>2020-08-27T05:20:52.000Z</published>
-    <updated>2020-08-27T05:20:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="描边插画"><a class="anchor" href="#描边插画">#</a> 描边插画</h1>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;描边插画&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#描边插画&quot;&gt;#&lt;/a&gt; 描边插画&lt;/h1&gt;
-</summary>
-      
-    
-    
-    
-    <category term="绘画练习" scheme="http://whitebear7396.top/categories/INBETWEENING/"/>
-    
-    
-    <category term="Ai" scheme="http://whitebear7396.top/tags/AI/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CleanUpWeChatZombieFans笔记</title>
-    <link href="http://whitebear7396.top/programme/CleanUpWeChatZombieFans%E7%AC%94%E8%AE%B0/"/>
-    <id>http://whitebear7396.top/programme/CleanUpWeChatZombieFans%E7%AC%94%E8%AE%B0/</id>
-    <published>2020-08-27T05:20:52.000Z</published>
-    <updated>2020-08-27T05:20:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="目的"><a class="anchor" href="#目的">#</a> 目的</h1><p>通过对 &lt;清理微信僵尸粉.js&gt; 脚本的分析，了解其运行原理，补充相关 JS 知识点。</p><h1 id="第一周"><a class="anchor" href="#第一周">#</a> 第一周</h1><h2 id="匿名函数"><a class="anchor" href="#匿名函数">#</a> 匿名函数</h2><p>（（）=&gt; {} ）、(function(){})<br /> 标准的函数，没有赋值给任何变量，没有名字的函数，叫匿名函数。主要是利用函数内的变量作用。避免产生全局变量，影响整体页面环境，增加代码的兼容性。因为没有名字，所以在定义完成就要调用，（（）=&gt; {} ）（），后面的（）是调用运行这个匿名函数的意思.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;目的&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#目的&quot;&gt;#&lt;/a&gt; 目的&lt;/h1&gt;
+&lt;li&gt;更新了网站主页，修改豆瓣图标为绿色，调整链接。&lt;/li&gt;
+&lt;li&gt;修改文章《【云函数系列】每日推送天气信息》，修改图片链接。&lt;/li&gt;
+&lt;li&gt;出现错误：部署到 coding 正常，部署到 github 出现错误，提示无权限。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="日志" />
+        <updated>2020-10-27T05:34:46.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://whitebear7396.top/%E8%BF%90%E8%A1%8C%E6%97%A5%E5%BF%97%20-%20%E5%89%AF%E6%9C%AC/</id>
+        <title>【云函数系列】每日推送天气信息</title>
+        <link rel="alternate" href="http://whitebear7396.top/%E8%BF%90%E8%A1%8C%E6%97%A5%E5%BF%97%20-%20%E5%89%AF%E6%9C%AC/"/>
+        <content type="html">&lt;h1 id=&#34;云函数系列每日推送天气信息&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#云函数系列每日推送天气信息&#34;&gt;#&lt;/a&gt; 【云函数系列】每日推送天气信息&lt;/h1&gt;
+&lt;h2 id=&#34;关键词云函数serverless-天气推送-酷推微信或qq&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关键词云函数serverless-天气推送-酷推微信或qq&#34;&gt;#&lt;/a&gt; 关键词：云函数（Serverless）、天气推送、酷推（微信或 QQ）&lt;/h2&gt;
+&lt;p&gt;预览：&lt;br /&gt;
+&lt;img data-src=&#34;https://raw.githubusercontent.com/WhiteBear7396/WhiteBear7396.github.io/master/postimg/%E3%80%90%E4%BA%91%E5%87%BD%E6%95%B0%E7%B3%BB%E5%88%97%E3%80%91%E6%AF%8F%E6%97%A5%E6%8E%A8%E9%80%81%E5%A4%A9%E6%B0%94%E4%BF%A1%E6%81%AF/%E3%80%90%E4%BA%91%E5%87%BD%E6%95%B0%E7%B3%BB%E5%88%97%E3%80%91%E6%AF%8F%E6%97%A5%E6%8E%A8%E9%80%81%E5%A4%A9%E6%B0%94%E4%BF%A1%E6%81%AF1.jpg&#34; alt=&#34;QQ&#34; /&gt;&lt;br /&gt;
+（以下云函数部署默认为腾讯云，其他服务器亲自行更改，不作描述）&lt;/p&gt;
+&lt;h2 id=&#34;第一步&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第一步&#34;&gt;#&lt;/a&gt; 第一步&lt;/h2&gt;
+&lt;p&gt;注册登录腾讯云函数→新建云函数→设置函数名称→设置运行环境→点击下一步&lt;img data-src=&#34;http://wx4.sinaimg.cn/large/006Bg7Vtly1gk3pjrk742j31910ddgod.jpg&#34; alt=&#34;配置项&#34; /&gt;&lt;br /&gt;
+设置描述（选填）→点击完成&lt;br /&gt;
+&lt;img data-src=&#34;https://wx4.sinaimg.cn/large/006Bg7Vtly1gk3pizjy3xj30uo0mhacc.jpg&#34; alt=&#34;配置项&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;第二步&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第二步&#34;&gt;#&lt;/a&gt; 第二步&lt;/h2&gt;
+&lt;p&gt;填入云函数代码&lt;br /&gt;
+ &lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption&gt;&lt;span&gt;天气函数代码&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;48&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;49&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;50&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;51&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;52&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;53&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;54&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#!/usr/bin/python3&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#coding=utf-8&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; requests, json&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; time&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# -- 配置 --&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# ------------------------------&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#酷推服务官网 https://cp.xuthus.cc/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;SKEY = &lt;span class=&#34;string&#34;&gt;&amp;#x27;**************************&amp;#x27;&lt;/span&gt;           &lt;span class=&#34;comment&#34;&gt;#酷推的key&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#自己改发送方式,不需要的话注销一个用#号&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;url_1 = &lt;span class=&#34;string&#34;&gt;&amp;#x27;https://push.xuthus.cc/send/&amp;#x27;&lt;/span&gt;+SKEY         &lt;span class=&#34;comment&#34;&gt;#这个是酷推的QQ推送服务            &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#url_2 = &amp;#x27;https://push.xuthus.cc/wx/&amp;#x27;+SKEY+&amp;#x27;?c=&amp;#x27;    #这个是酷推的微信推送服务，默认关闭。（更改完了记得修改55、56行推送方式）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#城市设置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#查询你的城市代码，将ID填入下方 https://where.heweather.com/index.html&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;city_ID = &lt;span class=&#34;string&#34;&gt;&amp;#x27;********&amp;#x27;&lt;/span&gt;                            &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# ------------------------------&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;get_iciba_everyday&lt;/span&gt;():&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    icbapi = &lt;span class=&#34;string&#34;&gt;&amp;#x27;http://open.iciba.com/dsapi/&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    eed = requests.get(icbapi)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    bee = eed.json()               &lt;span class=&#34;comment&#34;&gt;#返回的数据&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    english = eed.json()[&lt;span class=&#34;string&#34;&gt;&amp;#x27;content&amp;#x27;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    zh_CN = eed.json()[&lt;span class=&#34;string&#34;&gt;&amp;#x27;note&amp;#x27;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;built_in&#34;&gt;str&lt;/span&gt; = &lt;span class=&#34;string&#34;&gt;&amp;#x27;\n【奇怪的知识】\n&amp;#x27;&lt;/span&gt; + english + &lt;span class=&#34;string&#34;&gt;&amp;#x27;\n&amp;#x27;&lt;/span&gt; + zh_CN&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;str&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;print(get_iciba_everyday())&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;*args&lt;/span&gt;):&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    api =&lt;span class=&#34;string&#34;&gt;&amp;#x27;http://t.weather.itboy.net/api/weather/city/&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    tqurl = api + city_ID&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    response = requests.get(tqurl)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    d = response.json()         &lt;span class=&#34;comment&#34;&gt;#将数据以json形式返回，这个d就是返回的json数据&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt;(d[&lt;span class=&#34;string&#34;&gt;&amp;#x27;status&amp;#x27;&lt;/span&gt;] == &lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;):     &lt;span class=&#34;comment&#34;&gt;#当返回状态码为200，输出天气状况&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        print(&lt;span class=&#34;string&#34;&gt;&amp;quot;城市：&amp;quot;&lt;/span&gt;,d[&lt;span class=&#34;string&#34;&gt;&amp;quot;cityInfo&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;parent&amp;quot;&lt;/span&gt;], d[&lt;span class=&#34;string&#34;&gt;&amp;quot;cityInfo&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;city&amp;quot;&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        print(&lt;span class=&#34;string&#34;&gt;&amp;quot;更新时间：&amp;quot;&lt;/span&gt;,d[&lt;span class=&#34;string&#34;&gt;&amp;quot;time&amp;quot;&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        print(&lt;span class=&#34;string&#34;&gt;&amp;quot;日期：&amp;quot;&lt;/span&gt;,d[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;forecast&amp;quot;&lt;/span&gt;][&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;ymd&amp;quot;&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        print(&lt;span class=&#34;string&#34;&gt;&amp;quot;星期：&amp;quot;&lt;/span&gt;,d[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;forecast&amp;quot;&lt;/span&gt;][&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;week&amp;quot;&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        print(&lt;span class=&#34;string&#34;&gt;&amp;quot;天气：&amp;quot;&lt;/span&gt;,d[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;forecast&amp;quot;&lt;/span&gt;][&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        print(&lt;span class=&#34;string&#34;&gt;&amp;quot;温度：&amp;quot;&lt;/span&gt;,d[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;forecast&amp;quot;&lt;/span&gt;][&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;high&amp;quot;&lt;/span&gt;],d[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;forecast&amp;quot;&lt;/span&gt;][&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;low&amp;quot;&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        print(&lt;span class=&#34;string&#34;&gt;&amp;quot;湿度：&amp;quot;&lt;/span&gt;,d[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;shidu&amp;quot;&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        print(&lt;span class=&#34;string&#34;&gt;&amp;quot;PM25:&amp;quot;&lt;/span&gt;,d[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;pm25&amp;quot;&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        print(&lt;span class=&#34;string&#34;&gt;&amp;quot;PM10:&amp;quot;&lt;/span&gt;,d[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;pm10&amp;quot;&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        print(&lt;span class=&#34;string&#34;&gt;&amp;quot;空气质量：&amp;quot;&lt;/span&gt;,d[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;quality&amp;quot;&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        print(&lt;span class=&#34;string&#34;&gt;&amp;quot;风力风向：&amp;quot;&lt;/span&gt;,d[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;forecast&amp;quot;&lt;/span&gt;][&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;fx&amp;quot;&lt;/span&gt;],d[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;forecast&amp;quot;&lt;/span&gt;][&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;fl&amp;quot;&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        print(&lt;span class=&#34;string&#34;&gt;&amp;quot;感冒指数：&amp;quot;&lt;/span&gt;,d[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;ganmao&amp;quot;&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        print(&lt;span class=&#34;string&#34;&gt;&amp;quot;温馨提示：&amp;quot;&lt;/span&gt;,d[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;forecast&amp;quot;&lt;/span&gt;][&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;notice&amp;quot;&lt;/span&gt;],&lt;span class=&#34;string&#34;&gt;&amp;quot;。&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        tdwt = &lt;span class=&#34;string&#34;&gt;&amp;#x27;【今日份天气】\n城市：&amp;#x27;&lt;/span&gt;+d[&lt;span class=&#34;string&#34;&gt;&amp;#x27;cityInfo&amp;#x27;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;#x27;parent&amp;#x27;&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&amp;#x27; &amp;#x27;&lt;/span&gt;+d[&lt;span class=&#34;string&#34;&gt;&amp;#x27;cityInfo&amp;#x27;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;#x27;city&amp;#x27;&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&amp;#x27;\n日期：&amp;#x27;&lt;/span&gt;+d[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;forecast&amp;quot;&lt;/span&gt;][&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;ymd&amp;quot;&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&amp;#x27; &amp;#x27;&lt;/span&gt;+d[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;forecast&amp;quot;&lt;/span&gt;][&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;week&amp;quot;&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&amp;#x27;\n天气：&amp;#x27;&lt;/span&gt;+d[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;forecast&amp;quot;&lt;/span&gt;][&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&amp;#x27;\n温度：&amp;#x27;&lt;/span&gt;+d[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;forecast&amp;quot;&lt;/span&gt;][&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;high&amp;quot;&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&amp;#x27; &amp;#x27;&lt;/span&gt;+d[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;forecast&amp;quot;&lt;/span&gt;][&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;low&amp;quot;&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&amp;#x27;\n湿度：&amp;#x27;&lt;/span&gt;+d[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;shidu&amp;quot;&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&amp;#x27;\n空气质量：&amp;#x27;&lt;/span&gt;+d[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;quality&amp;quot;&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&amp;#x27;\n风力风向：&amp;#x27;&lt;/span&gt;+d[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;forecast&amp;quot;&lt;/span&gt;][&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;fx&amp;quot;&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&amp;#x27; &amp;#x27;&lt;/span&gt;+d[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;forecast&amp;quot;&lt;/span&gt;][&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;fl&amp;quot;&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&amp;#x27;\n温馨提示：&amp;#x27;&lt;/span&gt;+d[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;forecast&amp;quot;&lt;/span&gt;][&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;notice&amp;quot;&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&amp;#x27;。\n[更新时间：&amp;#x27;&lt;/span&gt;+d[&lt;span class=&#34;string&#34;&gt;&amp;quot;time&amp;quot;&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&amp;#x27;]\n--------------------------------------------&amp;#x27;&lt;/span&gt;+get_iciba_everyday()         &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;comment&#34;&gt;#天气提示内容，基本上该有的都做好了，如果要添加信息可以看上面的print，我感觉有用的我都弄进来了。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        requests.post(url_1,tdwt.encode(&lt;span class=&#34;string&#34;&gt;&amp;#x27;utf-8&amp;#x27;&lt;/span&gt;))     &lt;span class=&#34;comment&#34;&gt;#这个是酷推QQ&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;comment&#34;&gt;#requests.post(url_2,tdwt.encode(&amp;#x27;utf-8&amp;#x27;))    #这个是酷推微信&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        error = &lt;span class=&#34;string&#34;&gt;&amp;#x27;【出现错误】\n　　今日天气推送错误，请检查服务状态！&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        requests.post(url_1,error.encode(&lt;span class=&#34;string&#34;&gt;&amp;#x27;utf-8&amp;#x27;&lt;/span&gt;))&lt;span class=&#34;comment&#34;&gt;#如果报错，会发生这样的事情。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main_handler&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;event, context&lt;/span&gt;):&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; main()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; __name__ == &lt;span class=&#34;string&#34;&gt;&amp;#x27;__main__&amp;#x27;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    main()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;第三步&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第三步&#34;&gt;#&lt;/a&gt; 第三步&lt;/h2&gt;
+&lt;p&gt;修改酷推 SKEY 和测试代码&lt;br /&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9jcC54dXRodXMuY2Mv&#34;&gt;酷推官网&lt;/span&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://wx3.sinaimg.cn/large/006Bg7Vtly1gk3pjgxt96j30s70g0aai.jpg&#34; alt=&#34;复制skey&#34; /&gt;&lt;br /&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aGVyZS5oZXdlYXRoZXIuY29tL2luZGV4Lmh0bWw=&#34;&gt; 城市代码查询入口&lt;/span&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://wx1.sinaimg.cn/large/006Bg7Vtly1gk3pjjqz38j30oy0ezmxd.jpg&#34; alt=&#34;天气官网&#34; /&gt;&lt;br /&gt;
+复制城市 ID&lt;br /&gt;
+&lt;img data-src=&#34;https://wx2.sinaimg.cn/large/006Bg7Vtly1gk3pjct62kj30fa08qgls.jpg&#34; alt=&#34;城市ID&#34; /&gt;&lt;br /&gt;
+ 修改好了之后测试代码&lt;br /&gt;
+&lt;img data-src=&#34;https://wx3.sinaimg.cn/large/006Bg7Vtly1gk3pj1r92sj314c0hoq3l.jpg&#34; alt=&#34;点击测试&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;第四步&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第四步&#34;&gt;#&lt;/a&gt; 第四步&lt;/h2&gt;
+&lt;p&gt;部署触发器，实现每日推送。&lt;br /&gt;
+&lt;img data-src=&#34;https://wx4.sinaimg.cn/large/006Bg7Vtly1gk3piy4watj30oa09ewep.jpg&#34; alt=&#34;配置项&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;结尾&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#结尾&#34;&gt;#&lt;/a&gt; 结尾&lt;/h2&gt;
+&lt;p&gt;现在手机基本上都会自带天气服务，这个也只是为了学习云函数服务以及 python。对于服务 api 有了一定得了解，不得不说 python 易上手，修改起来也简单，服务器也可选择阿里云等，推送服务微信有 Server 酱（实用性不大）QQ 有 Qmsg，都可自行更换，搞定收工，搓炉石去！！！&lt;/p&gt;
+</content>
+        <category term="Serverless" />
+        <category term="酷推" />
+        <updated>2020-10-26T05:20:52.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://whitebear7396.top/Learning%20notes/Notion%E4%B8%8A%E6%89%8B%E6%8E%A8%E8%8D%90/</id>
+        <title>Notion上手推荐</title>
+        <link rel="alternate" href="http://whitebear7396.top/Learning%20notes/Notion%E4%B8%8A%E6%89%8B%E6%8E%A8%E8%8D%90/"/>
+        <content type="html">&lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
+&lt;p&gt;说到笔记应用和协作工具，Evernote、OneNote、Google Doc、Quip…… 还有一众国内笔记应用，都在争夺着用户设备上的一席之地。然而纵使竞争再激烈，这个领域也从不缺乏挑战者，Notion 绝对是一款前所未见的笔记协作工具。&lt;/p&gt;
+&lt;p&gt;或许许多人不知道，Notion 的创始人 Ivan 是一位中国人，他在五六年前创立了 Notion。曾因一个版本的 Notion 不够稳定，解雇了全公司的员工。之后与联合创始人搬去了日本京都从头编程，才有了如今的 Notion。&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubm90aW9uLnNvLw==&#34;&gt;Notion&lt;/span&gt; 是一款将笔记、知识库和任务管理整合的协作工具。将笔记、任务管理及知识库相结合，&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ub3Rpb24uc28v&#34;&gt;Notion&lt;/span&gt; 打造出了一款「瑞士军刀」般的协作工具： Notion 不仅是一款全平台、设计还不错的文档工具，更是在 2.0 版本加入了对表格、看板和日历等功能的支持，真正成为了一款结合文档、知识库以及任务管理功能的全能协作工具&lt;/p&gt;
+&lt;p&gt;经过了几年时间的考验，这款工具在许多方面都得到了进一步优化，越来越多的国内用户也开始上手这款应用，受到了许多人的喜爱。但不少用户苦于没有一份完整的中文教程做参考。或许你曾被许多人推荐过 Notion，但却不知道从何下手。又或者你已经上手了 Notion，却碍于想象力不知如何挖掘它的潜力。这篇会从基础功能到应用实例，帮你快速上手 Notion。&lt;/p&gt;
+&lt;h1 id=&#34;notionall-in-one-的协作平台&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#notionall-in-one-的协作平台&#34;&gt;#&lt;/a&gt; Notion：All in One 的协作平台&lt;/h1&gt;
+&lt;p&gt;将 Notion 直译成中文，是「概念、观念」的意思。不同于大部分笔记应用的笔记本 + 笔记 + 标签，也不同于 Markdown 编辑器或是富文本编辑器。Notion 最具创造性的地方就在于推翻了用户脑子里对笔记应用的刻板印象，&lt;strong&gt;从头设计了一套仿佛来自未来的页面、编辑器、表格&lt;/strong&gt;，分别对应着 Page、Block、Database，这三个部分，无论在哪个领域都算得上是独家功能，确实对得起它的名字。&lt;/p&gt;
+&lt;p&gt;我们通常向别人介绍 Notion 时会说它是一款「笔记应用」，但在我深入使用过后，我觉得它已经远远超出了「笔记应用」的范畴。要是简单的罗列一下功能：编辑器、看板、数据库、多人协作，是不是有点像 Word + Trello + Airtable 的组合？&lt;/p&gt;
+&lt;p&gt;而官方提供的使用模板就更多了：团队 Wiki、待办事项、笔记和草稿、设计规范、阅读清单、每周议程、团队日历…… 甚至是路线图，你都可以在 Notion 里完成。正如官方给它的定义：一款「将笔记、知识库和任务管理无缝整合的协作平台」。&lt;/p&gt;
+&lt;h2 id=&#34;基础功能&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#基础功能&#34;&gt;#&lt;/a&gt; 基础功能&lt;/h2&gt;
+&lt;h3 id=&#34;pages兼任笔记和笔记本&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#pages兼任笔记和笔记本&#34;&gt;#&lt;/a&gt; Pages：兼任笔记和笔记本&lt;/h3&gt;
+&lt;p&gt;Notion 的内容单位为「页」(Page)，你可以将 Notion 中的页面理解为传统笔记工具中的一条笔记。不同的是，Notion 中的页面支持无限层级，相当于有了类似于文件夹的功能，我们又能在 Notion 的每个页面中记录笔记。可以说，Pages 既是笔记、又是笔记本。&lt;/p&gt;
+&lt;h4 id=&#34;无限层级&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#无限层级&#34;&gt;#&lt;/a&gt; 无限层级&lt;/h4&gt;
+&lt;p&gt;传统的笔记应用以「笔记」和「笔记本」来区分「文件」和「文件夹」。&lt;/p&gt;
+&lt;p&gt;以印象笔记为例，它的 &lt;strong&gt;笔记本组、笔记本、笔记&lt;/strong&gt; 设计，最多只支持三个层级。层级之外还有&lt;strong&gt;标签&lt;/strong&gt;来联系笔记。最大特点是&lt;strong&gt;笔记本只能存储笔记列表，笔记中存储文本。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Notion 则采用了&lt;strong&gt;无限层级 Pages&lt;/strong&gt; 设计，有下面几个特点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;每一个 Page 中都可以正常书写内容。&lt;/li&gt;
+&lt;li&gt;如果需要嵌套关系时，可以让一个 Page 中包含多个 Page。&lt;/li&gt;
+&lt;li&gt;Notion 没有标签体系，通过 /Link to Page 来实现 Pages 之间的跳转，或用 /Create Linked Database 来连接到数据库。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;为了方便大家理解，可以把它的每个 Page 当成「档案袋」，你可以直接往档案袋上写字（直接书写）、往档案袋里放一些新的 Page 信纸（形成嵌套关系），也可以把所有的东西塞进一个大档案袋（更多嵌套层级）。&lt;/p&gt;
+&lt;h4 id=&#34;美观为先&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#美观为先&#34;&gt;#&lt;/a&gt; 美观为先&lt;/h4&gt;
+&lt;p&gt;每个 Page 从上往下依次有名称、封面、Emoji、标题、评论和正文这 6 个部分组成。&lt;/p&gt;
+&lt;p&gt;每个页面都有一个名称，当你将页面分享出去时，这个名称就是网页的标题。官方提供了一些封面，也可以自己上传。Emoji 在不同的系统下有不同的显示，图中的 Emoji 就是在 Windows 下的表现。&lt;/p&gt;
+&lt;p&gt;在右上角的 &lt;strong&gt;…&lt;/strong&gt; 中可以调整文字的风格，支持中文，Default 是宋体，Serif 是楷体，Mono 是微软雅黑。Small Text 会让字体小一号，Full Width 则是宽屏模式，这两个选项可以让页面显示更多的内容。&lt;/p&gt;
+&lt;h4 id=&#34;分享权限&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#分享权限&#34;&gt;#&lt;/a&gt; 分享权限&lt;/h4&gt;
+&lt;p&gt;Notion 支持页面公开分享，有两种级别可选：&lt;strong&gt;允许评论&lt;/strong&gt;和&lt;strong&gt;仅允许阅读&lt;/strong&gt;。然后复制 Page Link 即可让所有人访问这个页面。&lt;/p&gt;
+&lt;p&gt;如果需要和别人协作，则需要在 Invite a Person 中输入协作者的邮箱，邀请他们加入文档。有四种级别可选：&lt;strong&gt;全部权限、允许修改、允许评论、允许阅读&lt;/strong&gt;。分享后，该 Page 的子页面也会被一同分享出去。&lt;/p&gt;
+&lt;p&gt;换句话说，只要你愿意，也可以把 Notion 的页面当作一个产品展示页面分享出去。&lt;/p&gt;
+&lt;h4 id=&#34;你需要掌握这些快捷键&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#你需要掌握这些快捷键&#34;&gt;#&lt;/a&gt; 你需要掌握这些快捷键：&lt;/h4&gt;
+&lt;p&gt;在 Notion 中有许多页面，为了在这些页面中也能进行快速操作，就需要掌握一些快捷键：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;页面操作&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ctrl + N：创建新页面&lt;/li&gt;
+&lt;li&gt;Ctrl + Shift + N ：打开一个新的 Notion 窗口&lt;/li&gt;
+&lt;li&gt;Ctrl + P ：快速查找页面（可用于快速跳转到其他页面）&lt;/li&gt;
+&lt;li&gt;Ctrl + [ ：返回上一页&lt;/li&gt;
+&lt;li&gt;Ctrl + ] ：进入下一页&lt;/li&gt;
+&lt;li&gt;Ctrl + U ：转到父页面&lt;/li&gt;
+&lt;li&gt;Ctrl + Shift + L ：切换黑暗模式&lt;/li&gt;
+&lt;li&gt;Ctrl + \ ：打开 / 关闭侧边栏&lt;/li&gt;
+&lt;li&gt;Ctrl + Shift + P（仅适用于创建新页面时）：用于选择添加页面的位置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;好了，理解了 Pages 的基本概念，我们终于要进入本文的重点：编辑器。&lt;/p&gt;
+&lt;p&gt;Notion 页面支持「允许评论」「只读」2 种分享方式，在页面右上角设置页面权限之后，我们就可以复制页面的链接分享给其他人查看了。我们还可以输入其他人的邮箱，邀请其他人加入页面进行编辑。&lt;/p&gt;
+&lt;h3 id=&#34;block-editor块状的动态编辑器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#block-editor块状的动态编辑器&#34;&gt;#&lt;/a&gt; Block Editor：块状的动态编辑器&lt;/h3&gt;
+&lt;p&gt;Notion 采用了独具一格的块状动态编辑器。&lt;/p&gt;
+&lt;p&gt;从编辑角度来看，它本质上是一个介于 Markdown 和富文本之间的编辑器。它有着富文本的所见即所得的特点，便于排版；又具有 Markdown 的许多特性且可以直接使用部分 Markdown 语法，适合编辑。&lt;/p&gt;
+&lt;p&gt;从排版角度来看，它的内容都是由许许多多 Block 组成的。一段文字是一个 Block、一张图片是一个 Block、一个列表是一个大 Block 里套着许多小 Block。&lt;/p&gt;
+&lt;p&gt;从视觉角度来看，它的最终结果可以直接作为展示内容，并通过动态的 Block 来实现 Word 和 Markdown 编辑器无法显示的效果。&lt;/p&gt;
+&lt;p&gt;另外，Notion 的编辑器还支持「嵌入模块」(Embed Block)，我们可以在页面中嵌入来自其它网站或者服务的内容，比如一条推文、Google Map 的位置地图等，由于 Notion 只是提取了嵌入网页的信息进行显示，只要嵌入网页中的内容发生变化，Notion 页面中的显示内容会同步进行更新，我们甚至可以在 Notion 页面中直接于其它网页中的内容进行交互，比如在 Notion 中直接查看和缩放 Google Map 中的位置和地图信息。&lt;/p&gt;
+&lt;h4 id=&#34;强大的-block&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#强大的-block&#34;&gt;#&lt;/a&gt; 强大的 Block&lt;/h4&gt;
+&lt;p&gt;编辑器中的 Block 分为 5 类，可以在每段的开头输入  &lt;code&gt;/&lt;/code&gt;  并输入 Block 的名字，来快速使用它们：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Basic ：基础类型的 Block。新建标题、引用、列表等类 Markdown 格式都属于 Basic Block。新建页面（/Page）也在此列。&lt;/li&gt;
+&lt;li&gt;Database：数据库类型的 Block。与多数人理解的表格不同，Notion 中的 Database 更接近于数据库，你可以创建一个单独的 Database 页面（Full Page），也可以在一个页面中插入 Database（Inline）然后在其他地方调用其中的数据（Linked Database）。&lt;/li&gt;
+&lt;li&gt;Media：多媒体附件统称为 Media Block。图片、视频、音频、代码框、网页书签、文件附件都在此列。&lt;/li&gt;
+&lt;li&gt;Embeds：动态的网络服务是 Embeds Block。支持插入 Google Drive、Tweet、Github Gist 等网络服务的动态页面。&lt;/li&gt;
+&lt;li&gt;Advanced：高级模块。目前有 3 种：TeX 公式、新建自定义模板、当前路径。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这么一看是不是很复杂？在实际使用中，你不必在意到底用什么 Block，需要用到的时候 Notion 会自动识别链接插入相关的 Block。当你从外部粘贴一个网址进来时，就会自动提示是否转为 Web Bookmark，图片和文件同理。&lt;/p&gt;
+&lt;p&gt;我们在 Notion 中使用最频繁的是 Basic 和 Database，接着就是 Media 中的网页书签和图片，体验上和在普通编辑器中插入图片没有什么区别。&lt;/p&gt;
+&lt;p&gt;Block 的另一个特点是便于统一调整，把鼠标放在 Block 前面，拖动六个点的图标可以改变顺序，拖动时按住 Option / Alt 键可以复制。按下则是改变 Block 的类型和样式。用鼠标框选就可以直接选中多个 Block，进行批量拖拽。&lt;/p&gt;
+&lt;p&gt;问题也有不少，Block 内不能单独调整文字的颜色和样式，只能统一调整。这种形式带来的好处和劣势，下面就会有专门讨论，这里暂且不提。&lt;/p&gt;
+&lt;h4 id=&#34;动态的编辑器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#动态的编辑器&#34;&gt;#&lt;/a&gt; 动态的编辑器&lt;/h4&gt;
+&lt;p&gt;普通的 Markdown 编辑器通常是不支持动态内容的，一个纯文本编辑器，一个静态的浏览页面，再也没有其他东西了。&lt;/p&gt;
+&lt;p&gt;而 Notion 的编辑器不一样，它的 Media、Embeds、Advenced 模块都是动态的，你可以往编辑器里直接放一个视频、放 Google 地图、放一个自定义模板。然后在编辑器里点击它们、与它们交互。&lt;/p&gt;
+&lt;p&gt;举几个例子，Toggle List，输入  &lt;code&gt;&amp;gt;&lt;/code&gt;  或是  &lt;code&gt;/toggle&lt;/code&gt;  再回车，生成一个可以折叠的列表；Video Block，可以添加一个视频文件直接播放；PDF Block，可以插入一个 PDF 文件预览…… 浏览的界面可大可小，可以为它们添加备注，也可以点右上角的 Original 查看原文件。&lt;/p&gt;
+&lt;p&gt;其中最令人称道的是支持直接插入特定区域的 Google Maps 网页，Google Maps Block 不像其他编辑器只能贴一张图片，而是从 Google Maps 挖了一块贴在了编辑器里，放大缩小、卫星地图、星标保存、规划路线都能直接完成，一篇笔记中还能添加多个 Maps Block。在 PC 端完成旅游规划编辑，手机端查看、缩放完整版的地图。这在其他应用中是不可想象的。仅凭这一项优势，就从根本上完爆了其他所有的旅行规划工具。&lt;/p&gt;
+&lt;p&gt;总之，这些动态功能在 Markdown 和 Word 中是无法实现的。在 Notion 的编辑器里，你更像是在编辑一个网页，随意组织串联各种内容、文件、服务，我称之为动态编辑器。&lt;/p&gt;
+&lt;h4 id=&#34;markdown-富文本有得有失&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#markdown-富文本有得有失&#34;&gt;#&lt;/a&gt; Markdown + 富文本，有得有失&lt;/h4&gt;
+&lt;p&gt;作为网站编辑，Markdown 编辑器一直都是我的首选，Word 的打开次数非常低。这是由于我不需要为文章调整特殊的样式、特殊的字体、不一样的字体颜色…… 直到有一天，有人跟我抱怨 Markdown 怎么连个居中都做不到。我才顿悟，无论 Markdown 有多少优点，它也无法替代一些特定的工作 —— 它的能力本来就是有限的。&lt;/p&gt;
+&lt;p&gt;但在 Word 中，我又会深刻地感受到 Markdown 给我带来的便利。一个不注意，文本的样式就改变了。想要写一篇符合格式的论文，你需要多次调整文本的样式、标题层级、字体、字体大小。用上了格式刷和自定义格式也不见得方便多少 —— 它太复杂了。&lt;/p&gt;
+&lt;p&gt;而 Notion 很巧妙地结合了两者的优点，各删去了一些功能，从而在 Markdown 和富文本之间找到了一个平衡点，一款全新的编辑器诞生了。&lt;/p&gt;
+&lt;p&gt;这里介绍一下 Notion 编辑器与它们的异同。&lt;/p&gt;
+&lt;h4 id=&#34;markdown-方面的调整&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#markdown-方面的调整&#34;&gt;#&lt;/a&gt; Markdown 方面的调整&lt;/h4&gt;
+&lt;p&gt;Notion 对 Markdown 编辑的支持并不完整（主要是标题级别），但它&lt;strong&gt;支持 Markdown 文件的导入和直接复制&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Markdown 标记&lt;/strong&gt;：使用  &lt;code&gt; 、&lt;/code&gt; * &lt;code&gt;、&lt;/code&gt; **` 时需要先打字，再标记。同时需要在文字前加上一个空格才会生效。（这可能和中文输入环境有关系，将来或许会改进）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;不支持表格&lt;/strong&gt;：Notion 取消这一点改用 Database 是一次合理的改进，毕竟 Markdown 形式的表格难用是有目共睹的。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;仅支持一级标题和二级标题&lt;/strong&gt;：也就是只能用  &lt;code&gt;#&lt;/code&gt;  和  &lt;code&gt;##&lt;/code&gt;  ， &lt;code&gt;###&lt;/code&gt;  之后就不能用了。这在官方文档中被描述为「标题」和「子标题」。我个人的解读是官方觉得超过三级的标题就可以用新开一个 Page 来完成了，但在习惯使用 Markdown 语法之后，这确实是个挺影响体验的问题。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;引用由  &lt;code&gt;&amp;gt;&lt;/code&gt;  变成了  &lt;code&gt;&amp;quot;&lt;/code&gt; &lt;/strong&gt; ： &lt;code&gt;&amp;gt;&lt;/code&gt;  变成了一个 Toggle List，也就是折叠列表，而引用则变成了  &lt;code&gt;&amp;quot;&lt;/code&gt; 。此外，在段落的开头输入  &lt;code&gt;[]&lt;/code&gt;  可以创建待办事项。无序列表和有序列表则与普通 Markdown 没有区别。&lt;/p&gt;
+&lt;h4 id=&#34;富文本方面的小加成&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#富文本方面的小加成&#34;&gt;#&lt;/a&gt; 富文本方面的小加成&lt;/h4&gt;
+&lt;p&gt;Notion 还谨慎地支持了一小部分类似富文本的功能，这让 Markdown 中无法实现的许多功能也在 Notion 中实现了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;所见即所得&lt;/strong&gt;：Notion 直接砍掉了 Markdown 的预览模式，而所见即所得一直都是富文本的特征。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;多功能拖放&lt;/strong&gt;：Block 的最大好处可能就是拖拽了，上面已经讲过 Block 的拖拽方法。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;允许分列&lt;/strong&gt;：这是 Word 中比较的独特功能，在 Notion 中可以通过拖拽来快速实现列宽。仅限 PC 端，移动端查看时按顺序显示。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;字体颜色和背景色&lt;/strong&gt;：给 Block 的文字或是背景上色，来突出一些内容（不能同时生效）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;全文件类型支持&lt;/strong&gt;：想在笔记中插入其他附件时，普通 Markdown 编辑器通常只支持图片。而 Notion 编辑器支持图片、视频、音频、代码、网页书签、文件，而且每一样的体验都做的很不错。&lt;/p&gt;
+&lt;h4 id=&#34;关于图床&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关于图床&#34;&gt;#&lt;/a&gt; 关于图床&lt;/h4&gt;
+&lt;p&gt;Notion 有自己的图床，不支持自定义。用到图片时可能有两种情况：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果从本地上传文件，会把原图上传到 Notion 的图床。导出 Markdown 文件时，Markdown 中引用的是图片的相对地址，图片会被一起打包进压缩包。&lt;/li&gt;
+&lt;li&gt;如果从链接粘贴图片，会直接使用图片原链接。导出 Markdown 文件时，Markdown 中会直接引用图片原地址，不会打包进压缩包。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以大家自己在写作时，我推荐免费用户完全使用外部图床，节省容量空间；推荐付费用户从本地直接上传到 Notion 的图床，导出功能很完善。&lt;/p&gt;
+&lt;h4 id=&#34;你需要掌握这些快捷键-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#你需要掌握这些快捷键-2&#34;&gt;#&lt;/a&gt; 你需要掌握这些快捷键：&lt;/h4&gt;
+&lt;p&gt;Block 除了可以通过鼠标操作，还可以用这些快捷键来调整 Block（macOS 下将 Ctrl 替换为 Commend）：&lt;/p&gt;
+&lt;h5 id=&#34;选取-block&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#选取-block&#34;&gt;#&lt;/a&gt; &lt;strong&gt;选取 Block&lt;/strong&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;Esc 键：选中当前编辑的 Block，逻辑是退出编辑，进入 Block 操作。&lt;/li&gt;
+&lt;li&gt;Shift 键：多选 Block&lt;/li&gt;
+&lt;li&gt;选中 Block 时，↑ ↓ ← → 方向键：上下选取 Block&lt;/li&gt;
+&lt;li&gt;选中 Block 时，Ctrl + A：全选所有的 Block&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;对-block-操作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#对-block-操作&#34;&gt;#&lt;/a&gt; &lt;strong&gt;对 Block 操作&lt;/strong&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;选中 Block 时，Ctrl + D：复制一份 Block。&lt;/li&gt;
+&lt;li&gt;选中 Block 时，Ctrl + Enter：激活，可以用于按钮、选中、切换待办事项、或者进入全屏图片&lt;/li&gt;
+&lt;li&gt;选中 Page Block 时，Ctrl + Shift + R：重命名这个 Page&lt;/li&gt;
+&lt;li&gt;选中 Image Block 时，空格键：进入图片全屏浏览&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;格式方面&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;由于上面这些调整，再加上没有预览界面，使得在 Notion 中使用 Markdown 标记时显得不够友好。所以学会使用快捷键就变得很有必要了，我建议每一位 Norion 用户都熟练掌握这几个改变文字样式的快捷键。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ctrl + B：加粗文字&lt;/li&gt;
+&lt;li&gt;Ctrl + I：斜体文字&lt;/li&gt;
+&lt;li&gt;Ctrl + K：添加超链接&lt;/li&gt;
+&lt;li&gt;Ctrl + E：添加代码格式（同时变为等宽字体）&lt;/li&gt;
+&lt;li&gt;Ctrl + Shift + S：添加删除线&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;格式方面的调整，还可以选取文字后用鼠标在工具栏上进行。&lt;/p&gt;
+&lt;p&gt;这些快捷键是比较常用的，如果希望学习完整的快捷键，Notion 已经在官方文档中提供了所有的快捷键使用方法，你可以在页面的右下角的 &lt;strong&gt;？&lt;/strong&gt; 图标中看到 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubm90aW9uLnNvL3Bvd2VycGx1cy9LZXlib2FyZC1hbmQtTWFya2Rvd24tU2hvcnRjdXRzLTY2ZTI4Y2VjODEwNTQ4YzNhNDA2MTUxMzEyNjc2NmIw&#34;&gt;Tutorial &amp;amp; Guides&lt;/span&gt;。&lt;/p&gt;
+&lt;h4 id=&#34;为何-notion-要采用-block-形式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#为何-notion-要采用-block-形式&#34;&gt;#&lt;/a&gt; 为何 Notion 要采用 Block 形式？&lt;/h4&gt;
+&lt;p&gt;块状 + 动态的设计着实新颖，但越是基础的东西，人的使用习惯越是根深蒂固。这种形式前所未见，它的实际体验究竟如何？&lt;/p&gt;
+&lt;p&gt;许多人遇到的第一个问题就是 &lt;strong&gt;Notion 的门槛高&lt;/strong&gt;，与平日用的普通编辑器有太多不一样的地方。比如只支持到二级标题，Markdown 的许多语法不再靠符号来实现（更多的使用快捷键），再一看 Block 之间竟然不允许「跨段落选取」直接劝退…… 所以给人第一印象可能会比较差，「难用」往往是第一个贴上的标签。&lt;/p&gt;
+&lt;p&gt;但只要稍微了解一番快捷键，逐渐适应它的编辑器之后，就会&lt;strong&gt;有截然不同的感觉&lt;/strong&gt;。除了三四级标题仍然无法实现，大多数 Markdown 能做到的功能都能做到。网络服务的加持，让 Notion 的编辑器更是获得了质的提升，许多不曾想过的功能都可以在一个页面中实现。&lt;/p&gt;
+&lt;p&gt;那么为什么 Notion 要采用这种形式的编辑器呢？我个人认为有这几个原因：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;为了动态页面：Notion 希望展现的内容是动态的，直接采用纯文本或富文本编辑器无法支持这种内容动态显示，排除了使用传统编辑器的可能。&lt;/li&gt;
+&lt;li&gt;为了规范文本：如果内容是动态的，就很难保证用户不会在段落内随意插入一些组件（比如代码段里加一个视频文件），引起结构的混乱。需要 Block 来规范文本内容，禁止这种情况的出现。&lt;/li&gt;
+&lt;li&gt;为了兼容性：独有格式之所以不受欢迎，是因为不通用，难以导入导出（比如印象笔记的 .enex 格式）。Notion 在这点上选择了完全放弃独有格式，尽可能去兼容 Markdown、Word、Excel 等传统格式。这是出于兼容性和通用性的考虑。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;所以，我认为 Notion 的编辑器完全称得上是一款新时代编辑器，为了深度结合网页的动态效果而诞生的动态编辑器。至于 Block，或许只是妥协的产物，是为了兼容老格式而采取的一种措施，可拖动、可排版则是附带的优势。&lt;/p&gt;
+&lt;h3 id=&#34;database数据库而非表格&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#database数据库而非表格&#34;&gt;#&lt;/a&gt; Database：数据库而非表格&lt;/h3&gt;
+&lt;h3 id=&#34;这个表格不一般&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#这个表格不一般&#34;&gt;#&lt;/a&gt; 这个表格不一般&lt;/h3&gt;
+&lt;p&gt;许多人第一眼看到 Notion 的 Database 功能下意识的认为这是表格，但在实际使用时又觉得不是那么一回事。这个表格既不是 Markdown 下那种简陋的字符表格，也不同于 Word 和 Excel 中的多功能表格。&lt;/p&gt;
+&lt;p&gt;我们习惯中新建表格时除了方方正正的格子之外别无他物。而 Notion 中的 Databse 不仅可以单独使用，还能添加其他的视图，当做看板、列表甚至是日历来用。感叹表格功能强大之余又有些疑惑，这个表格怎么和我们习惯上的表格差别这么大？&lt;/p&gt;
+&lt;h3 id=&#34;实际上是数据库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#实际上是数据库&#34;&gt;#&lt;/a&gt; 实际上是数据库&lt;/h3&gt;
+&lt;p&gt;实际上，Notion 的 Database 更像是一个数据库，将其理解为「表格」是一种误读。数据都在数据库中，表格只能算是其中的一种表现形式。&lt;/p&gt;
+&lt;p&gt;Database 可以有 5 类视图：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Table：表格形式，类似于 Airtable 表格，便于做数据统计。每一行都可以单独打开变成一个 Page，添加更多的内容。&lt;/li&gt;
+&lt;li&gt;Board：看板形式，类似于 Trello 看板，便于任务分配、分类。卡片中的选项可以完全由自己定义，看板的分组也可以用选项来改变。&lt;/li&gt;
+&lt;li&gt;Gallery：画廊形式，便于查看多张卡片中的开头部分，可以在卡片开头添加一些概要内容。&lt;/li&gt;
+&lt;li&gt;List：列表形式，便于查看一部分关键性的信息，比如只显示名称和进度，来明确任务的进度。&lt;/li&gt;
+&lt;li&gt;Calendar：日历形式，便于查看时间相关的信息，可以在日历上按时间顺序查看任务。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在使用时，Database 有 3 种表现形式，覆盖了大多数可能遇到的情况：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Full Page Databse：整页数据库。就像 Excel 一样，整个页面就是一个数据库。&lt;/li&gt;
+&lt;li&gt;Inline Database：段落内数据库。则像是在 Word 中插入的表格一样，可以在文章中间放一个表格或是日历。&lt;/li&gt;
+&lt;li&gt;Create Linked Database：连接到现有数据库。同样是在 Word 中插入表格，但内容是调用现有的 Database 中的数据，通过过滤和筛选来使用其中的一部分数据。在文章中修改时，也会对原有的 Database 数据进行修改。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;筛选-排序-搜索-隐藏列一个都不少&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#筛选-排序-搜索-隐藏列一个都不少&#34;&gt;#&lt;/a&gt; 筛选、排序、搜索、隐藏列，一个都不少&lt;/h3&gt;
+&lt;p&gt;在右上方，可以对表格内容进行筛选、排序、搜索和隐藏特定列。&lt;/p&gt;
+&lt;p&gt;相比在 Word 中做表格，在 Notion 文章内的表格同样具备完整的功能，使用体验高度一致。&lt;/p&gt;
+&lt;h2 id=&#34;import导入全类型文档&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#import导入全类型文档&#34;&gt;#&lt;/a&gt; Import：导入全类型文档&lt;/h2&gt;
+&lt;p&gt;不过，正是因为 Notion 的设计如此超前，最初使用 Notion 的用户常常会一头雾水，冒出许多问题：「为什么在 Pages 里还能再新建一个 Pages？编辑的时候怎么是一块一块的？这是 Markdown 还是富文本？」…… 这种对工具的陌生感发生在我身边的许多人身上。&lt;/p&gt;
+&lt;p&gt;相信许多人在认识 Notion 之前，已经有一部分文档了。为了减少从头学起的陌生感，我们可以先从历史文档中导入一部分，然后逐渐深入。&lt;/p&gt;
+&lt;p&gt;你可以在空白 Page 中选择 Import，也可以在右上角的「…」中选择 Import 来导入文档。&lt;/p&gt;
+&lt;p&gt;Notion 的导入支持 5 种基础格式： TXT、Markdown、CSV（Excel）、Word、HTML，以及 7 种服务：Trello、Asana、Google Docs、Dropbox Paper、Quip、Evernote、Workflowy。由此可见，Notion 主要支持的文件类型是&lt;strong&gt;纯文本、富文本、表格、列表，以及 Trello 独有的看板&lt;/strong&gt;，支持批量导入。&lt;/p&gt;
+&lt;p&gt;除了不支持 PPT 和 PDF 导入之外，该有的导入功能都有了。当然，你也可以把 PPT 和 PDF 作为附件添加在页面中。&lt;/p&gt;
+&lt;p&gt;导入之后也先别急着高兴，Notion 尽可能地对多种格式进行了兼容，但对 Markdown 和 Word 格式仍然有一定的要求，主要表现为「Markdown 的双回车换行」和「Word 大纲级别」等要求，一级标题会变成 #，二级和更高的标题级别都会变成 ##。&lt;/p&gt;
+&lt;p&gt;如果你的文档格式一团糟，Notion 是无法识别的。如果遇到了这种问题，可以通过转换工具格式化一下，用更标准的 Markdown 导入。&lt;/p&gt;
+&lt;h2 id=&#34;template组合无限可能&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#template组合无限可能&#34;&gt;#&lt;/a&gt; Template：组合无限可能&lt;/h2&gt;
+&lt;p&gt;Notion 的开发团队在官方帮助文档中提到了这样一句话：使用数据库的最大障碍是想象力。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The biggest hurdle when it comes to using databases is one of imagination.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;没错，只要合理的使用 Notion 中的各个模块，你就能发现它几乎可以实现无限多的需求。仅仅是官方的内置模板就有 19 种之多，涉及到工作的方方面面。&lt;/p&gt;
+&lt;p&gt;这些 Template 不仅制作精美，使用方便，还能起到开拓使用思路的作用。&lt;/p&gt;
+&lt;p&gt;这里也有一些实用的模板：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;博客文章：利用 Notion 的分栏功能，轻松排版出一篇图文并茂的博客文章。&lt;/li&gt;
+&lt;li&gt;每周议程：把一页分栏成五列，分别安排周一到周五的任务。&lt;/li&gt;
+&lt;li&gt;阅读清单：在数据库中添加希望阅读的书籍、链接、概述、作者，来督促自己看书、实时记录读书笔记、查阅阅读进度都是不错的选择。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果你正在初次上手 Notion，我非常建议先去看一看这些模板的使用方法，可以帮助你更快的熟悉它的方方面面。&lt;/p&gt;
+&lt;h2 id=&#34;web纯网页应用的胜利&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#web纯网页应用的胜利&#34;&gt;#&lt;/a&gt; Web：纯网页应用的胜利&lt;/h2&gt;
+&lt;p&gt;在这方面，Notion 其实和 Slack 一样，是一个纯网页应用。你会发现网页端的界面和客户端的界面几乎是完全一致的，也就是我们常说的套壳应用。&lt;/p&gt;
+&lt;p&gt;纯 Web 应用让 Notion 轻易地&lt;strong&gt;完成了全平台客户端的设计&lt;/strong&gt;，支持 macOS、Windows、Android、iOS，&lt;strong&gt;而且优化做的相当不错&lt;/strong&gt;，实现了完全一致的操作逻辑。在不同系统的设备上登录、写作、排版都有着一致的体验，这在人人都有 2 个以上设备的今天是一件非常重要的事情，有效降低了学习的成本。&lt;/p&gt;
+&lt;p&gt;就我个人而言，我很少在手机上大篇幅写作的原因主要是&lt;strong&gt;效率低下&lt;/strong&gt;。手机屏幕小，电脑上轻松完成的排序、加图，手机上都可能要戳好多下才能完成，相当低效。但在 Notion 中就异常高效，在手机上也可以对段落进行拖拽排列，插入附件。而且电脑版跟手机版的显示效果几乎完全一致，当我想到一些细节需要补充时，打开手机就可以直接调整段落顺序、增补内容。&lt;/p&gt;
+&lt;p&gt;Notion 的看板功能和 Trello 较为相似，它也能像 Trello 一样实现拖拽管理卡片、添加组员和日期的功能。但和 Trello 相比，Notion 缺少了订阅、归档等团队协作常用的功能。&lt;/p&gt;
+&lt;h2 id=&#34;目前尚存的一些问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#目前尚存的一些问题&#34;&gt;#&lt;/a&gt; 目前尚存的一些问题&lt;/h2&gt;
+&lt;p&gt;尽管我很喜欢 Notion，有时也不得不承认还有不完善的地方，而且问题还不小，最主要的问题是以下三点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;不支持剪藏：与印象笔记的方向不同，Notion 不以网页剪藏为主要目的。&lt;/li&gt;
+&lt;li&gt;不支持自动化：Notion 不支持 IFTTT 等自动化功能，只有一个「打开」的 URL Scheme。&lt;/li&gt;
+&lt;li&gt;本地存储功能糟糕：由于是纯 Web 应用，只能通过「导出」把文件存到本地。没有网络时只能查看当前正在编辑，或者近期打开过的少量文档。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;那么这三个问题该怎么解决？这里也给出我的建议。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;如果你更希望用剪藏，那还是印象笔记类的工具更适合你。&lt;/li&gt;
+&lt;li&gt;自动化方面，我目前在同时使用印象笔记和 Notion，一个专门负责剪藏，一个专门产生内容。利用好印象笔记的 API 就可以了，两者其实并不冲突。&lt;/li&gt;
+&lt;li&gt;离线问题，在我的使用过程中，我发现彻底没网的情况其实很少，手机 4G 流量也是逐年增多，着急时开个热点其实用不了太多流量。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;当然，如果真的经常需要在无网环境下使用，非常重视离线，不离线很多工作无法完成，那就不建议迁移了，有许多笔记应用在这方面做得更好。&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#总结&#34;&gt;#&lt;/a&gt; 总结&lt;/h2&gt;
+&lt;p&gt;Notion 就像是一本精致的手账，它不像论文那么严肃，也不像日记一样随性。比纯文本多了一份个性，比富文本少了一份复杂。既兼容了老的文档，又诞生了新的规则。&lt;/p&gt;
+&lt;p&gt;我一直相信，选择工具的关键在于找准工具的特性，Notion 的特性就是&lt;strong&gt;兼容性强、功能丰富、整合完善&lt;/strong&gt;，兼具广度和深度。从简单记事到写作长文，从创建表格到数据仓库，从规范文档到项目管理，种种功能都能在 Notion 中以不同的形式实现。我想，这就是 Notion 的魅力所在。&lt;/p&gt;
+&lt;p&gt;Notion 的概念之领先，近乎一款来自未来的工具。在各类工具百花齐放的今天，它依旧能采各家之所长，走出自己的独特道路，实属难能可贵。&lt;/p&gt;
+&lt;p&gt;除了任务管理，你可以用 Notion 的看板做点別的事，比如用不同的看板表示家中不同的收纳空间来记录物品位置、或者整理阅读清单等等。&lt;/p&gt;
+&lt;h3 id=&#34;表格&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#表格&#34;&gt;#&lt;/a&gt; 表格&lt;/h3&gt;
+&lt;p&gt;在 Notion 的表格中，每一列的列首决定该列的属性，可选的属性有文字、数字、单选、多选、日期、成员等，你可以利用这些属性中的一个或多个表格内容进行排序和筛选。表格支持简单的数据处理，比如计数、计算时间跨度、加总等。&lt;/p&gt;
+&lt;p&gt;表格也贯彻了它「无限层级」的设计理念，表格中的每一行都可以展开为一个空白页，以便补充更多细节内容。&lt;/p&gt;
+&lt;h3 id=&#34;日历&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#日历&#34;&gt;#&lt;/a&gt; 日历&lt;/h3&gt;
+&lt;p&gt;你还可以在 Notion 中插入日历，在相应日期上点击即可添加事件，事件可以发生在一天，也可以通过添加终止时间横跨某一个期间段。&lt;/p&gt;
+&lt;p&gt;可惜的是，Notion 的日历不支持与第三方服务同步，也不能订阅，它的用途更多是作为笔记中的时间索引，帮你更好地将一个时间段内的任务串联起来。&lt;/p&gt;
+&lt;p&gt;值得一提的是，表格、看板和日历功能在 Notion 不是相互独立的三部分，它们可以相互进行转换，为一个项目提供不同的视角。&lt;/p&gt;
+&lt;p&gt;只要点击左上角的「view」，都可以将当前视图转换成另两种视图。举个例子，当你将一个表格转换成看板视图后，表格中的每一行都会转换成看板中的一张卡片，看板视图中的变化与表格是联动的，如果你在看板视图中将一张 Tag 为「iOS」的卡片拖到了「Android」群组，该张卡片的属性会变成「Android」，在日历视图中亦然。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关联阅读：&lt;/strong&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zc3BhaS5jb20vcG9zdC81MjE3Ng==&#34;&gt;Notion 使用详解：来自未来的笔记协作工具&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;实用模版&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#实用模版&#34;&gt;#&lt;/a&gt; 实用模版&lt;/h2&gt;
+&lt;p&gt;要说谁最了解 Notion，那么答案肯定是它自己。Notion 提供了涵盖了从个人生活到团队协作等各方面的模板，对 Notion 功能也应用得十分深入，方便我们可以直接套用。&lt;/p&gt;
+&lt;p&gt;&amp;gt; &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubm90aW9uLnNvL05vdGlvbi1UZW1wbGF0ZS1HYWxsZXJ5LTE4MWU5NjFhZWI1YzRlZTY5MTUzMDdjMGRmZDUxNTZk&#34;&gt;Notion 官方模版库&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;个人团队主页personalteam-home&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#个人团队主页personalteam-home&#34;&gt;#&lt;/a&gt; 个人 / 团队主页：Personal/Team Home&lt;/h3&gt;
+&lt;p&gt;如果你想将 Notion 打造为自己的工作区，你肯定希望所有页面都能井井有条地整理好，在你需要时，可以迅速找到特定页面。这时候，一个可以将所有页面分门别类放置好的主页显得尤为重要。&lt;/p&gt;
+&lt;p&gt;Notion 官方为我们分别准备了 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubm90aW9uLnNvL1BlcnNvbmFsLXdvcmtzcGFjZS1hZTcwYWQwZjNjNDY0MDA5OTJkYzFkYWFiZmJiMTkyNw==&#34;&gt;个人主页&lt;/span&gt; 和 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubm90aW9uLnNvL1RlYW0taG9tZS00MGU4MDE0ZjI5M2E0Y2M3YmYwODJlNzIzMTk5M2Y1OA==&#34;&gt;团队主页&lt;/span&gt; 的模板，我们可以参照它来布局自己的 Notion 主页。&lt;/p&gt;
+&lt;p&gt;这个模板的原理并不复杂，仅仅是用标题（Header）和页面（Page）将不同类别的页面归纳好，让你的工作区变得更有条理。主页模板的用法也非常简单，只要按照一定的格式将页面整理好，就能得到一个井井有条的主页。&lt;/p&gt;
+&lt;h3 id=&#34;追踪游戏进度video-game-tracker&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#追踪游戏进度video-game-tracker&#34;&gt;#&lt;/a&gt; 追踪游戏进度：Video Game Tracker&lt;/h3&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubm90aW9uLnNvL1ZpZGVvLWdhbWUtdHJhY2tlci03YWRlZTlkOGYwMmQ0ODU3OTNmZDQ1MDNiNjBlNTkxZA==&#34;&gt;Video Game Tracker&lt;/span&gt; 是一款来自社区的优秀模板，它可以用于追踪游戏的进度。除了游戏外，你也可以用它来追踪正在看的电影、书籍。随着《复仇者联盟 4：终局之战》的上映，不妨用这个模板来追踪自己补电影的进度。&lt;/p&gt;
+&lt;p&gt;要在画廊中添加内容，只要点击右上角的「新建」（New），随后在弹出的窗口中填写游戏所在的平台、价格等信息即可完成将卡片收入画廊。如果你想用它来追踪阅读进度，也可以通过「添加类目」（Add a Property）来自定义模板。&lt;/p&gt;
+&lt;p&gt;这个模板用到了 Notion 的「画廊」（Gallery）功能，它可以让我们快速查看多张卡片的概要内容。配合封面图，你可以一目了然地分辨出不同卡片的内容。画廊也支持添加过滤选项，我们可以把所有卡片按照特定的规则筛选出来。你可以在画廊右上角的菜单键中找到「过滤器」（Filter）的选项，并创建自己的过滤规则。&lt;/p&gt;
+&lt;h3 id=&#34;人际关系管理intentional-relationship-aid&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#人际关系管理intentional-relationship-aid&#34;&gt;#&lt;/a&gt; 人际关系管理：Intentional Relationship Aid&lt;/h3&gt;
+&lt;p&gt;在当今社会，人与人之间的关系逐渐疏远。我们的微信里添加了许多好友，可真正有交集的却寥寥无几。&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubm90aW9uLnNvL0ludGVudGlvbmFsLXJlbGF0aW9uc2hpcC1haWQtYTYyNjFkY2IwNjNhNGY3MDk3OWQzMjM0YmVmNWZjMDM=&#34;&gt;Intentional Relationship Aid&lt;/span&gt; 是用于管理人际关系的一个模板，它可以帮助我们清晰地查看到自己与好友的互动情况。&lt;/p&gt;
+&lt;p&gt;这个模板用到了 Notion 的表格（Table）及函数功能（Formula），表格可以让我们清晰地看到所有好友的姓名、关系和联系频率等信息。每一行代表一个好友，点击好友名称即可打开一个单独的页面，你可以在这里添加好友的联系方式或是照片。&lt;/p&gt;
+&lt;p&gt;这个模板还通过函数做出了「近期联系的可能性」及「多久联系一次」的推算，它将根据你为好友设置的联系频率和上次联系时间进行运算。作者将具体函数放在了模板中，你可以查看并根据自己的需求进行修改。&lt;/p&gt;
+&lt;h3 id=&#34;个人财务管理personal-finances&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#个人财务管理personal-finances&#34;&gt;#&lt;/a&gt; 个人财务管理：Personal Finances&lt;/h3&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubm90aW9uLnNvL1BlcnNvbmFsLWZpbmFuY2VzLTMyZGY3NmEzYTY5MDRjNmY5ZTU4OGYzNGQ5N2U1YTEx&#34;&gt;Personal Finances&lt;/span&gt; 是一款个人财务管理的模板。你不需要拥有相关知识，只需要按照自己的需求对它的内容进行简单修改，就能得到一个自己的财务管理页面。&lt;/p&gt;
+&lt;p&gt;这个模板分为三个部分：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;文字信息&lt;/strong&gt;：用于放置消费目标、超支金额等文字内容。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;消费流水&lt;/strong&gt;：以日历形式呈现每日的消费流水，可以清晰查看到消费内容与金额。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;每月消费&lt;/strong&gt;：以看板形式呈现每月消费，可以根据分类进行过滤筛选。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;你可以随意修改文字信息，用它来做一个简单的消费计划。要添加消费流水，只需要点击日历右上角的「添加」，随后填入金额、日期等信息即可。你还可以选择消费的方式，比如订阅、预付费或是一次性付费。&lt;/p&gt;
+&lt;p&gt;Personal Finances 模板用到了日历（Calendar）及看板（Board）功能，让我们可以通过不同的方式查看到自己的消费情况。即使你不需要进行财务管理，也可以学习它的思路，打造一个集合日历与看板的任务管理工具。&lt;/p&gt;
+&lt;h3 id=&#34;目标进程追踪okrs&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#目标进程追踪okrs&#34;&gt;#&lt;/a&gt; 目标进程追踪：OKRs&lt;/h3&gt;
+&lt;p&gt;OKR（Objectives and Key Results，即目标与关键成果法）是用于跟踪目标的工作法，许多团队都会用它来明确自己的目标及关键成果。&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubm90aW9uLnNvL09LUnMtMzJjZjBkMzkyM2U1NDVkZmJlNDVlNDE1YTY3NWVjZTE=&#34;&gt;OKRs&lt;/span&gt; 就是根据 OKR 工作法所制作的 Notion 模板。&lt;/p&gt;
+&lt;p&gt;OKRs 通过行内表格的方式来实现目标管理，点击项目名称即可设置目标的参数。设置完成后，你可以在表格中看到当前的数值和完成进度，你也可以随时修改当前数值，进度会自动随之改变。&lt;/p&gt;
+&lt;p&gt;OKRs 比较亮眼的一点是它用到了模板按钮（Template Button），你只需要点击「添加 OKR」即可快速添加一个新的表格，而不用从头创建新的表格。模板按钮可以用于快速创建模板化的内容，十分方便。&lt;/p&gt;
+&lt;h3 id=&#34;看板式任务管理tasks-and-issues&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#看板式任务管理tasks-and-issues&#34;&gt;#&lt;/a&gt; 看板式任务管理：Tasks and Issues&lt;/h3&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubm90aW9uLnNvL1Rhc2tzLWFuZC1pc3N1ZXMtOTYzMDI1ZjVjNWQ5NDNkOWE2MWRlOTA4M2QyY2MyMTM=&#34;&gt;Tasks and Issues&lt;/span&gt; 是 Notion 官方提供的一个看板式任务管理模板，如果你用过 Trello 或 Teambition，相信你对这个模板不会陌生。看板式任务管理可以让我们更加清晰地看到每个任务的执行情况。&lt;/p&gt;
+&lt;p&gt;这个模板不但支持对任务进行分类管理，还支持多人协作，你可以将任务分配给相应的同事。此外，你也可以通过自带的过滤器来筛选出分配给自己的任务。你也可以将其打造成自己的任务管理系统，时刻追踪任务完成情况。&lt;/p&gt;
+&lt;p&gt;在看板的时间设置中，你也可以添加提醒，让自己不再错过重要的任务。&lt;/p&gt;
+&lt;h3 id=&#34;会议记录meeting-notes&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#会议记录meeting-notes&#34;&gt;#&lt;/a&gt; 会议记录：Meeting Notes&lt;/h3&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubm90aW9uLnNvL01lZXRpbmctbm90ZXMtMjFmMThiOTEyY2ExNDgyN2JjNWM2MjFkNTIwMjQ2Y2M=&#34;&gt;Meeting Notes&lt;/span&gt; 是一个会议记录的模板，它将以列表的形式把会议记录整理起来，你可以清晰地看到与具体会议相关的人员、部门。每一个会议都是一个单独的页面，你可以在页面中进行会议记录和归纳。&lt;/p&gt;
+&lt;p&gt;会议记录同样支持过滤，你可以按照部门、时间等条件筛选出符合规则的记录。除了套用这个模板进行会议记录外，我们也可以在这个模板的范例里学习到一些会议记录的方式和技巧。&lt;/p&gt;
+&lt;p&gt;除了 Notion 官方模版库，也有用户为 Notion 建立了第三方模版库。如果你想找到更多关于 Notion 的实用模版，可以阅读我们之前的介绍文章：&lt;/p&gt;
+&lt;p&gt;&amp;gt; &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zc3BhaS5jb20vcG9zdC81NDE0OA==&#34;&gt;用好这些实用模板，把 Notion 打造成全能助理&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;工具实例&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#工具实例&#34;&gt;#&lt;/a&gt; 工具实例&lt;/h2&gt;
+&lt;p&gt;如果在了解 Notion 的基础功能以及模版之后，你仍然不知道能用 Notion 做什么事，不妨跟着下面几个实例实现几个实用小工具，学习其他人的 Notion 使用思路和技巧。&lt;/p&gt;
+&lt;h3 id=&#34;打造个性化-notion-进度条&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#打造个性化-notion-进度条&#34;&gt;#&lt;/a&gt; 打造个性化 Notion 进度条&lt;/h3&gt;
+&lt;p&gt;先来试试用 Notion 实现展示年时间进度条的工具，在这个实例中，我们需要用到计算日期已经过去多久的函数，整个进度条是由十个方块■组成，一个方块■代表 10%，0 – 10% 就占一个方块■，11% – 20% 就占两个方块■■，以此类推。&lt;/p&gt;
+&lt;p&gt;比如，今年已经过去 180 天，经过计算，我们可以得出今年已经走完了 180 / 365 = 49%，49% 在 41% – 50% 之间，占用五个方块，显示效果为「■■■■■ 49%」。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关联阅读：&lt;/strong&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zc3BhaS5jb20vcG9zdC81Njc3Nw==&#34;&gt;Notion 还能这么玩：手把手教你打造个性化进度条&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;学会使用-notion-分栏&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#学会使用-notion-分栏&#34;&gt;#&lt;/a&gt; 学会使用 Notion 分栏&lt;/h3&gt;
+&lt;p&gt;虽然说是介绍 Notion 分栏功能使用场景的实例，但是这里还会介绍更多串联 Database 一些 Notion 用法，能够帮助你真正地在实际使用过程中用好这项功能。&lt;/p&gt;
+&lt;p&gt;在 Notion 分栏功能的使用实例中，你会了解到这些内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;丰富内容排版，让文章增添一些「生气」：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;系统性地整合视频的笔记内容以及与多人协作翻译文档：&lt;/p&gt;
+&lt;p&gt;总而言之，你只需要将 Notion 想象成积木一样，你可以自由地组合其中的内容，组合它为你提供的各种 Block，这些小工具的实现其实没有你想的那么难。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关联阅读：&lt;/strong&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zc3BhaS5jb20vcG9zdC81NzExMA==&#34;&gt;你也可以做出好看的排版：三个场景玩转 Notion 分栏&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;制作个人数据库管理订阅服务&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#制作个人数据库管理订阅服务&#34;&gt;#&lt;/a&gt; 制作个人数据库，管理订阅服务&lt;/h3&gt;
+&lt;p&gt;这个小工具利用了 Notion 的数据库功能，让我们通过制作一个小工具，方便地管理我们的订阅服务，以便及时取消不需要的服务或者进行续费。&lt;/p&gt;
+&lt;p&gt;通过学习这个实例，你可以了解到这些内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;从零开始制作订阅服务管理库，包含激活码管理、素材教程管理、续费提醒功能等。&lt;/li&gt;
+&lt;li&gt;快速组织个人电脑配置清单。&lt;/li&gt;
+&lt;li&gt;Notion Database 基础使用教程。&lt;/li&gt;
+&lt;li&gt;Notion Database 模板使用教程。&lt;/li&gt;
+&lt;li&gt;Notion formula 实践。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;当然，这个小工具只是作为一个 Notion 使用思路的参考，你也可以利用 Notion 的数据库功能实现其它需求，比如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;管理服务器、SSL 到期、物品打折提醒等。&lt;/li&gt;
+&lt;li&gt;集合笔记，方便随时管理。&lt;/li&gt;
+&lt;li&gt;制作 CRM、邮寄清单。&lt;/li&gt;
+&lt;li&gt;借助 Notion 便捷的协作分享功能，提高不会编程的用户的效率。&lt;/li&gt;
+&lt;li&gt;……&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;关联阅读：&lt;/strong&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zc3BhaS5jb20vcG9zdC81NzMzNw==&#34;&gt;避免多花冤枉钱，用 Notion 管理你的订阅服务&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;从功能介绍到应用实例，不知道你学会如何使用 Notion 了吗？如果你想了解更多关于 Notion 的使用方法和技巧，欢迎阅读少数派为你准备的 Notion 专题：&lt;/p&gt;
+&lt;p&gt;🔗 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zc3BhaS5jb20vdG9waWMvMjY3&#34;&gt;如何玩转 Notion&lt;/span&gt;&lt;/p&gt;
+</content>
+        <category term="Notion" />
+        <updated>2020-09-21T14:14:29.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://whitebear7396.top/Learning%20notes/Hexo%E7%9F%A5%E8%AF%86%E7%82%B9/</id>
+        <title>Hexo知识点</title>
+        <link rel="alternate" href="http://whitebear7396.top/Learning%20notes/Hexo%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+        <content type="html">&lt;h1 id=&#34;hexo知识点&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo知识点&#34;&gt;#&lt;/a&gt; Hexo 知识点&lt;/h1&gt;
+&lt;h2 id=&#34;hexo更新与主题升级&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo更新与主题升级&#34;&gt;#&lt;/a&gt; hexo 更新与主题升级&lt;/h2&gt;
+&lt;h3 id=&#34;检查&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#检查&#34;&gt;#&lt;/a&gt; 检查&lt;/h3&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm outdated&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;用于查看当前有哪些软件包已过期&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;Package                          Current  Wanted  Latest  Location&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hexo                               5.1.1   5.2.0   5.2.0  hexo-site&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hexo-renderer-marked               3.1.0   3.3.0   3.3.0  hexo-site&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hexo-renderer-multi-markdown-it   0.0.13  0.0.13   0.1.3  hexo-site&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hexo-renderer-stylus               2.0.0   2.0.1   2.0.1  hexo-site&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;packag：包名&lt;/p&gt;
+&lt;p&gt;current: 当前&lt;/p&gt;
+&lt;p&gt;wanted：想要&lt;/p&gt;
+&lt;p&gt;lates：最新的&lt;/p&gt;
+&lt;p&gt;location：位置&lt;/p&gt;
+&lt;h3 id=&#34;升级&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#升级&#34;&gt;#&lt;/a&gt; 升级&lt;/h3&gt;
+&lt;h4 id=&#34;升级core-js尾数3代表版本&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#升级core-js尾数3代表版本&#34;&gt;#&lt;/a&gt; 升级 core-js，尾数 3 代表版本&lt;/h4&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm install --save core-js@^3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h4 id=&#34;升级npm版本&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#升级npm版本&#34;&gt;#&lt;/a&gt; 升级 npm 版本&lt;/h4&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm install -g npm&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+</content>
+        <category term="知识点" />
+        <category term="Hexo" />
+        <updated>2020-09-08T14:14:29.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://whitebear7396.top/Learning%20notes/Shoka%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/</id>
+        <title>Shoka博客网站搭建</title>
+        <link rel="alternate" href="http://whitebear7396.top/Learning%20notes/Shoka%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/"/>
+        <content type="html">&lt;p&gt;&lt;img data-src=&#34;https://baisedeeji.coding.net/p/blog_img/d/blog_img/git/raw/master/img/20200908210255.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;h1 id=&#34;创建博客缘由&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#创建博客缘由&#34;&gt;#&lt;/a&gt; 创建博客缘由&lt;/h1&gt;
+&lt;p&gt;         新奇的事物总是能给人带来惊喜，我超爱的！！！博客作为互联网时代初期的产物，听上去现在是有些老古董了，可是这也太好玩了吧！！！而且他有着独特的味道，想一想几年之后翻看博客，一篇篇文章条理清晰，脉络框架完整，还不用担心那一天就会被和谐，虽然互动很少，但是能沉下心来看的，便是知己，这可比某些社交平台好多了，现在的网络喷子啊，以前是小米加步枪，现在是加特林，哒哒哒。有时候一天好心情就没有了，可恶啊。可惜之后便被后浪打翻在地，移动设备终端的普及，社会节奏的加快，至少在我印象中，身边使用博客的几乎没有。相比较于现在流行的微博、微信之类的，我更喜欢慢一点的节奏，慢下来才能去思考，&lt;strong&gt;你如果仍然试图通过互联网来寻求表达思想、帮助思考，依然会愿意认真对待言论的话，那么你需要去减少阅读、撰写短内容而尝试长内容，因为碎片化的知识始终无法取代系统化的学习。&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&#34;博客搭建过程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#博客搭建过程&#34;&gt;#&lt;/a&gt; 博客搭建过程&lt;/h1&gt;
+&lt;p&gt;         之前也尝试过博客的搭建，可是由于太过于繁琐，~~（主要还是懒，一个拖延症晚期，这篇文章拖了半个月）~~ 这几天在网上学习白嫖云函数（云函数超棒的！每天白嫖很快乐啊），偶然间在 CDSN 上面看到了一篇文章关于了 Hexo 搭建博客的过程，相逢恨晚啊，恨晚！！！一看日期还是 15 年的时候就已经发布了，优秀的人太多了，吾辈当自强。&lt;/p&gt;
+&lt;h2 id=&#34;博客的搭建&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#博客的搭建&#34;&gt;#&lt;/a&gt; 博客的搭建&lt;/h2&gt;
+&lt;p&gt;其实现在网上的资源已经足够多了了，我真的不敢班门弄斧，大家所欠缺的只是一点点思路，而我刚好能能帮你们节省一点鼠标耐久度，就放几个我在搭建过程中参考的链接，里面写的超级详细，实际操作起来行云流水，我试过了是没有什么问题的。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d2EubGFuem91cy5jb20vYjAwdHRtbjlp&#34;&gt;Git 和 Node 的蓝奏云链接&lt;/span&gt;          密码：5qkz（节省大家去网站上下载的时间）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly94dWFud28uaW8vMjAxNS8wMy8yNi9oZXhvLWludG9yLw==&#34;&gt;史上最详细的 Hexo 博客搭建图文教程&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0FpblVzZXIvYXJ0aWNsZS9kZXRhaWxzLzc3NjA5MTgwP3V0bV9tZWRpdW09ZGlzdHJpYnV0ZS5wY19yZWxldmFudC5ub25lLXRhc2stYmxvZy1CbG9nQ29tbWVuZEZyb21NYWNoaW5lTGVhcm5QYWkyLTEuY2hhbm5lbF9wYXJhbSZhbXA7ZGVwdGhfMS11dG1fc291cmNlPWRpc3RyaWJ1dGUucGNfcmVsZXZhbnQubm9uZS10YXNrLWJsb2ctQmxvZ0NvbW1lbmRGcm9tTWFjaGluZUxlYXJuUGFpMi0xLmNoYW5uZWxfcGFyYW0=&#34;&gt;hexo+github 搭建个人博客 (超详细教程)&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9mOGI4N2M5NjUwZDI=&#34;&gt;hexo 干货系列：（一）hexo+gitHub 搭建个人独立博客&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3JvZ2VyZHVkbGVyLmdpdGh1Yi5pby9naXQtZ3VpZGUvaW5kZXguemguaHRtbA==&#34;&gt;git - 简明指南&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;:::note info&lt;br /&gt;
+ 强烈吐槽：搭建博客千万不要放到 github 上面去，可以放但是没必要，放了也需要 jsDelivr 加速，这玩意至少我现在还没弄懂。我一开始就是放在 github 上面，可是打开很慢，有的时候还会链接打不开～～（404 警告）~~，推荐国内的代码存放仓库，&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3huLS1jb25kaW5nLWkyMm1zNTdrLm1l&#34;&gt;比如 conding.me&lt;/span&gt;（码云）之类的，如果你不小心已经上传到了 github，没关系下面还会有教程帮助你换仓库的。&lt;br /&gt;
+:::&lt;/p&gt;
+&lt;h2 id=&#34;主题的选择&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#主题的选择&#34;&gt;#&lt;/a&gt; 主题的选择&lt;/h2&gt;
+&lt;p&gt;         Hxeo 官方主题仓库存放了相当多的主题了，各种类型的都有，下载使用也很简单，还有一些民间大神的主题安装教程，不怕你不喜欢，就怕太多你挑不过来，小孩子才做选择，大人我全都要。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL3RoZW1lcy8=&#34;&gt;Hxeo 官方主题&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9kZjE5YmI1MWM2ZWE=&#34;&gt;hexo 干货系列：（二）hexo 主题下载及配置&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zaG9rYS5sb3N0eXUubWUvY29tcHV0ZXItc2NpZW5jZS9ub3RlL3RoZW1lLXNob2thLWRvYy8=&#34;&gt;Hexo 主题 Shoka &amp;amp; multi-markdown-it 渲染器使用说明&lt;/span&gt;&lt;br /&gt;
+我的这个主题是在仓库里面找到的一个，链接就是这个安装方法在他的主页上面也有。我现在还不太会，后期会逐步修改，可不能抄袭。~~ 学不会&lt;sub&gt;学不会&lt;/sub&gt;～&lt;br /&gt;
+:::note info&lt;br /&gt;
+ 选主题的时候要慎重，虽然说之后你还是可以修改主题，可是随着你发布的文章越来越多，之后修改起来的难度也会越来越大，而且作为新手，在前期我连代码都看不懂，只能看一步做一步，然后在给自己备注一下，后悔当初怎么就没有好好学英语呢！！！现在看代码都是用有道云去翻译，作孽啊。&lt;br /&gt;
+:::&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;域名的选择&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#域名的选择&#34;&gt;#&lt;/a&gt; 域名的选择&lt;/h2&gt;
+&lt;p&gt;         我是直接去阿里云上面买的，理由就是阿里云可以用支付宝直接登录，不需要多余的注册，过程也很简单，但是有一点要注意，购买域名需要实名认证及审核，我差不多是网上 8 点提交申请 12 点审核通过。在域名里面，com、cn、选这种知名的买就对了，我买的是 top，理由就是便宜，我一个个人博客还能有啥高贵的，有钱的大佬可以考虑一下去买一个 gov。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuYWxpeXVuLmNvbS8=&#34;&gt;阿里云&lt;/span&gt;&lt;br /&gt;
+:::note info&lt;br /&gt;
+ 买域名千万不要被首年的价格诱惑，注意看看 10 年价格是多少，有的首年便宜后面老贵了，不过就是有一点，我也不知道能不能活过 10 年，万一没到那不就是亏了。&lt;br /&gt;
+:::&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;网站的搬迁与发布&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#网站的搬迁与发布&#34;&gt;#&lt;/a&gt; 网站的搬迁与发布&lt;/h2&gt;
+&lt;p&gt;         之前我的仓库是在 github 上面，后来搬到了 coding.me 上面，反正都不要钱，为什么不白嫖呢。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmcvYXJ0aWNsZS9kZXRhaWxzLzEwNTg3MTk1NQ==&#34;&gt;将 Hexo 博客部署到 Coding（码云）&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9kZGRkNzVmNjI3NTE=&#34;&gt;最安全的 hexo 多电脑同步博客解决方案 -- 非新建分支&lt;/span&gt;&lt;br /&gt;
+:::note info&lt;br /&gt;
+ 部署到 coding 的博客可以获得 https 的 ssl 安全证书，都不用申请超级方便，没有&lt;br /&gt;
+证书的话，在网址那里会显示不安全的链接。&lt;br /&gt;
+:::&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;结语&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#结语&#34;&gt;#&lt;/a&gt; 结语&lt;/h1&gt;
+&lt;p&gt;博客的搭建和资料的查询共花费 3 天时间，主要还是主题的修改占用了大部分时间。这里就记录一下，为自己之后搭建别的做个准备，不用再很麻烦，同时希望自己可以保持初心，继续前进，也祝愿文章前的你，可以不断进步，成为一个优秀的人。&lt;br /&gt;
+永远相信美好的事情即将发生&lt;/p&gt;
+</content>
+        <category term="Shoka" />
+        <category term="教程" />
+        <updated>2020-08-27T05:20:52.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://whitebear7396.top/film/%E4%B8%8D%E7%9F%A5%E9%81%93%E4%B9%9F%E6%97%A0%E5%A6%A8/</id>
+        <title>不知道也无妨</title>
+        <link rel="alternate" href="http://whitebear7396.top/film/%E4%B8%8D%E7%9F%A5%E9%81%93%E4%B9%9F%E6%97%A0%E5%A6%A8/"/>
+        <content type="html">&lt;p&gt;不知道也无妨&lt;/p&gt;
+&lt;h2 id=&#34;图案列表-no1&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#图案列表-no1&#34;&gt;#&lt;/a&gt; 图案列表 No.1&lt;/h2&gt;
+&lt;p class=&#34;gallery&#34;&gt;&lt;img data-src=&#34;https://tva3.sinaimg.cn/large/6833939bly1giclfdu6exj20zk0m87hw.jpg&#34; alt=&#34;&#34; title=&#34;这里是 title&#34; /&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://tva3.sinaimg.cn/large/6833939bly1giclflwv2aj20zk0m84qp.jpg&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://tva3.sinaimg.cn/large/6833939bly1giclg5ms2rj20zk0m8u0x.jpg&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://tva3.sinaimg.cn/large/6833939bly1giclhnx9glj20zk0m8npd.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;图案列表-no2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#图案列表-no2&#34;&gt;#&lt;/a&gt; 图案列表 No.2&lt;/h2&gt;
+&lt;h1 class=&#34;gallery&#34; data-height=&#34;220&#34; id=&#34;&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#&#34;&gt;#&lt;/a&gt; &lt;img data-src=&#34;https://tva3.sinaimg.cn/large/6833939bly1gicitht3xtj20zk0m8k5v.jpg&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://tva3.sinaimg.cn/large/6833939bly1giclil3m4ej20zk0m8tn8.jpg&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://tva3.sinaimg.cn/large/6833939bly1gicljgocqbj20zk0m8e81.jpg&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://tva3.sinaimg.cn/large/6833939bly1gipetfk5zwj20zk0m8e81.jpg&#34; alt=&#34;&#34; /&gt;&lt;/h1&gt;
+</content>
+        <category term="日剧" />
+        <updated>2020-08-27T05:20:52.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://whitebear7396.top/inbetweening/%E6%8F%8F%E8%BE%B9%E6%8F%92%E7%94%BB/</id>
+        <title>描边插画</title>
+        <link rel="alternate" href="http://whitebear7396.top/inbetweening/%E6%8F%8F%E8%BE%B9%E6%8F%92%E7%94%BB/"/>
+        <content type="html">&lt;h1 id=&#34;描边插画&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#描边插画&#34;&gt;#&lt;/a&gt; 描边插画&lt;/h1&gt;
+</content>
+        <category term="Ai" />
+        <updated>2020-08-27T05:20:52.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://whitebear7396.top/programme/CleanUpWeChatZombieFans%E7%AC%94%E8%AE%B0/</id>
+        <title>CleanUpWeChatZombieFans笔记</title>
+        <link rel="alternate" href="http://whitebear7396.top/programme/CleanUpWeChatZombieFans%E7%AC%94%E8%AE%B0/"/>
+        <content type="html">&lt;h1 id=&#34;目的&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#目的&#34;&gt;#&lt;/a&gt; 目的&lt;/h1&gt;
 &lt;p&gt;通过对 &amp;lt;清理微信僵尸粉.js&amp;gt; 脚本的分析，了解其运行原理，补充相关 JS 知识点。&lt;/p&gt;
-&lt;h1 id=&quot;第一周&quot;&gt;&lt;a class=&quot;ancho</summary>
-      
-    
-    
-    
-    <category term="程序汇编语言" scheme="http://whitebear7396.top/categories/PROGRAMME/"/>
-    
-    
-    <category term="编程" scheme="http://whitebear7396.top/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-    <category term="JaveScript" scheme="http://whitebear7396.top/tags/JAVESCRIPT/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>炉石传说</title>
-    <link href="http://whitebear7396.top/game/Hearthstone/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4/"/>
-    <id>http://whitebear7396.top/game/Hearthstone/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4/</id>
-    <published>2020-08-27T05:20:52.000Z</published>
-    <updated>2020-08-27T05:20:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="炉石兄弟"><a class="anchor" href="#炉石兄弟">#</a> 炉石兄弟</h1><h2 id="软件说明"><a class="anchor" href="#软件说明">#</a> 软件说明</h2><p>炉石兄弟是德国兄弟公司专门针对炉石玩家出品的一款超智能辅助，可能让你平时忙碌之时，可以利用炉石兄弟达到简化游戏的目的。炉石兄弟目前功能有：智能化判定卡牌；智能计算英雄血量；支持练习模式、对战模式、竞技场模式和好友对战等等。无需复杂操作，无需人工值守，是我们刷 500 胜金头像、升级英雄等级、做日常、打每日金币等居家旅行最佳伴侣。使用炉石兄弟后，你就可以释放你的双手做更有意义的事。</p><h2 id="软件下载"><a class="anchor" href="#软件下载">#</a> 软件下载</h2><h2 id="使用方法"><a class="anchor" href="#使用方法">#</a> 使用方法</h2><h2 id="贴吧地址"><a class="anchor" href="#贴吧地址">#</a> 贴吧地址</h2>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;炉石兄弟&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#炉石兄弟&quot;&gt;#&lt;/a&gt; 炉石兄弟&lt;/h1&gt;
-&lt;h2 id=&quot;软件说明&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#软件说明&quot;&gt;#&lt;/a&gt; 软件说明&lt;/h2&gt;
-&lt;p&gt;炉石兄弟是德国兄弟公司专门针对</summary>
-      
-    
-    
-    
-    <category term="电子竞技的快乐" scheme="http://whitebear7396.top/categories/GAME/"/>
-    
-    <category term="炉石传说" scheme="http://whitebear7396.top/categories/GAME/HEARTHSTONE/"/>
-    
-    
-    <category term="炉石传说" scheme="http://whitebear7396.top/tags/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4/"/>
-    
-    <category term="脚本" scheme="http://whitebear7396.top/tags/%E8%84%9A%E6%9C%AC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第1周</title>
-    <link href="http://whitebear7396.top/programme/Python/JS%E7%AC%AC1%E5%91%A8/"/>
-    <id>http://whitebear7396.top/programme/Python/JS%E7%AC%AC1%E5%91%A8/</id>
-    <published>2020-08-27T05:20:52.000Z</published>
-    <updated>2020-08-27T05:20:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="什么是语言"><a class="anchor" href="#什么是语言">#</a> 什么是语言</h1><ul><li><p>计算机就是一个由人来控制的机器，人让它干嘛，它就得干嘛。</p></li><li><p>我们要学习的语言就是人和计算机交流的工具，人类通过语言来控制、操作计算机。</p></li><li><p>编程语言和我们说的中文、英文本质上没有区别，只是语法比较特殊。</p></li><li><p>语言的发展:</p><p>-- 纸带机：机器语言</p><p>-- 汇编语言：符号语言</p><p>-- 现代语言：高级语言</p></li></ul><h2 id="起源"><a class="anchor" href="#起源">#</a> 起源</h2><ul><li><p>JavaScript 诞生于 1995 年，它的出现主要是用于处理网页中的前端验证。</p></li><li><p>所谓的前端验证，就是指检查用户输入的内容是否符合一定的规则。</p></li><li><p>比如：用户名的长度，密码的长度，邮箱的格式等。</p></li></ul><h2 id="简史"><a class="anchor" href="#简史">#</a> 简史</h2><ul><li>JavaScript 是由网景公司发明，起初命名为 LiveScript , 后来由于 SUN 公司的介入更名为了 JavaScript.</li><li>1996 年微软公司在其最新的 IE3 浏览器中引入了自己对 Javascript 的实现 JScript.</li><li>于是市面上存在两个版本的 JavaScript, 一个网景公司的 JavaScript 和微软的 JScript.</li><li>为了确保不同的浏览器上运行的 JavaScript 标准一致，所以几个公司共同定制了 JS 的标准名命名为 ECMAScript.</li></ul><h2 id="时间表"><a class="anchor" href="#时间表">#</a> 时间表</h2><table><thead><tr><th style="text-align:center">年份</th><th style="text-align:center">事件</th></tr></thead><tbody><tr><td style="text-align:center">1995</td><td style="text-align:center">网景公司开发了 JavaScript</td></tr><tr><td style="text-align:center">1996</td><td style="text-align:center">微软发布了和 JavaScript 兼容的 JScript</td></tr><tr><td style="text-align:center">1997</td><td style="text-align:center">ECMAScript 第 1 版 (ECMA-262)</td></tr><tr><td style="text-align:center">1998</td><td style="text-align:center">ECMASCript 第 2 版、DOM Level1 的制定、新型语言 DHTML 登场</td></tr><tr><td style="text-align:center">1999</td><td style="text-align:center">ECMAScript 第 3 版</td></tr><tr><td style="text-align:center">2000</td><td style="text-align:center">DOM Level2 的制定</td></tr><tr><td style="text-align:center">2002</td><td style="text-align:center">ISO/ IEC 16262:2002 的确立</td></tr><tr><td style="text-align:center">2004</td><td style="text-align:center">DOM Level3 的制定</td></tr><tr><td style="text-align:center">2005</td><td style="text-align:center">新型语言 AJAX 登场</td></tr><tr><td style="text-align:center">2009</td><td style="text-align:center">ECMAScript 第 5 版、新型语言 HTML5 登场</td></tr></tbody></table><h1 id="实现"><a class="anchor" href="#实现">#</a> 实现</h1><table><thead><tr><th style="text-align:center">浏览器</th><th>Javascript 实现方式</th></tr></thead><tbody><tr><td style="text-align:center">FireFox</td><td>SpiderMonkey</td></tr><tr><td style="text-align:center">Internet Explorer</td><td>JScript/Chakra</td></tr><tr><td style="text-align:center">Safari</td><td>JavaScriptCore</td></tr><tr><td style="text-align:center">Chrome</td><td>v8</td></tr><tr><td style="text-align:center">Carakan</td><td>Carakan</td></tr></tbody></table><ul><li>我们已经知道 ECMAScript 是 JavaScript 标准，所以一般情况下这两个词我们认为是一个意思。</li><li>但是实际上 JavaScript 的含义却要更大一些。</li><li>一个完整的 JavaScript 实现应该由以下三个部分构成:</li></ul><h2 id="特点"><a class="anchor" href="#特点">#</a> 特点</h2><p>JS 的特点</p><ul><li>解释型语言</li><li>类似于 C 和 Java 的语法结构</li><li>动态语言</li><li>基于原型的面向对象</li></ul><h1 id="实操"><a class="anchor" href="#实操">#</a> 实操</h1><p>alert ()// 控制浏览器弹出一个警告框</p><p>document. write ()// 让计算机在页面中输出一个内容</p><p>console.1og ()// 向控制台输出一个内容</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;什么是语言&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#什么是语言&quot;&gt;#&lt;/a&gt; 什么是语言&lt;/h1&gt;
+&lt;h1 id=&#34;第一周&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第一周&#34;&gt;#&lt;/a&gt; 第一周&lt;/h1&gt;
+&lt;h2 id=&#34;匿名函数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#匿名函数&#34;&gt;#&lt;/a&gt; 匿名函数&lt;/h2&gt;
+&lt;p&gt;（（）=&amp;gt; {} ）、(function(){})&lt;br /&gt;
+ 标准的函数，没有赋值给任何变量，没有名字的函数，叫匿名函数。主要是利用函数内的变量作用。避免产生全局变量，影响整体页面环境，增加代码的兼容性。因为没有名字，所以在定义完成就要调用，（（）=&amp;gt; {} ）（），后面的（）是调用运行这个匿名函数的意思.&lt;/p&gt;
+</content>
+        <category term="编程" />
+        <category term="JaveScript" />
+        <updated>2020-08-27T05:20:52.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://whitebear7396.top/game/Hearthstone/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4/</id>
+        <title>炉石传说</title>
+        <link rel="alternate" href="http://whitebear7396.top/game/Hearthstone/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4/"/>
+        <content type="html">&lt;h1 id=&#34;炉石兄弟&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#炉石兄弟&#34;&gt;#&lt;/a&gt; 炉石兄弟&lt;/h1&gt;
+&lt;h2 id=&#34;软件说明&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#软件说明&#34;&gt;#&lt;/a&gt; 软件说明&lt;/h2&gt;
+&lt;p&gt;炉石兄弟是德国兄弟公司专门针对炉石玩家出品的一款超智能辅助，可能让你平时忙碌之时，可以利用炉石兄弟达到简化游戏的目的。炉石兄弟目前功能有：智能化判定卡牌；智能计算英雄血量；支持练习模式、对战模式、竞技场模式和好友对战等等。无需复杂操作，无需人工值守，是我们刷 500 胜金头像、升级英雄等级、做日常、打每日金币等居家旅行最佳伴侣。使用炉石兄弟后，你就可以释放你的双手做更有意义的事。&lt;/p&gt;
+&lt;h2 id=&#34;软件下载&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#软件下载&#34;&gt;#&lt;/a&gt; 软件下载&lt;/h2&gt;
+&lt;h2 id=&#34;使用方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用方法&#34;&gt;#&lt;/a&gt; 使用方法&lt;/h2&gt;
+&lt;h2 id=&#34;贴吧地址&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#贴吧地址&#34;&gt;#&lt;/a&gt; 贴吧地址&lt;/h2&gt;
+</content>
+        <category term="炉石传说" />
+        <category term="脚本" />
+        <updated>2020-08-27T05:20:52.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://whitebear7396.top/programme/JavaScript/%E7%AC%AC1%E5%91%A8/</id>
+        <title>第1周</title>
+        <link rel="alternate" href="http://whitebear7396.top/programme/JavaScript/%E7%AC%AC1%E5%91%A8/"/>
+        <content type="html">&lt;h1 id=&#34;什么是语言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#什么是语言&#34;&gt;#&lt;/a&gt; 什么是语言&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;计算机就是一个由人来控制的机器，人让它干嘛，它就得干嘛。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;我们要学习的语言就是人和计算机交</summary>
-      
-    
-    
-    
-    <category term="程序汇编语言" scheme="http://whitebear7396.top/categories/PROGRAMME/"/>
-    
-    <category term="Python" scheme="http://whitebear7396.top/categories/PROGRAMME/PYTHON/"/>
-    
-    
-    <category term="编程" scheme="http://whitebear7396.top/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-    <category term="Python" scheme="http://whitebear7396.top/tags/PYTHON/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第1周</title>
-    <link href="http://whitebear7396.top/programme/Python/%E7%AC%AC1%E5%91%A8/"/>
-    <id>http://whitebear7396.top/programme/Python/%E7%AC%AC1%E5%91%A8/</id>
-    <published>2020-08-27T05:20:52.000Z</published>
-    <updated>2020-08-27T05:20:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="待开始"><a class="anchor" href="#待开始">#</a> 待开始</h1>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;待开始&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#待开始&quot;&gt;#&lt;/a&gt; 待开始&lt;/h1&gt;
-</summary>
-      
-    
-    
-    
-    <category term="程序汇编语言" scheme="http://whitebear7396.top/categories/PROGRAMME/"/>
-    
-    <category term="Python" scheme="http://whitebear7396.top/categories/PROGRAMME/PYTHON/"/>
-    
-    
-    <category term="编程" scheme="http://whitebear7396.top/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-    <category term="Python" scheme="http://whitebear7396.top/tags/PYTHON/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第1周</title>
-    <link href="http://whitebear7396.top/programme/JavaScript/%E7%AC%AC1%E5%91%A8/"/>
-    <id>http://whitebear7396.top/programme/JavaScript/%E7%AC%AC1%E5%91%A8/</id>
-    <published>2020-08-27T05:20:52.000Z</published>
-    <updated>2020-08-27T05:20:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="什么是语言"><a class="anchor" href="#什么是语言">#</a> 什么是语言</h1><ul><li><p>计算机就是一个由人来控制的机器，人让它干嘛，它就得干嘛。</p></li><li><p>我们要学习的语言就是人和计算机交流的工具，人类通过语言来控制、操作计算机。</p></li><li><p>编程语言和我们说的中文、英文本质上没有区别，只是语法比较特殊。</p></li><li><p>语言的发展:</p><p>-- 纸带机：机器语言</p><p>-- 汇编语言：符号语言</p><p>-- 现代语言：高级语言</p></li></ul><h2 id="起源"><a class="anchor" href="#起源">#</a> 起源</h2><ul><li><p>JavaScript 诞生于 1995 年，它的出现主要是用于处理网页中的前端验证。</p></li><li><p>所谓的前端验证，就是指检查用户输入的内容是否符合一定的规则。</p></li><li><p>比如：用户名的长度，密码的长度，邮箱的格式等。</p></li></ul><h2 id="简史"><a class="anchor" href="#简史">#</a> 简史</h2><ul><li>JavaScript 是由网景公司发明，起初命名为 LiveScript , 后来由于 SUN 公司的介入更名为了 JavaScript.</li><li>1996 年微软公司在其最新的 IE3 浏览器中引入了自己对 Javascript 的实现 JScript.</li><li>于是市面上存在两个版本的 JavaScript, 一个网景公司的 JavaScript 和微软的 JScript.</li><li>为了确保不同的浏览器上运行的 JavaScript 标准一致，所以几个公司共同定制了 JS 的标准名命名为 ECMAScript.</li></ul><h2 id="时间表"><a class="anchor" href="#时间表">#</a> 时间表</h2><table><thead><tr><th style="text-align:center">年份</th><th style="text-align:center">事件</th></tr></thead><tbody><tr><td style="text-align:center">1995</td><td style="text-align:center">网景公司开发了 JavaScript</td></tr><tr><td style="text-align:center">1996</td><td style="text-align:center">微软发布了和 JavaScript 兼容的 JScript</td></tr><tr><td style="text-align:center">1997</td><td style="text-align:center">ECMAScript 第 1 版 (ECMA-262)</td></tr><tr><td style="text-align:center">1998</td><td style="text-align:center">ECMASCript 第 2 版、DOM Level1 的制定、新型语言 DHTML 登场</td></tr><tr><td style="text-align:center">1999</td><td style="text-align:center">ECMAScript 第 3 版</td></tr><tr><td style="text-align:center">2000</td><td style="text-align:center">DOM Level2 的制定</td></tr><tr><td style="text-align:center">2002</td><td style="text-align:center">ISO/ IEC 16262:2002 的确立</td></tr><tr><td style="text-align:center">2004</td><td style="text-align:center">DOM Level3 的制定</td></tr><tr><td style="text-align:center">2005</td><td style="text-align:center">新型语言 AJAX 登场</td></tr><tr><td style="text-align:center">2009</td><td style="text-align:center">ECMAScript 第 5 版、新型语言 HTML5 登场</td></tr></tbody></table><h1 id="实现"><a class="anchor" href="#实现">#</a> 实现</h1><table><thead><tr><th style="text-align:center">浏览器</th><th>Javascript 实现方式</th></tr></thead><tbody><tr><td style="text-align:center">FireFox</td><td>SpiderMonkey</td></tr><tr><td style="text-align:center">Internet Explorer</td><td>JScript/Chakra</td></tr><tr><td style="text-align:center">Safari</td><td>JavaScriptCore</td></tr><tr><td style="text-align:center">Chrome</td><td>v8</td></tr><tr><td style="text-align:center">Carakan</td><td>Carakan</td></tr></tbody></table><ul><li>我们已经知道 ECMAScript 是 JavaScript 标准，所以一般情况下这两个词我们认为是一个意思。</li><li>但是实际上 JavaScript 的含义却要更大一些。</li><li>一个完整的 JavaScript 实现应该由以下三个部分构成:</li></ul><h2 id="特点"><a class="anchor" href="#特点">#</a> 特点</h2><p>JS 的特点</p><ul><li>解释型语言</li><li>类似于 C 和 Java 的语法结构</li><li>动态语言</li><li>基于原型的面向对象</li></ul><h1 id="实操"><a class="anchor" href="#实操">#</a> 实操</h1><p>alert ()// 控制浏览器弹出一个警告框</p><p>document. write ()// 让计算机在页面中输出一个内容</p><p>console.1og ()// 向控制台输出一个内容</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;什么是语言&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#什么是语言&quot;&gt;#&lt;/a&gt; 什么是语言&lt;/h1&gt;
+&lt;p&gt;我们要学习的语言就是人和计算机交流的工具，人类通过语言来控制、操作计算机。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;编程语言和我们说的中文、英文本质上没有区别，只是语法比较特殊。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;语言的发展:&lt;/p&gt;
+&lt;p&gt;-- 纸带机：机器语言&lt;/p&gt;
+&lt;p&gt;-- 汇编语言：符号语言&lt;/p&gt;
+&lt;p&gt;-- 现代语言：高级语言&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;起源&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#起源&#34;&gt;#&lt;/a&gt; 起源&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;JavaScript 诞生于 1995 年，它的出现主要是用于处理网页中的前端验证。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;所谓的前端验证，就是指检查用户输入的内容是否符合一定的规则。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;比如：用户名的长度，密码的长度，邮箱的格式等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;简史&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#简史&#34;&gt;#&lt;/a&gt; 简史&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;JavaScript 是由网景公司发明，起初命名为 LiveScript , 后来由于 SUN 公司的介入更名为了 JavaScript.&lt;/li&gt;
+&lt;li&gt;1996 年微软公司在其最新的 IE3 浏览器中引入了自己对 Javascript 的实现 JScript.&lt;/li&gt;
+&lt;li&gt;于是市面上存在两个版本的 JavaScript, 一个网景公司的 JavaScript 和微软的 JScript.&lt;/li&gt;
+&lt;li&gt;为了确保不同的浏览器上运行的 JavaScript 标准一致，所以几个公司共同定制了 JS 的标准名命名为 ECMAScript.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;时间表&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#时间表&#34;&gt;#&lt;/a&gt; 时间表&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;年份&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;事件&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1995&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;网景公司开发了 JavaScript&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1996&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;微软发布了和 JavaScript 兼容的 JScript&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1997&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ECMAScript 第 1 版 (ECMA-262)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1998&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ECMASCript 第 2 版、DOM Level1 的制定、新型语言 DHTML 登场&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1999&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ECMAScript 第 3 版&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2000&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DOM Level2 的制定&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2002&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ISO/ IEC 16262:2002 的确立&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2004&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DOM Level3 的制定&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2005&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;新型语言 AJAX 登场&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2009&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ECMAScript 第 5 版、新型语言 HTML5 登场&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;实现&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#实现&#34;&gt;#&lt;/a&gt; 实现&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;浏览器&lt;/th&gt;
+&lt;th&gt;Javascript 实现方式&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;FireFox&lt;/td&gt;
+&lt;td&gt;SpiderMonkey&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Internet Explorer&lt;/td&gt;
+&lt;td&gt;JScript/Chakra&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Safari&lt;/td&gt;
+&lt;td&gt;JavaScriptCore&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Chrome&lt;/td&gt;
+&lt;td&gt;v8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Carakan&lt;/td&gt;
+&lt;td&gt;Carakan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;我们已经知道 ECMAScript 是 JavaScript 标准，所以一般情况下这两个词我们认为是一个意思。&lt;/li&gt;
+&lt;li&gt;但是实际上 JavaScript 的含义却要更大一些。&lt;/li&gt;
+&lt;li&gt;一个完整的 JavaScript 实现应该由以下三个部分构成:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;特点&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#特点&#34;&gt;#&lt;/a&gt; 特点&lt;/h2&gt;
+&lt;p&gt;JS 的特点&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;解释型语言&lt;/li&gt;
+&lt;li&gt;类似于 C 和 Java 的语法结构&lt;/li&gt;
+&lt;li&gt;动态语言&lt;/li&gt;
+&lt;li&gt;基于原型的面向对象&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;实操&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#实操&#34;&gt;#&lt;/a&gt; 实操&lt;/h1&gt;
+&lt;p&gt;alert ()// 控制浏览器弹出一个警告框&lt;/p&gt;
+&lt;p&gt;document. write ()// 让计算机在页面中输出一个内容&lt;/p&gt;
+&lt;p&gt;console.1og ()// 向控制台输出一个内容&lt;/p&gt;
+</content>
+        <category term="编程" />
+        <category term="JaveScript" />
+        <updated>2020-08-27T05:20:52.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://whitebear7396.top/programme/JavaScript/%E7%AC%AC2%E5%91%A8/</id>
+        <title>第2周</title>
+        <link rel="alternate" href="http://whitebear7396.top/programme/JavaScript/%E7%AC%AC2%E5%91%A8/"/>
+        <content type="html">&lt;h1 id=&#34;代码位置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#代码位置&#34;&gt;#&lt;/a&gt; 代码位置&lt;/h1&gt;
+&lt;h2 id=&#34;放置于网页headhead之内推荐&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#放置于网页headhead之内推荐&#34;&gt;#&lt;/a&gt; 放置于网页 &amp;lt;head/head&amp;gt; 之内 (推荐)&lt;/h2&gt;
+&lt;p&gt;例如：可以将 js 代码编写到 script 标签&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;lt;head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;lt;meta charset=&lt;span class=&#34;string&#34;&gt;&amp;quot;UTF-8&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;lt;!--JS代码需要编写到Script标签中--&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;lt;script type=&lt;span class=&#34;string&#34;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;         &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;lt;/head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;lt;body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;lt;/body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;例如：以将 js 代码编写到外部 js 文件中，然后通过 script 标签引，写到外部文件中可以在不同的页面中同时引用，也可以利用到浏览器的缓存机制，&lt;strong&gt;推荐使用的方式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;lt;head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;lt;meta charset=&lt;span class=&#34;string&#34;&gt;&amp;quot;UTF-8&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;lt;!--JS代码需要编写到Script标签中--&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;lt;script type=&lt;span class=&#34;string&#34;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt; src=&lt;span class=&#34;string&#34;&gt;&amp;quot;js/script.js&amp;quot;&lt;/span&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;lt;/head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;lt;body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;lt;/body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;放置于网页bodybody之内不推荐&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#放置于网页bodybody之内不推荐&#34;&gt;#&lt;/a&gt; 放置于网页 &amp;lt;body/body&amp;gt; 之内（不推荐）&lt;/h2&gt;
+&lt;p&gt;例如：可以将 js 代码编写到标签 onclick 属性中，1 当我们点击按钮时，Js 代码才会执行&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;lt;head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;lt;meta charset=&lt;span class=&#34;string&#34;&gt;&amp;quot;UTF-8&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;lt;/head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;lt;body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &amp;lt;button onclick=&lt;span class=&#34;string&#34;&gt;&amp;quot;alert(&amp;#x27;11111&amp;#x27;);&amp;quot;&lt;/span&gt;&amp;gt;点我一下 &amp;lt;/button&amp;gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;lt;/body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;例如：, 可以将 js 代码写在超链接的 href 属性中，这样当点击超链接时，会执行 js 代码&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;lt;head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;lt;meta charset=&lt;span class=&#34;string&#34;&gt;&amp;quot;UTF-8&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;lt;/head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;lt;body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &amp;lt;a href=&lt;span class=&#34;string&#34;&gt;&amp;quot;javascript: alert(&amp;#x27;2222222&amp;#x27;);&amp;quot;&lt;/span&gt;&amp;gt;网页显示的文本&amp;lt;/a&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;lt;/body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h1 id=&#34;基本语法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#基本语法&#34;&gt;#&lt;/a&gt; 基本语法&lt;/h1&gt;
+&lt;h2 id=&#34;注释&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#注释&#34;&gt;#&lt;/a&gt; 注释&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;//单行注释    &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;/*&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;*多行注释   *号有没有没关系，为了美观&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;大小写&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#大小写&#34;&gt;#&lt;/a&gt; 大小写&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;alert(&lt;span class=&#34;string&#34;&gt;&amp;quot;可运行&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Alert(&lt;span class=&#34;string&#34;&gt;&amp;quot;不可运行&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;以结尾&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#以结尾&#34;&gt;#&lt;/a&gt; 以 (;) 结尾&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;如果不写分号，浏览器会自动添加，但是会消耗一些系统资源，&lt;/li&gt;
+&lt;li&gt;有些时候，浏览器会加错分号&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;空格和换行&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#空格和换行&#34;&gt;#&lt;/a&gt; 空格和换行&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;js 中会忽略多个空格和换行，所以我们可以利用空格和换行对代码进行格式化（美观）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;字面量和变量&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#字面量和变量&#34;&gt;#&lt;/a&gt; 字面量和变量&lt;/h2&gt;
+&lt;h3 id=&#34;字面量&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#字面量&#34;&gt;#&lt;/a&gt; 字面量&lt;/h3&gt;
+&lt;p&gt;都是一些不可改变的值&lt;/p&gt;
+&lt;p&gt;比如：12345&lt;/p&gt;
+&lt;p&gt;字面量都是可以直接使用，但是我们一般都不会直接使用字面量&lt;/p&gt;
+&lt;h3 id=&#34;变量&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#变量&#34;&gt;#&lt;/a&gt; 变量&lt;/h3&gt;
+&lt;p&gt;变量可以用来保存字面量，而且变量的值是可以任意改变的&lt;/p&gt;
+&lt;p&gt;变量更加方便我们使用，所以在开发中都是通过变量去保存一个字面量，而很少直接使用字面量&lt;/p&gt;
+&lt;h3 id=&#34;赋值&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#赋值&#34;&gt;#&lt;/a&gt; 赋值&lt;/h3&gt;
+&lt;p&gt;通过 var 为变量赋值&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;var&lt;/span&gt; b = &lt;span class=&#34;number&#34;&gt;100&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;通过 let 为变量赋值&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;let&lt;/span&gt; b = &lt;span class=&#34;number&#34;&gt;100&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;标识符&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#标识符&#34;&gt;#&lt;/a&gt; 标识符&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;在 JS 中所有的可以由我们自主名的都可以称为是标识符&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;例如：变量名、函数名、属性名都属于标识符&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;命名一个标识符时需要遵守如下的规则:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;标识符中可以含有字母、数字、_、$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;标识符不能以数字开头&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;标识符不能是 ES 中的关键字或保留字&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;标识符一般都采用驼峰命名法&lt;/p&gt;
+&lt;p&gt;首字母小写，每个单词的开头字母大写，其余字母小写&lt;/p&gt;
+&lt;p&gt;helloworld     xxxYyyzzz&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;JS 底层保存标识符时实际上是采用的 Unicode 编码&lt;/p&gt;
+&lt;p&gt;所以理论上讲，所有的 utf-8 中含有的内容都可以作为标识符&lt;/p&gt;
+&lt;p&gt;中文可以用，但是没必要，不推荐使用。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;关键词&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关键词&#34;&gt;#&lt;/a&gt; 关键词&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;break&lt;/td&gt;
+&lt;td&gt;do&lt;/td&gt;
+&lt;td&gt;instanceof&lt;/td&gt;
+&lt;td&gt;typeof&lt;/td&gt;
+&lt;td&gt;case&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;else&lt;/td&gt;
+&lt;td&gt;new&lt;/td&gt;
+&lt;td&gt;var&lt;/td&gt;
+&lt;td&gt;catch&lt;/td&gt;
+&lt;td&gt;finally&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;return&lt;/td&gt;
+&lt;td&gt;void&lt;/td&gt;
+&lt;td&gt;continue&lt;/td&gt;
+&lt;td&gt;for&lt;/td&gt;
+&lt;td&gt;switch&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;while&lt;/td&gt;
+&lt;td&gt;defaul&lt;/td&gt;
+&lt;td&gt;if&lt;/td&gt;
+&lt;td&gt;throw&lt;/td&gt;
+&lt;td&gt;delete&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;in&lt;/td&gt;
+&lt;td&gt;try&lt;/td&gt;
+&lt;td&gt;function&lt;/td&gt;
+&lt;td&gt;this&lt;/td&gt;
+&lt;td&gt;with&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;debugger&lt;/td&gt;
+&lt;td&gt;false&lt;/td&gt;
+&lt;td&gt;true&lt;/td&gt;
+&lt;td&gt;null&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;保留字符&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#保留字符&#34;&gt;#&lt;/a&gt; 保留字符&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;class&lt;/td&gt;
+&lt;td&gt;interface&lt;/td&gt;
+&lt;td&gt;package&lt;/td&gt;
+&lt;td&gt;private&lt;/td&gt;
+&lt;td&gt;public&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;yield&lt;/td&gt;
+&lt;td&gt;enum&lt;/td&gt;
+&lt;td&gt;extends&lt;/td&gt;
+&lt;td&gt;let&lt;/td&gt;
+&lt;td&gt;implements&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;export&lt;/td&gt;
+&lt;td&gt;import&lt;/td&gt;
+&lt;td&gt;super&lt;/td&gt;
+&lt;td&gt;protected&lt;/td&gt;
+&lt;td&gt;statio&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;const&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;数据类型&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#数据类型&#34;&gt;#&lt;/a&gt; 数据类型&lt;/h2&gt;
+&lt;p&gt;string  Number  Boolean  Null  Undefined  属于基本数据类型&lt;/p&gt;
+&lt;p&gt;Object 属于引用数据类型&lt;/p&gt;
+&lt;h3 id=&#34;string字符串&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#string字符串&#34;&gt;#&lt;/a&gt; String 字符串&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;在 JS 中字符串需要使用引号引起来&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用双引号或单引号都可以，但是不要混着用&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;引号不能嵌套，双引号不能放双引号，单引号不能放单引号&lt;/p&gt;
+&lt;p&gt;例如&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;var&lt;/span&gt; str = &lt;span class=&#34;string&#34;&gt;&amp;#x27;hello&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;str= &lt;span class=&#34;string&#34;&gt;&amp;#x27;我说:&amp;quot;今天天气真不错! &amp;quot;&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(str);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;在字符串中我们可以使用 \ 作为转义字符&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;当表示一些特殊符号时可以使用 \ 进行转义&lt;/li&gt;
+&lt;li&gt;&amp;quot;表示&amp;quot;&lt;/li&gt;
+&lt;li&gt;&#39; 表示&#39;&lt;/li&gt;
+&lt;li&gt;\n 表示换行&lt;/li&gt;
+&lt;li&gt;\t 制表符&lt;/li&gt;
+&lt;li&gt;\ 表示 \&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;number数值&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#number数值&#34;&gt;#&lt;/a&gt; Number 数值&lt;/h3&gt;
+&lt;p&gt;在 JS 中所有的数值都是 Numper 类型&lt;/p&gt;
+&lt;p&gt;包括整数和浮点数 (小数)&lt;/p&gt;
+&lt;p&gt;js 中可以表示的数字的最大值&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Number.MAX_VALUE      =      1.7976931348623157e+308&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Number.MIN VALUE        =      5e-324&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果使用 Number 表示的数字超过了最大值，则会返回一个&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Infinity 表示正无穷&lt;/li&gt;
+&lt;li&gt;-Infinity 表示负无穷&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;使用 typeof 检查 Infinity 也会返回 number&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;NaN 是一个特殊的数字，表示 Not A Number&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用 typeof 检查一个 NaNt 会返回 number&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;可以使用一个运算符 typeof 来检查一个变量的类型: typeof 变量&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;检查字符串时，会返回 string&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;检查数值时，会返回 number&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果使用 JS 进行浮点运算可能得到一个不精确的结果所以千万不要使用 JS 进存对精确度要求比较高的运算&lt;/p&gt;
+&lt;h3 id=&#34;boolean布尔值&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#boolean布尔值&#34;&gt;#&lt;/a&gt; Boolean 布尔值&lt;/h3&gt;
+&lt;p&gt;布尔值只有两个，主要用来做逻辑判断&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;true - 表示真&lt;/li&gt;
+&lt;li&gt;false - 表示假&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;用 typeof 检查 — 个布尔时，返回 boolean&lt;/p&gt;
+&lt;h3 id=&#34;null空值&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#null空值&#34;&gt;#&lt;/a&gt; Null（空值）&lt;/h3&gt;
+&lt;p&gt;Nu11 类型的值只有一个，就是 null&lt;/p&gt;
+&lt;p&gt;nu1l 这个值专门用来表示一个为空的对象&lt;/p&gt;
+&lt;p&gt;使用 typeof 检查一个 nul1 值时，会返回 object&lt;/p&gt;
+&lt;h3 id=&#34;undefined未定义&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#undefined未定义&#34;&gt;#&lt;/a&gt; Undefined（未定义）&lt;/h3&gt;
+&lt;p&gt;Undefined (未定义) 类型的值只有一个，就 undefind&lt;/p&gt;
+&lt;p&gt;当声明一个变量，但是并不给变量赋值时，它的值就是 undefind&lt;/p&gt;
+&lt;p&gt;使用 typeof 检查一个 undefined 时，会返回 undefined&lt;/p&gt;
+&lt;h3 id=&#34;object对象&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#object对象&#34;&gt;#&lt;/a&gt; Object 对象&lt;/h3&gt;
+</content>
+        <category term="编程" />
+        <category term="JaveScript" />
+        <updated>2020-08-27T05:20:52.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://whitebear7396.top/programme/Python/JS%E7%AC%AC1%E5%91%A8/</id>
+        <title>第1周</title>
+        <link rel="alternate" href="http://whitebear7396.top/programme/Python/JS%E7%AC%AC1%E5%91%A8/"/>
+        <content type="html">&lt;h1 id=&#34;什么是语言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#什么是语言&#34;&gt;#&lt;/a&gt; 什么是语言&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;计算机就是一个由人来控制的机器，人让它干嘛，它就得干嘛。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;我们要学习的语言就是人和计算机交</summary>
-      
-    
-    
-    
-    <category term="程序汇编语言" scheme="http://whitebear7396.top/categories/PROGRAMME/"/>
-    
-    <category term="JavaScript" scheme="http://whitebear7396.top/categories/PROGRAMME/JAVASCRIPT/"/>
-    
-    
-    <category term="编程" scheme="http://whitebear7396.top/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-    <category term="JaveScript" scheme="http://whitebear7396.top/tags/JAVESCRIPT/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第2周</title>
-    <link href="http://whitebear7396.top/programme/JavaScript/%E7%AC%AC2%E5%91%A8/"/>
-    <id>http://whitebear7396.top/programme/JavaScript/%E7%AC%AC2%E5%91%A8/</id>
-    <published>2020-08-27T05:20:52.000Z</published>
-    <updated>2020-08-27T05:20:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="代码位置"><a class="anchor" href="#代码位置">#</a> 代码位置</h1><h2 id="放置于网页headhead之内推荐"><a class="anchor" href="#放置于网页headhead之内推荐">#</a> 放置于网页 &lt;head/head&gt; 之内 (推荐)</h2><p>例如：可以将 js 代码编写到 script 标签</p><p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">        &lt;title&gt;&lt;/title&gt;</span><br><span class="line">        &lt;!--JS代码需要编写到Script标签中--&gt;</span><br><span class="line">        &lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">        </span><br><span class="line">         </span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p><p>例如：以将 js 代码编写到外部 js 文件中，然后通过 script 标签引，写到外部文件中可以在不同的页面中同时引用，也可以利用到浏览器的缓存机制，<strong>推荐使用的方式</strong></p><p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">        &lt;title&gt;&lt;/title&gt;</span><br><span class="line">        &lt;!--JS代码需要编写到Script标签中--&gt;</span><br><span class="line">        &lt;script type=<span class="string">&quot;text/javascript&quot;</span> src=<span class="string">&quot;js/script.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p><h2 id="放置于网页bodybody之内不推荐"><a class="anchor" href="#放置于网页bodybody之内不推荐">#</a> 放置于网页 &lt;body/body&gt; 之内（不推荐）</h2><p>例如：可以将 js 代码编写到标签 onclick 属性中，1 当我们点击按钮时，Js 代码才会执行</p><p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">        &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">          &lt;button onclick=<span class="string">&quot;alert(&#x27;11111&#x27;);&quot;</span>&gt;点我一下 &lt;/button&gt;  </span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p><p>例如：, 可以将 js 代码写在超链接的 href 属性中，这样当点击超链接时，会执行 js 代码</p><p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">        &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">          &lt;a href=<span class="string">&quot;javascript: alert(&#x27;2222222&#x27;);&quot;</span>&gt;网页显示的文本&lt;/a&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p><h1 id="基本语法"><a class="anchor" href="#基本语法">#</a> 基本语法</h1><h2 id="注释"><a class="anchor" href="#注释">#</a> 注释</h2><p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//单行注释    </span></span><br></pre></td></tr></table></figure></p><p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">*多行注释   *号有没有没关系，为了美观</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p><h2 id="大小写"><a class="anchor" href="#大小写">#</a> 大小写</h2><p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="string">&quot;可运行&quot;</span>);</span><br><span class="line">Alert(<span class="string">&quot;不可运行&quot;</span>);</span><br></pre></td></tr></table></figure></p><h2 id="以结尾"><a class="anchor" href="#以结尾">#</a> 以 (;) 结尾</h2><ul><li>如果不写分号，浏览器会自动添加，但是会消耗一些系统资源，</li><li>有些时候，浏览器会加错分号</li></ul><h2 id="空格和换行"><a class="anchor" href="#空格和换行">#</a> 空格和换行</h2><ul><li>js 中会忽略多个空格和换行，所以我们可以利用空格和换行对代码进行格式化（美观）</li></ul><h2 id="字面量和变量"><a class="anchor" href="#字面量和变量">#</a> 字面量和变量</h2><h3 id="字面量"><a class="anchor" href="#字面量">#</a> 字面量</h3><p>都是一些不可改变的值</p><p>比如：12345</p><p>字面量都是可以直接使用，但是我们一般都不会直接使用字面量</p><h3 id="变量"><a class="anchor" href="#变量">#</a> 变量</h3><p>变量可以用来保存字面量，而且变量的值是可以任意改变的</p><p>变量更加方便我们使用，所以在开发中都是通过变量去保存一个字面量，而很少直接使用字面量</p><h3 id="赋值"><a class="anchor" href="#赋值">#</a> 赋值</h3><p>通过 var 为变量赋值</p><p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="number">100</span></span><br></pre></td></tr></table></figure></p><p>通过 let 为变量赋值</p><p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> b = <span class="number">100</span></span><br></pre></td></tr></table></figure></p><h2 id="标识符"><a class="anchor" href="#标识符">#</a> 标识符</h2><ul><li><p>在 JS 中所有的可以由我们自主名的都可以称为是标识符</p></li><li><p>例如：变量名、函数名、属性名都属于标识符</p></li><li><p>命名一个标识符时需要遵守如下的规则:</p><ul><li><p>标识符中可以含有字母、数字、_、$</p></li><li><p>标识符不能以数字开头</p></li><li><p>标识符不能是 ES 中的关键字或保留字</p></li><li><p>标识符一般都采用驼峰命名法</p><p>首字母小写，每个单词的开头字母大写，其余字母小写</p><p>helloworld     xxxYyyzzz</p></li></ul></li><li><p>JS 底层保存标识符时实际上是采用的 Unicode 编码</p><p>所以理论上讲，所有的 utf-8 中含有的内容都可以作为标识符</p><p>中文可以用，但是没必要，不推荐使用。</p></li></ul><h3 id="关键词"><a class="anchor" href="#关键词">#</a> 关键词</h3><table><thead><tr><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td>break</td><td>do</td><td>instanceof</td><td>typeof</td><td>case</td></tr><tr><td>else</td><td>new</td><td>var</td><td>catch</td><td>finally</td></tr><tr><td>return</td><td>void</td><td>continue</td><td>for</td><td>switch</td></tr><tr><td>while</td><td>defaul</td><td>if</td><td>throw</td><td>delete</td></tr><tr><td>in</td><td>try</td><td>function</td><td>this</td><td>with</td></tr><tr><td>debugger</td><td>false</td><td>true</td><td>null</td><td></td></tr></tbody></table><h3 id="保留字符"><a class="anchor" href="#保留字符">#</a> 保留字符</h3><table><thead><tr><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td>class</td><td>interface</td><td>package</td><td>private</td><td>public</td></tr><tr><td>yield</td><td>enum</td><td>extends</td><td>let</td><td>implements</td></tr><tr><td>export</td><td>import</td><td>super</td><td>protected</td><td>statio</td></tr><tr><td>const</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></tbody></table><h2 id="数据类型"><a class="anchor" href="#数据类型">#</a> 数据类型</h2><p>string  Number  Boolean  Null  Undefined  属于基本数据类型</p><p>Object 属于引用数据类型</p><h3 id="string字符串"><a class="anchor" href="#string字符串">#</a> String 字符串</h3><ul><li><p>在 JS 中字符串需要使用引号引起来</p></li><li><p>使用双引号或单引号都可以，但是不要混着用</p></li><li><p>引号不能嵌套，双引号不能放双引号，单引号不能放单引号</p><p>例如</p><p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line">str= <span class="string">&#x27;我说:&quot;今天天气真不错! &quot;&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(str);</span><br></pre></td></tr></table></figure></p><p>在字符串中我们可以使用 \ 作为转义字符</p><ul><li>当表示一些特殊符号时可以使用 \ 进行转义</li><li>&quot;表示&quot;</li><li>' 表示'</li><li>\n 表示换行</li><li>\t 制表符</li><li>\ 表示 \</li></ul></li></ul><h3 id="number数值"><a class="anchor" href="#number数值">#</a> Number 数值</h3><p>在 JS 中所有的数值都是 Numper 类型</p><p>包括整数和浮点数 (小数)</p><p>js 中可以表示的数字的最大值</p><ul><li><p>Number.MAX_VALUE      =      1.7976931348623157e+308</p></li><li><p>Number.MIN VALUE        =      5e-324</p></li></ul><p>如果使用 Number 表示的数字超过了最大值，则会返回一个</p><ul><li>Infinity 表示正无穷</li><li>-Infinity 表示负无穷</li></ul><p>使用 typeof 检查 Infinity 也会返回 number</p><ul><li><p>NaN 是一个特殊的数字，表示 Not A Number</p></li><li><p>使用 typeof 检查一个 NaNt 会返回 number</p></li></ul><p>可以使用一个运算符 typeof 来检查一个变量的类型: typeof 变量</p><ul><li><p>检查字符串时，会返回 string</p></li><li><p>检查数值时，会返回 number</p></li></ul><p>如果使用 JS 进行浮点运算可能得到一个不精确的结果所以千万不要使用 JS 进存对精确度要求比较高的运算</p><h3 id="boolean布尔值"><a class="anchor" href="#boolean布尔值">#</a> Boolean 布尔值</h3><p>布尔值只有两个，主要用来做逻辑判断</p><ul><li>true - 表示真</li><li>false - 表示假</li></ul><p>用 typeof 检查 — 个布尔时，返回 boolean</p><h3 id="null空值"><a class="anchor" href="#null空值">#</a> Null（空值）</h3><p>Nu11 类型的值只有一个，就是 null</p><p>nu1l 这个值专门用来表示一个为空的对象</p><p>使用 typeof 检查一个 nul1 值时，会返回 object</p><h3 id="undefined未定义"><a class="anchor" href="#undefined未定义">#</a> Undefined（未定义）</h3><p>Undefined (未定义) 类型的值只有一个，就 undefind</p><p>当声明一个变量，但是并不给变量赋值时，它的值就是 undefind</p><p>使用 typeof 检查一个 undefined 时，会返回 undefined</p><h3 id="object对象"><a class="anchor" href="#object对象">#</a> Object 对象</h3>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;代码位置&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#代码位置&quot;&gt;#&lt;/a&gt; 代码位置&lt;/h1&gt;
-&lt;h2 id=&quot;放置于网页headhead之内推荐&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#放置于网页headhead之内推荐&quot;&gt;#&lt;/a&gt; 放置</summary>
-      
-    
-    
-    
-    <category term="程序汇编语言" scheme="http://whitebear7396.top/categories/PROGRAMME/"/>
-    
-    <category term="JavaScript" scheme="http://whitebear7396.top/categories/PROGRAMME/JAVASCRIPT/"/>
-    
-    
-    <category term="编程" scheme="http://whitebear7396.top/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-    <category term="JaveScript" scheme="http://whitebear7396.top/tags/JAVESCRIPT/"/>
-    
-  </entry>
-  
+&lt;p&gt;我们要学习的语言就是人和计算机交流的工具，人类通过语言来控制、操作计算机。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;编程语言和我们说的中文、英文本质上没有区别，只是语法比较特殊。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;语言的发展:&lt;/p&gt;
+&lt;p&gt;-- 纸带机：机器语言&lt;/p&gt;
+&lt;p&gt;-- 汇编语言：符号语言&lt;/p&gt;
+&lt;p&gt;-- 现代语言：高级语言&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;起源&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#起源&#34;&gt;#&lt;/a&gt; 起源&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;JavaScript 诞生于 1995 年，它的出现主要是用于处理网页中的前端验证。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;所谓的前端验证，就是指检查用户输入的内容是否符合一定的规则。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;比如：用户名的长度，密码的长度，邮箱的格式等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;简史&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#简史&#34;&gt;#&lt;/a&gt; 简史&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;JavaScript 是由网景公司发明，起初命名为 LiveScript , 后来由于 SUN 公司的介入更名为了 JavaScript.&lt;/li&gt;
+&lt;li&gt;1996 年微软公司在其最新的 IE3 浏览器中引入了自己对 Javascript 的实现 JScript.&lt;/li&gt;
+&lt;li&gt;于是市面上存在两个版本的 JavaScript, 一个网景公司的 JavaScript 和微软的 JScript.&lt;/li&gt;
+&lt;li&gt;为了确保不同的浏览器上运行的 JavaScript 标准一致，所以几个公司共同定制了 JS 的标准名命名为 ECMAScript.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;时间表&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#时间表&#34;&gt;#&lt;/a&gt; 时间表&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;年份&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;事件&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1995&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;网景公司开发了 JavaScript&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1996&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;微软发布了和 JavaScript 兼容的 JScript&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1997&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ECMAScript 第 1 版 (ECMA-262)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1998&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ECMASCript 第 2 版、DOM Level1 的制定、新型语言 DHTML 登场&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1999&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ECMAScript 第 3 版&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2000&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DOM Level2 的制定&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2002&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ISO/ IEC 16262:2002 的确立&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2004&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DOM Level3 的制定&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2005&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;新型语言 AJAX 登场&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2009&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ECMAScript 第 5 版、新型语言 HTML5 登场&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;实现&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#实现&#34;&gt;#&lt;/a&gt; 实现&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;浏览器&lt;/th&gt;
+&lt;th&gt;Javascript 实现方式&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;FireFox&lt;/td&gt;
+&lt;td&gt;SpiderMonkey&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Internet Explorer&lt;/td&gt;
+&lt;td&gt;JScript/Chakra&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Safari&lt;/td&gt;
+&lt;td&gt;JavaScriptCore&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Chrome&lt;/td&gt;
+&lt;td&gt;v8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Carakan&lt;/td&gt;
+&lt;td&gt;Carakan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;我们已经知道 ECMAScript 是 JavaScript 标准，所以一般情况下这两个词我们认为是一个意思。&lt;/li&gt;
+&lt;li&gt;但是实际上 JavaScript 的含义却要更大一些。&lt;/li&gt;
+&lt;li&gt;一个完整的 JavaScript 实现应该由以下三个部分构成:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;特点&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#特点&#34;&gt;#&lt;/a&gt; 特点&lt;/h2&gt;
+&lt;p&gt;JS 的特点&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;解释型语言&lt;/li&gt;
+&lt;li&gt;类似于 C 和 Java 的语法结构&lt;/li&gt;
+&lt;li&gt;动态语言&lt;/li&gt;
+&lt;li&gt;基于原型的面向对象&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;实操&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#实操&#34;&gt;#&lt;/a&gt; 实操&lt;/h1&gt;
+&lt;p&gt;alert ()// 控制浏览器弹出一个警告框&lt;/p&gt;
+&lt;p&gt;document. write ()// 让计算机在页面中输出一个内容&lt;/p&gt;
+&lt;p&gt;console.1og ()// 向控制台输出一个内容&lt;/p&gt;
+</content>
+        <category term="编程" />
+        <category term="Python" />
+        <updated>2020-08-27T05:20:52.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://whitebear7396.top/programme/Python/%E7%AC%AC1%E5%91%A8/</id>
+        <title>第1周</title>
+        <link rel="alternate" href="http://whitebear7396.top/programme/Python/%E7%AC%AC1%E5%91%A8/"/>
+        <content type="html">&lt;h1 id=&#34;待开始&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#待开始&#34;&gt;#&lt;/a&gt; 待开始&lt;/h1&gt;
+</content>
+        <category term="编程" />
+        <category term="Python" />
+        <updated>2020-08-27T05:20:52.000Z</updated>
+    </entry>
 </feed>
