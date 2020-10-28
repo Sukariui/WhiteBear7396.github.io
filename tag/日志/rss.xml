@@ -33,7 +33,7 @@
 &lt;ul&gt;
 &lt;li&gt;更新了网站主页，修改豆瓣图标为绿色，调整链接。&lt;/li&gt;
 &lt;li&gt;修改文章《【云函数系列】每日推送天气信息》，修改图片链接。&lt;/li&gt;
-&lt;li&gt;出现错误：部署到 coding 正常，部署到 github 出现错误，提示无权限。&lt;/li&gt;
+&lt;li&gt;出现错误：部署到 coding 正常，部署到 github 出现错误，提示无权限。尝试重新设置 ssh，关闭 coding 部署，发现可以 github 部署，但是网页端无法响应，上传上一个版本博客，&lt;/li&gt;
 &lt;/ul&gt;
  ]]></description>
         </item>
