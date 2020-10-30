@@ -5,21 +5,10 @@
     "home_page_url": "http://whitebear7396.top",
     "items": [
         {
-            "id": "http://whitebear7396.top/programme/Python/JS%E7%AC%AC1%E5%91%A8/",
-            "url": "http://whitebear7396.top/programme/Python/JS%E7%AC%AC1%E5%91%A8/",
-            "title": "第1周",
-            "date_published": "2020-08-27T05:20:52.000Z",
-            "content_html": "<h1 id=\"什么是语言\"><a class=\"anchor\" href=\"#什么是语言\">#</a> 什么是语言</h1>\n<ul>\n<li>\n<p>计算机就是一个由人来控制的机器，人让它干嘛，它就得干嘛。</p>\n</li>\n<li>\n<p>我们要学习的语言就是人和计算机交流的工具，人类通过语言来控制、操作计算机。</p>\n</li>\n<li>\n<p>编程语言和我们说的中文、英文本质上没有区别，只是语法比较特殊。</p>\n</li>\n<li>\n<p>语言的发展:</p>\n<p>-- 纸带机：机器语言</p>\n<p>-- 汇编语言：符号语言</p>\n<p>-- 现代语言：高级语言</p>\n</li>\n</ul>\n<h2 id=\"起源\"><a class=\"anchor\" href=\"#起源\">#</a> 起源</h2>\n<ul>\n<li>\n<p>JavaScript 诞生于 1995 年，它的出现主要是用于处理网页中的前端验证。</p>\n</li>\n<li>\n<p>所谓的前端验证，就是指检查用户输入的内容是否符合一定的规则。</p>\n</li>\n<li>\n<p>比如：用户名的长度，密码的长度，邮箱的格式等。</p>\n</li>\n</ul>\n<h2 id=\"简史\"><a class=\"anchor\" href=\"#简史\">#</a> 简史</h2>\n<ul>\n<li>JavaScript 是由网景公司发明，起初命名为 LiveScript , 后来由于 SUN 公司的介入更名为了 JavaScript.</li>\n<li>1996 年微软公司在其最新的 IE3 浏览器中引入了自己对 Javascript 的实现 JScript.</li>\n<li>于是市面上存在两个版本的 JavaScript, 一个网景公司的 JavaScript 和微软的 JScript.</li>\n<li>为了确保不同的浏览器上运行的 JavaScript 标准一致，所以几个公司共同定制了 JS 的标准名命名为 ECMAScript.</li>\n</ul>\n<h2 id=\"时间表\"><a class=\"anchor\" href=\"#时间表\">#</a> 时间表</h2>\n<table>\n<thead>\n<tr>\n<th style=\"text-align:center\">年份</th>\n<th style=\"text-align:center\">事件</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align:center\">1995</td>\n<td style=\"text-align:center\">网景公司开发了 JavaScript</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">1996</td>\n<td style=\"text-align:center\">微软发布了和 JavaScript 兼容的 JScript</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">1997</td>\n<td style=\"text-align:center\">ECMAScript 第 1 版 (ECMA-262)</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">1998</td>\n<td style=\"text-align:center\">ECMASCript 第 2 版、DOM Level1 的制定、新型语言 DHTML 登场</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">1999</td>\n<td style=\"text-align:center\">ECMAScript 第 3 版</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">2000</td>\n<td style=\"text-align:center\">DOM Level2 的制定</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">2002</td>\n<td style=\"text-align:center\">ISO/ IEC 16262:2002 的确立</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">2004</td>\n<td style=\"text-align:center\">DOM Level3 的制定</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">2005</td>\n<td style=\"text-align:center\">新型语言 AJAX 登场</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">2009</td>\n<td style=\"text-align:center\">ECMAScript 第 5 版、新型语言 HTML5 登场</td>\n</tr>\n</tbody>\n</table>\n<h1 id=\"实现\"><a class=\"anchor\" href=\"#实现\">#</a> 实现</h1>\n<table>\n<thead>\n<tr>\n<th style=\"text-align:center\">浏览器</th>\n<th>Javascript 实现方式</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align:center\">FireFox</td>\n<td>SpiderMonkey</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">Internet Explorer</td>\n<td>JScript/Chakra</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">Safari</td>\n<td>JavaScriptCore</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">Chrome</td>\n<td>v8</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">Carakan</td>\n<td>Carakan</td>\n</tr>\n</tbody>\n</table>\n<ul>\n<li>我们已经知道 ECMAScript 是 JavaScript 标准，所以一般情况下这两个词我们认为是一个意思。</li>\n<li>但是实际上 JavaScript 的含义却要更大一些。</li>\n<li>一个完整的 JavaScript 实现应该由以下三个部分构成:</li>\n</ul>\n<h2 id=\"特点\"><a class=\"anchor\" href=\"#特点\">#</a> 特点</h2>\n<p>JS 的特点</p>\n<ul>\n<li>解释型语言</li>\n<li>类似于 C 和 Java 的语法结构</li>\n<li>动态语言</li>\n<li>基于原型的面向对象</li>\n</ul>\n<h1 id=\"实操\"><a class=\"anchor\" href=\"#实操\">#</a> 实操</h1>\n<p>alert ()// 控制浏览器弹出一个警告框</p>\n<p>document. write ()// 让计算机在页面中输出一个内容</p>\n<p>console.1og ()// 向控制台输出一个内容</p>\n",
-            "tags": [
-                "编程",
-                "Python"
-            ]
-        },
-        {
             "id": "http://whitebear7396.top/programme/Python/%E7%AC%AC1%E5%91%A8/",
             "url": "http://whitebear7396.top/programme/Python/%E7%AC%AC1%E5%91%A8/",
             "title": "第1周",
-            "date_published": "2020-08-27T05:20:52.000Z",
+            "date_published": "2020-08-10T05:20:52.000Z",
             "content_html": "<h1 id=\"待开始\"><a class=\"anchor\" href=\"#待开始\">#</a> 待开始</h1>\n",
             "tags": [
                 "编程",
