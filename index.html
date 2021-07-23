@@ -1136,6 +1136,209 @@
   </div>
 
 
+<style>
+  .index-notice-content {
+    margin-top: 10px;
+  }
+  .warp {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .index-notice-content__ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+  }
+  .index-notice-content__ul li,
+  .index-notice-content__ul a {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+  }
+  .index-notice-content__title {
+    flex: 1;
+    overflow: hidden;
+  }
+  .index-notice-content__title a,
+  .index-notice-content__title span {
+    overflow: hidden;
+    display: block;
+    text-overflow:ellipsis; 
+    white-space: nowrap;
+    height: 100%;
+    width: 100%;
+    color: #000;
+  }
+  .index-notice-content__title a:hover,
+  .index-notice-content__title span:hover {
+    text-decoration: underline;
+  }
+  .index-notice-content__date {
+    min-width: 80px;
+    margin-left: 5px;
+    color: #000;
+  }
+</style>
+<div class="index-notice" id="appIndexNotice">
+    <h3>
+      <i class="fa fa-bullhorn index-notice-icon"></i>阁下大驾光临，小地蓬荜生辉也
+    </h3>
+    <div class="index-notice-content">
+      
+      <vue-seamless-scroll
+        :data="listData"
+        :class-option="classOption"
+        class="warp"
+        style="height: 180px"
+      >
+        <ul class="index-notice-content__ul">
+          
+          
+            <li>
+              
+                <div class="index-notice-content__title">
+                  
+                    <a href="/archives" title="#博客更新到2.0了" style="color:red">
+                      #博客更新到2.0了
+                    </a>
+                  
+                </div>
+                
+                  <div class="index-notice-content__date" style="color:red">
+                    2021-04-28
+                  </div>
+                
+              
+            </li>
+          
+            <li>
+              
+                <div class="index-notice-content__title">
+                  
+                    <a target="_blank" rel="noopener" href="http://baidu.com" title="#新增 轮播图支持三种模式了，功能也增强了 ~" style="color:red">
+                      #新增 轮播图支持三种模式了，功能也增强了 ~
+                    </a>
+                  
+                </div>
+                
+                  <div class="index-notice-content__date" style="color:red">
+                    2021-04-28
+                  </div>
+                
+              
+            </li>
+          
+            <li>
+              
+                <div class="index-notice-content__title">
+                  
+                    <a target="_blank" rel="noopener" href="http://baidu.com" title="#新增 支持二级导航" style="color:blue">
+                      #新增 支持二级导航
+                    </a>
+                  
+                </div>
+                
+                  <div class="index-notice-content__date" style="color:blue">
+                    2021-04-28
+                  </div>
+                
+              
+            </li>
+          
+            <li>
+              
+                <div class="index-notice-content__title">
+                  
+                    <a target="_blank" rel="noopener" href="http://baidu.com" title="#新增 归档，分类等页面头部图片位置可以设置为视频 ~" style="color:#abbc83">
+                      #新增 归档，分类等页面头部图片位置可以设置为视频 ~
+                    </a>
+                  
+                </div>
+                
+                  <div class="index-notice-content__date" style="color:#abbc83">
+                    2021-04-28
+                  </div>
+                
+              
+            </li>
+          
+            <li>
+              
+                <div class="index-notice-content__title">
+                  
+                    <a target="_blank" rel="noopener" href="http://baidu.com" title="#新增 头部导航可以设置为在顶部透明，并且可以任意设置背景颜色了 ~" style="">
+                      #新增 头部导航可以设置为在顶部透明，并且可以任意设置背景颜色了 ~
+                    </a>
+                  
+                </div>
+                
+                  <div class="index-notice-content__date" style="">
+                    2021-04-28
+                  </div>
+                
+              
+            </li>
+          
+            <li>
+              
+                <div class="index-notice-content__title">
+                  
+                    <a target="_blank" rel="noopener" href="http://baidu.com" title="#今天把博客建起来了呀 ~" style="">
+                      #今天把博客建起来了呀 ~
+                    </a>
+                  
+                </div>
+                
+                  <div class="index-notice-content__date" style="">
+                    2020-03-28
+                  </div>
+                
+              
+            </li>
+           
+        </ul>
+      </vue-seamless-scroll>
+    </div>
+</div>
+<script src="/js/vue-seamless-scroll/index.js"></script>
+
+<!-- 滚动插件采用 vue-seamless-scroll
+  https://chenxuan0000.github.io/vue-seamless-scroll/zh/guide/06-singleStop.html 
+-->
+
+<script>
+  let seamless = JSON.parse('false');
+  seamless = seamless ? 0 : 30;
+  let listData = '[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]';
+  listData = listData.split(',');
+  var vm = new Vue({
+    el: '#appIndexNotice',
+    data: {
+      listData: listData,
+      moveNum: 2,
+      classOption: {
+        singleHeight: seamless,
+        limitMoveNum: listData.length
+      },
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+    },
+    created() {
+      this.moveNum = parseInt(this.listData.length);
+    }
+  })
+</script>
+
+
+
 
 
 
@@ -1183,7 +1386,7 @@
             <span class="post-time">2021-04-27</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/post/programme/Hexo/2021-04-22-Hexo%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7.html">Hexo版本升级</a>
+            <a class="post-title-link" href="/post/programme/hexo/2021-04-22-hexo-ban-ben-sheng-ji.html">Hexo版本升级</a>
           </div>
           <div class="post-meta">
             <div class="post-tags">
@@ -1204,7 +1407,7 @@
           <div class="post-img-mobile">
             
               
-              <a href="/post/programme/Hexo/2021-04-22-Hexo%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7.html" class="lazyload" data-original="/medias/12.jpg" style="background-size: cover; 
+              <a href="/post/programme/hexo/2021-04-22-hexo-ban-ben-sheng-ji.html" class="lazyload" data-original="/medias/12.jpg" style="background-size: cover; 
                 background-position: center center;">
               </a>
             
@@ -1220,14 +1423,14 @@ cnpm in
           </div>
         </div>
         <div class="post-more">
-          <a href="/post/programme/Hexo/2021-04-22-Hexo%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7.html">
+          <a href="/post/programme/hexo/2021-04-22-hexo-ban-ben-sheng-ji.html">
             <i class="iconfont iconmore" style="float: right;  " title="阅读更多"></i>
           </a>
         </div>
       </div>
       <div class="post-img">
         
-          <a href="/post/programme/Hexo/2021-04-22-Hexo%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7.html" class="lazyload" data-original="/medias/12.jpg" style="background-size: cover; 
+          <a href="/post/programme/hexo/2021-04-22-hexo-ban-ben-sheng-ji.html" class="lazyload" data-original="/medias/12.jpg" style="background-size: cover; 
             background-position: center center;">
           </a>
         
@@ -1242,7 +1445,7 @@ cnpm in
             <span class="post-time">2021-04-26</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/post/2021-4.26-python%E5%88%B6%E4%BD%9C%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2.html">Python制作图形界面</a>
+            <a class="post-title-link" href="/post/2021-4.26-python-zhi-zuo-tu-xing-jie-mian.html">Python制作图形界面</a>
           </div>
           <div class="post-meta">
             <div class="post-tags">
@@ -1263,7 +1466,7 @@ cnpm in
           <div class="post-img-mobile">
             
               
-              <a href="/post/2021-4.26-python%E5%88%B6%E4%BD%9C%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2.html" class="lazyload" data-original="/medias/7.jpg" style="background-size: cover; 
+              <a href="/post/2021-4.26-python-zhi-zuo-tu-xing-jie-mian.html" class="lazyload" data-original="/medias/7.jpg" style="background-size: cover; 
                 background-position: center center;">
               </a>
             
@@ -1274,14 +1477,14 @@ cnpm in
           </div>
         </div>
         <div class="post-more">
-          <a href="/post/2021-4.26-python%E5%88%B6%E4%BD%9C%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2.html">
+          <a href="/post/2021-4.26-python-zhi-zuo-tu-xing-jie-mian.html">
             <i class="iconfont iconmore" style="  " title="阅读更多"></i>
           </a>
         </div>
       </div>
       <div class="post-img">
         
-          <a href="/post/2021-4.26-python%E5%88%B6%E4%BD%9C%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2.html" class="lazyload" data-original="/medias/7.jpg" style="background-size: cover; 
+          <a href="/post/2021-4.26-python-zhi-zuo-tu-xing-jie-mian.html" class="lazyload" data-original="/medias/7.jpg" style="background-size: cover; 
             background-position: center center;">
           </a>
         
@@ -1296,7 +1499,7 @@ cnpm in
             <span class="post-time">2020-09-21</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/post/article/%E7%AC%AC3%E7%AF%87-notion%E4%B8%8A%E6%89%8B%E6%8E%A8%E8%8D%90.html">第3篇-notion上手推荐</a>
+            <a class="post-title-link" href="/post/article/di-3-pian-notion-shang-shou-tui-jian.html">第3篇-notion上手推荐</a>
           </div>
           <div class="post-meta">
             <div class="post-tags">
@@ -1314,7 +1517,7 @@ cnpm in
           <div class="post-img-mobile">
             
               
-              <a href="/post/article/%E7%AC%AC3%E7%AF%87-notion%E4%B8%8A%E6%89%8B%E6%8E%A8%E8%8D%90.html" class="lazyload" data-original="/medias/8.jpg" style="background-size: cover; 
+              <a href="/post/article/di-3-pian-notion-shang-shou-tui-jian.html" class="lazyload" data-original="/medias/8.jpg" style="background-size: cover; 
                 background-position: center center;">
               </a>
             
@@ -1324,14 +1527,14 @@ cnpm in
           </div>
         </div>
         <div class="post-more">
-          <a href="/post/article/%E7%AC%AC3%E7%AF%87-notion%E4%B8%8A%E6%89%8B%E6%8E%A8%E8%8D%90.html">
+          <a href="/post/article/di-3-pian-notion-shang-shou-tui-jian.html">
             <i class="iconfont iconmore" style="float: right;  " title="阅读更多"></i>
           </a>
         </div>
       </div>
       <div class="post-img">
         
-          <a href="/post/article/%E7%AC%AC3%E7%AF%87-notion%E4%B8%8A%E6%89%8B%E6%8E%A8%E8%8D%90.html" class="lazyload" data-original="/medias/8.jpg" style="background-size: cover; 
+          <a href="/post/article/di-3-pian-notion-shang-shou-tui-jian.html" class="lazyload" data-original="/medias/8.jpg" style="background-size: cover; 
             background-position: center center;">
           </a>
         
@@ -1346,7 +1549,7 @@ cnpm in
             <span class="post-time">2020-09-08</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/post/article/%E7%AC%AC2%E7%AF%87-%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91.html">第2篇 更新博客遇到的坑</a>
+            <a class="post-title-link" href="/post/article/di-2-pian-geng-xin-bo-ke-yu-dao-de-keng.html">第2篇 更新博客遇到的坑</a>
           </div>
           <div class="post-meta">
             <div class="post-tags">
@@ -1364,7 +1567,7 @@ cnpm in
           <div class="post-img-mobile">
             
               
-              <a href="/post/article/%E7%AC%AC2%E7%AF%87-%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91.html" class="lazyload" data-original="/medias/3.jpg" style="background-size: cover; 
+              <a href="/post/article/di-2-pian-geng-xin-bo-ke-yu-dao-de-keng.html" class="lazyload" data-original="/medias/3.jpg" style="background-size: cover; 
                 background-position: center center;">
               </a>
             
@@ -1375,14 +1578,14 @@ cnpm in
           </div>
         </div>
         <div class="post-more">
-          <a href="/post/article/%E7%AC%AC2%E7%AF%87-%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91.html">
+          <a href="/post/article/di-2-pian-geng-xin-bo-ke-yu-dao-de-keng.html">
             <i class="iconfont iconmore" style="  " title="阅读更多"></i>
           </a>
         </div>
       </div>
       <div class="post-img">
         
-          <a href="/post/article/%E7%AC%AC2%E7%AF%87-%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91.html" class="lazyload" data-original="/medias/3.jpg" style="background-size: cover; 
+          <a href="/post/article/di-2-pian-geng-xin-bo-ke-yu-dao-de-keng.html" class="lazyload" data-original="/medias/3.jpg" style="background-size: cover; 
             background-position: center center;">
           </a>
         
@@ -1397,20 +1600,20 @@ cnpm in
             <span class="post-time">2020-08-27</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/post/game/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4.html">炉石传说</a>
+            <a class="post-title-link" href="/post/article/di-1-pian-ji-lu-bo-ke-wang-zhan-da-jian.html">第1篇 记录博客网站搭建</a>
           </div>
           <div class="post-meta">
             <div class="post-tags">
               
     <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4/" rel="tag">炉石传说</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%84%9A%E6%9C%AC/" rel="tag">脚本</a></li></ul>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98/" rel="tag">主题</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
 
             </div>
             <div class="post-categories">
               
 <div class="article-category">
   <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a>
+  <a class="article-category-link" href="/categories/%E8%AE%B0%E5%BD%95%E7%82%B9%E6%BB%B4%E7%94%9F%E6%B4%BB%E6%96%87%E7%AB%A0/">记录点滴生活文章</a>
 </div>
 
             </div>
@@ -1418,24 +1621,25 @@ cnpm in
           <div class="post-img-mobile">
             
               
-              <a href="/post/game/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4.html" class="lazyload" data-original="/medias/11.jpg" style="background-size: cover; 
+              <a href="/post/article/di-1-pian-ji-lu-bo-ke-wang-zhan-da-jian.html" class="lazyload" data-original="/medias/4.jpg" style="background-size: cover; 
                 background-position: center center;">
               </a>
             
           </div>
           <div class="post-content">
-            <p>到现在只写了第一篇在点滴文章记录里面，传送门链接我还不会做，难受还是我的华盛顿</p>
+            
+创建博客缘由&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新奇的事物总是能给人带来惊喜，我超爱的！！！博客作为互联网时代初期的产物，听上去现在是有些老古董了，可是这也太好玩了吧
           </div>
         </div>
         <div class="post-more">
-          <a href="/post/game/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4.html">
+          <a href="/post/article/di-1-pian-ji-lu-bo-ke-wang-zhan-da-jian.html">
             <i class="iconfont iconmore" style="float: right;  " title="阅读更多"></i>
           </a>
         </div>
       </div>
       <div class="post-img">
         
-          <a href="/post/game/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4.html" class="lazyload" data-original="/medias/11.jpg" style="background-size: cover; 
+          <a href="/post/article/di-1-pian-ji-lu-bo-ke-wang-zhan-da-jian.html" class="lazyload" data-original="/medias/4.jpg" style="background-size: cover; 
             background-position: center center;">
           </a>
         
@@ -1450,113 +1654,7 @@ cnpm in
             <span class="post-time">2020-08-27</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/post/film/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4.html">电影</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%B5%E5%BD%B1/" rel="tag">电影</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/%E4%BC%98%E7%A7%80%E7%94%B5%E5%BD%B1%E6%8E%A8%E8%8D%90%E5%8F%8A%E8%B5%8F%E6%9E%90/">优秀电影推荐及赏析</a>
-</div>
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            
-              
-              <a href="/post/film/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4.html" class="lazyload" data-original="/medias/4.jpg" style="background-size: cover; 
-                background-position: center center;">
-              </a>
-            
-          </div>
-          <div class="post-content">
-            到现在只写了第一篇在点滴文章记录里面，传送门链接我还不会做，难受
-          </div>
-        </div>
-        <div class="post-more">
-          <a href="/post/film/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4.html">
-            <i class="iconfont iconmore" style="  " title="阅读更多"></i>
-          </a>
-        </div>
-      </div>
-      <div class="post-img">
-        
-          <a href="/post/film/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4.html" class="lazyload" data-original="/medias/4.jpg" style="background-size: cover; 
-            background-position: center center;">
-          </a>
-        
-      </div>
-    </article>
-  
-    <article class="post" data-aos="fade-up" style="flex-direction: row-reverse;   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <span class="post-time">2020-08-27</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/post/inbetweening/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4.html">插画</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8F%92%E7%94%BB/" rel="tag">插画</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/%E7%BE%8E%E6%9C%AF%E5%AD%A6%E5%9C%BA%E6%99%AF%E5%8F%8A%E4%BA%BA%E7%89%A9%E7%BB%98%E5%88%B6/">美术学场景及人物绘制</a>
-</div>
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            
-              
-              <a href="/post/inbetweening/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4.html" class="lazyload" data-original="/medias/6.jpg" style="background-size: cover; 
-                background-position: center center;">
-              </a>
-            
-          </div>
-          <div class="post-content">
-            到现在只写了第一篇在点滴文章记录里面，传送门链接我还不会做，难受
-          </div>
-        </div>
-        <div class="post-more">
-          <a href="/post/inbetweening/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4.html">
-            <i class="iconfont iconmore" style="float: right;  " title="阅读更多"></i>
-          </a>
-        </div>
-      </div>
-      <div class="post-img">
-        
-          <a href="/post/inbetweening/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4.html" class="lazyload" data-original="/medias/6.jpg" style="background-size: cover; 
-            background-position: center center;">
-          </a>
-        
-      </div>
-    </article>
-  
-    <article class="post" data-aos="fade-up" style="   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <span class="post-time">2020-08-27</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/post/design/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4.html">设计</a>
+            <a class="post-title-link" href="/post/design/lu-shi-chuan-shuo.html">设计</a>
           </div>
           <div class="post-meta">
             <div class="post-tags">
@@ -1577,7 +1675,7 @@ cnpm in
           <div class="post-img-mobile">
             
               
-              <a href="/post/design/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4.html" class="lazyload" data-original="/medias/15.jpg" style="background-size: cover; 
+              <a href="/post/design/lu-shi-chuan-shuo.html" class="lazyload" data-original="/medias/15.jpg" style="background-size: cover; 
                 background-position: center center;">
               </a>
             
@@ -1589,14 +1687,14 @@ cnpm in
           </div>
         </div>
         <div class="post-more">
-          <a href="/post/design/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4.html">
+          <a href="/post/design/lu-shi-chuan-shuo.html">
             <i class="iconfont iconmore" style="  " title="阅读更多"></i>
           </a>
         </div>
       </div>
       <div class="post-img">
         
-          <a href="/post/design/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4.html" class="lazyload" data-original="/medias/15.jpg" style="background-size: cover; 
+          <a href="/post/design/lu-shi-chuan-shuo.html" class="lazyload" data-original="/medias/15.jpg" style="background-size: cover; 
             background-position: center center;">
           </a>
         
@@ -1611,7 +1709,166 @@ cnpm in
             <span class="post-time">2020-08-27</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/post/programme/JS%E7%AC%AC1%E5%91%A8.html">JS第1周</a>
+            <a class="post-title-link" href="/post/film/lu-shi-chuan-shuo.html">电影</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%B5%E5%BD%B1/" rel="tag">电影</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/categories/%E4%BC%98%E7%A7%80%E7%94%B5%E5%BD%B1%E6%8E%A8%E8%8D%90%E5%8F%8A%E8%B5%8F%E6%9E%90/">优秀电影推荐及赏析</a>
+</div>
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            
+              
+              <a href="/post/film/lu-shi-chuan-shuo.html" class="lazyload" data-original="/medias/4.jpg" style="background-size: cover; 
+                background-position: center center;">
+              </a>
+            
+          </div>
+          <div class="post-content">
+            到现在只写了第一篇在点滴文章记录里面，传送门链接我还不会做，难受
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/post/film/lu-shi-chuan-shuo.html">
+            <i class="iconfont iconmore" style="float: right;  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        
+          <a href="/post/film/lu-shi-chuan-shuo.html" class="lazyload" data-original="/medias/4.jpg" style="background-size: cover; 
+            background-position: center center;">
+          </a>
+        
+      </div>
+    </article>
+  
+    <article class="post" data-aos="fade-up" style="   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <span class="post-time">2020-08-27</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/post/game/lu-shi-chuan-shuo.html">炉石传说</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4/" rel="tag">炉石传说</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%84%9A%E6%9C%AC/" rel="tag">脚本</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a>
+</div>
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            
+              
+              <a href="/post/game/lu-shi-chuan-shuo.html" class="lazyload" data-original="/medias/11.jpg" style="background-size: cover; 
+                background-position: center center;">
+              </a>
+            
+          </div>
+          <div class="post-content">
+            <p>到现在只写了第一篇在点滴文章记录里面，传送门链接我还不会做，难受还是我的华盛顿</p>
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/post/game/lu-shi-chuan-shuo.html">
+            <i class="iconfont iconmore" style="  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        
+          <a href="/post/game/lu-shi-chuan-shuo.html" class="lazyload" data-original="/medias/11.jpg" style="background-size: cover; 
+            background-position: center center;">
+          </a>
+        
+      </div>
+    </article>
+  
+    <article class="post" data-aos="fade-up" style="flex-direction: row-reverse;   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <span class="post-time">2020-08-27</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/post/inbetweening/lu-shi-chuan-shuo.html">插画</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8F%92%E7%94%BB/" rel="tag">插画</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/categories/%E7%BE%8E%E6%9C%AF%E5%AD%A6%E5%9C%BA%E6%99%AF%E5%8F%8A%E4%BA%BA%E7%89%A9%E7%BB%98%E5%88%B6/">美术学场景及人物绘制</a>
+</div>
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            
+              
+              <a href="/post/inbetweening/lu-shi-chuan-shuo.html" class="lazyload" data-original="/medias/6.jpg" style="background-size: cover; 
+                background-position: center center;">
+              </a>
+            
+          </div>
+          <div class="post-content">
+            到现在只写了第一篇在点滴文章记录里面，传送门链接我还不会做，难受
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/post/inbetweening/lu-shi-chuan-shuo.html">
+            <i class="iconfont iconmore" style="float: right;  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        
+          <a href="/post/inbetweening/lu-shi-chuan-shuo.html" class="lazyload" data-original="/medias/6.jpg" style="background-size: cover; 
+            background-position: center center;">
+          </a>
+        
+      </div>
+    </article>
+  
+    <article class="post" data-aos="fade-up" style="   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <span class="post-time">2020-08-27</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/post/programme/js-di-1-zhou.html">JS第1周</a>
           </div>
           <div class="post-meta">
             <div class="post-tags">
@@ -1632,7 +1889,7 @@ cnpm in
           <div class="post-img-mobile">
             
               
-              <a href="/post/programme/JS%E7%AC%AC1%E5%91%A8.html" class="lazyload" data-original="/medias/7.jpg" style="background-size: cover; 
+              <a href="/post/programme/js-di-1-zhou.html" class="lazyload" data-original="/medias/7.jpg" style="background-size: cover; 
                 background-position: center center;">
               </a>
             
@@ -1650,71 +1907,14 @@ cnpm in
           </div>
         </div>
         <div class="post-more">
-          <a href="/post/programme/JS%E7%AC%AC1%E5%91%A8.html">
-            <i class="iconfont iconmore" style="float: right;  " title="阅读更多"></i>
-          </a>
-        </div>
-      </div>
-      <div class="post-img">
-        
-          <a href="/post/programme/JS%E7%AC%AC1%E5%91%A8.html" class="lazyload" data-original="/medias/7.jpg" style="background-size: cover; 
-            background-position: center center;">
-          </a>
-        
-      </div>
-    </article>
-  
-    <article class="post" data-aos="fade-up" style="   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <span class="post-time">2020-08-27</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/post/programme/JS%E7%AC%AC2%E5%91%A8.html"></a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JaveScript/" rel="tag">JaveScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">程序汇编语言</a>
-</div>
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            
-              
-              <a href="/post/programme/JS%E7%AC%AC2%E5%91%A8.html" class="lazyload" data-original="/medias/1.jpg" style="background-size: cover; 
-                background-position: center center;">
-              </a>
-            
-          </div>
-          <div class="post-content">
-            代码位置放置于网页&lt;head/head&gt;之内(推荐)例如：可以将js代码编写到script标签
-&lt;!DOCTYPE html>
-&lt;html>
-    &lt;head>
-        &lt;meta charse
-          </div>
-        </div>
-        <div class="post-more">
-          <a href="/post/programme/JS%E7%AC%AC2%E5%91%A8.html">
+          <a href="/post/programme/js-di-1-zhou.html">
             <i class="iconfont iconmore" style="  " title="阅读更多"></i>
           </a>
         </div>
       </div>
       <div class="post-img">
         
-          <a href="/post/programme/JS%E7%AC%AC2%E5%91%A8.html" class="lazyload" data-original="/medias/1.jpg" style="background-size: cover; 
+          <a href="/post/programme/js-di-1-zhou.html" class="lazyload" data-original="/medias/7.jpg" style="background-size: cover; 
             background-position: center center;">
           </a>
         

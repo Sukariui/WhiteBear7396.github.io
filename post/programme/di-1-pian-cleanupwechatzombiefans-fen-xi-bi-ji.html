@@ -10,7 +10,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>Narges&#39;s Blog</title>
+  <title>第1篇 CleanUpWeChatZombieFans分析笔记 | Narges&#39;s Blog</title>
 
   
     
@@ -730,7 +730,7 @@
 
 
 
-<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/1.jpg" style="background-repeat: no-repeat; background-size: cover; 
+<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/15.jpg" style="background-repeat: no-repeat; background-size: cover; 
   background-position: center center;position: relative;">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
@@ -738,7 +738,7 @@
     <div class="title-box">
       
           <span class="title">
-            
+            第1篇 CleanUpWeChatZombieFans分析笔记
           </span>
         
     </div>
@@ -787,278 +787,10 @@
         
       </div>
       <div class="post-content">
-        <h1 id="代码位置"><a href="#代码位置" class="headerlink" title="代码位置"></a>代码位置</h1><h2 id="放置于网页-lt-head-head-gt-之内-推荐"><a href="#放置于网页-lt-head-head-gt-之内-推荐" class="headerlink" title="放置于网页&lt;head/head&gt;之内(推荐)"></a>放置于网页&lt;head/head&gt;之内(推荐)</h2><p>例如：可以将js代码编写到script标签</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token constant">DOCTYPE</span> html<span class="token operator">></span>
-<span class="token operator">&lt;</span>html<span class="token operator">></span>
-    <span class="token operator">&lt;</span>head<span class="token operator">></span>
-        <span class="token operator">&lt;</span>meta charset<span class="token operator">=</span><span class="token string">"UTF-8"</span><span class="token operator">></span>
-        <span class="token operator">&lt;</span>title<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">></span>
-        <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span><span class="token constant">JS</span>代码需要编写到Script标签中<span class="token operator">--</span><span class="token operator">></span>
-        <span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
-        
-         
-        <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">></span>
-    <span class="token operator">&lt;</span>body<span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        <h1 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h1><p>===</p>
+<p>通过对&lt;清理微信僵尸粉.js&gt;脚本的分析，了解其运行原理，补充相关JS知识点。</p>
+<h1 id="第一周"><a href="#第一周" class="headerlink" title="第一周"></a>第一周</h1><h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><p>（（）=&gt; {} ）、(function(){})<br>标准的函数，没有赋值给任何变量，没有名字的函数，叫匿名函数.主要是利用函数内的变量作用。避免产生全局变量，影响整体页面环境，增加代码的兼容性。因为没有名字，所以在定义完成就要调用，（（）=&gt; {} ）（），后面的（）是调用运行这个匿名函数的意思.</p>
 
-<p>例如：以将js代码编写到外部js文件中,然后通过script标签引，写到外部文件中可以在不同的页面中同时引用,也可以利用到浏览器的缓存机制，<strong>推荐使用的方式</strong></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token constant">DOCTYPE</span> html<span class="token operator">></span>
-<span class="token operator">&lt;</span>html<span class="token operator">></span>
-    <span class="token operator">&lt;</span>head<span class="token operator">></span>
-        <span class="token operator">&lt;</span>meta charset<span class="token operator">=</span><span class="token string">"UTF-8"</span><span class="token operator">></span>
-        <span class="token operator">&lt;</span>title<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">></span>
-        <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span><span class="token constant">JS</span>代码需要编写到Script标签中<span class="token operator">--</span><span class="token operator">></span>
-        <span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span> src<span class="token operator">=</span><span class="token string">"js/script.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-        <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">></span>
-    <span class="token operator">&lt;</span>body<span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h2 id="放置于网页-lt-body-body-gt-之内（不推荐）"><a href="#放置于网页-lt-body-body-gt-之内（不推荐）" class="headerlink" title="放置于网页&lt;body/body&gt;之内（不推荐）"></a>放置于网页&lt;body/body&gt;之内（不推荐）</h2><p>例如：可以将js代码编写到标签 onclick属性中，1当我们点击按钮时, Js代码才会执行</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token constant">DOCTYPE</span> html<span class="token operator">></span>
-<span class="token operator">&lt;</span>html<span class="token operator">></span>
-    <span class="token operator">&lt;</span>head<span class="token operator">></span>
-        <span class="token operator">&lt;</span>meta charset<span class="token operator">=</span><span class="token string">"UTF-8"</span><span class="token operator">></span>
-        <span class="token operator">&lt;</span>title<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">></span>
-    <span class="token operator">&lt;</span>body<span class="token operator">></span>
-          <span class="token operator">&lt;</span>button onclick<span class="token operator">=</span><span class="token string">"alert('11111');"</span><span class="token operator">></span>点我一下 <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>  
-    <span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>例如：,可以将js代码写在超链接的href属性中,这样当点击超链接时,会执行js代码</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token constant">DOCTYPE</span> html<span class="token operator">></span>
-<span class="token operator">&lt;</span>html<span class="token operator">></span>
-    <span class="token operator">&lt;</span>head<span class="token operator">></span>
-        <span class="token operator">&lt;</span>meta charset<span class="token operator">=</span><span class="token string">"UTF-8"</span><span class="token operator">></span>
-        <span class="token operator">&lt;</span>title<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">></span>
-    <span class="token operator">&lt;</span>body<span class="token operator">></span>
-          <span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">"javascript: alert('2222222');"</span><span class="token operator">></span>网页显示的文本<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//单行注释    </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">/*
-*多行注释   *号有没有没关系，为了美观
-*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="大小写"><a href="#大小写" class="headerlink" title="大小写"></a>大小写</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"可运行"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">Alert</span><span class="token punctuation">(</span><span class="token string">"不可运行"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2 id="以-结尾"><a href="#以-结尾" class="headerlink" title="以(;)结尾"></a>以(;)结尾</h2><ul>
-<li>如果不写分号,浏览器会自动添加,但是会消耗一些系统资源,</li>
-<li>有些时候,浏览器会加错分号</li>
-</ul>
-<h2 id="空格和换行"><a href="#空格和换行" class="headerlink" title="空格和换行"></a>空格和换行</h2><ul>
-<li>js中会忽略多个空格和换行,所以我们可以利用空格和换行对代码进行格式化（美观）</li>
-</ul>
-<h2 id="字面量和变量"><a href="#字面量和变量" class="headerlink" title="字面量和变量"></a>字面量和变量</h2><h3 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h3><p>都是一些不可改变的值</p>
-<p>比如：12345</p>
-<p>字面量都是可以直接使用,但是我们一般都不会直接使用字面量</p>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量可以用来保存字面量,而且变量的值是可以任意改变的</p>
-<p>变量更加方便我们使用,所以在开发中都是通过变量去保存一个字面量,而很少直接使用字面量</p>
-<h3 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h3><p>通过var为变量赋值</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token number">100</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>通过let为变量赋值</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token number">100</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><ul>
-<li><p>在JS中所有的可以由我们自主名的都可以称为是标识符</p>
-</li>
-<li><p>例如:变量名、函数名、属性名都属于标识符</p>
-</li>
-<li><p>命名一个标识符时需要遵守如下的规则:</p>
-<ul>
-<li><p>标识符中可以含有字母、数字、_、$</p>
-</li>
-<li><p>标识符不能以数字开头</p>
-</li>
-<li><p>标识符不能是ES中的关键字或保留字</p>
-</li>
-<li><p>标识符一般都采用驼峰命名法</p>
-<p>首字母小写,每个单词的开头字母大写,其余字母小写</p>
-<p>helloworld     xxxYyyzzz</p>
-</li>
-</ul>
-</li>
-<li><p>JS底层保存标识符时实际上是采用的Unicode编码</p>
-<p>所以理论上讲,所有的utf-8中含有的内容都可以作为标识符</p>
-<p>中文可以用，但是没必要，不推荐使用。</p>
-</li>
-</ul>
-<h3 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h3><table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>break</td>
-<td>do</td>
-<td>instanceof</td>
-<td>typeof</td>
-<td>case</td>
-</tr>
-<tr>
-<td>else</td>
-<td>new</td>
-<td>var</td>
-<td>catch</td>
-<td>finally</td>
-</tr>
-<tr>
-<td>return</td>
-<td>void</td>
-<td>continue</td>
-<td>for</td>
-<td>switch</td>
-</tr>
-<tr>
-<td>while</td>
-<td>defaul</td>
-<td>if</td>
-<td>throw</td>
-<td>delete</td>
-</tr>
-<tr>
-<td>in</td>
-<td>try</td>
-<td>function</td>
-<td>this</td>
-<td>with</td>
-</tr>
-<tr>
-<td>debugger</td>
-<td>false</td>
-<td>true</td>
-<td>null</td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="保留字符"><a href="#保留字符" class="headerlink" title="保留字符"></a>保留字符</h3><table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>class</td>
-<td>interface</td>
-<td>package</td>
-<td>private</td>
-<td>public</td>
-</tr>
-<tr>
-<td>yield</td>
-<td>enum</td>
-<td>extends</td>
-<td>let</td>
-<td>implements</td>
-</tr>
-<tr>
-<td>export</td>
-<td>import</td>
-<td>super</td>
-<td>protected</td>
-<td>statio</td>
-</tr>
-<tr>
-<td>const</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>string  Number  Boolean  Null  Undefined  属于基本数据类型</p>
-<p>Object属于引用数据类型</p>
-<h3 id="String字符串"><a href="#String字符串" class="headerlink" title="String字符串"></a>String字符串</h3><ul>
-<li><p>在JS中字符串需要使用引号引起来</p>
-</li>
-<li><p>使用双引号或单引号都可以,但是不要混着用</p>
-</li>
-<li><p>引号不能嵌套,双引号不能放双引号,单引号不能放单引号</p>
-<p>例如</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">'hello'</span><span class="token punctuation">;</span>
-str<span class="token operator">=</span> <span class="token string">'我说:"今天天气真不错! "'</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>在字符串中我们可以使用\作为转义字符</p>
-<ul>
-<li>当表示一些特殊符号时可以使用\进行转义</li>
-<li>&quot;表示”</li>
-<li>&#39;表示’</li>
-<li>\n表示换行</li>
-<li>\t制表符</li>
-<li>\表示\</li>
-</ul>
-</li>
-</ul>
-<h3 id="Number数值"><a href="#Number数值" class="headerlink" title="Number数值"></a>Number数值</h3><p>在JS中所有的数值都是Numper类型</p>
-<p>包括整数和浮点数(小数)</p>
-<p>js中可以表示的数字的最大值</p>
-<ul>
-<li><p>Number.MAX_VALUE      =      1.7976931348623157e+308</p>
-</li>
-<li><p>Number.MIN VALUE        =      5e-324</p>
-</li>
-</ul>
-<p>如果使用Number表示的数字超过了最大值,则会返回一个</p>
-<ul>
-<li> Infinity表示正无穷</li>
-<li>-Infinity表示负无穷</li>
-</ul>
-<p>使用typeof检查Infinity也会返回number</p>
-<ul>
-<li><p>NaN是一个特殊的数字,表示Not A Number</p>
-</li>
-<li><p>使用typeof检查一个NaNt会返回number</p>
-</li>
-</ul>
-<p>可以使用一个运算符typeof来检查一个变量的类型: typeof 变量</p>
-<ul>
-<li><p>检查字符串时,会返回string</p>
-</li>
-<li><p>检查数值时,会返回number</p>
-</li>
-</ul>
-<p>如果使用JS进行浮点运算可能得到一个不精确的结果所以千万不要使用JS进存对精确度要求比较高的运算</p>
-<h3 id="Boolean布尔值"><a href="#Boolean布尔值" class="headerlink" title="Boolean布尔值"></a>Boolean布尔值</h3><p>布尔值只有两个,主要用来做逻辑判断</p>
-<ul>
-<li>true-表示真</li>
-<li>false-表示假</li>
-</ul>
-<p>用typeof检查—个布尔时, 返回boolean</p>
-<h3 id="Null（空值）"><a href="#Null（空值）" class="headerlink" title="Null（空值）"></a>Null（空值）</h3><p>Nu11类型的值只有一个,就是null</p>
-<p>nu1l这个值专门用来表示一个为空的对象</p>
-<p>使用typeof检查一个nul1值时,会返回object</p>
-<h3 id="Undefined（未定义）"><a href="#Undefined（未定义）" class="headerlink" title="Undefined（未定义）"></a>Undefined（未定义）</h3><p>Undefined (未定义)类型的值只有一个, 就undefind</p>
-<p>当声明一个变量,但是并不给变量赋值时,它的值就是undefind</p>
-<p>使用typeof检查一个undefined时，会返回undefined</p>
-<h3 id="Object对象"><a href="#Object对象" class="headerlink" title="Object对象"></a>Object对象</h3>
       </div>
       
         <div class="copyright">
@@ -1068,7 +800,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="//post/programme/JS第2周.html" target="_blank" title="">http://whitebear7396.top//post/programme/JS第2周.html</a>
+    <a href="//post/programme/di-1-pian-cleanupwechatzombiefans-fen-xi-bi-ji.html" target="_blank" title="第1篇 CleanUpWeChatZombieFans分析笔记">http://whitebear7396.top//post/programme/di-1-pian-cleanupwechatzombiefans-fen-xi-bi-ji.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -1088,42 +820,23 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
   
   <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img lazyload" data-original="/medias/7.jpg" style="background-size: cover; 
+    <div class="post-nav-img lazyload" data-original="/medias/1.jpg" style="background-size: cover; 
       background-position: center center;">
     </div>
-    <a href="/post/programme/JS%E7%AC%AC1%E5%91%A8.html" class="post-nav-link">
+    <a href="/post/programme/js-di-2-zhou.html" class="post-nav-link">
       <div class="title">
         <i class="fa fa-angle-left"></i> 上一篇:
-        <div>JS第1周</div>
+        <div></div>
       </div>
       
       <!-- <div class="content">
-        什么是语言
-计算机就是一个由人来控制的机器,人让它干嘛,它就得干嘛。
-
-我们要学习的语言就是人和计算机交流的工具，人类通
+        代码位置放置于网页&lt;head/head&gt;之内(推荐)例如：可以将js代码编写到script标签
+&lt;!D
       </div> -->
     </a>
   </div>
 
 
-
-  
-  <div class="post-nav-next post-nav-item">
-    <div class="post-nav-img lazyload" data-original="/medias/4.jpg" style="background-size: cover; 
-      background-position: center center;">
-    </div>
-    <a href="/post/article/%E7%AC%AC1%E7%AF%87%20%E8%AE%B0%E5%BD%95%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA.html" class="post-nav-link">
-      <div class="title">
-        下一篇: <i class="fa fa-angle-right"></i>
-        <div>第1篇 记录博客网站搭建</div>
-      </div>
-      <!-- <div class="content">
-        
-创建博客缘由&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
-      </div> -->
-    </a>
-  </div>
 
 </div>
 
