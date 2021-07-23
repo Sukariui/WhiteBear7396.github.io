@@ -58,6 +58,29 @@
   <body>
     <!-- 页面预加载动画 -->
 
+<div id='loader'>
+  <link rel="stylesheet" href="/js/loaded/index.css" >
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="configure-border-1">
+      <div class="configure-core"></div>
+    </div>
+    <div class="configure-border-2">
+      <div class="configure-core"></div>
+    </div>
+    <div class="loading-word">加载中...</div>
+  </div>
+</div>
+
+<script>
+  var endLoading = function () {
+  document.body.style.overflow = 'auto';
+  document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('load',endLoading);
+</script>
+
     <!-- 判断是否为黑夜模式 -->
     <script>
       let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
@@ -201,20 +224,20 @@
                 </li>
                 
                 <li>
-                  <a href="/huoban">
-                    
-                    <i class="fa fa-film" style="margin-top: -20px;"></i>
-                    
-                    <span>友情连接</span>
-                  </a>
-                </li>
-                
-                <li>
                   <a href="/about">
                     
                     <i class="fa fa-user" style="margin-top: -20px;"></i>
                     
                     <span>关于我</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a target="_blank" rel="noopener" href="http://baidu.com">
+                    
+                    <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>百度</span>
                   </a>
                 </li>
                 
@@ -406,20 +429,20 @@
                 </li>
                 
                 <li>
-                  <a href="/huoban">
-                    
-                    <i class="fa fa-film" style="margin-top: -20px;"></i>
-                    
-                    <span>友情连接</span>
-                  </a>
-                </li>
-                
-                <li>
                   <a href="/about">
                     
                     <i class="fa fa-user" style="margin-top: -20px;"></i>
                     
                     <span>关于我</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a target="_blank" rel="noopener" href="http://baidu.com">
+                    
+                    <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>百度</span>
                   </a>
                 </li>
                 
@@ -607,7 +630,7 @@
   <div class="archive-header-desc">
   
       <span class="title">
-      愿你如风，被人温柔以待
+      想看看自己写了些什么吗？
       </span>
   
   </div>
@@ -624,7 +647,7 @@
   <div class="video-header-desc">
   
           <span class="title">
-          愿你如风，被人温柔以待
+          想看看自己写了些什么吗？
           </span>
       
   </div>
@@ -645,68 +668,84 @@
             </div>
           
           <li class="post-item" data-aos="fade-left">
-            <span class="post-date">09-21</span>
-            <a class="post-title" href="/post/article/di-3-pian-notion-shang-shou-tui-jian.html">第3篇-notion上手推荐</a>
+            <span class="post-date">12-03</span>
+            <a class="post-title" href="/post/programme/serverless/yun-han-shu-xi-lie-bai-du-wang-pan-qian-dao.html">【云函数系列】百度网盘签到</a>
           </li>
         
           
           <li class="post-item" data-aos="fade-left">
-            <span class="post-date">09-08</span>
-            <a class="post-title" href="/post/article/di-2-pian-geng-xin-bo-ke-yu-dao-de-keng.html">第2篇 更新博客遇到的坑</a>
+            <span class="post-date">12-03</span>
+            <a class="post-title" href="/post/programme/auto.js/2020-12-09-auto.js-xi-lie-xue-xi-qiang-guo.html">【Auto.js系列】学习强国签到</a>
           </li>
         
           
           <li class="post-item" data-aos="fade-left">
-            <span class="post-date">08-27</span>
-            <a class="post-title" href="/post/article/di-1-pian-ji-lu-bo-ke-wang-zhan-da-jian.html">第1篇 记录博客网站搭建</a>
+            <span class="post-date">11-19</span>
+            <a class="post-title" href="/post/programme/auto.js/2020-11-19-auto.js-xi-lie-he-cai-yun-qian-dao.html">【Auto.js系列】和彩云签到</a>
           </li>
         
           
           <li class="post-item" data-aos="fade-left">
-            <span class="post-date">08-27</span>
-            <a class="post-title" href="/post/design/lu-shi-chuan-shuo.html">设计</a>
+            <span class="post-date">11-18</span>
+            <a class="post-title" href="/post/programme/vscode/2020-06-18-vscode-mao-bo-li-xiao-guo.html">一键启用 Visual Studio Code 的毛玻璃效果</a>
           </li>
         
           
           <li class="post-item" data-aos="fade-left">
-            <span class="post-date">08-27</span>
-            <a class="post-title" href="/post/film/lu-shi-chuan-shuo.html">电影</a>
+            <span class="post-date">11-15</span>
+            <a class="post-title" href="/post/programme/vscode/2020-07-13-vscode-jie-jue-git-bu-shi-nei-bu-huo-wai-bu-ming-ling-ye-bu-shi-ke-yun-xing-de-cheng-xu.html">解决：&#39;git&#39; 不是内部或外部命令，也不是可运行的程序</a>
           </li>
         
           
           <li class="post-item" data-aos="fade-left">
-            <span class="post-date">08-27</span>
-            <a class="post-title" href="/post/game/lu-shi-chuan-shuo.html">炉石传说</a>
+            <span class="post-date">11-05</span>
+            <a class="post-title" href="/post/programme/serverless/yun-han-shu-xi-lie-mei-ri-tie-ba-qian-dao.html">【云函数系列】每日贴吧签到</a>
           </li>
         
           
           <li class="post-item" data-aos="fade-left">
-            <span class="post-date">08-27</span>
-            <a class="post-title" href="/post/inbetweening/lu-shi-chuan-shuo.html">插画</a>
+            <span class="post-date">11-02</span>
+            <a class="post-title" href="/post/programme/serverless/yun-han-shu-xi-lie-ren-ren-shi-pin-qian-dao.html">【云函数系列】人人视频签到</a>
           </li>
         
           
           <li class="post-item" data-aos="fade-left">
-            <span class="post-date">08-27</span>
-            <a class="post-title" href="/post/programme/js-di-1-zhou.html">JS第1周</a>
+            <span class="post-date">10-26</span>
+            <a class="post-title" href="/post/programme/serverless/yun-han-shu-xi-lie-mei-ri-tui-song-tian-qi-xin-xi.html">【云函数系列】每日推送天气信息</a>
           </li>
         
           
           <li class="post-item" data-aos="fade-left">
-            <span class="post-date">08-27</span>
-            <a class="post-title" href="/post/programme/js-di-2-zhou.html"></a>
+            <span class="post-date">10-26</span>
+            <a class="post-title" href="/post/programme/auto.js/2020-11-04-auto.js-xi-lie-lu-shi-chuan-shuo-he-zi-mei-ri-ren-wu.html">【Auto.js系列】炉石传说盒子每日任务</a>
           </li>
         
           
           <li class="post-item" data-aos="fade-left">
-            <span class="post-date">08-27</span>
-            <a class="post-title" href="/post/programme/di-1-pian-cleanupwechatzombiefans-fen-xi-bi-ji.html">第1篇 CleanUpWeChatZombieFans分析笔记</a>
+            <span class="post-date">10-20</span>
+            <a class="post-title" href="/post/programme/serverless/yun-han-shu-xi-lie-ai-qi-yi-hui-yuan-qian-dao-chou-jiang.html">【云函数系列】爱奇艺会员签到+抽奖</a>
           </li>
         
       </ul>
     </div>
   </section>
   
+  <!-- <nav class="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/archives/2020/page/2/">2</a><a class="page-number" href="/archives/2020/page/3/">3</a><a class="extend next" rel="next" href="/archives/2020/page/2/">下一页</a>
+  </nav> -->
+  <div class="page-nav">
+    
+    <div class="page-info">
+        <div class="page-info-text">1 / 3</div>
+    </div>
+    
+      <a href="/archives/2020/page/2/"
+         class="page-nav-next">
+          <span class="mr-5">下一页</span><i class="fa fa-angle-right"></i>
+      </a>
+      
+  </div>
+
 </div>
     </main>
     <!--<div class="footer bg-color">
@@ -731,6 +770,22 @@
   </div>
 </div>
     <!-- 不蒜子统计 
+    
+      
+  <!-- 不蒜子统计 
+  <span id="busuanzi_container_site_pv">
+        <i class="fa fa-book" aria-hidden="true"></i>本站总阅读量：<span id="busuanzi_value_page_pv"></span> 次
+  </span>
+  <span id="busuanzi_container_site_pv">
+        <i class="fa fa-eye" aria-hidden="true"></i>本站总访问量：<span id="busuanzi_value_site_pv"></span> 次
+  </span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_uv" style='display:none'>
+        <i class="fa fa-users" aria-hidden="true"></i>本站访客数：<span id="busuanzi_value_site_uv"></span> 人
+  </span>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
     
     
 
@@ -760,7 +815,7 @@
   display: none;
   
   font-size: 15px;
-  color: #abbc83;
+  color: #4f5de5;
 }
 
 
@@ -781,7 +836,7 @@
   id="442274724"
   fixed='true'
   autoplay='false'
-  theme='#abbc83'
+  theme='#4f5de5'
   loop='all'
   order='random'
   preload='auto'

@@ -58,6 +58,29 @@
   <body>
     <!-- 页面预加载动画 -->
 
+<div id='loader'>
+  <link rel="stylesheet" href="/js/loaded/index.css" >
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="configure-border-1">
+      <div class="configure-core"></div>
+    </div>
+    <div class="configure-border-2">
+      <div class="configure-core"></div>
+    </div>
+    <div class="loading-word">加载中...</div>
+  </div>
+</div>
+
+<script>
+  var endLoading = function () {
+  document.body.style.overflow = 'auto';
+  document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('load',endLoading);
+</script>
+
     <!-- 判断是否为黑夜模式 -->
     <script>
       let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
@@ -201,20 +224,20 @@
                 </li>
                 
                 <li>
-                  <a href="/huoban">
-                    
-                    <i class="fa fa-film" style="margin-top: -20px;"></i>
-                    
-                    <span>友情连接</span>
-                  </a>
-                </li>
-                
-                <li>
                   <a href="/about">
                     
                     <i class="fa fa-user" style="margin-top: -20px;"></i>
                     
                     <span>关于我</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a target="_blank" rel="noopener" href="http://baidu.com">
+                    
+                    <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>百度</span>
                   </a>
                 </li>
                 
@@ -406,20 +429,20 @@
                 </li>
                 
                 <li>
-                  <a href="/huoban">
-                    
-                    <i class="fa fa-film" style="margin-top: -20px;"></i>
-                    
-                    <span>友情连接</span>
-                  </a>
-                </li>
-                
-                <li>
                   <a href="/about">
                     
                     <i class="fa fa-user" style="margin-top: -20px;"></i>
                     
                     <span>关于我</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a target="_blank" rel="noopener" href="http://baidu.com">
+                    
+                    <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>百度</span>
                   </a>
                 </li>
                 
@@ -603,8 +626,6 @@
 <link href="https://cdn.bootcdn.net/ajax/libs/Swiper/5.4.1/css/swiper.min.css" rel="stylesheet">
 
 
-  <link href="/js/vue-typed-js/index.css" rel="stylesheet">
-
 
 
 
@@ -619,31 +640,23 @@
   <swiper v-cloak ref="mySwiper" :options="swiperOptions" @slideChangeTransitionEnd="slideChangeTransitionEnd">
     
       <swiper-slide>
-        <div class="item swiper-lazy" data-background="https://img11.360buyimg.com/ddimg/jfs/t1/160978/33/20686/2476596/6083e62dEa588862b/63f8f2163ab61b2f.png" style="background-size: 90000px; 
+        <div class="item swiper-lazy" data-background="https://z3.ax1x.com/2021/02/01/yZULnI.jpg" style="background-size: 90000px; 
           background-position: left center;" style="position: relative;">
           <div class="swiper-bgmask" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;"></div>
             <div class="flag">
-              <div class="img-mask swiper-lazy" data-background="https://img11.360buyimg.com/ddimg/jfs/t1/160978/33/20686/2476596/6083e62dEa588862b/63f8f2163ab61b2f.png" style="height: 100%; background-size: cover; 
+              <div class="img-mask swiper-lazy" data-background="https://z3.ax1x.com/2021/02/01/yZULnI.jpg" style="height: 100%; background-size: cover; 
                 background-position: center center;">
                 <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>   
               </div>
               <div class="flag-text">
                 <div class="flag-text-content">
-                  <div class="title ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s">能吃能睡</div>
+                  <div class="title ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="1.0s" swiper-animate-delay="0.1s">学海无涯苦作舟</div>
                   
-                    <div class="ani animated default-excerpt" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s">
-                      <vue-typed-js :strings="defaultDesc" :loop="defaultDescTypedLoop" :typeSpeed="1000">
-                        <h1 class="typing"></h1>
-                      </vue-typed-js>
-                    </div>
+                      <div class="excerpt ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="1.0s" swiper-animate-delay="0.1s">煮酒洗净尘嚣，论知交,万般付之一笑，共偕老,</div>
                     
                 </div>
                 <div style="display: flex;" class="flag-text-btns">
                   
-                    <div class="ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s"><a target="_blank" rel="noopener" href="https://yuang01.gitee.io/2021/02/08/hexo-theme-bamboo-new/" class="read-more border-color swiper-btn-color" style="display: inline-block; z-index:1;">阅读文档</a></div>
-                  
-                  
-                    <div class="ani animated" style="margin-left: 10px;" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s"><a target="_blank" rel="noopener" href="https://gitee.com/yuang01/hexo-theme-bamboo/repository/archive/dev.zip" class="read-more border-color swiper-btn-color2" style="display: inline-block; z-index:1;border: 1px solid white;">下载主题</a></div>
                   
                 </div>
               </div>
@@ -663,18 +676,16 @@
 </script>
 
 
-  <script src="/js/vue-typed-js/index.js"></script>
-
 
 <script>
   let autoplay = JSON.parse('false');
   let delay = '5000';
-  let loop = JSON.parse('true') ? false : JSON.parse('true');
+  let loop = JSON.parse('false') ? false : JSON.parse('true');
   let effect = 'slide';
   let swiperLength = parseInt(document.querySelector(".swiper-length").innerText);
-  let defaultDesc = '煮酒洗净尘嚣，论知交,万般付之一笑，共偕老,两碗米饭吃饱肚,再来一碗大盘鸡';
+  let defaultDesc = '煮酒洗净尘嚣，论知交,万般付之一笑，共偕老,';
   defaultDesc = defaultDesc.split(',');
-  let defaultDescTypedLoop = JSON.parse('true');
+  let defaultDescTypedLoop = JSON.parse('false');
   var vm = new Vue({
     el: '#appSwiper',
     data: {
@@ -804,7 +815,7 @@
   transition: color 0.3s;
 }
 .flag-text .title a:hover {
-  color: #abbc83;
+  color: #4898ea;
 }
 .flag-text .excerpt {
   color: #eee;
@@ -1140,23 +1151,23 @@
         <div class="post-info">
           <div class="post-time">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <span class="post-time">2020-08-27</span>
+            <span class="post-time">2020-11-02</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/post/programme/js-di-2-zhou.html"></a>
+            <a class="post-title-link" href="/post/programme/serverless/yun-han-shu-xi-lie-ren-ren-shi-pin-qian-dao.html">【云函数系列】人人视频签到</a>
           </div>
           <div class="post-meta">
             <div class="post-tags">
               
     <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JaveScript/" rel="tag">JaveScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Serverless/" rel="tag">Serverless</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E4%BA%BA%E8%A7%86%E9%A2%91/" rel="tag">人人视频</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%85%B7%E6%8E%A8/" rel="tag">酷推</a></li></ul>
 
             </div>
             <div class="post-categories">
               
 <div class="article-category">
   <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">程序汇编语言</a>
+  <a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">程序汇编语言</a> <a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/Serverless/">Serverless</a>
 </div>
 
             </div>
@@ -1164,28 +1175,365 @@
           <div class="post-img-mobile">
             
               
-              <a href="/post/programme/js-di-2-zhou.html" class="lazyload" data-original="/medias/1.jpg" style="background-size: cover; 
+              <a href="/post/programme/serverless/yun-han-shu-xi-lie-ren-ren-shi-pin-qian-dao.html" class="lazyload" data-original="/medias/8.jpg" style="background-size: cover; 
                 background-position: center center;">
               </a>
             
           </div>
           <div class="post-content">
-            代码位置放置于网页&lt;head/head&gt;之内(推荐)例如：可以将js代码编写到script标签
-&lt;!DOCTYPE html>
-&lt;html>
-    &lt;head>
-        &lt;meta charse
+            【云函数系列】人人视频签到当前功能
+人人视频每日签到，增加人人钻
+QQ或微信推送签到结果
+
+（以下云函数部署默认为腾讯云，其他服务器亲自行更改，不作描述）
+第一步注册登录腾讯云函数→新建云函数→设置函数名称→设置运行环境→点击下一步
+{.g
           </div>
         </div>
         <div class="post-more">
-          <a href="/post/programme/js-di-2-zhou.html">
+          <a href="/post/programme/serverless/yun-han-shu-xi-lie-ren-ren-shi-pin-qian-dao.html">
             <i class="iconfont iconmore" style="float: right;  " title="阅读更多"></i>
           </a>
         </div>
       </div>
       <div class="post-img">
         
-          <a href="/post/programme/js-di-2-zhou.html" class="lazyload" data-original="/medias/1.jpg" style="background-size: cover; 
+          <a href="/post/programme/serverless/yun-han-shu-xi-lie-ren-ren-shi-pin-qian-dao.html" class="lazyload" data-original="/medias/8.jpg" style="background-size: cover; 
+            background-position: center center;">
+          </a>
+        
+      </div>
+    </article>
+  
+    <article class="post" data-aos="fade-up" style="   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <span class="post-time">2020-10-26</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/post/programme/serverless/yun-han-shu-xi-lie-mei-ri-tui-song-tian-qi-xin-xi.html">【云函数系列】每日推送天气信息</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Serverless/" rel="tag">Serverless</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%85%B7%E6%8E%A8/" rel="tag">酷推</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">程序汇编语言</a> <a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/Serverless/">Serverless</a>
+</div>
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            
+              
+              <a href="/post/programme/serverless/yun-han-shu-xi-lie-mei-ri-tui-song-tian-qi-xin-xi.html" class="lazyload" data-original="/medias/13.jpg" style="background-size: cover; 
+                background-position: center center;">
+              </a>
+            
+          </div>
+          <div class="post-content">
+            【云函数系列】每日推送天气信息关键词：云函数（Serverless）、天气推送、酷推（微信或QQ）预览：
+{.gallery data-height=”320”}
+（以下云函数部署默认为腾讯云，其他服务器亲自行更改，不作描述）
+第一步注册登
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/post/programme/serverless/yun-han-shu-xi-lie-mei-ri-tui-song-tian-qi-xin-xi.html">
+            <i class="iconfont iconmore" style="  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        
+          <a href="/post/programme/serverless/yun-han-shu-xi-lie-mei-ri-tui-song-tian-qi-xin-xi.html" class="lazyload" data-original="/medias/13.jpg" style="background-size: cover; 
+            background-position: center center;">
+          </a>
+        
+      </div>
+    </article>
+  
+    <article class="post" data-aos="fade-up" style="flex-direction: row-reverse;   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <span class="post-time">2020-10-26</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/post/programme/auto.js/2020-11-04-auto.js-xi-lie-lu-shi-chuan-shuo-he-zi-mei-ri-ren-wu.html">【Auto.js系列】炉石传说盒子每日任务</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/auto-js/" rel="tag">auto.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%84%9A%E6%9C%AC/" rel="tag">脚本</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">程序汇编语言</a> <a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/javascript/">javascript</a>
+</div>
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            
+              
+              <a href="/post/programme/auto.js/2020-11-04-auto.js-xi-lie-lu-shi-chuan-shuo-he-zi-mei-ri-ren-wu.html" class="lazyload" data-original="/medias/4.jpg" style="background-size: cover; 
+                background-position: center center;">
+              </a>
+            
+          </div>
+          <div class="post-content">
+            【脚本分享】炉石传说盒子为什么选择Auto.jsAuto.js 是个基于 JavaScript 语言运行在Android平台上的脚本框架。Auto.js主要工作原理是基于辅助服务AccessibilityService。Auto.js是利用
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/post/programme/auto.js/2020-11-04-auto.js-xi-lie-lu-shi-chuan-shuo-he-zi-mei-ri-ren-wu.html">
+            <i class="iconfont iconmore" style="float: right;  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        
+          <a href="/post/programme/auto.js/2020-11-04-auto.js-xi-lie-lu-shi-chuan-shuo-he-zi-mei-ri-ren-wu.html" class="lazyload" data-original="/medias/4.jpg" style="background-size: cover; 
+            background-position: center center;">
+          </a>
+        
+      </div>
+    </article>
+  
+    <article class="post" data-aos="fade-up" style="   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <span class="post-time">2020-10-20</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/post/programme/serverless/yun-han-shu-xi-lie-ai-qi-yi-hui-yuan-qian-dao-chou-jiang.html">【云函数系列】爱奇艺会员签到+抽奖</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Serverless/" rel="tag">Serverless</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%88%B1%E5%A5%87%E8%89%BA/" rel="tag">爱奇艺</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%85%B7%E6%8E%A8/" rel="tag">酷推</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">程序汇编语言</a> <a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/Serverless/">Serverless</a>
+</div>
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            
+              
+              <a href="/post/programme/serverless/yun-han-shu-xi-lie-ai-qi-yi-hui-yuan-qian-dao-chou-jiang.html" class="lazyload" data-original="/medias/15.jpg" style="background-size: cover; 
+                background-position: center center;">
+              </a>
+            
+          </div>
+          <div class="post-content">
+            【云函数系列】【云函数系列】爱奇艺会员签到+抽奖当前功能
+爱奇艺会员签到
+获取会员信息，整合推送
+三次会员抽奖。有几率获取会员时长
+
+预览：【爱奇艺签到】VIP等级：2当前成长值：303升级需成长值：1197今日成长值:  +7VIP到期时
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/post/programme/serverless/yun-han-shu-xi-lie-ai-qi-yi-hui-yuan-qian-dao-chou-jiang.html">
+            <i class="iconfont iconmore" style="  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        
+          <a href="/post/programme/serverless/yun-han-shu-xi-lie-ai-qi-yi-hui-yuan-qian-dao-chou-jiang.html" class="lazyload" data-original="/medias/15.jpg" style="background-size: cover; 
+            background-position: center center;">
+          </a>
+        
+      </div>
+    </article>
+  
+    <article class="post" data-aos="fade-up" style="flex-direction: row-reverse;   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <span class="post-time">2020-10-10</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/post/programme/serverless/yun-han-shu-xi-lie-wang-yi-yun-qian-dao.html">【云函数系列】网易云签到</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Serverless/" rel="tag">Serverless</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Server%E9%85%B1/" rel="tag">Server酱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E6%98%93%E4%BA%91/" rel="tag">网易云</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">程序汇编语言</a> <a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/Serverless/">Serverless</a>
+</div>
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            
+              
+              <a href="/post/programme/serverless/yun-han-shu-xi-lie-wang-yi-yun-qian-dao.html" class="lazyload" data-original="/medias/11.jpg" style="background-size: cover; 
+                background-position: center center;">
+              </a>
+            
+          </div>
+          <div class="post-content">
+            【云函数系列】网易云签到当前功能
+网易云签到（Pc端+手机端）
+每日听歌300首
+微信server酱推送
+
+（以下云函数部署默认为腾讯云，其他服务器亲自行更改，不作描述）
+第一步注册登录腾讯云函数→新建云函数→设置函数名称→设置运行环境→点
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/post/programme/serverless/yun-han-shu-xi-lie-wang-yi-yun-qian-dao.html">
+            <i class="iconfont iconmore" style="float: right;  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        
+          <a href="/post/programme/serverless/yun-han-shu-xi-lie-wang-yi-yun-qian-dao.html" class="lazyload" data-original="/medias/11.jpg" style="background-size: cover; 
+            background-position: center center;">
+          </a>
+        
+      </div>
+    </article>
+  
+    <article class="post" data-aos="fade-up" style="   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <span class="post-time">2020-09-26</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/post/article/2020-09-26-notion-shang-shou-tui-jian.html">Notion上手推荐</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Notion/" rel="tag">Notion</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/categories/%E8%AE%B0%E5%BD%95%E7%82%B9%E6%BB%B4%E7%94%9F%E6%B4%BB%E6%96%87%E7%AB%A0/">记录点滴生活文章</a>
+</div>
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            
+              
+              <a href="/post/article/2020-09-26-notion-shang-shou-tui-jian.html" class="lazyload" data-original="/medias/14.jpg" style="background-size: cover; 
+                background-position: center center;">
+              </a>
+            
+          </div>
+          <div class="post-content">
+            前言说到笔记应用和协作工具，Evernote、OneNote、Google Doc、Quip……还有一众国内笔记应用，都在争夺着用户设备上的一席之地。然而纵使竞争再激烈，这个领域也从不缺乏挑战者，Notion 绝对是一款前所未见的笔记协作工
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/post/article/2020-09-26-notion-shang-shou-tui-jian.html">
+            <i class="iconfont iconmore" style="  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        
+          <a href="/post/article/2020-09-26-notion-shang-shou-tui-jian.html" class="lazyload" data-original="/medias/14.jpg" style="background-size: cover; 
+            background-position: center center;">
+          </a>
+        
+      </div>
+    </article>
+  
+    <article class="post" data-aos="fade-up" style="flex-direction: row-reverse;   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <span class="post-time">2020-09-08</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/post/programme/hexo/2020-11-04-hexo-zhi-shi-dian.html">Hexo知识点</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">知识点</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a> <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Hexo/">Hexo</a>
+</div>
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            
+              
+              <a href="/post/programme/hexo/2020-11-04-hexo-zhi-shi-dian.html" class="lazyload" data-original="/medias/11.jpg" style="background-size: cover; 
+                background-position: center center;">
+              </a>
+            
+          </div>
+          <div class="post-content">
+            Hexo知识点hexo更新与主题升级检查检查更新npm outdated
+
+用于查看当前有哪些软件包已过期
+例子Package                          Current  Wanted  Latest  Locati
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/post/programme/hexo/2020-11-04-hexo-zhi-shi-dian.html">
+            <i class="iconfont iconmore" style="float: right;  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        
+          <a href="/post/programme/hexo/2020-11-04-hexo-zhi-shi-dian.html" class="lazyload" data-original="/medias/11.jpg" style="background-size: cover; 
             background-position: center center;">
           </a>
         
@@ -1200,20 +1548,20 @@
             <span class="post-time">2020-08-27</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/post/programme/di-1-pian-cleanupwechatzombiefans-fen-xi-bi-ji.html">第1篇 CleanUpWeChatZombieFans分析笔记</a>
+            <a class="post-title-link" href="/post/article/2020-08-27-geng-xin-jin-du-kan-ban.html">更新进度看板</a>
           </div>
           <div class="post-meta">
             <div class="post-tags">
               
     <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JaveScript/" rel="tag">JaveScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%A5%E5%BF%97/" rel="tag">日志</a></li></ul>
 
             </div>
             <div class="post-categories">
               
 <div class="article-category">
   <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">程序汇编语言</a>
+  <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
 </div>
 
             </div>
@@ -1221,26 +1569,151 @@
           <div class="post-img-mobile">
             
               
-              <a href="/post/programme/di-1-pian-cleanupwechatzombiefans-fen-xi-bi-ji.html" class="lazyload" data-original="/medias/15.jpg" style="background-size: cover; 
+              <a href="/post/article/2020-08-27-geng-xin-jin-du-kan-ban.html" class="lazyload" data-original="/medias/3.jpg" style="background-size: cover; 
                 background-position: center center;">
               </a>
             
           </div>
           <div class="post-content">
-            目的===
-通过对&lt;清理微信僵尸粉.js&gt;脚本的分析，了解其运行原理，补充相关JS知识点。
-第一周匿名函数（（）=&gt; {} ）、(function(){})标准的函数，没有赋值给任何变量，没有名字的函数，叫匿名函数.主要是
+            :memo: 有待添加的内容
+[添加豆瓣页面]{.label .info}
+
+[博客多端同步]{.label .info}
+
+[制作博客安卓客户端]{.label .info}
+
+[添加网页宠物]{.label .info}
+
+[添加访客人
           </div>
         </div>
         <div class="post-more">
-          <a href="/post/programme/di-1-pian-cleanupwechatzombiefans-fen-xi-bi-ji.html">
+          <a href="/post/article/2020-08-27-geng-xin-jin-du-kan-ban.html">
             <i class="iconfont iconmore" style="  " title="阅读更多"></i>
           </a>
         </div>
       </div>
       <div class="post-img">
         
-          <a href="/post/programme/di-1-pian-cleanupwechatzombiefans-fen-xi-bi-ji.html" class="lazyload" data-original="/medias/15.jpg" style="background-size: cover; 
+          <a href="/post/article/2020-08-27-geng-xin-jin-du-kan-ban.html" class="lazyload" data-original="/medias/3.jpg" style="background-size: cover; 
+            background-position: center center;">
+          </a>
+        
+      </div>
+    </article>
+  
+    <article class="post" data-aos="fade-up" style="flex-direction: row-reverse;   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <span class="post-time">2020-08-27</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/post/article/2020-12-03-geng-xin-jin-du-kan-ban.html">更新进度看板</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%A5%E5%BF%97/" rel="tag">日志</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+</div>
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            
+              
+              <a href="/post/article/2020-12-03-geng-xin-jin-du-kan-ban.html" class="lazyload" data-original="/medias/3.jpg" style="background-size: cover; 
+                background-position: center center;">
+              </a>
+            
+          </div>
+          <div class="post-content">
+            :memo: 有待添加的内容
+[添加豆瓣页面]{.label .info}
+
+[博客多端同步]{.label .info}
+
+[制作博客安卓客户端]{.label .info}
+
+[添加网页宠物]{.label .info}
+
+[添加访客人
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/post/article/2020-12-03-geng-xin-jin-du-kan-ban.html">
+            <i class="iconfont iconmore" style="float: right;  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        
+          <a href="/post/article/2020-12-03-geng-xin-jin-du-kan-ban.html" class="lazyload" data-original="/medias/3.jpg" style="background-size: cover; 
+            background-position: center center;">
+          </a>
+        
+      </div>
+    </article>
+  
+    <article class="post" data-aos="fade-up" style="   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <span class="post-time">2020-08-27</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/post/article/2021-03-16-xing-chuan-san-bing.html">更新进度看板</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%A5%E5%BF%97/" rel="tag">日志</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+</div>
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            
+              
+              <a href="/post/article/2021-03-16-xing-chuan-san-bing.html" class="lazyload" data-original="/medias/3.jpg" style="background-size: cover; 
+                background-position: center center;">
+              </a>
+            
+          </div>
+          <div class="post-content">
+            看完《星船伞兵》之后，我更爱生活了。
+本文内容仅作为个人思考，如有雷同，纯属巧合，如有冒犯，深感抱歉。多多思考，理性探讨。发现抬杠，不论结果都是你说得对。
+
+在3月12才知道这本书的存在，之前都没有接触过这个作家的书，当然也就没有看过。我会
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/post/article/2021-03-16-xing-chuan-san-bing.html">
+            <i class="iconfont iconmore" style="  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        
+          <a href="/post/article/2021-03-16-xing-chuan-san-bing.html" class="lazyload" data-original="/medias/3.jpg" style="background-size: cover; 
             background-position: center center;">
           </a>
         
@@ -1250,7 +1723,7 @@
 </section>
 
   <!-- <nav class="page-nav">
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
   </nav> -->
   <div class="page-nav">
     
@@ -1260,9 +1733,14 @@
       </a>
     
     <div class="page-info">
-        <div class="page-info-text">2 / 2</div>
+        <div class="page-info-text">2 / 3</div>
     </div>
     
+      <a href="/page/3/"
+         class="page-nav-next">
+          <span class="mr-5">下一页</span><i class="fa fa-angle-right"></i>
+      </a>
+      
   </div>
 
 
@@ -1295,6 +1773,22 @@
 </div>
     <!-- 不蒜子统计 
     
+      
+  <!-- 不蒜子统计 
+  <span id="busuanzi_container_site_pv">
+        <i class="fa fa-book" aria-hidden="true"></i>本站总阅读量：<span id="busuanzi_value_page_pv"></span> 次
+  </span>
+  <span id="busuanzi_container_site_pv">
+        <i class="fa fa-eye" aria-hidden="true"></i>本站总访问量：<span id="busuanzi_value_site_pv"></span> 次
+  </span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_uv" style='display:none'>
+        <i class="fa fa-users" aria-hidden="true"></i>本站访客数：<span id="busuanzi_value_site_uv"></span> 人
+  </span>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
     
 
 -->
@@ -1323,7 +1817,7 @@
   display: none;
   
   font-size: 15px;
-  color: #abbc83;
+  color: #4f5de5;
 }
 
 
@@ -1344,7 +1838,7 @@
   id="442274724"
   fixed='true'
   autoplay='false'
-  theme='#abbc83'
+  theme='#4f5de5'
   loop='all'
   order='random'
   preload='auto'

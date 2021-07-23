@@ -58,6 +58,29 @@
   <body>
     <!-- 页面预加载动画 -->
 
+<div id='loader'>
+  <link rel="stylesheet" href="/js/loaded/index.css" >
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="configure-border-1">
+      <div class="configure-core"></div>
+    </div>
+    <div class="configure-border-2">
+      <div class="configure-core"></div>
+    </div>
+    <div class="loading-word">加载中...</div>
+  </div>
+</div>
+
+<script>
+  var endLoading = function () {
+  document.body.style.overflow = 'auto';
+  document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('load',endLoading);
+</script>
+
     <!-- 判断是否为黑夜模式 -->
     <script>
       let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
@@ -201,20 +224,20 @@
                 </li>
                 
                 <li>
-                  <a href="/huoban">
-                    
-                    <i class="fa fa-film" style="margin-top: -20px;"></i>
-                    
-                    <span>友情连接</span>
-                  </a>
-                </li>
-                
-                <li>
                   <a href="/about">
                     
                     <i class="fa fa-user" style="margin-top: -20px;"></i>
                     
                     <span>关于我</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a target="_blank" rel="noopener" href="http://baidu.com">
+                    
+                    <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>百度</span>
                   </a>
                 </li>
                 
@@ -406,20 +429,20 @@
                 </li>
                 
                 <li>
-                  <a href="/huoban">
-                    
-                    <i class="fa fa-film" style="margin-top: -20px;"></i>
-                    
-                    <span>友情连接</span>
-                  </a>
-                </li>
-                
-                <li>
                   <a href="/about">
                     
                     <i class="fa fa-user" style="margin-top: -20px;"></i>
                     
                     <span>关于我</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a target="_blank" rel="noopener" href="http://baidu.com">
+                    
+                    <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>百度</span>
                   </a>
                 </li>
                 
@@ -609,7 +632,7 @@
   <div class="category-header-desc">
     
           <span class="title">
-          愿你如风，被人温柔以待
+          想看看自己写了些什么吗？
           </span>
       
   </div>
@@ -626,7 +649,7 @@
   <div class="video-header-desc">
   
           <span class="title">
-          愿你如风，被人温柔以待
+          想看看自己写了些什么吗？
           </span>
       
   </div>
@@ -645,14 +668,17 @@
         <div class="post-info">
           <div class="post-time">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <span class="post-time">2020-09-21</span>
+            <span class="post-time">2020-09-26</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/post/article/di-3-pian-notion-shang-shou-tui-jian.html">第3篇-notion上手推荐</a>
+            <a class="post-title-link" href="/post/article/2020-09-26-notion-shang-shou-tui-jian.html">Notion上手推荐</a>
           </div>
           <div class="post-meta">
             <div class="post-tags">
               
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Notion/" rel="tag">Notion</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
+
             </div>
             <div class="post-categories">
               
@@ -666,7 +692,7 @@
           <div class="post-img-mobile">
             
               
-              <a href="/post/article/di-3-pian-notion-shang-shou-tui-jian.html" class="lazyload" data-original="/medias/8.jpg" style="background-size: cover; 
+              <a href="/post/article/2020-09-26-notion-shang-shou-tui-jian.html" class="lazyload" data-original="/medias/14.jpg" style="background-size: cover; 
                 background-position: center center;">
               </a>
             
@@ -676,14 +702,14 @@
           </div>
         </div>
         <div class="post-more">
-          <a href="/post/article/di-3-pian-notion-shang-shou-tui-jian.html">
+          <a href="/post/article/2020-09-26-notion-shang-shou-tui-jian.html">
             <i class="iconfont iconmore" style="float: right;" title="阅读更多"></i>
           </a>
         </div>
       </div>
       <div class="post-img">
         
-          <a href="/post/article/di-3-pian-notion-shang-shou-tui-jian.html" class="lazyload" data-original="/medias/8.jpg" style="background-size: cover; 
+          <a href="/post/article/2020-09-26-notion-shang-shou-tui-jian.html" class="lazyload" data-original="/medias/14.jpg" style="background-size: cover; 
             background-position: center center;">
           </a>
         
@@ -696,62 +722,10 @@
         <div class="post-info">
           <div class="post-time">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <span class="post-time">2020-09-08</span>
+            <span class="post-time">2020-03-24</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/post/article/di-2-pian-geng-xin-bo-ke-yu-dao-de-keng.html">第2篇 更新博客遇到的坑</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              
-            </div>
-            <div class="post-categories">
-              
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/%E8%AE%B0%E5%BD%95%E7%82%B9%E6%BB%B4%E7%94%9F%E6%B4%BB%E6%96%87%E7%AB%A0/">记录点滴生活文章</a>
-</div>
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            
-              
-              <a href="/post/article/di-2-pian-geng-xin-bo-ke-yu-dao-de-keng.html" class="lazyload" data-original="/medias/3.jpg" style="background-size: cover; 
-                background-position: center center;">
-              </a>
-            
-          </div>
-          <div class="post-content">
-            头都大了，上传了之后只显示一小部分更改。
-
-          </div>
-        </div>
-        <div class="post-more">
-          <a href="/post/article/di-2-pian-geng-xin-bo-ke-yu-dao-de-keng.html">
-            <i class="iconfont iconmore" style="" title="阅读更多"></i>
-          </a>
-        </div>
-      </div>
-      <div class="post-img">
-        
-          <a href="/post/article/di-2-pian-geng-xin-bo-ke-yu-dao-de-keng.html" class="lazyload" data-original="/medias/3.jpg" style="background-size: cover; 
-            background-position: center center;">
-          </a>
-        
-      </div>
-    </article>
-    
-    <article class="post" data-aos="fade-up"
-      style="flex-direction: row-reverse;">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <span class="post-time">2020-08-27</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/post/article/di-1-pian-ji-lu-bo-ke-wang-zhan-da-jian.html">第1篇 记录博客网站搭建</a>
+            <a class="post-title-link" href="/post/article/2020-03-24-ji-lu-bo-ke-wang-zhan-da-jian.html">记录网站搭建</a>
           </div>
           <div class="post-meta">
             <div class="post-tags">
@@ -772,7 +746,7 @@
           <div class="post-img-mobile">
             
               
-              <a href="/post/article/di-1-pian-ji-lu-bo-ke-wang-zhan-da-jian.html" class="lazyload" data-original="/medias/4.jpg" style="background-size: cover; 
+              <a href="/post/article/2020-03-24-ji-lu-bo-ke-wang-zhan-da-jian.html" class="lazyload" data-original="/medias/4.jpg" style="background-size: cover; 
                 background-position: center center;">
               </a>
             
@@ -783,14 +757,14 @@
           </div>
         </div>
         <div class="post-more">
-          <a href="/post/article/di-1-pian-ji-lu-bo-ke-wang-zhan-da-jian.html">
-            <i class="iconfont iconmore" style="float: right;" title="阅读更多"></i>
+          <a href="/post/article/2020-03-24-ji-lu-bo-ke-wang-zhan-da-jian.html">
+            <i class="iconfont iconmore" style="" title="阅读更多"></i>
           </a>
         </div>
       </div>
       <div class="post-img">
         
-          <a href="/post/article/di-1-pian-ji-lu-bo-ke-wang-zhan-da-jian.html" class="lazyload" data-original="/medias/4.jpg" style="background-size: cover; 
+          <a href="/post/article/2020-03-24-ji-lu-bo-ke-wang-zhan-da-jian.html" class="lazyload" data-original="/medias/4.jpg" style="background-size: cover; 
             background-position: center center;">
           </a>
         
@@ -824,6 +798,22 @@
 </div>
     <!-- 不蒜子统计 
     
+      
+  <!-- 不蒜子统计 
+  <span id="busuanzi_container_site_pv">
+        <i class="fa fa-book" aria-hidden="true"></i>本站总阅读量：<span id="busuanzi_value_page_pv"></span> 次
+  </span>
+  <span id="busuanzi_container_site_pv">
+        <i class="fa fa-eye" aria-hidden="true"></i>本站总访问量：<span id="busuanzi_value_site_pv"></span> 次
+  </span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_uv" style='display:none'>
+        <i class="fa fa-users" aria-hidden="true"></i>本站访客数：<span id="busuanzi_value_site_uv"></span> 人
+  </span>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
     
 
 -->
@@ -852,7 +842,7 @@
   display: none;
   
   font-size: 15px;
-  color: #abbc83;
+  color: #4f5de5;
 }
 
 
@@ -873,7 +863,7 @@
   id="442274724"
   fixed='true'
   autoplay='false'
-  theme='#abbc83'
+  theme='#4f5de5'
   loop='all'
   order='random'
   preload='auto'

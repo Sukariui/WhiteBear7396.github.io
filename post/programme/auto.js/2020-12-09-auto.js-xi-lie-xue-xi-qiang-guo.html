@@ -1,0 +1,2075 @@
+<!DOCTYPE html>
+<html>
+  
+
+
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+  <title>【Auto.js系列】学习强国签到 | Narges&#39;s Blog</title>
+
+  
+    
+<link rel="stylesheet" href="/js/aos/aos.css">
+
+  
+
+  <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
+  <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  
+  
+<link rel="stylesheet" href="/css/animate.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/js/fancybox/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/js/shareJs/share.min.css">
+
+  
+  <style>
+        @media (max-width: 992px) {
+            #waifu {
+                display: none;
+            }
+        }
+    </style>
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+  <script src="/js/jquery3.5.1.js"></script>
+  <script src="/js/vue2.6.11.js"></script>
+  <link href="/js/danmu/barrager.css" rel="stylesheet">
+<script src="/js/danmu/jquery.barrager.js"></script>
+  <body>
+    <!-- 页面预加载动画 -->
+
+<div id='loader'>
+  <link rel="stylesheet" href="/js/loaded/index.css" >
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="configure-border-1">
+      <div class="configure-core"></div>
+    </div>
+    <div class="configure-border-2">
+      <div class="configure-core"></div>
+    </div>
+    <div class="loading-word">加载中...</div>
+  </div>
+</div>
+
+<script>
+  var endLoading = function () {
+  document.body.style.overflow = 'auto';
+  document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('load',endLoading);
+</script>
+
+    <!-- 判断是否为黑夜模式 -->
+    <script>
+      let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+
+      if (isDark) {
+        $(document.body).addClass('darkModel');
+      }
+    </script>
+
+    
+<header class="header " id="navHeader"
+  style="position: fixed;
+  left: 0; top: 0; z-index: 10;width: 100%;"
+>
+  <div class="header-content">
+    <div class="bars">
+      <div id="appDrawer" class="sidebar-image">
+  <i class="fa fa-bars" aria-hidden="true" @click="showDialogDrawer"></i>
+  <transition name="fade">
+    <div class="drawer-box_mask" v-cloak style="display: none;" v-show="visible" @click.self="cancelDialogDrawer">
+    </div>
+  </transition>
+  <div class="drawer-box" :class="{'active': visible}">
+    <div class="drawer-box-head bg-color">
+      <img class="drawer-box-head_logo" src="/medias/logo.png" alt="logo">
+      <h3 class="drawer-box-head_title">Narges&#39;s Blog</h3>
+      <h5 class="drawer-box-head_desc">学着学着就发现，自己在知识的海洋里溺水了？？？</h5>
+    </div>
+    
+    <div class="drawer-box-content">
+      <ul class="drawer-box-content_menu">
+        
+          <li class="drawer-box-content_item" style="position: relative;">
+            
+              <a href="/" class="drawer-menu-item-link">
+                
+                  <i class="fa fa-home" aria-hidden="true"></i>
+                
+                <span class="name">首页</span>
+              </a>
+            
+          </li>
+        
+          <li class="drawer-box-content_item" style="position: relative;">
+            
+              <a href="javascript:;" class="drawer-menu-item-link has-children" @click="openOrCloseMenu(1)">
+                <span>
+                  
+                    <i class="fa fa-archive"></i>
+                  
+                  <span class="name">归档</span>
+                </span>
+                <i class="fa fa-chevron-left arrow " :class="{'icon-rotate': isOpen(1)}" aria-hidden="true"></i>
+              </a>
+              <ul class="drawer-sub-menu" v-if="isOpen(1)">
+                
+                <li>
+                  <a href="/archives">
+                    
+                    <i class="fa fa-archive" style="margin-top: -20px;"></i>
+                    
+                    <span>归档</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="/tags">
+                    
+                    <i class="fa fa-tags" style="margin-top: -20px;"></i>
+                    
+                    <span>标签</span>
+                  </a>
+                </li>
+                
+              </ul>
+            
+          </li>
+        
+          <li class="drawer-box-content_item" style="position: relative;">
+            
+              <a href="/tags" class="drawer-menu-item-link">
+                
+                  <i class="fa fa-tags" aria-hidden="true"></i>
+                
+                <span class="name">标签</span>
+              </a>
+            
+          </li>
+        
+          <li class="drawer-box-content_item" style="position: relative;">
+            
+              <a href="/categories" class="drawer-menu-item-link">
+                
+                  <i class="fa fa-bookmark" aria-hidden="true"></i>
+                
+                <span class="name">分类</span>
+              </a>
+            
+          </li>
+        
+          <li class="drawer-box-content_item" style="position: relative;">
+            
+              <a href="/about" class="drawer-menu-item-link">
+                
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                
+                <span class="name">关于</span>
+              </a>
+            
+          </li>
+        
+          <li class="drawer-box-content_item" style="position: relative;">
+            
+              <a href="/friends" class="drawer-menu-item-link">
+                
+                <span class="name">友情链接</span>
+              </a>
+            
+          </li>
+        
+          <li class="drawer-box-content_item" style="position: relative;">
+            
+              <a href="javascript:;" class="drawer-menu-item-link has-children" @click="openOrCloseMenu(6)">
+                <span>
+                  
+                    <i class="fa fa-link"></i>
+                  
+                  <span class="name">更多</span>
+                </span>
+                <i class="fa fa-chevron-left arrow " :class="{'icon-rotate': isOpen(6)}" aria-hidden="true"></i>
+              </a>
+              <ul class="drawer-sub-menu" v-if="isOpen(6)">
+                
+                <li>
+                  <a href="/gallery">
+                    
+                    <i class="fa fa-music" style="margin-top: -20px;"></i>
+                    
+                    <span>图库</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="/about">
+                    
+                    <i class="fa fa-user" style="margin-top: -20px;"></i>
+                    
+                    <span>关于我</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a target="_blank" rel="noopener" href="http://baidu.com">
+                    
+                    <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>百度</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a target="_blank" rel="noopener" href="http://baidu.com">
+                    
+                    <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>百度</span>
+                  </a>
+                </li>
+                
+              </ul>
+            
+          </li>
+        
+        <li class="drawer-box-content_item">
+          <a target="_blank" rel="noopener" href="https://github.com/WhiteBear7396">
+            <i class="fa fa-github" aria-hidden="true"></i>
+            <span>Github</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDrawer',
+    data: {
+      visible: false,
+      top: 0,
+      openArr: [],
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      isOpen(index) {
+        if (this.openArr.includes(index)) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      openOrCloseMenu(curIndex) {
+        const index = this.openArr.indexOf(curIndex);
+        if (index !== -1) {
+          this.openArr.splice(index, 1);
+        } else {
+          this.openArr.push(curIndex);
+        }
+      },
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'width: 100%; height: 100%;overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      }
+    },
+    created() {}
+  })
+</script>
+
+    </div>
+    <div class="blog-title" id="author-avatar">
+      
+        <div class="avatar">
+          <img src="/medias/logo.png" alt="logo">
+        </div>
+      
+      <a href="/" class="logo">Narges&#39;s Blog</a>
+    </div>
+    <nav class="navbar">
+      <ul class="menu">
+        
+          <li class="menu-item" style="position: relative;">
+            
+              <a href="/" class="menu-item-link">
+                
+                  <i class="fa fa-home" aria-hidden="true"></i>
+                
+                <span class="name">首页</span>
+              </a>
+            
+          </li>
+        
+          <li class="menu-item" style="position: relative;">
+            
+              <a href="javascript:;" class="menu-item-link">
+                
+                  <i class="fa fa-archive"></i>
+                
+                <span class="name">归档</span>
+                <i class="fa fa-chevron-down arrow" aria-hidden="true"></i>
+              </a>
+              <ul class="sub-menu">
+                
+                <li>
+                  <a href="/archives">
+                    
+                    <i class="fa fa-archive" style="margin-top: -20px;"></i>
+                    
+                    <span>归档</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="/tags">
+                    
+                    <i class="fa fa-tags" style="margin-top: -20px;"></i>
+                    
+                    <span>标签</span>
+                  </a>
+                </li>
+                
+              </ul>
+            
+          </li>
+        
+          <li class="menu-item" style="position: relative;">
+            
+              <a href="/tags" class="menu-item-link">
+                
+                  <i class="fa fa-tags" aria-hidden="true"></i>
+                
+                <span class="name">标签</span>
+              </a>
+            
+          </li>
+        
+          <li class="menu-item" style="position: relative;">
+            
+              <a href="/categories" class="menu-item-link">
+                
+                  <i class="fa fa-bookmark" aria-hidden="true"></i>
+                
+                <span class="name">分类</span>
+              </a>
+            
+          </li>
+        
+          <li class="menu-item" style="position: relative;">
+            
+              <a href="/about" class="menu-item-link">
+                
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                
+                <span class="name">关于</span>
+              </a>
+            
+          </li>
+        
+          <li class="menu-item" style="position: relative;">
+            
+              <a href="/friends" class="menu-item-link">
+                
+                <span class="name">友情链接</span>
+              </a>
+            
+          </li>
+        
+          <li class="menu-item" style="position: relative;">
+            
+              <a href="javascript:;" class="menu-item-link">
+                
+                  <i class="fa fa-link"></i>
+                
+                <span class="name">更多</span>
+                <i class="fa fa-chevron-down arrow" aria-hidden="true"></i>
+              </a>
+              <ul class="sub-menu">
+                
+                <li>
+                  <a href="/gallery">
+                    
+                    <i class="fa fa-music" style="margin-top: -20px;"></i>
+                    
+                    <span>图库</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="/about">
+                    
+                    <i class="fa fa-user" style="margin-top: -20px;"></i>
+                    
+                    <span>关于我</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a target="_blank" rel="noopener" href="http://baidu.com">
+                    
+                    <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>百度</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a target="_blank" rel="noopener" href="http://baidu.com">
+                    
+                    <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>百度</span>
+                  </a>
+                </li>
+                
+              </ul>
+            
+          </li>
+        
+      </ul>
+      
+        <div class="dark">
+  <div class="dark-content">
+    <i class="fa fa-moon-o" aria-hidden="true"></i>
+    <!-- <span>关灯</span> -->
+  </div>
+  
+</div>
+
+<script>
+  $(function() {
+    let isDark = JSON.parse(localStorage.getItem('dark'))  || JSON.parse('false');
+    if (isDark) {
+      $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+    }
+    $('.dark').click(function() {
+      if ($(document.body).is('.darkModel')) {
+        $(document.body).removeClass('darkModel');
+        localStorage.setItem('dark', false);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-moon-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      } else {
+        $(document.body).addClass('darkModel');
+        localStorage.setItem('dark', true);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      }
+    })
+  })
+</script>
+        
+      
+        <div id="appSearch">
+  <div class="search"  @click="showDialog()"><i class="fa fa-search" aria-hidden="true"></i></div>
+  <transition name="fade">
+    <div class="message-box_wrapper" style="display: none;" v-cloak v-show="dialogVisible" @click.self="cancelDialogVisible()">
+      <div class="message-box animated bounceInDown">
+        <!-- <div class="close" style="overflow: hidden;">
+          <i class="fa fa-close" aria-hidden="true" style="float:right;" @click.self="cancelDialogVisible()"></i>
+        </div> -->
+        <h2>
+          <span>
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <span class="title">本地搜索</span>
+          </span>
+          <i class="fa fa-close close" style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
+        </h2>
+        <form class="site-search-form">
+          <input type="text"
+            placeholder="请输入关键字"
+            id="local-search-input" 
+            @click="getSearchFile()"
+            class="st-search-input"
+            v-model="searchInput"
+          />
+        </form>
+        <div class="result-wrapper">
+          <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+<script src="/js/local_search.js"></script>
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appSearch',
+    data: {
+      dialogVisible: false,
+      searchInput: '',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialog() {
+        this.dialogVisible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'overflow: hidden;';
+      },
+      getSearchFile() {
+        if (!this.searchInput) {
+          getSearchFile("/search.xml");
+        }
+      },
+      cancelDialogVisible() {
+        this.dialogVisible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+    },
+    created() {}
+  })
+</script>
+<!-- 解决刷新页面闪烁问题，可以在元素上添加display: none, 或者用vue.extend方法，详情：https://blog.csdn.net/qq_31393401/article/details/81017912 -->
+<!-- 下面是搜索基本写法 -->
+<!-- <script type="text/javascript" id="local.search.active">
+  var inputArea = document.querySelector("#local-search-input");
+  inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+  inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+</script> -->
+
+      
+
+    </nav>
+  </div>
+  
+  <a target="_blank" rel="noopener" href="https://github.com/WhiteBear7396" class="github-corner color-primary" aria-label="View source on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  
+    <div id="he-plugin-simple"></div>
+    <script>
+      WIDGET = {
+        CONFIG: {
+          "modules": "012",
+          "background": 5,
+          "tmpColor": "4A4A4A",
+          "tmpSize": 16,
+          "cityColor": "4A4A4A",
+          "citySize": 16,
+          "aqiSize": 16,
+          "weatherIconSize": 24,
+          "alertIconSize": 18,
+          "padding": "10px 10px 10px 10px",
+          "shadow": "1",
+          "language": "auto",
+          "borderRadius": 5,
+          "fixed": "false",
+          "vertical": "middle",
+          "horizontal": "center",
+          "key": "2784dd3fcb1e4f0f9a9b579bf69641f2"
+        }
+      }
+    </script>
+    <script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script> 
+    
+
+    <!-- 当头部导航设置为背景透明的时候  -->
+    
+      <script src="/js/header/index.js"></script>
+    
+</header>
+    <main class="main" style="margin-top: 0;">
+      
+ <!-- prismjs 代码高亮 -->
+ 
+    
+    <link href="/js/prism/prism-line-numbers.css" rel="stylesheet">
+    
+        <link href="/js/prism/prism.min.css" rel="stylesheet">
+    
+  
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;" :style="{'background-color': bgColor ? bgColor : 'transparent'}">
+    <transition-group tag="ul" :name="names">
+        <li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+            <img :src="image" class="bg-swiper-img">
+        </li>
+    </transition-group>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#appBgSwiper',
+        data: {
+            names: '' || 'fade' || 'fade', // translate-fade fade
+            mark: 0,
+            img: [],
+            bgColor: '',
+            time: null
+        },
+        methods: {   //添加方法
+            change(i, m) {
+                if (i > m) {
+                    // this.names = 'fade';
+                } else if (i < m) {
+                    // this.names = 'fade';
+                } else {
+                    return;
+                }
+                this.mark = i;
+            },
+            prev() {
+                // this.names = 'fade';
+                this.mark--;
+                if (this.mark === -1) {
+                    this.mark = 3;
+                    return
+                }
+            },
+            next() {
+                // this.names = 'fade';
+                this.mark++;
+                if (this.mark === this.img.length) {
+                    this.mark = 0;
+                    return
+                }
+            },
+            autoPlay() {
+                // this.names = 'fade';
+                this.mark++;
+                if (this.mark === this.img.length) {
+                    this.mark = 0;
+                    return
+                }
+            },
+            play() {
+                let bgImgDelay = '' || '180000'
+                let delay = parseInt(bgImgDelay) || 180000;
+                this.time = setInterval(this.autoPlay, delay);
+            },
+            enter() {
+                clearInterval(this.time);
+            },
+            leave() {
+                this.play();
+            }
+        },
+        created() {
+            this.play()
+        },
+        beforeDestroy() {
+            clearInterval(this.time);
+        },
+        mounted() {
+            let prop = ''|| 'https://pic4.zhimg.com/80/v2-5030587bac1b856d09e0a119ff6d7c04_1440w.jpg,https://api.btstu.cn/sjbz/api.php';
+            let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://') 
+            if (isImg) {
+                let img = prop.split(',');
+                let configRoot = '/'
+                let arrImg = [];
+                img.forEach(el => {
+                    var Expression=/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+			        var objExp = new RegExp(Expression);
+
+                    if(objExp.test(el)) {
+                        // http or https
+                        arrImg.push(el);
+                    } else {
+                        // 非http or https开头
+                        // 本地文件
+                        let firstStr = el.charAt(0);
+                        if (firstStr == '/') {
+                            el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+                        }
+                        el = configRoot + el;
+                        arrImg.push(el);
+                    }
+                })
+                this.img = arrImg;
+            } else {
+                this.bgColor = prop;
+            }
+        }
+    })
+</script>
+
+<style>
+    .bg-swiper-box {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    .bg-swiper-img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+
+
+
+<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/11.jpg" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
+  
+    <div class="title-box">
+      
+          <span class="title">
+            【Auto.js系列】学习强国签到
+          </span>
+        
+    </div>
+  
+  
+  
+    <script src="/js/bubble/bubble.js"></script>
+  
+</div>
+
+
+<div class="row justify-position">
+  <div class="main-content">
+    <article class="post post-detail">
+      
+      
+      <div class="post-meta">
+        <i class="fa fa-clock-o" aria-hidden="true"></i>
+        <span class="post-time">2020-12-03</span>
+      </div>
+      
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          <i class="iconfont icontag"></i>
+          
+            <a href="/tags/%E8%84%9A%E6%9C%AC/" class="">
+              脚本
+            </a>
+          
+            <a href="/tags/auto-js/" class="">
+              auto.js
+            </a>
+          
+            <a href="/tags/%E5%AD%A6%E4%B9%A0%E5%BC%BA%E5%9B%BD/" class="">
+              学习强国
+            </a>
+          
+        </div>
+        
+        
+        <div class="categories">
+          <i class="iconfont iconbookmark1"></i>
+          
+            <a href="/categories/%E7%A8%8B%E5%BA%8F%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" class="">
+              程序汇编语言
+            </a>
+          
+            <a href="/categories/%E7%A8%8B%E5%BA%8F%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/Auto-js/" class="">
+              Auto.js
+            </a>
+          
+        </div>
+        
+      </div>
+      <div class="post-content">
+        <h1 id="【Auto-js系列】学习强国"><a href="#【Auto-js系列】学习强国" class="headerlink" title="【Auto.js系列】学习强国"></a>【Auto.js系列】学习强国</h1><h2 id="为什么选择Auto-js"><a href="#为什么选择Auto-js" class="headerlink" title="为什么选择Auto.js"></a>为什么选择Auto.js</h2><p>Auto.js 是个基于 JavaScript 语言运行在Android平台上的脚本框架。Auto.js主要工作原理是基于辅助服务AccessibilityService。Auto.js是利用安卓系统的“辅助功能”实现类似于按键精灵一样，可以通过代码模拟一系列界面动作的辅助工作。因为是开源框架所以安全性很高，他能在手机上模拟人的重复繁琐的工作，不打破被执行的APP规则，不修改，不破坏被执行的APP，可以放心使用。官方的入门文档写得比较全面，可以进行直接上手。</p>
+<p><a target="_blank" rel="noopener" href="https://hyb1996.github.io/AutoJs-Docs/#/?id=%E7%BB%BC%E8%BF%B0">官方文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://hyb1996.github.io/AutoJs-Docs/#/?id=%E7%BB%BC%E8%BF%B0">项目地址</a></p>
+<h2 id="脚本功能"><a href="#脚本功能" class="headerlink" title="脚本功能"></a>脚本功能</h2><ol>
+<li><p>完成每日签到任务</p>
+</li>
+<li><p>息屏解锁，可设置定时任务</p>
+</li>
+<li><p>酷推，将完成情况推动到qq</p>
+</li>
+</ol>
+<p>:::info<br>测试机型：三星S10</p>
+<p>安卓版本：安卓10</p>
+<p>:::</p>
+<h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><p>下载安装Auto.js软件</p>
+<p><a target="_blank" rel="noopener" href="https://wwa.lanzous.com/i8AR0giymxi">下载地址</a></p>
+<p>开启无障碍服务和悬浮窗</p>
+<h2 id="导入脚本"><a href="#导入脚本" class="headerlink" title="导入脚本"></a>导入脚本</h2><pre class="line-numbers language-javascript" data-language="javascript"><div class="caption"><span>学习强国签到</span></div><code class="language-javascript"><span class="token comment">/**
+ * @Description: Auto.js学习强国助手
+ * @Version: 3.1 
+ * @Author: Ivan 
+ * @Date: 2019-11-7
+ * 2020-01-15： V1.0 加入本地频道点击
+ * 2020-02-23： V1.1 加入音量调节，默认为o
+ * 2020-06-26： V1.2 加入滑动悬浮窗
+ * 2020-08-06： V1.3 优化悬浮窗文字跳动
+ * 2020-09-01： V1.4 加入qq推送
+ * 2020-09-07： V1.5 加入解锁屏幕，识别设备是否亮屏
+ * 2020-10-21:  V1.6 强国更新，重新适配，优化结构,加入答题对战，每日积分（35~31）
+ * 2020-11-06:  V1.7 更改任务顺序，提高成功率
+ */</span>
+<span class="token comment">//变量赋值</span>
+auto<span class="token punctuation">.</span><span class="token function">waitFor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> skey<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> aCount<span class="token operator">=</span><span class="token number">8</span><span class="token punctuation">;</span><span class="token comment">//文章学习篇数</span>
+<span class="token keyword">var</span> vCount<span class="token operator">=</span><span class="token number">8</span><span class="token punctuation">;</span><span class="token comment">//“百灵”小视频学习个数</span>
+<span class="token keyword">var</span> cCount<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span><span class="token comment">//收藏+分享+评论次数</span>
+<span class="token keyword">var</span> aTime<span class="token operator">=</span><span class="token number">90</span><span class="token punctuation">;</span><span class="token comment">//每篇文章学习-90秒 90*8=720秒=12分钟</span>
+<span class="token keyword">var</span> rTime<span class="token operator">=</span><span class="token number">1080</span><span class="token punctuation">;</span><span class="token comment">//广播收听-18分钟</span>
+<span class="token keyword">var</span> vTime<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">;</span><span class="token comment">//每个“百灵”小视频学习-30秒</span>
+<span class="token keyword">var</span> commentText<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"支持党，支持国家！"</span><span class="token punctuation">,</span><span class="token string">"为实现中华民族伟大复兴而不懈奋斗！"</span><span class="token punctuation">,</span><span class="token string">"紧跟党走，毫不动摇！"</span><span class="token punctuation">,</span><span class="token string">"不忘初心，牢记使命"</span><span class="token punctuation">,</span><span class="token string">"努力奋斗，回报祖国！"</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//评论内容，可自行修改，大于5个字便计分</span>
+<span class="token keyword">var</span> password<span class="token operator">=</span><span class="token string">'4399'</span><span class="token comment">//输入解锁密码</span>
+<span class="token keyword">var</span> ScriptVersion <span class="token operator">=</span> <span class="token string">"V1.6"</span><span class="token punctuation">;</span><span class="token comment">//版本号</span>
+<span class="token keyword">var</span> now   <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> log_name <span class="token operator">=</span> now<span class="token punctuation">.</span><span class="token function">getFullYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"-"</span> <span class="token operator">+</span> <span class="token punctuation">(</span>now<span class="token punctuation">.</span><span class="token function">getMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"-"</span> <span class="token operator">+</span> now<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span>oldLog <span class="token operator">=</span> console<span class="token punctuation">.</span>log<span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function-variable function">log</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">str</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	console<span class="token punctuation">.</span><span class="token function">oldLog</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	lastLog <span class="token operator">=</span> str<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> 
+<span class="token keyword">var</span> window<span class="token punctuation">;</span>
+<span class="token keyword">var</span> threadTime<span class="token punctuation">;</span>
+<span class="token keyword">var</span> currTimer<span class="token punctuation">;</span>
+<span class="token keyword">var</span> height<span class="token operator">=</span> device<span class="token punctuation">.</span>height<span class="token punctuation">;</span>
+<span class="token keyword">var</span> width <span class="token operator">=</span> device<span class="token punctuation">.</span>width<span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * @description: 延时函数
+ * @param: seconds-延迟秒数
+ * @return: null
+ */</span>
+<span class="token keyword">function</span> <span class="token function">delay</span><span class="token punctuation">(</span><span class="token parameter">seconds</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token operator">*</span>seconds<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//sleep函数参数单位为毫秒所以乘1000</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">/**
+ * @description: 文章学习计时(弹窗)函数
+ * @param: n-文章标号 seconds-学习秒数
+ * @return: null
+ */</span>
+<span class="token keyword">function</span> <span class="token function">article_timing</span><span class="token punctuation">(</span><span class="token parameter">n<span class="token punctuation">,</span>seconds</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    h<span class="token operator">=</span>device<span class="token punctuation">.</span>height<span class="token punctuation">;</span><span class="token comment">//屏幕高</span>
+    w<span class="token operator">=</span>device<span class="token punctuation">.</span>width<span class="token punctuation">;</span><span class="token comment">//屏幕宽</span>
+    x<span class="token operator">=</span><span class="token punctuation">(</span>w<span class="token operator">/</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">;</span>
+    h1<span class="token operator">=</span><span class="token punctuation">(</span>h<span class="token operator">/</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">5</span><span class="token punctuation">;</span>
+    h2<span class="token operator">=</span><span class="token punctuation">(</span>h<span class="token operator">/</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>seconds<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">textContains</span><span class="token punctuation">(</span><span class="token string">"欢迎发表你的观点"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">//如果离开了文章界面则一直等待</span>
+        <span class="token punctuation">&#123;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"当前已离开第"</span><span class="token operator">+</span><span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"文章界面，请重新返回文章页面..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">%</span><span class="token number">5</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token comment">//每5秒打印一次学习情况</span>
+        <span class="token punctuation">&#123;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"第"</span><span class="token operator">+</span><span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"篇文章已经学习"</span><span class="token operator">+</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"秒,剩余"</span><span class="token operator">+</span><span class="token punctuation">(</span>seconds<span class="token operator">-</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"秒!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">%</span><span class="token number">10</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token comment">//每10秒滑动一次，如果android版本&lt;7.0请将此滑动代码删除</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token function">toast</span><span class="token punctuation">(</span><span class="token string">"这是防息屏toast,请忽视-。-"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">&lt;=</span>seconds<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+            <span class="token punctuation">&#123;</span>
+                <span class="token function">swipe</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>h1<span class="token punctuation">,</span>x<span class="token punctuation">,</span>h2<span class="token punctuation">,</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//向下滑动</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">else</span>
+            <span class="token punctuation">&#123;</span>
+                <span class="token function">swipe</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>h2<span class="token punctuation">,</span>x<span class="token punctuation">,</span>h1<span class="token punctuation">,</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//向上滑动</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">/**
+ * @description: 视频学习计时(弹窗)函数
+ * @param: n-视频标号 seconds-学习秒数
+ * @return: null
+ */</span>
+<span class="token keyword">function</span> <span class="token function">video_timing</span><span class="token punctuation">(</span><span class="token parameter">n<span class="token punctuation">,</span>seconds</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>seconds<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">textContains</span><span class="token punctuation">(</span><span class="token string">"分享"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">//如果离开了百灵小视频界面则一直等待</span>
+        <span class="token punctuation">&#123;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"当前已离开百灵小视频界面，请重新返回视频..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"第"</span><span class="token operator">+</span><span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"个小视频已经观看"</span><span class="token operator">+</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"秒,剩余"</span><span class="token operator">+</span><span class="token punctuation">(</span>seconds<span class="token operator">-</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"秒!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">/**
+ * @description: 广播学习计时(弹窗)函数
+ * @param: r_time-已经收听的时间 seconds-学习秒数
+ * @return: null
+ */</span>
+<span class="token keyword">function</span> <span class="token function">radio_timing</span><span class="token punctuation">(</span><span class="token parameter">r_time<span class="token punctuation">,</span>seconds</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>seconds<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">desc</span><span class="token punctuation">(</span><span class="token string">"百灵"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">//如果离开了强国主页</span>
+        <span class="token punctuation">&#123;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"当前已离开主页，请返回并确保电台仍在播放..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">%</span><span class="token number">5</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token comment">//每5秒打印一次信息</span>
+        <span class="token punctuation">&#123;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"广播已经收听"</span><span class="token operator">+</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token operator">+</span>r_time<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"秒,剩余"</span><span class="token operator">+</span><span class="token punctuation">(</span>seconds<span class="token operator">-</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"秒!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">%</span><span class="token number">15</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token comment">//每15秒弹一次窗防止息屏</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token function">toast</span><span class="token punctuation">(</span><span class="token string">"这是防息屏弹窗，可忽略-. -"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">/**
+ * @description: 日期转字符串函数
+ * @param: y,m,d 日期数字 2019 1 1
+ * @return: s 日期字符串 "2019-xx-xx"
+ */</span>
+<span class="token keyword">function</span> <span class="token function">dateToString</span><span class="token punctuation">(</span><span class="token parameter">y<span class="token punctuation">,</span>m<span class="token punctuation">,</span>d</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> year<span class="token operator">=</span>y<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">var</span> month<span class="token operator">=</span><span class="token string">"0"</span><span class="token operator">+</span><span class="token punctuation">(</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">var</span> month<span class="token operator">=</span><span class="token punctuation">(</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>d<span class="token operator">&lt;</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">var</span> day<span class="token operator">=</span><span class="token string">"0"</span><span class="token operator">+</span>d<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">var</span> day<span class="token operator">=</span>d<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">var</span> s<span class="token operator">=</span>year<span class="token operator">+</span><span class="token string">"-"</span><span class="token operator">+</span>month<span class="token operator">+</span><span class="token string">"-"</span><span class="token operator">+</span>day<span class="token punctuation">;</span><span class="token comment">//年-月-日</span>
+    <span class="token keyword">return</span> s<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">/**
+ * @description: 获取当天日期字符串函数
+ * @param: null
+ * @return: s 日期字符串 "2019-xx-xx"
+ */</span>
+<span class="token keyword">function</span> <span class="token function">getTodayDateString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> date<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> y<span class="token operator">=</span>date<span class="token punctuation">.</span><span class="token function">getFullYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> m<span class="token operator">=</span>date<span class="token punctuation">.</span><span class="token function">getMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> d<span class="token operator">=</span>date<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">var</span> s<span class="token operator">=</span><span class="token function">dateToString</span><span class="token punctuation">(</span>y<span class="token punctuation">,</span>m<span class="token punctuation">,</span>d<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//年-月-日</span>
+    <span class="token keyword">return</span> s
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//获取昨天日期字符串函数</span>
+<span class="token keyword">function</span> <span class="token function">getYestardayDateString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> date<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> y<span class="token operator">=</span>date<span class="token punctuation">.</span><span class="token function">getFullYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> m<span class="token operator">=</span>date<span class="token punctuation">.</span><span class="token function">getMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> d<span class="token operator">=</span>date<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span>m<span class="token operator">==</span><span class="token number">0</span> <span class="token operator">&amp;&amp;</span> d<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token comment">//如果是1月1号</span>
+    <span class="token punctuation">&#123;</span>
+        y<span class="token operator">=</span>y<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token comment">//年数减1</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">var</span> day_in_month<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">31</span><span class="token punctuation">,</span><span class="token number">28</span><span class="token punctuation">,</span><span class="token number">31</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">,</span><span class="token number">31</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">31</span><span class="token punctuation">,</span><span class="token number">31</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">31</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">31</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>y<span class="token operator">%</span><span class="token number">400</span><span class="token operator">==</span><span class="token number">0</span> <span class="token operator">||</span> <span class="token punctuation">(</span>y<span class="token operator">%</span><span class="token number">4</span><span class="token operator">==</span><span class="token number">0</span> <span class="token operator">&amp;&amp;</span> y<span class="token operator">%</span><span class="token number">100</span><span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">//如果是闰年</span>
+    <span class="token punctuation">&#123;</span>
+        day_in_month<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">29</span><span class="token punctuation">;</span><span class="token comment">//闰年二月有29天</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span>d<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        d<span class="token operator">=</span>day_in_month<span class="token punctuation">[</span>m<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//上个月的最后一天</span>
+        m<span class="token operator">=</span>m<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+        d<span class="token operator">=</span>d<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">var</span> s<span class="token operator">=</span><span class="token function">dateToString</span><span class="token punctuation">(</span>y<span class="token punctuation">,</span>m<span class="token punctuation">,</span>d<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//年-月-日</span>
+    <span class="token keyword">return</span> s
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//文章学习函数  (阅读文章+文章学习时长)---6+6=12分</span>
+<span class="token keyword">function</span> <span class="token function">articleStudy</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">desc</span><span class="token punctuation">(</span><span class="token string">"百灵"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//等待加载出主页</span>
+    <span class="token comment">//desc("学习").click();//点击主页正下方的"学习"按钮</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> listView<span class="token operator">=</span><span class="token function">className</span><span class="token punctuation">(</span><span class="token string">"ListView"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//获取文章ListView控件用于翻页</span>
+    <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"推荐"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> flag<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span><span class="token comment">//判断进入专题界面标志</span>
+    <span class="token keyword">var</span> fail<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> s<span class="token operator">=</span><span class="token function">getTodayDateString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//获取当天日期字符串</span>
+
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>t<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>aCount<span class="token punctuation">;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">click</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span>t<span class="token punctuation">)</span><span class="token operator">==</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token comment">//如果点击成功则进入文章页面,不成功意味着本页已经到底,要翻页</span>
+        <span class="token punctuation">&#123;</span>   
+            <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//等待加载出界面</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">desc</span><span class="token punctuation">(</span><span class="token string">"展开"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">//如果存在“展开”则认为进入了文章栏中的视频界面需退出</span>
+            <span class="token punctuation">&#123;</span>
+                <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                console<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">"进入了视频界面，即将退出并进下一篇文章!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                t<span class="token operator">++</span><span class="token punctuation">;</span>
+                <span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"电台"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"中国之声"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"因为广播被打断，正在重新收听广播..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">desc</span><span class="token punctuation">(</span><span class="token string">"百灵"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">click</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>height<span class="token operator">-</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">continue</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">var</span> n<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">textContains</span><span class="token punctuation">(</span><span class="token string">"欢迎发表你的观点"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">//如果没有找到评论框则认为没有进入文章界面，一直等待</span>
+            <span class="token punctuation">&#123;</span>
+                <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                n<span class="token operator">++</span><span class="token punctuation">;</span>
+                console<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">"没找到评论框!该界面非文章界面!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">></span><span class="token number">3</span><span class="token punctuation">)</span><span class="token comment">//等待超过4秒则认为进入了专题界面，退出进下一篇文章</span>
+                <span class="token punctuation">&#123;</span>
+                    flag<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>flag<span class="token operator">==</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token comment">//进入专题页的标志</span>
+            <span class="token punctuation">&#123;</span>
+                console<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">"进入了专题界面，即将退出并进下一篇文章!"</span><span class="token punctuation">)</span>
+                t<span class="token operator">++</span><span class="token punctuation">;</span>
+                <span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                flag<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span>
+                <span class="token keyword">continue</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"正在学习第"</span><span class="token operator">+</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"篇文章..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            fail<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token comment">//失败清0</span>
+            <span class="token keyword">var</span> wave<span class="token operator">=</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//上下随机波动5秒</span>
+            <span class="token function">article_timing</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>aTime<span class="token operator">+</span>wave<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">&lt;</span>cCount<span class="token punctuation">)</span><span class="token comment">//收藏分享2篇文章</span>
+            <span class="token punctuation">&#123;</span>
+                <span class="token function">CollectAndShare</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//收藏+分享。若运行到此报错请注释本行！</span>
+                <span class="token function">comment</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//评论</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//返回主界面</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">desc</span><span class="token punctuation">(</span><span class="token string">"百灵"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//等待加载出主页</span>
+            <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            i<span class="token operator">++</span><span class="token punctuation">;</span>
+            t<span class="token operator">++</span><span class="token punctuation">;</span><span class="token comment">//t为实际点击的文章在listView控件中的标号,和i不同,勿改动!</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">else</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token comment">//如果第一次点击就没点击成功则认为首页无当天文章</span>
+            <span class="token punctuation">&#123;</span>
+                s<span class="token operator">=</span><span class="token function">getYestardayDateString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                console<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">"首页没有找到当天文章，即将学习昨日新闻!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">continue</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>fail<span class="token operator">></span><span class="token number">5</span><span class="token punctuation">)</span>
+            <span class="token punctuation">&#123;</span>
+                s<span class="token operator">=</span><span class="token function">getTodayDateString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                console<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">"昨天新闻也没找到..继续学今天的吧"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                t<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+                fail<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+                <span class="token keyword">continue</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>fail<span class="token operator">></span><span class="token number">4</span><span class="token punctuation">)</span><span class="token comment">//连续翻几页没有点击成功则认为今天的新闻还没出来，学习昨天的</span>
+            <span class="token punctuation">&#123;</span>
+                s<span class="token operator">=</span><span class="token function">getYestardayDateString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                console<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">"没有找到当天文章，即将学习昨日新闻!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                t<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+                <span class="token keyword">continue</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            listView<span class="token punctuation">.</span><span class="token function">scrollForward</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//向下滑动(翻页)</span>
+            fail<span class="token operator">++</span><span class="token punctuation">;</span><span class="token comment">//翻页次数加一</span>
+            <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            t<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//“百灵”小视频学习</span>
+<span class="token keyword">function</span> <span class="token function">videoStudy</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    h<span class="token operator">=</span>device<span class="token punctuation">.</span>height<span class="token punctuation">;</span><span class="token comment">//屏幕高</span>
+    w<span class="token operator">=</span>device<span class="token punctuation">.</span>width<span class="token punctuation">;</span><span class="token comment">//屏幕宽</span>
+    x<span class="token operator">=</span><span class="token punctuation">(</span>w<span class="token operator">/</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">;</span><span class="token comment">//横坐标2分之3处</span>
+    h1<span class="token operator">=</span><span class="token punctuation">(</span>h<span class="token operator">/</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">5</span><span class="token punctuation">;</span><span class="token comment">//纵坐标6分之5处</span>
+    h2<span class="token operator">=</span><span class="token punctuation">(</span>h<span class="token operator">/</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//纵坐标6分之1处</span>
+
+    <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"百灵"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"竖"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//var a=className("FrameLayout").depth(23).findOnce(0);//根据控件搜索视频框，但部分手机不适配，改用下面坐标点击</span>
+    <span class="token comment">//a.click();//点击小视频</span>
+    <span class="token function">click</span><span class="token punctuation">(</span>w<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>h<span class="token operator">/</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//坐标点击第一个视频</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>vCount<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"正在观看第"</span><span class="token operator">+</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"个小视频"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">video_timing</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>vTime<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//观看每个小视频</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">!=</span>vCount<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token function">swipe</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>h1<span class="token punctuation">,</span>x<span class="token punctuation">,</span>h2<span class="token punctuation">,</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//往下翻（纵坐标从5/6处滑到1/6处）</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">function</span> <span class="token function">brighten_the_screen</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>device<span class="token punctuation">.</span><span class="token function">isScreenOn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+      device<span class="token punctuation">.</span><span class="token function">wakeUpIfNeeded</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"手机已解锁，开始运行。"</span><span class="token punctuation">)</span>
+        <span class="token function">toastLog</span><span class="token punctuation">(</span><span class="token string">"手机已解锁"</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span><span class="token comment">//跳出当前函数，进入下一个函数</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>password<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+      a<span class="token operator">=</span>password<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+      <span class="token comment">//log(a)</span>
+      <span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      b<span class="token operator">=</span><span class="token function">text</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">findOne</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">bounds</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token function">click</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span><span class="token function">centerX</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>b<span class="token punctuation">.</span><span class="token function">centerY</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span> <span class="token comment">//亮屏函数</span>
+
+<span class="token keyword">function</span> <span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> xyArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">220</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> x0<span class="token operator">=</span>device<span class="token punctuation">.</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> y0<span class="token operator">=</span>device<span class="token punctuation">.</span>height<span class="token operator">/</span><span class="token number">4</span><span class="token operator">*</span><span class="token number">3</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> angle <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">30</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      y <span class="token operator">=</span> x <span class="token operator">*</span> <span class="token function">tan</span><span class="token punctuation">(</span>angle<span class="token punctuation">)</span>
+      <span class="token comment">//log(y)</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>y0<span class="token operator">-</span>y<span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">break</span>
+      <span class="token punctuation">&#125;</span>
+      <span class="token keyword">var</span> xy <span class="token operator">=</span> <span class="token punctuation">[</span>x0<span class="token operator">+</span>x<span class="token punctuation">,</span>y0<span class="token operator">-</span>y<span class="token punctuation">]</span>
+      xyArr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>xy<span class="token punctuation">)</span>
+      x <span class="token operator">+=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+      angle <span class="token operator">+=</span> <span class="token number">3</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token function">gesture</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span>xyArr<span class="token punctuation">)</span>
+    <span class="token keyword">function</span> <span class="token function">tan</span><span class="token punctuation">(</span><span class="token parameter">angle</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">tan</span><span class="token punctuation">(</span>angle <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token constant">PI</span> <span class="token operator">/</span> <span class="token number">180</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token comment">//解锁函数</span>
+  
+<span class="token comment">//听“电台”新闻广播函数  (视听学习+视听学习时长)---6+6=12分</span>
+<span class="token keyword">function</span> <span class="token function">listenToRadio</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"电台"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"听新闻广播"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"中国之声"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"正在收听“中国之声”广播..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//返回电台界面</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">launchApp</span><span class="token punctuation">(</span><span class="token string">"学习强国"</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//2次收藏加分享</span>
+<span class="token keyword">function</span> <span class="token function">CollectAndShare</span><span class="token punctuation">(</span><span class="token parameter">i</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"正在进行第"</span><span class="token operator">+</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"次收藏和分享..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">var</span> collectIcon <span class="token operator">=</span> <span class="token function">classNameContains</span><span class="token punctuation">(</span><span class="token string">"ImageView"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">depth</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">findOnce</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//右下角收藏按钮</span>
+    collectIcon<span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//点击收藏</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"收藏成功!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> shareIcon <span class="token operator">=</span> <span class="token function">classNameContains</span><span class="token punctuation">(</span><span class="token string">"ImageView"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">depth</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">findOnce</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//右下角分享按钮</span>
+    shareIcon<span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//点击分享</span>
+
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">textContains</span><span class="token punctuation">(</span><span class="token string">"分享到学习强"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//等待弹出分享选项界面</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"分享到学习强国"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"分享成功!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//返回文章界面</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//2次评论</span>
+<span class="token keyword">function</span> <span class="token function">comment</span><span class="token punctuation">(</span><span class="token parameter">i</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"欢迎发表你的观点"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//单击评论框</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"正在进行第"</span><span class="token operator">+</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"次评论..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> num<span class="token operator">=</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>commentText<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token comment">//随机数</span>
+    <span class="token function">setText</span><span class="token punctuation">(</span>commentText<span class="token punctuation">[</span>num<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//输入评论内容</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"发布"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//点击右上角发布按钮</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"评论成功!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"删除"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//删除该评论</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"确认"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//确认删除</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"评论删除成功!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//点击本地频道</span>
+<span class="token keyword">function</span> <span class="token function">local</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"推荐"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//click(width/2,height-100);</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"江苏"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//press(width/2.5,height/10,1000);</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"江苏卫视"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>    
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">function</span> <span class="token function">RunApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token punctuation">&#123;</span>   
+    <span class="token function">toastLog</span><span class="token punctuation">(</span><span class="token string">"本设备的分辨率为 \n宽："</span><span class="token operator">+</span>device<span class="token punctuation">.</span>width<span class="token operator">+</span><span class="token string">"\n长："</span><span class="token operator">+</span>device<span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//输出设备的分辨率</span>
+    <span class="token function">setScreenMetrics</span><span class="token punctuation">(</span><span class="token number">1080</span><span class="token punctuation">,</span> <span class="token number">1920</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//设定以下坐标点击的基准屏幕分辨率</span>
+    <span class="token keyword">var</span> apprun <span class="token operator">=</span> <span class="token function">currentActivity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>apprun <span class="token operator">!=</span> <span class="token string">"cn.xuexi.android"</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">launch</span><span class="token punctuation">(</span><span class="token string">"cn.xuexi.android"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"学习强国启动中..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">text</span><span class="token punctuation">(</span><span class="token string">"百灵"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">waitFor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"到达首页"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//save_log("完成我又回来啦")</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">var</span>  homepage <span class="token operator">=</span> <span class="token function">text</span><span class="token punctuation">(</span><span class="token string">"百灵"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">findOne</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>homepage<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">toastLog</span><span class="token punctuation">(</span><span class="token string">"没有找到首页，重启！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">RunApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>  
+<span class="token punctuation">&#125;</span><span class="token comment">//启动App函数</span>
+
+<span class="token comment">//主函数</span>
+<span class="token keyword">function</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token function">ShowFrame</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//悬浮窗</span>
+    <span class="token function">toastLog</span><span class="token punctuation">(</span><span class="token string">"脚本启动"</span><span class="token punctuation">)</span>
+    device<span class="token punctuation">.</span><span class="token function">setMusicVolume</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//音量调整为0，可自行修改</span>
+    <span class="token comment">//toastLog("本设备的分辨率为 \n宽："+device.width+"\n长："+device.height);//输出设备的分辨率</span>
+    <span class="token function">brighten_the_screen</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//解锁屏幕</span>
+    <span class="token comment">//console.show();//部分华为手机console有bug请注释本行</span>
+    console<span class="token punctuation">.</span><span class="token function">setPosition</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>device<span class="token punctuation">.</span>height<span class="token operator">/</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//部分华为手机console有bug请注释本行</span>
+    <span class="token function">RunApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> start<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//程序开始时间</span>
+    <span class="token function">local</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//本地频道</span>
+    <span class="token function">videoStudy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//看“百灵”小视频</span>
+    <span class="token keyword">var</span> r_start<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//广播开始时间</span>
+    <span class="token function">listenToRadio</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//听电台新闻</span>
+    <span class="token function">articleStudy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//学习文章，包含点赞分享和评论</span>
+    <span class="token function">listenToRadio</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> end<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> radio_time<span class="token operator">=</span><span class="token punctuation">(</span><span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token punctuation">(</span>end<span class="token operator">-</span>r_start<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//广播已经收听的时间</span>
+    <span class="token function">radio_timing</span><span class="token punctuation">(</span><span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token punctuation">(</span>end<span class="token operator">-</span>r_start<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">,</span>rTime<span class="token operator">-</span>radio_time<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//rTime-radio_time为剩余需要收听的广播时间</span>
+    <span class="token keyword">var</span> end<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">game</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"运行结束,共耗时"</span><span class="token operator">+</span><span class="token punctuation">(</span><span class="token function">parseInt</span><span class="token punctuation">(</span>end<span class="token operator">-</span>start<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">1000</span><span class="token operator">+</span><span class="token string">"秒"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">home</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//推送函数</span>
+<span class="token keyword">function</span> <span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"我的"</span><span class="token punctuation">)</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"学习积分"</span><span class="token punctuation">)</span>
+    <span class="token function">text</span><span class="token punctuation">(</span><span class="token string">"积分规则"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">waitFor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> arr<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">queryList</span><span class="token punctuation">(</span><span class="token parameter">json<span class="token punctuation">,</span>arr</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> json<span class="token punctuation">.</span><span class="token function">childCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">var</span> sonList <span class="token operator">=</span> json<span class="token punctuation">.</span><span class="token function">child</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>sonList<span class="token punctuation">.</span><span class="token function">childCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                arr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>json<span class="token punctuation">.</span><span class="token function">child</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                <span class="token function">queryList</span><span class="token punctuation">(</span>sonList<span class="token punctuation">,</span> arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> list <span class="token operator">=</span> <span class="token function">className</span><span class="token punctuation">(</span><span class="token string">"FrameLayout"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">findOne</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">queryList</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>k<span class="token operator">&lt;</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>k<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"第"</span><span class="token operator">+</span>k<span class="token operator">+</span><span class="token string">"个子控件"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"text="</span><span class="token operator">+</span>arr<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"\n"</span> <span class="token operator">+</span><span class="token string">"ID="</span><span class="token operator">+</span>arr<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">id</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"\n"</span><span class="token operator">+</span><span class="token string">"classname="</span><span class="token operator">+</span>arr<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">className</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//log("desc="+arr[k].desc()+"\n");</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token keyword">var</span> url <span class="token operator">=</span> <span class="token string">"https://push.xuthus.cc/send/"</span> <span class="token operator">+</span> skey  <span class="token operator">+</span> <span class="token string">"?c="</span> <span class="token punctuation">;</span>
+    <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token string">"【学习强国】"</span>
+    <span class="token comment">/*
+    var b = "登录:"
+    var b_1 = arr[18].text()  
+    
+    var c = "分享:"
+    var c_1 = arr[54].text()             
+    
+    var d = "试听学习:"
+    var d_1 = arr[26].text()             
+    
+    var e = "发表观点:"
+    var e_1 = arr[58].text()             
+    
+    var f = "本地频道:"
+    var f_1 = arr[62].text()             
+    
+    var g = "试听学习时长:"
+    var g_1 = arr[30].text()             
+    
+    var h = "我要选读文章:"
+    var h_1 = arr[22].text()             
+    */</span>
+    <span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token string">"段位:"</span>
+    <span class="token keyword">var</span> i_1 <span class="token operator">=</span> arr<span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span>             
+    
+    <span class="token keyword">var</span> j <span class="token operator">=</span> <span class="token string">"成长总积分:"</span>
+    <span class="token keyword">var</span> j_1 <span class="token operator">=</span> arr<span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span>             
+    
+    <span class="token keyword">var</span> k <span class="token operator">=</span> <span class="token string">"点点通:"</span>
+    <span class="token keyword">var</span> k_1 <span class="token operator">=</span> arr<span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span>             
+    
+    <span class="token keyword">var</span> m <span class="token operator">=</span> <span class="token string">"今日积分:"</span>
+    <span class="token keyword">var</span> m_1 <span class="token operator">=</span> arr<span class="token punctuation">[</span><span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span>             
+    
+    <span class="token comment">//var i = ''+ a + ''+ b + ' '+ b_1 +' '+ c +' '+ c_1 +''+ d +' '+ d_1 +''+ e +' '+ e_1 +''+ f +' '+ f_1 +''+ g +' '+ g_1 +''+ h +' '+ h_1 +''</span>
+    <span class="token keyword">var</span> l <span class="token operator">=</span> <span class="token string">''</span><span class="token operator">+</span> a <span class="token operator">+</span> <span class="token string">''</span><span class="token operator">+</span> log_name <span class="token operator">+</span> <span class="token string">' | '</span><span class="token operator">+</span> i_1 <span class="token operator">+</span> <span class="token string">' | '</span> <span class="token operator">+</span> k_1 <span class="token operator">+</span> <span class="token string">' | '</span><span class="token operator">+</span> j <span class="token operator">+</span> <span class="token string">''</span><span class="token operator">+</span> j_1 <span class="token operator">+</span> <span class="token string">' | '</span><span class="token operator">+</span> m <span class="token operator">+</span> <span class="token string">''</span><span class="token operator">+</span> m_1 <span class="token operator">+</span> <span class="token string">''</span>
+    http<span class="token punctuation">.</span><span class="token function">postJson</span><span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span> data<span class="token operator">=</span>l<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//设置函数悬浮窗</span>
+<span class="token keyword">function</span> <span class="token function">ShowFrame</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    window <span class="token operator">=</span> floaty<span class="token punctuation">.</span><span class="token function">window</span><span class="token punctuation">(</span>
+            <span class="token operator">&lt;</span>vertical align<span class="token operator">=</span> <span class="token string">"center"</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span>text text<span class="token operator">=</span><span class="token string">"─ 当前脚本运行日志 ─"</span> textSize<span class="token operator">=</span><span class="token string">"10"</span> color<span class="token operator">=</span><span class="token string">"#00FF67"</span> textStyle<span class="token operator">=</span><span class="token string">"bold"</span> gravity<span class="token operator">=</span><span class="token string">"center"</span> <span class="token operator">/</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span>text id<span class="token operator">=</span><span class="token string">"text"</span> textColor<span class="token operator">=</span><span class="token string">"#00FF67"</span> gravity<span class="token operator">=</span><span class="token string">"center"</span> textSize<span class="token operator">=</span><span class="token string">"10"</span>  <span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>text<span class="token operator">></span>
+            <span class="token operator">&lt;</span>text id<span class="token operator">=</span><span class="token string">"message"</span> textColor<span class="token operator">=</span><span class="token string">"#00FF67"</span> gravity<span class="token operator">=</span><span class="token string">"center"</span> textSize<span class="token operator">=</span><span class="token string">"10"</span>  <span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>text<span class="token operator">></span>                    
+            <span class="token operator">&lt;</span><span class="token operator">/</span>vertical<span class="token operator">></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    h<span class="token operator">=</span>device<span class="token punctuation">.</span>height<span class="token punctuation">;</span><span class="token comment">//屏幕高</span>
+    w<span class="token operator">=</span>device<span class="token punctuation">.</span>width<span class="token punctuation">;</span><span class="token comment">//屏幕宽</span>
+    window<span class="token punctuation">.</span><span class="token function">exitOnClose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    window<span class="token punctuation">.</span><span class="token function">setSize</span><span class="token punctuation">(</span>h<span class="token operator">/</span><span class="token number">5</span><span class="token punctuation">,</span> w<span class="token operator">/</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//设置大小</span>
+    window<span class="token punctuation">.</span><span class="token function">setPosition</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//设置位置</span>
+    <span class="token keyword">var</span> startDate <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    threadTime <span class="token operator">=</span> threads<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        currTimer <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>threadTime<span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>currTimer<span class="token operator">!=</span><span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                        window<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token function">clearInterval</span><span class="token punctuation">(</span>currTimer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">&#125;</span>
+                <span class="token punctuation">&#125;</span> 
+                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>device<span class="token punctuation">.</span><span class="token function">isScreenOn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token comment">//如果正在运行，屏幕黑屏，立马亮屏</span>
+                    device<span class="token punctuation">.</span><span class="token function">keepScreenDim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>                               
+                ui<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                    <span class="token keyword">var</span> currentDate <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">var</span> t<span class="token operator">=</span>currentDate<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span>startDate<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">var</span> h<span class="token operator">=</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>t<span class="token operator">/</span><span class="token number">1000</span><span class="token operator">/</span><span class="token number">60</span><span class="token operator">/</span><span class="token number">60</span><span class="token operator">%</span><span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">var</span> m<span class="token operator">=</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>t<span class="token operator">/</span><span class="token number">1000</span><span class="token operator">/</span><span class="token number">60</span><span class="token operator">%</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">var</span> s<span class="token operator">=</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>t<span class="token operator">/</span><span class="token number">1000</span><span class="token operator">%</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                
+                    <span class="token keyword">var</span> tstr <span class="token operator">=</span> util<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"    运行: %d:%d:%d"</span><span class="token punctuation">,</span>h<span class="token punctuation">,</span>m<span class="token punctuation">,</span>s<span class="token punctuation">,</span><span class="token string">"    版本"</span><span class="token punctuation">,</span>ScriptVersion<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    window<span class="token punctuation">.</span>text<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span>tstr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                    window<span class="token punctuation">.</span>message<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span>lastLog<span class="token punctuation">)</span><span class="token punctuation">;</span>             
+ 
+                <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//显示运行时间</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//</span>
+<span class="token keyword">function</span> <span class="token function">game</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"我的"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"我要答题"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span>  dati <span class="token operator">=</span> <span class="token function">text</span><span class="token punctuation">(</span><span class="token string">"答题练习"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">findOne</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>dati<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">toastLog</span><span class="token punctuation">(</span><span class="token string">"没有到达答题，重启！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">game</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>dati<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">toastLog</span><span class="token punctuation">(</span><span class="token string">"已进入答题界面"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">click</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">4</span><span class="token punctuation">,</span>height<span class="token operator">-</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">textContains</span><span class="token punctuation">(</span><span class="token string">"开始比赛"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"等待对战开始，请稍后。"</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span class="token comment">//等待弹出结束界面</span>
+        <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"开始比赛"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">toastLog</span><span class="token punctuation">(</span><span class="token string">"开始第一次答题"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">textContains</span><span class="token punctuation">(</span><span class="token string">"继续挑战"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">var</span> option <span class="token operator">=</span> <span class="token function">depth</span><span class="token punctuation">(</span><span class="token string">"32"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">drawingOrder</span><span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">indexInParent</span><span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">rowCount</span><span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">findOne</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            option<span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span class="token comment">//等待弹出结束界面</span>
+        <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"继续挑战"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">textContains</span><span class="token punctuation">(</span><span class="token string">"开始比赛"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"等待对战开始，请稍后。"</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span class="token comment">//等待弹出结束界面</span>
+        <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"开始比赛"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">toastLog</span><span class="token punctuation">(</span><span class="token string">"开始第二次答题"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">textContains</span><span class="token punctuation">(</span><span class="token string">"继续挑战"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">var</span> option <span class="token operator">=</span> <span class="token function">depth</span><span class="token punctuation">(</span><span class="token string">"32"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">drawingOrder</span><span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">indexInParent</span><span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">rowCount</span><span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">findOne</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            option<span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span class="token comment">//等待弹出结束界面</span>
+        <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"继续挑战"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">toastLog</span><span class="token punctuation">(</span><span class="token string">"完成所有答题"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
+        <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">game2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">/*    
+        var  cishu = text("今日积分奖励局0/2").findOne(2000);
+        if (!cishu) &#123;
+            toastLog("没有完成所有答题，重启！");
+            while(!textContains("百灵").exists())&#123;
+                back();
+                delay(2);
+            &#125;;//等待弹出结束界面
+            return game();
+        &#125;else if(cishu) &#123;
+            toastLog("完成所有答题");
+            delay(1);
+            back();    
+            delay(1);
+            back();
+            game2()    
+        &#125;
+        */</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">function</span> <span class="token function">game2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> 主页 <span class="token operator">=</span> <span class="token function">text</span><span class="token punctuation">(</span><span class="token string">"主页"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">findOne</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>主页<span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token function">toastLog</span><span class="token punctuation">(</span><span class="token string">"目前在主页，即将加入答题界面"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"我要答题"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">var</span>  dati <span class="token operator">=</span> <span class="token function">text</span><span class="token punctuation">(</span><span class="token string">"答题练习"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">findOne</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>dati<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token function">toastLog</span><span class="token punctuation">(</span><span class="token string">"没有到达答题，重启！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token function">game2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">var</span>  dati <span class="token operator">=</span> <span class="token function">text</span><span class="token punctuation">(</span><span class="token string">"答题练习"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">findOne</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>dati<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">toastLog</span><span class="token punctuation">(</span><span class="token string">"没有到达答题，重启！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">textContains</span><span class="token punctuation">(</span><span class="token string">"百灵"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">launchApp</span><span class="token punctuation">(</span><span class="token string">"学习强国"</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"我的"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"我要答题"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">game2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>dati<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">toastLog</span><span class="token punctuation">(</span><span class="token string">"已进入答题界面"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">click</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">1.35</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">1.6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">textContains</span><span class="token punctuation">(</span><span class="token string">"开始对战"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"等待对战开始，请稍后。"</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token function">textContains</span><span class="token punctuation">(</span><span class="token string">"邀请对手"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"等待对战开始，请稍后。"</span><span class="token punctuation">)</span>
+            <span class="token function">click</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">1.37</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">3.23</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//邀请对手</span>
+            <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"开始对战"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">textContains</span><span class="token punctuation">(</span><span class="token string">"继续挑战"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">var</span> option <span class="token operator">=</span> <span class="token function">depth</span><span class="token punctuation">(</span><span class="token string">"32"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">drawingOrder</span><span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">indexInParent</span><span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">rowCount</span><span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">findOne</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            option<span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span class="token comment">//等待弹出结束界面</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">textContains</span><span class="token punctuation">(</span><span class="token string">"退出"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span class="token comment">//等待弹出结束界面</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">textContains</span><span class="token punctuation">(</span><span class="token string">"百灵"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">click</span><span class="token punctuation">(</span><span class="token string">"退出"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>    
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">//listenToRadio();</span>
+
+<span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>将代码导入到auto.js中，即可运行。</p>
+<h2 id="待解决的问题"><a href="#待解决的问题" class="headerlink" title="待解决的问题"></a>待解决的问题</h2><ol>
+<li><p>题库答题不会数据库知识，做不出来。</p>
+</li>
+<li><p>软件热更新知识还未学习透彻，目前手上只有百度云盘热更新，太烦了。</p>
+</li>
+<li><p>软件封装app，用auto.js自带的打包工具会被逆向分析出来，那还不如开源。</p>
+</li>
+</ol>
+
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>Narges</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="//post/programme/auto.js/2020-12-09-auto.js-xi-lie-xue-xi-qiang-guo.html" target="_blank" title="【Auto.js系列】学习强国签到">http://whitebear7396.top//post/programme/auto.js/2020-12-09-auto.js-xi-lie-xue-xi-qiang-guo.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      许可协议。转载请注明出处!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      
+<div class="post-nav">
+
+
+
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img lazyload" data-original="/medias/11.jpg" style="background-size: cover; 
+      background-position: center center;">
+    </div>
+    <a href="/post/programme/serverless/yun-han-shu-xi-lie-bai-du-wang-pan-qian-dao.html" class="post-nav-link">
+      <div class="title">
+        <i class="fa fa-angle-left"></i> 上一篇:
+        <div>【云函数系列】百度网盘签到</div>
+      </div>
+      
+      <!-- <div class="content">
+        【云函数系列】百度网盘签到当前功能
+百度网盘签到
+获取签到信息，整合推送
+
+（以下云函数部署默认为腾讯云，其他服务器亲自
+      </div> -->
+    </a>
+  </div>
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img lazyload" data-original="/medias/12.jpg" style="background-size: cover; 
+      background-position: center center;">
+    </div>
+    <a href="/post/programme/auto.js/2020-11-19-auto.js-xi-lie-he-cai-yun-qian-dao.html" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fa fa-angle-right"></i>
+        <div>【Auto.js系列】和彩云签到</div>
+      </div>
+      <!-- <div class="content">
+        【Auto.js系列】和彩云签到为什么选择Auto.jsAuto.js 是个基于 JavaScript 语言运行在And
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
+
+
+    
+    
+    <!-- 评论 -->
+      
+        <div id="myComment">
+          
+        </div>
+      
+  </div>
+
+  
+    <div class="toc-aside">
+      <div class="toc-main">
+        <div class="toc-aside-title">
+          <i class="fa fa-list-ul" aria-hidden="true"></i><span>本文目录</span>
+          <div class="toc-open-close">本文目录</div>
+        </div>
+        <div class="toc-content">
+          <link href="/js/tocbot/tocbot.css" rel="stylesheet">
+<script src="/js/tocbot/tocbot.min.js"></script>
+<div class="toc"></div>
+
+<script>
+  if ($('.toc').length > 0) {
+    var headerEl = 'h2, h3, h4',  //headers 
+      content = '.post-detail',//文章容器
+      idArr = {};  //标题数组以确定是否增加索引id
+      //add #id
+
+    $(content).children(headerEl).each(function () {
+      //去除空格以及多余标点
+      var headerId = $(this).text().replace(/[\s|\~|`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\_|\+|\=|\||\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\：|\，|\。]/g, '');
+
+      headerId = headerId.toLowerCase();
+      if (idArr[headerId]) {
+        //id已经存在
+        $(this).attr('id', headerId + '-' + idArr[headerId]);
+        idArr[headerId]++;
+      }
+      else {
+        //id未存在
+        idArr[headerId] = 1;
+        $(this).attr('id', headerId);
+      }
+    });
+
+    tocbot.init({
+      // Where to render the table of contents.
+      tocSelector: '.toc',
+      // Where to grab the headings to build the table of contents.
+      contentSelector: content,
+      // Which headings to grab inside of the contentSelector element.
+      headingSelector: headerEl,
+      scrollSmooth: true,
+      scrollSmoothOffset: -80,
+      headingsOffset: -($(window).height() * 0.4 - 45),
+      positionFixedSelector: '.toc-main',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  }
+
+</script>
+
+<style>
+.is-position-fixed {
+  position:sticky !important;
+  top: 74px;
+}
+.toc-main ul {
+  counter-reset: show-list;
+}
+.toc-main ul li::before {
+  content: counter(item)".";
+  display: block;
+  position: absolute;
+  left: 12px;
+  top:0;
+}
+.toc > .toc-list {
+  padding-left: 35px;
+}
+.toc>.toc-list li {
+  list-style: decimal;
+}
+.toc-list {
+  padding-left: 25px;
+}
+</style>
+        </div>
+      </div>
+    </div>
+
+    
+      <script>
+        $(".toc-aside").css({'width': 0, 'padding': 0});
+        $(".toc-content").css({'width': 0});
+        $(".toc-aside-title span, .toc-aside-title i").css({'display': 'none'});
+        $(".main-content").css({'width': '75%', 'margin': '10px auto'});
+      </script>
+    
+
+    <script>
+      let openOrCloseBtn = $('.toc-aside .toc-aside-title .toc-open-close');
+      let open = eval('' || 'false');
+      openOrCloseBtn.click(function() {
+        if (open === true) {
+          $(".toc-aside").css({'width': 0, 'padding': 0});
+          $(".toc-content").css({'width': 0});
+          $(".toc-aside-title span, .toc-aside-title i").css({'display': 'none'});
+          $(".main-content").css({'width': '75%', 'margin': '10px auto'});
+          open = false;
+        } else {
+          $(".toc-aside").css({'width': '300px', 'padding': '0 10px'});
+          $(".toc-content").css({'width': '300px'});
+          $(".toc-aside-title span, .toc-aside-title i").css({'display': 'inline-block'});
+          $(".main-content").css({'width': '65%', 'margin-right': '10px', 'margin-left': 'calc(35% - 350px)'});
+          open = true;
+        }
+      });
+    </script>
+  
+
+
+</div>
+
+
+    </main>
+    <!--<div class="footer bg-color">
+  <div class="footer-main">
+    <div class="link">
+      <a target="_blank" rel="noopener" href="https://github.com/yuang01/hexo-theme-bamboo">
+        <i class="fa fa-github" aria-hidden="true"></i>
+      </a>
+      <a href="mailto:1730241541@qq.com">
+        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+      </a>
+      <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1730241541">
+        <i class="fa fa-qq" aria-hidden="true"></i>
+      </a>
+      <a href="/atom.xml" target="_blank">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="footer-copyright">
+      Copyright © 2019 - 2020 <a target="_blank" rel="noopener" href="https://github.com/yuang01">yuang01</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a> 
+    </div>
+  </div>
+</div>
+    <!-- 不蒜子统计 
+    
+      
+  <!-- 不蒜子统计 
+  <span id="busuanzi_container_site_pv">
+        <i class="fa fa-book" aria-hidden="true"></i>本站总阅读量：<span id="busuanzi_value_page_pv"></span> 次
+  </span>
+  <span id="busuanzi_container_site_pv">
+        <i class="fa fa-eye" aria-hidden="true"></i>本站总访问量：<span id="busuanzi_value_site_pv"></span> 次
+  </span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_uv" style='display:none'>
+        <i class="fa fa-users" aria-hidden="true"></i>本站访客数：<span id="busuanzi_value_site_uv"></span> 人
+  </span>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+    
+
+-->
+
+    
+      <div class="goTop top-btn-color border-color">
+  <i class="fa fa-arrow-up" aria-hidden="true"></i>
+</div>
+<script src="/js/goTop.js"></script>
+    
+
+    
+      <link rel="stylesheet" href="/js/aplayer/APlayer@1.10.1.min.css">
+<style>
+.aplayer .aplayer-lrc p {
+  
+  display: none;
+  
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px !important;
+}
+
+.aplayer .aplayer-lrc p.aplayer-lrc-current {
+  
+  display: none;
+  
+  font-size: 15px;
+  color: #4f5de5;
+}
+
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+  left: -66px !important;
+}
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+  left: 0px !important;
+}
+
+
+</style>
+<meting-js  
+  class=""
+  server="netease"
+  type="playlist"
+  id="442274724"
+  fixed='true'
+  autoplay='false'
+  theme='#4f5de5'
+  loop='all'
+  order='random'
+  preload='auto'
+  volume='0.7'
+  list-folded='true'
+>
+</meting-js>
+
+<!-- <style>
+  #aplayer {
+    position: fixed;
+    left: 0;
+    bottom: 300px;
+  }
+</style> -->
+<script src="https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    
+
+    <!-- 图片放大 -->
+    
+      <script src="/js/fancybox/jquery.fancybox.min.js"></script>
+    
+
+    <script src="/js/wrapImage.js"></script>
+    
+    <!-- 爱心点击 -->
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script type="text/javascript" size="100" alpha='0.4' zIndex="-1" src="/js/ribbon.min.js"></script>
+    
+      <script src="/js/aos/aos.js"></script>
+      <script>
+        // https://github.com/michalsnik/aos
+        const themeOffset = parseInt('120') || 120;
+        const themeDelay = parseInt('0')|| 0;
+        const themeDuration = parseInt('400') || 400;
+        const themeEasing = 'ease' || 'ease';
+        const themeOnce = eval('true') || false;
+        const themeMirror = eval('false') || false;
+        const themeAnchorPlacement = 'top-bottom' || 'top-bottom';
+        AOS.init({
+          // Global settings:
+          disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+          startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+          initClassName: 'aos-init', // class applied after initialization
+          animatedClassName: 'aos-animate', // class applied on animation
+          useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+          disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+          debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+          throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+          // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+          offset: themeOffset, // offset (in px) from the original trigger point
+          delay: themeDelay, // values from 0 to 3000, with step 50ms
+          duration: themeDuration, // values from 0 to 3000, with step 50ms
+          easing: themeEasing, // default easing for AOS animations
+          once: themeOnce, // whether animation should happen only once - while scrolling down
+          mirror: themeMirror, // whether elements should animate out while scrolling past them
+          anchorPlacement: themeAnchorPlacement, // defines which position of the element regarding to window should trigger the animation
+
+        });
+      </script>
+    
+
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/v-plugs-ayu/lib/ayu.css">
+<script src="https://cdn.jsdelivr.net/npm/v-plugs-ayu/lib/ayu.umd.min.js"></script>
+<div id="appCopy">
+</div>
+<script>
+  var vm = new Vue({
+    el: '#appCopy',
+    data: {
+    },
+    computed: {
+    },
+    mounted() {
+      const that = this;
+      //  监听 ctrl + c事件  
+      $(document).unbind('keypress').bind('keypress', function (e) {
+        if (e.ctrlKey && e.keyCode == 67) {
+          doSomething();
+          // 返回false, 防止重复触发copy事件  
+          return false;
+        }
+      })
+
+      // 鼠标右键的复制事件  
+      $(document).unbind('copy').bind('copy', function (e) {
+        doSomething();
+        // console.log('右键复制 监听成功');
+      });
+
+      function doSomething() {
+        that.$notify({
+          title: "成功",
+          content: "代码已复制，请遵守相关授权协议。",
+          type: 'success'
+        })
+        // console.log('ctrl + c 监听成功');  
+      }
+    },
+    methods: {
+    },
+    created() { }
+  })
+</script>
+    
+
+    <!-- 输入框打字特效 -->
+    
+      <script src="/js/activate-power-mode.js"></script>
+      <script>
+          POWERMODE.colorful = true;  // 打开随机颜色特效
+          POWERMODE.shake = false;    // 关闭输入框抖动
+          document.body.addEventListener('input', POWERMODE);//监听打字事件
+      </script>
+    
+
+    <!-- markdown代码一键复制功能 -->
+    <script src="/js/clipboard/clipboard.min.js"></script>
+    <script>
+      !function (e, t, a) {
+        var copy = '复制';
+        /* code */
+        var initCopyCode = function(){
+          var copyHtml = '';
+          copyHtml += '<button class="btn-copy" data-clipboard-snippet="" style="position:absolute;top:0;right:0;z-index:1;">';
+          copyHtml += '<i class="fa fa-copy"></i><span>' + copy + '</span>';
+          copyHtml += '</button>';
+          $(".post-detail pre").not('.gutter pre').wrap("<div class='codeBox' style='position:relative;width:100%;'></div>")
+          $(".post-detail pre").not('.gutter pre').before(copyHtml);
+          new ClipboardJS('.btn-copy', {
+              target: function(trigger) {
+                  return trigger.nextElementSibling;
+              }
+          });
+        }
+        initCopyCode();
+      }(window, document);
+    </script>
+
+    <script src="/js/lazyload/lazyload@1.9.1.js"></script>
+    <script>
+      $(function() {
+        $("div.lazyload, img.lazyload, a.lazyload").lazyload(
+            {
+                effect: "fadeIn",
+                placeholder: "https://img10.360buyimg.com/ddimg/jfs/t1/159345/8/2271/222193/5ff7b36fEe49f5663/a95287c20385127f.gif"    //图片未加载出来时显示的占位图
+            }
+        );
+    });
+    </script>
+    
+    <script src="/js/app.js"></script>
+  </body>
+</html>

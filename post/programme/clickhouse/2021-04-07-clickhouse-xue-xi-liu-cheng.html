@@ -1,0 +1,2322 @@
+<!DOCTYPE html>
+<html>
+  
+
+
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+  <title>Clickhouse学习流程 | Narges&#39;s Blog</title>
+
+  
+    
+<link rel="stylesheet" href="/js/aos/aos.css">
+
+  
+
+  <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
+  <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  
+  
+<link rel="stylesheet" href="/css/animate.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/js/fancybox/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/js/shareJs/share.min.css">
+
+  
+  <style>
+        @media (max-width: 992px) {
+            #waifu {
+                display: none;
+            }
+        }
+    </style>
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+  <script src="/js/jquery3.5.1.js"></script>
+  <script src="/js/vue2.6.11.js"></script>
+  <link href="/js/danmu/barrager.css" rel="stylesheet">
+<script src="/js/danmu/jquery.barrager.js"></script>
+  <body>
+    <!-- 页面预加载动画 -->
+
+<div id='loader'>
+  <link rel="stylesheet" href="/js/loaded/index.css" >
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="configure-border-1">
+      <div class="configure-core"></div>
+    </div>
+    <div class="configure-border-2">
+      <div class="configure-core"></div>
+    </div>
+    <div class="loading-word">加载中...</div>
+  </div>
+</div>
+
+<script>
+  var endLoading = function () {
+  document.body.style.overflow = 'auto';
+  document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('load',endLoading);
+</script>
+
+    <!-- 判断是否为黑夜模式 -->
+    <script>
+      let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+
+      if (isDark) {
+        $(document.body).addClass('darkModel');
+      }
+    </script>
+
+    
+<header class="header " id="navHeader"
+  style="position: fixed;
+  left: 0; top: 0; z-index: 10;width: 100%;"
+>
+  <div class="header-content">
+    <div class="bars">
+      <div id="appDrawer" class="sidebar-image">
+  <i class="fa fa-bars" aria-hidden="true" @click="showDialogDrawer"></i>
+  <transition name="fade">
+    <div class="drawer-box_mask" v-cloak style="display: none;" v-show="visible" @click.self="cancelDialogDrawer">
+    </div>
+  </transition>
+  <div class="drawer-box" :class="{'active': visible}">
+    <div class="drawer-box-head bg-color">
+      <img class="drawer-box-head_logo" src="/medias/logo.png" alt="logo">
+      <h3 class="drawer-box-head_title">Narges&#39;s Blog</h3>
+      <h5 class="drawer-box-head_desc">学着学着就发现，自己在知识的海洋里溺水了？？？</h5>
+    </div>
+    
+    <div class="drawer-box-content">
+      <ul class="drawer-box-content_menu">
+        
+          <li class="drawer-box-content_item" style="position: relative;">
+            
+              <a href="/" class="drawer-menu-item-link">
+                
+                  <i class="fa fa-home" aria-hidden="true"></i>
+                
+                <span class="name">首页</span>
+              </a>
+            
+          </li>
+        
+          <li class="drawer-box-content_item" style="position: relative;">
+            
+              <a href="javascript:;" class="drawer-menu-item-link has-children" @click="openOrCloseMenu(1)">
+                <span>
+                  
+                    <i class="fa fa-archive"></i>
+                  
+                  <span class="name">归档</span>
+                </span>
+                <i class="fa fa-chevron-left arrow " :class="{'icon-rotate': isOpen(1)}" aria-hidden="true"></i>
+              </a>
+              <ul class="drawer-sub-menu" v-if="isOpen(1)">
+                
+                <li>
+                  <a href="/archives">
+                    
+                    <i class="fa fa-archive" style="margin-top: -20px;"></i>
+                    
+                    <span>归档</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="/tags">
+                    
+                    <i class="fa fa-tags" style="margin-top: -20px;"></i>
+                    
+                    <span>标签</span>
+                  </a>
+                </li>
+                
+              </ul>
+            
+          </li>
+        
+          <li class="drawer-box-content_item" style="position: relative;">
+            
+              <a href="/tags" class="drawer-menu-item-link">
+                
+                  <i class="fa fa-tags" aria-hidden="true"></i>
+                
+                <span class="name">标签</span>
+              </a>
+            
+          </li>
+        
+          <li class="drawer-box-content_item" style="position: relative;">
+            
+              <a href="/categories" class="drawer-menu-item-link">
+                
+                  <i class="fa fa-bookmark" aria-hidden="true"></i>
+                
+                <span class="name">分类</span>
+              </a>
+            
+          </li>
+        
+          <li class="drawer-box-content_item" style="position: relative;">
+            
+              <a href="/about" class="drawer-menu-item-link">
+                
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                
+                <span class="name">关于</span>
+              </a>
+            
+          </li>
+        
+          <li class="drawer-box-content_item" style="position: relative;">
+            
+              <a href="/friends" class="drawer-menu-item-link">
+                
+                <span class="name">友情链接</span>
+              </a>
+            
+          </li>
+        
+          <li class="drawer-box-content_item" style="position: relative;">
+            
+              <a href="javascript:;" class="drawer-menu-item-link has-children" @click="openOrCloseMenu(6)">
+                <span>
+                  
+                    <i class="fa fa-link"></i>
+                  
+                  <span class="name">更多</span>
+                </span>
+                <i class="fa fa-chevron-left arrow " :class="{'icon-rotate': isOpen(6)}" aria-hidden="true"></i>
+              </a>
+              <ul class="drawer-sub-menu" v-if="isOpen(6)">
+                
+                <li>
+                  <a href="/gallery">
+                    
+                    <i class="fa fa-music" style="margin-top: -20px;"></i>
+                    
+                    <span>图库</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="/about">
+                    
+                    <i class="fa fa-user" style="margin-top: -20px;"></i>
+                    
+                    <span>关于我</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a target="_blank" rel="noopener" href="http://baidu.com">
+                    
+                    <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>百度</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a target="_blank" rel="noopener" href="http://baidu.com">
+                    
+                    <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>百度</span>
+                  </a>
+                </li>
+                
+              </ul>
+            
+          </li>
+        
+        <li class="drawer-box-content_item">
+          <a target="_blank" rel="noopener" href="https://github.com/WhiteBear7396">
+            <i class="fa fa-github" aria-hidden="true"></i>
+            <span>Github</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDrawer',
+    data: {
+      visible: false,
+      top: 0,
+      openArr: [],
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      isOpen(index) {
+        if (this.openArr.includes(index)) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      openOrCloseMenu(curIndex) {
+        const index = this.openArr.indexOf(curIndex);
+        if (index !== -1) {
+          this.openArr.splice(index, 1);
+        } else {
+          this.openArr.push(curIndex);
+        }
+      },
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'width: 100%; height: 100%;overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      }
+    },
+    created() {}
+  })
+</script>
+
+    </div>
+    <div class="blog-title" id="author-avatar">
+      
+        <div class="avatar">
+          <img src="/medias/logo.png" alt="logo">
+        </div>
+      
+      <a href="/" class="logo">Narges&#39;s Blog</a>
+    </div>
+    <nav class="navbar">
+      <ul class="menu">
+        
+          <li class="menu-item" style="position: relative;">
+            
+              <a href="/" class="menu-item-link">
+                
+                  <i class="fa fa-home" aria-hidden="true"></i>
+                
+                <span class="name">首页</span>
+              </a>
+            
+          </li>
+        
+          <li class="menu-item" style="position: relative;">
+            
+              <a href="javascript:;" class="menu-item-link">
+                
+                  <i class="fa fa-archive"></i>
+                
+                <span class="name">归档</span>
+                <i class="fa fa-chevron-down arrow" aria-hidden="true"></i>
+              </a>
+              <ul class="sub-menu">
+                
+                <li>
+                  <a href="/archives">
+                    
+                    <i class="fa fa-archive" style="margin-top: -20px;"></i>
+                    
+                    <span>归档</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="/tags">
+                    
+                    <i class="fa fa-tags" style="margin-top: -20px;"></i>
+                    
+                    <span>标签</span>
+                  </a>
+                </li>
+                
+              </ul>
+            
+          </li>
+        
+          <li class="menu-item" style="position: relative;">
+            
+              <a href="/tags" class="menu-item-link">
+                
+                  <i class="fa fa-tags" aria-hidden="true"></i>
+                
+                <span class="name">标签</span>
+              </a>
+            
+          </li>
+        
+          <li class="menu-item" style="position: relative;">
+            
+              <a href="/categories" class="menu-item-link">
+                
+                  <i class="fa fa-bookmark" aria-hidden="true"></i>
+                
+                <span class="name">分类</span>
+              </a>
+            
+          </li>
+        
+          <li class="menu-item" style="position: relative;">
+            
+              <a href="/about" class="menu-item-link">
+                
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                
+                <span class="name">关于</span>
+              </a>
+            
+          </li>
+        
+          <li class="menu-item" style="position: relative;">
+            
+              <a href="/friends" class="menu-item-link">
+                
+                <span class="name">友情链接</span>
+              </a>
+            
+          </li>
+        
+          <li class="menu-item" style="position: relative;">
+            
+              <a href="javascript:;" class="menu-item-link">
+                
+                  <i class="fa fa-link"></i>
+                
+                <span class="name">更多</span>
+                <i class="fa fa-chevron-down arrow" aria-hidden="true"></i>
+              </a>
+              <ul class="sub-menu">
+                
+                <li>
+                  <a href="/gallery">
+                    
+                    <i class="fa fa-music" style="margin-top: -20px;"></i>
+                    
+                    <span>图库</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="/about">
+                    
+                    <i class="fa fa-user" style="margin-top: -20px;"></i>
+                    
+                    <span>关于我</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a target="_blank" rel="noopener" href="http://baidu.com">
+                    
+                    <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>百度</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a target="_blank" rel="noopener" href="http://baidu.com">
+                    
+                    <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>百度</span>
+                  </a>
+                </li>
+                
+              </ul>
+            
+          </li>
+        
+      </ul>
+      
+        <div class="dark">
+  <div class="dark-content">
+    <i class="fa fa-moon-o" aria-hidden="true"></i>
+    <!-- <span>关灯</span> -->
+  </div>
+  
+</div>
+
+<script>
+  $(function() {
+    let isDark = JSON.parse(localStorage.getItem('dark'))  || JSON.parse('false');
+    if (isDark) {
+      $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+    }
+    $('.dark').click(function() {
+      if ($(document.body).is('.darkModel')) {
+        $(document.body).removeClass('darkModel');
+        localStorage.setItem('dark', false);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-moon-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      } else {
+        $(document.body).addClass('darkModel');
+        localStorage.setItem('dark', true);
+        $(".dark-content").replaceWith(
+          `
+          <div class='dark-content'>
+            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+          </div>
+          `
+        );
+      }
+    })
+  })
+</script>
+        
+      
+        <div id="appSearch">
+  <div class="search"  @click="showDialog()"><i class="fa fa-search" aria-hidden="true"></i></div>
+  <transition name="fade">
+    <div class="message-box_wrapper" style="display: none;" v-cloak v-show="dialogVisible" @click.self="cancelDialogVisible()">
+      <div class="message-box animated bounceInDown">
+        <!-- <div class="close" style="overflow: hidden;">
+          <i class="fa fa-close" aria-hidden="true" style="float:right;" @click.self="cancelDialogVisible()"></i>
+        </div> -->
+        <h2>
+          <span>
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <span class="title">本地搜索</span>
+          </span>
+          <i class="fa fa-close close" style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
+        </h2>
+        <form class="site-search-form">
+          <input type="text"
+            placeholder="请输入关键字"
+            id="local-search-input" 
+            @click="getSearchFile()"
+            class="st-search-input"
+            v-model="searchInput"
+          />
+        </form>
+        <div class="result-wrapper">
+          <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+<script src="/js/local_search.js"></script>
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appSearch',
+    data: {
+      dialogVisible: false,
+      searchInput: '',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialog() {
+        this.dialogVisible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'overflow: hidden;';
+      },
+      getSearchFile() {
+        if (!this.searchInput) {
+          getSearchFile("/search.xml");
+        }
+      },
+      cancelDialogVisible() {
+        this.dialogVisible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+    },
+    created() {}
+  })
+</script>
+<!-- 解决刷新页面闪烁问题，可以在元素上添加display: none, 或者用vue.extend方法，详情：https://blog.csdn.net/qq_31393401/article/details/81017912 -->
+<!-- 下面是搜索基本写法 -->
+<!-- <script type="text/javascript" id="local.search.active">
+  var inputArea = document.querySelector("#local-search-input");
+  inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+  inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+</script> -->
+
+      
+
+    </nav>
+  </div>
+  
+  <a target="_blank" rel="noopener" href="https://github.com/WhiteBear7396" class="github-corner color-primary" aria-label="View source on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  
+    <div id="he-plugin-simple"></div>
+    <script>
+      WIDGET = {
+        CONFIG: {
+          "modules": "012",
+          "background": 5,
+          "tmpColor": "4A4A4A",
+          "tmpSize": 16,
+          "cityColor": "4A4A4A",
+          "citySize": 16,
+          "aqiSize": 16,
+          "weatherIconSize": 24,
+          "alertIconSize": 18,
+          "padding": "10px 10px 10px 10px",
+          "shadow": "1",
+          "language": "auto",
+          "borderRadius": 5,
+          "fixed": "false",
+          "vertical": "middle",
+          "horizontal": "center",
+          "key": "2784dd3fcb1e4f0f9a9b579bf69641f2"
+        }
+      }
+    </script>
+    <script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script> 
+    
+
+    <!-- 当头部导航设置为背景透明的时候  -->
+    
+      <script src="/js/header/index.js"></script>
+    
+</header>
+    <main class="main" style="margin-top: 0;">
+      
+ <!-- prismjs 代码高亮 -->
+ 
+    
+    <link href="/js/prism/prism-line-numbers.css" rel="stylesheet">
+    
+        <link href="/js/prism/prism.min.css" rel="stylesheet">
+    
+  
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;" :style="{'background-color': bgColor ? bgColor : 'transparent'}">
+    <transition-group tag="ul" :name="names">
+        <li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+            <img :src="image" class="bg-swiper-img">
+        </li>
+    </transition-group>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#appBgSwiper',
+        data: {
+            names: '' || 'fade' || 'fade', // translate-fade fade
+            mark: 0,
+            img: [],
+            bgColor: '',
+            time: null
+        },
+        methods: {   //添加方法
+            change(i, m) {
+                if (i > m) {
+                    // this.names = 'fade';
+                } else if (i < m) {
+                    // this.names = 'fade';
+                } else {
+                    return;
+                }
+                this.mark = i;
+            },
+            prev() {
+                // this.names = 'fade';
+                this.mark--;
+                if (this.mark === -1) {
+                    this.mark = 3;
+                    return
+                }
+            },
+            next() {
+                // this.names = 'fade';
+                this.mark++;
+                if (this.mark === this.img.length) {
+                    this.mark = 0;
+                    return
+                }
+            },
+            autoPlay() {
+                // this.names = 'fade';
+                this.mark++;
+                if (this.mark === this.img.length) {
+                    this.mark = 0;
+                    return
+                }
+            },
+            play() {
+                let bgImgDelay = '' || '180000'
+                let delay = parseInt(bgImgDelay) || 180000;
+                this.time = setInterval(this.autoPlay, delay);
+            },
+            enter() {
+                clearInterval(this.time);
+            },
+            leave() {
+                this.play();
+            }
+        },
+        created() {
+            this.play()
+        },
+        beforeDestroy() {
+            clearInterval(this.time);
+        },
+        mounted() {
+            let prop = ''|| 'https://pic4.zhimg.com/80/v2-5030587bac1b856d09e0a119ff6d7c04_1440w.jpg,https://api.btstu.cn/sjbz/api.php';
+            let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://') 
+            if (isImg) {
+                let img = prop.split(',');
+                let configRoot = '/'
+                let arrImg = [];
+                img.forEach(el => {
+                    var Expression=/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+			        var objExp = new RegExp(Expression);
+
+                    if(objExp.test(el)) {
+                        // http or https
+                        arrImg.push(el);
+                    } else {
+                        // 非http or https开头
+                        // 本地文件
+                        let firstStr = el.charAt(0);
+                        if (firstStr == '/') {
+                            el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+                        }
+                        el = configRoot + el;
+                        arrImg.push(el);
+                    }
+                })
+                this.img = arrImg;
+            } else {
+                this.bgColor = prop;
+            }
+        }
+    })
+</script>
+
+<style>
+    .bg-swiper-box {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    .bg-swiper-img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+
+
+
+<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/6.jpg" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
+  
+    <div class="title-box">
+      
+          <span class="title">
+            Clickhouse学习流程
+          </span>
+        
+    </div>
+  
+  
+  
+    <script src="/js/bubble/bubble.js"></script>
+  
+</div>
+
+
+<div class="row justify-position">
+  <div class="main-content">
+    <article class="post post-detail">
+      
+      
+      <div class="post-meta">
+        <i class="fa fa-clock-o" aria-hidden="true"></i>
+        <span class="post-time">2021-04-07</span>
+      </div>
+      
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          <i class="iconfont icontag"></i>
+          
+            <a href="/tags/%E6%95%99%E7%A8%8B/" class="">
+              教程
+            </a>
+          
+            <a href="/tags/Clickhouse/" class="">
+              Clickhouse
+            </a>
+          
+        </div>
+        
+        
+        <div class="categories">
+          <i class="iconfont iconbookmark1"></i>
+          
+            <a href="/categories/%E7%A8%8B%E5%BA%8F%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" class="">
+              程序汇编语言
+            </a>
+          
+        </div>
+        
+      </div>
+      <div class="post-content">
+        <h1 id="VMware-下载与安装"><a href="#VMware-下载与安装" class="headerlink" title="VMware 下载与安装"></a>VMware 下载与安装</h1><h2 id="一、虚拟机的下载"><a href="#一、虚拟机的下载" class="headerlink" title="一、虚拟机的下载"></a>一、虚拟机的下载</h2><ol>
+<li><p>进入<a target="_blank" rel="noopener" href="https://www.vmware.com/cn.html">VMware官网</a>，点击左侧导航栏中的下载，再点击图中标记的Workstation Pro。</p>
+</li>
+<li><p>根据操作系统选择合适的产品，点击转至下载。</p>
+</li>
+</ol>
+<h2 id="二、虚拟机的安装"><a href="#二、虚拟机的安装" class="headerlink" title="二、虚拟机的安装"></a>二、虚拟机的安装</h2><ol>
+<li><p>打开.exe文件， 即可开始安装。</p>
+</li>
+<li><p>安装位置默认在C盘下，在这里选择安装位置，安装路径尽量不要有中文。</p>
+</li>
+<li><p>安装成功后，第一次运行程序会要求输入密钥，VMware Workstation 16激活码：</p>
+</li>
+</ol>
+<ul>
+<li>ZF3R0-FHED2-M80TY-8QYGC-NPKYFYF390-0HF8P-M81RQ-2DXQE-M2UT6ZF71R-DMX85-08DQY-8YMNC-PPHV8</li>
+</ul>
+<h1 id="Centos7-下载与安装"><a href="#Centos7-下载与安装" class="headerlink" title="Centos7 下载与安装"></a>Centos7 下载与安装</h1><h2 id="一、CentOS-7镜像下载"><a href="#一、CentOS-7镜像下载" class="headerlink" title="一、CentOS 7镜像下载"></a>一、CentOS 7镜像下载</h2><ol>
+<li><a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/centos/7/isos/x86_64/">阿里云站点</a><blockquote>
+<p>Actual  Country 国内资源                  <br>  Nearby Countries  周边国家资源</p>
+</blockquote>
+</li>
+<li>选择 CentOS-7-x86_64-DVD-2009.iso下载</li>
+</ol>
+<ul>
+<li>CentOS-7-x86_64-DVD-1708.iso               标准安装版（推荐）</li>
+<li>CentOS-7-x86_64-Everything-1708.iso        完整版，集成所有软件（以用来补充系统的软件或者填充本地镜像）</li>
+<li>CentOS-7-x86_64-LiveGNOME-1708.iso         GNOME桌面版  </li>
+<li>CentOS-7-x86_64-LiveKDE-1708.iso           KDE桌面版  </li>
+<li>CentOS-7-x86_64-Minimal-1708.iso           精简版，自带的软件最少</li>
+<li>CentOS-7-x86_64-NetInstall-1708.iso        网络安装版（从网络安装或者救援系统）  </li>
+</ul>
+<h2 id="二、虚拟机准备"><a href="#二、虚拟机准备" class="headerlink" title="二、虚拟机准备"></a>二、虚拟机准备</h2><ol>
+<li><p>打开VMware选择新建虚拟机</p>
+</li>
+<li><p>典型安装与自定义安装</p>
+<blockquote>
+<p>典型安装：VMware会将主流的配置应用在虚拟机的操作系统上，对于新手来很友好。<br><br>自定义安装：自定义安装可以针对性的把一些资源加强，把不需要的资源移除。避免资源的浪费。</p>
+</blockquote>
+</li>
+<li><p>虚拟机兼容性选择</p>
+<blockquote>
+<p>这里要注意兼容性，如果是VMware12创建的虚拟机复制到VM11、10或者更低的版本会出现一不兼容的现象。如果是用VMware10创建的虚拟机在VMware12中打开则不会出现兼容性问题。</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><h2 id="1-解决Linux系统下，出现“不在sudoers文件中，此事将被报告”的问题"><a href="#1-解决Linux系统下，出现“不在sudoers文件中，此事将被报告”的问题" class="headerlink" title="1.解决Linux系统下，出现“不在sudoers文件中，此事将被报告”的问题"></a>1.解决Linux系统下，出现“不在sudoers文件中，此事将被报告”的问题</h2><p>[已解决]切换到root用户权限，输入命令：”su root”，回车后输入密码再回车</p>
+<h2 id="2-libicudata-so-42-64bit"><a href="#2-libicudata-so-42-64bit" class="headerlink" title="2.libicudata.so.42()(64bit)"></a>2.libicudata.so.42()(64bit)</h2><pre class="line-numbers language-none"><code class="language-none">[root@aubin1 下载]# rpm -ivh *.rpm
+错误：依赖检测失败：
+	libicudata.so.42()(64bit) 被 clickhouse-common-static-19.7.3.9-1.el6.x86_64 需要
+	libicui18n.so.42()(64bit) 被 clickhouse-common-static-19.7.3.9-1.el6.x86_64 需要
+	libicuuc.so.42()(64bit) 被 clickhouse-common-static-19.7.3.9-1.el6.x86_64 需要
+	libicudata.so.42()(64bit) 被 clickhouse-server-19.7.3.9-1.el6.x86_64 需要
+	libicui18n.so.42()(64bit) 被 clickhouse-server-19.7.3.9-1.el6.x86_64 需要
+	libicuuc.so.42()(64bit) 被 clickhouse-server-19.7.3.9-1.el6.x86_64 需要<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>[已解决]首先要确定你是centos6还是centos7，centos6安装的是el6，centos7安装的是el7 <a target="_blank" rel="noopener" href="http://repo.red-soft.biz/repos/clickhouse/stable/el7/">el7地址</a></p>
+<h1 id="常用命令行"><a href="#常用命令行" class="headerlink" title="常用命令行"></a>常用命令行</h1><h2 id="ClickHouse"><a href="#ClickHouse" class="headerlink" title="ClickHouse"></a>ClickHouse</h2><ol>
+<li>启动<br><br> service clickhouse-server start<br><br> service clickhouse-server restart<br><br> service clickhouse-server stauts<br><br> 系统级启动：<br><br> systemctl start clickhouse-server.service<br><br> systemctl restart clickhouse-server.service</li>
+</ol>
+<ol start="2">
+<li>登录<br><br><br> clickhouse-client<br><br> clickhouse-client -m</li>
+</ol>
+<p>clickhouse-client<br>select * from system.clusters;</p>
+<h2 id="ClickHouse-server"><a href="#ClickHouse-server" class="headerlink" title="ClickHouse-server"></a>ClickHouse-server</h2><ol>
+<li>地址<br><br> cd /etc/clickhouse-server/config<br><br> vim /etc/metrika.xml</li>
+</ol>
+<p>cat /var/log/clickhouse-server/clickhouse-server.err.log</p>
+<h1 id="Zookeeper"><a href="#Zookeeper" class="headerlink" title="Zookeeper"></a>Zookeeper</h1><h2 id="下载与安装"><a href="#下载与安装" class="headerlink" title="下载与安装"></a>下载与安装</h2><pre class="line-numbers language-none"><code class="language-none"># 切换到安装下载的目标目录
+[root@hadoop34 src]# cd &#x2F;usr&#x2F;local&#x2F;src&#x2F;
+
+# 使用wget命令下载所需版本的安装包
+[root@hadoop34 src]# wget https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;apache&#x2F;zookeeper&#x2F;zookeeper-3.7.0&#x2F;apache-zookeeper-3.7.0-bin.tar.gz
+
+# 将安装包解压到安装目标目录
+[root@hadoop34 src]# tar zxvf apache-zookeeper-3.7.0-bin.tar.gz -C &#x2F;usr&#x2F;local&#x2F;
+
+# 为hadoop用户添加apache-zookeeper-3.7.0-bin目录的所有者和所属组权限
+[root@hadoop34 src]# chown -R aubin:aubin &#x2F;usr&#x2F;local&#x2F;apache-zookeeper-3.7.0-bin&#x2F;
+[root@hadoop34 src]# cd &#x2F;usr&#x2F;local&#x2F;&#x2F;apache-zookeeper-3.7.0-bin&#x2F;
+[root@hadoop34 apache-zookeeper-3.7.0-bin]# pwd
+&#x2F;usr&#x2F;local&#x2F;apache-zookeeper-3.7.0-bin
+
+# 编辑&#x2F;etc&#x2F;profile添加Zookeeper相关环境变量
+[root@hadoop34 apache-zookeeper-3.7.0-bin]# vim &#x2F;etc&#x2F;profile
+# 新增 export ZOOKEEPER_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;apache-zookeeper-3.7.0-bin
+export ZOOKEEPER_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;apache-zookeeper-3.7.0-bin
+# 在PATH 中添加 $ZOOKEEPER_HOME&#x2F;bin
+PATH&#x3D;$PATH:$ZOOKEEPER_HOME&#x2F;bin
+
+
+
+# 使&#x2F;etc&#x2F;profile配置及时生效
+[root@hadoop34 apache-zookeeper-3.7.0-bin]# source &#x2F;etc&#x2F;profile
+https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;apache&#x2F;zookeeper&#x2F;zookeeper-3.7.0-bin&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h2><h1 id="Centos6"><a href="#Centos6" class="headerlink" title="Centos6:"></a>Centos6:</h1><p>[root@localhost ~]# chkconfig iptables off                # 永久关闭防火墙（重启生效）<br>[root@localhost ~]# service iptables stop                 # 临时关闭防火墙（立即生效）</p>
+<h1 id="Centos7"><a href="#Centos7" class="headerlink" title="Centos7:"></a>Centos7:</h1><p>[root@localhost ~]# systemctl disable firewalld           # 永久关闭防火墙（重启生效）<br>[root@localhost ~]# systemctl stop firewalld              # 临时关闭防火墙（立即生效）</p>
+<pre class="line-numbers language-none"><code class="language-none"># 与zoo.cfg文件里面的server.0保持一致
+[hadoop@hadoop34 conf]$ echo 1 &gt; &#x2F;usr&#x2F;local&#x2F;apache-zookeeper-3.7.0-bin&#x2F;data&#x2F;myid
+# 与zoo.cfg文件里面的server.1保持一致
+[hadoop@hadoop39 conf]$ echo 2 &gt; &#x2F;usr&#x2F;local&#x2F;apache-zookeeper-3.7.0-bin&#x2F;data&#x2F;myid
+# 与zoo.cfg文件里面的server.2保持一致
+[hadoop@hadoop40 conf]$ echo &quot;3&quot; &gt; &#x2F;usr&#x2F;local&#x2F;apache-zookeeper-3.7.0-bin&#x2F;data&#x2F;myid<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>vim /usr/local/apache-zookeeper-3.7.0-bin/data/myid<br>cd /usr/local/apache-zookeeper-3.7.0-bin/bin<br>cp zoo_sample.cfg zoo.cfg</p>
+<p>dataDir=/usr/local/apache-zookeeper-3.7.0-bin/data</p>
+<p>vim /usr/local/apache-zookeeper-3.7.0-bin/conf/zoo.cfg<br>vim /etc/hosts<br>vim /etc/hostname<br>vim /home/aubin/zookeeper/conf/zoo.cfg</p>
+<p>server1=192.168.1.55:2888:3888<br>server2=192.168.1.56:2888:3888<br>server3=192.168.1.57:2888:3888</p>
+<p>192.168.1.55   aubin1<br>192.168.1.56   aubin2<br>192.168.1.57   aubin3</p>
+<p>vim /etc/security/limits.conf<br>vim /etc/security/limits.d/90-nproc.conf</p>
+<ol>
+<li>进入文件夹<br><br> cd /home/aubin/zookeeper/bin<br>cd /usr/local/apache-zookeeper-3.7.0-bin/bin</li>
+<li>启动<br><br> sh zkServer.sh start<br><br> sh zkServer.sh restart<br>sh zkServer.sh restart</li>
+</ol>
+<p>cat /home/aubin/zookeeper/logs/zookeeper-aubin-server-aubin4.out<br>cat /home/aubin/zookeeper/logs/zookeeper-aubin-server-aubin5.out<br>cat /home/aubin/zookeeper/logs/zookeeper-aubin-server-aubin6.out<br>3. 状态<br>./zkServer.sh status</p>
+<ol start="4">
+<li>Myid文件<br>vim /home/aubin/zookeeper/zkdata/myid</li>
+</ol>
+<h1 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h1><h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ol>
+<li>复制 ctrl + insert</li>
+<li>粘贴 shift + insert</li>
+<li>返回 cd ..</li>
+<li>创建文件夹 mkdir<br>ifconfig -a<h2 id="公司电脑ip"><a href="#公司电脑ip" class="headerlink" title="公司电脑ip"></a>公司电脑ip</h2></li>
+<li>192.168.1.55 aubin1</li>
+<li>192.168.1.56 aubin2</li>
+<li>192.168.1.57 aubin3<pre class="line-numbers language-none"><code class="language-none">&lt;yandex&gt;
+    &lt;clickhouse_remote_servers&gt;
+        &lt;perftest_3shards_1replicas&gt;
+            &lt;shard&gt;
+                &lt;internal_replication&gt;true&lt;&#x2F;internal_replication&gt;
+                &lt;replica&gt;
+                    &lt;host&gt;192.168.1.22&lt;&#x2F;host&gt;
+                    &lt;port&gt;9000&lt;&#x2F;port&gt;
+                &lt;&#x2F;replica&gt;
+            &lt;&#x2F;shard&gt;
+            &lt;shard&gt;
+                &lt;replica&gt;
+                    &lt;internal_replication&gt;true&lt;&#x2F;internal_replication&gt;
+                    &lt;host&gt;192.168.1.21&lt;&#x2F;host&gt;
+                    &lt;port&gt;9000&lt;&#x2F;port&gt;
+                &lt;&#x2F;replica&gt;
+            &lt;&#x2F;shard&gt;
+            &lt;shard&gt;
+                &lt;internal_replication&gt;true&lt;&#x2F;internal_replication&gt;
+                &lt;replica&gt;
+                    &lt;host&gt;192.168.1.23&lt;&#x2F;host&gt;
+                    &lt;port&gt;9000&lt;&#x2F;port&gt;
+                &lt;&#x2F;replica&gt;
+            &lt;&#x2F;shard&gt;
+        &lt;&#x2F;perftest_3shards_1replicas&gt;
+    &lt;&#x2F;clickhouse_remote_servers&gt;
+    &lt;zookeeper-servers&gt;
+        &lt;node index&#x3D;&quot;1&quot;&gt;
+            &lt;host&gt;192.168.1.22&lt;&#x2F;host&gt;
+            &lt;port&gt;2181&lt;&#x2F;port&gt;
+        &lt;&#x2F;node&gt;
+        &lt;node index&#x3D;&quot;2&quot;&gt;
+            &lt;host&gt;192.168.1.21&lt;&#x2F;host&gt;
+            &lt;port&gt;2181&lt;&#x2F;port&gt;
+        &lt;&#x2F;node&gt;
+        &lt;node index&#x3D;&quot;3&quot;&gt;
+            &lt;host&gt;192.168.1.23&lt;&#x2F;host&gt;
+            &lt;port&gt;2181&lt;&#x2F;port&gt;
+        &lt;&#x2F;node&gt;
+    &lt;&#x2F;zookeeper-servers&gt;
+    &lt;macros&gt;
+        &lt;replica&gt;192.168.1.22&lt;&#x2F;replica&gt;
+    &lt;&#x2F;macros&gt;
+    &lt;networks&gt;
+        &lt;ip&gt;::&#x2F;0&lt;&#x2F;ip&gt;
+    &lt;&#x2F;networks&gt;
+    &lt;clickhouse_compression&gt;
+        &lt;case&gt;
+            &lt;min_part_size&gt;10000000000&lt;&#x2F;min_part_size&gt;
+            &lt;min_part_size_ratio&gt;0.01&lt;&#x2F;min_part_size_ratio&gt;
+            &lt;method&gt;lz4&lt;&#x2F;method&gt;
+        &lt;&#x2F;case&gt;
+    &lt;&#x2F;clickhouse_compression&gt;
+&lt;&#x2F;yandex&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">&lt;yandex&gt;
+&lt;!-- &#x2F;etc&#x2F;clickhouse-server&#x2F;config.xml 中配置的remote_servers的incl属性值，--&gt;
+&lt;clickhouse_remote_servers&gt;
+    &lt;!-- 集群名称，可以修改 --&gt;
+    &lt;doit_ch_cluster1&gt;
+        &lt;!-- 配置三个分片，每个分片对应一台机器，为每个分片配置一个副本 --&gt;
+        &lt;shard&gt;
+             &lt;internal_replication&gt;true&lt;&#x2F;internal_replication&gt;
+            &lt;replica&gt;
+                &lt;host&gt;aubin4&lt;&#x2F;host&gt;
+                &lt;port&gt;9000&lt;&#x2F;port&gt;
+            &lt;&#x2F;replica&gt;
+        &lt;&#x2F;shard&gt;
+        &lt;shard&gt;
+            &lt;replica&gt;
+                &lt;internal_replication&gt;true&lt;&#x2F;internal_replication&gt;
+                &lt;host&gt;aubin5&lt;&#x2F;host&gt;
+                &lt;port&gt;9000&lt;&#x2F;port&gt;
+            &lt;&#x2F;replica&gt;
+        &lt;&#x2F;shard&gt;
+        &lt;shard&gt;
+            &lt;internal_replication&gt;true&lt;&#x2F;internal_replication&gt;
+            &lt;replica&gt;
+                &lt;host&gt;aubin6&lt;&#x2F;host&gt;
+                &lt;port&gt;9000&lt;&#x2F;port&gt;
+            &lt;&#x2F;replica&gt;
+        &lt;&#x2F;shard&gt;
+    &lt;&#x2F;doit_ch_cluster1&gt;
+&lt;&#x2F;clickhouse_remote_servers&gt;
+
+
+&lt;!-- zookeeper相关配置 --&gt;
+&lt;!-- 该标签与config.xml的&lt;zookeeper incl&#x3D;&quot;zookeeper-servers&quot; optional&#x3D;&quot;true&quot; &#x2F;&gt; 保持一致 --&gt;
+&lt;zookeeper-servers&gt;
+  &lt;node index&#x3D;&quot;1&quot;&gt;
+    &lt;host&gt;aubin4&lt;&#x2F;host&gt;
+    &lt;port&gt;2181&lt;&#x2F;port&gt;
+  &lt;&#x2F;node&gt;
+
+  &lt;node index&#x3D;&quot;2&quot;&gt;
+    &lt;host&gt;aubin5&lt;&#x2F;host&gt;
+    &lt;port&gt;2181&lt;&#x2F;port&gt;
+  &lt;&#x2F;node&gt;
+  &lt;node index&#x3D;&quot;3&quot;&gt;
+    &lt;host&gt;aubin6&lt;&#x2F;host&gt;
+    &lt;port&gt;2181&lt;&#x2F;port&gt;
+  &lt;&#x2F;node&gt;
+&lt;&#x2F;zookeeper-servers&gt;
+
+&lt;!-- 分片和副本标识，shard标签配置分片编号，&lt;replica&gt;配置分片副本主机名，需要修改对应主机上的配置 --&gt;
+&lt;macros&gt;
+    &lt;replica&gt;aubin4&lt;&#x2F;replica&gt;
+&lt;&#x2F;macros&gt;
+&lt;networks&gt;
+   &lt;ip&gt;::&#x2F;0&lt;&#x2F;ip&gt;
+&lt;&#x2F;networks&gt;
+
+&lt;clickhouse_compression&gt;
+&lt;case&gt;
+  &lt;min_part_size&gt;10000000000&lt;&#x2F;min_part_size&gt;
+  &lt;min_part_size_ratio&gt;0.01&lt;&#x2F;min_part_size_ratio&gt;
+  &lt;method&gt;lz4&lt;&#x2F;method&gt;
+&lt;&#x2F;case&gt;
+&lt;&#x2F;clickhouse_compression&gt;
+
+&lt;&#x2F;yandex&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<p>CREATE TABLE dm.jh_car_num [ON CLUSTER] perftest_3shards_1replicas<br>(<br>    <code>id</code> Int64 COMMENT ‘主键’,<br>    <code>PlateNo</code> String COMMENT ‘车牌号’,<br>    <code>PlateColor</code> String COMMENT ‘号牌颜色’,<br>    <code>SpottingName</code> String COMMENT ‘路口名称’,<br>    <code>PassingTime</code> DateTime COMMENT ‘过车时间’,<br>    <code>createTime</code> DateTime COMMENT ‘创建时间’,<br>    <code>SpottingNo</code> String COMMENT ‘路口编号’,<br>    <code>AssetsNo</code> String COMMENT ‘设备编号’,<br>    <code>AssetsName</code> String COMMENT ‘设备名称’,<br>    <code>Flag</code> String COMMENT ‘华为:H，海信:K’<br>)<br>ENGINE = ReplicatedMergeTree(‘/clickhouse/tables/{layer}-{shard}/jh_car_num’, ‘{replica}’)<br>PRIMARY KEY id<br>ORDER BY (id, createTime, PassingTime);</p>
+<p>clickhouse-client -m</p>
+<p>show databases;  查看数据库</p>
+<p>create database text;  创建一个数据库</p>
+<p>drop database  db_doit;   删除数据库</p>
+<p>show tables;  查看表</p>
+<p>查看当前使用的数据库<br>select currentDatabase();</p>
+<pre class="line-numbers language-none"><code class="language-none">CREATE TABLE 数据库.分布式表名 ON cluster 集群名 AS 数据库.本地表名
+ENGINE &#x3D; Distributed(集群名, 数据库名, 本地表名, 分布式方式)、
+# 如
+CREATE TABLE text.ddl_all ON cluster perftest_3shards_1replicas AS text.ddl_text
+ENGINE &#x3D; Distributed(perftest_3shards_1replicas, text, ddl_text, rand());<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>CREATE TABLE IF NOT EXISTS user_cluster ON CLUSTER perftest_3shards_1replicas(<br>    id Int32,<br>    name String) ENGINE = Distributed(perftest_3shards_1replicas, default, user_local,id);</p>
+<pre class="line-numbers language-none"><code class="language-none">CREATE TABLE tutorial.hits_local
+(
+    &#96;WatchID&#96; UInt64,
+    &#96;JavaEnable&#96; UInt8,
+    &#96;Title&#96; String,
+    &#96;GoodEvent&#96; Int16,
+    &#96;EventTime&#96; DateTime,
+    &#96;EventDate&#96; Date,
+    &#96;CounterID&#96; UInt32,
+    &#96;ClientIP&#96; UInt32,
+    &#96;ClientIP6&#96; FixedString(16),
+    &#96;RegionID&#96; UInt32,
+    &#96;UserID&#96; UInt64,
+    &#96;CounterClass&#96; Int8,
+    &#96;OS&#96; UInt8,
+    &#96;UserAgent&#96; UInt8,
+    &#96;URL&#96; String,
+    &#96;Referer&#96; String,
+    &#96;URLDomain&#96; String,
+    &#96;RefererDomain&#96; String,
+    &#96;Refresh&#96; UInt8,
+    &#96;IsRobot&#96; UInt8,
+    &#96;RefererCategories&#96; Array(UInt16),
+    &#96;URLCategories&#96; Array(UInt16),
+    &#96;URLRegions&#96; Array(UInt32),
+    &#96;RefererRegions&#96; Array(UInt32),
+    &#96;ResolutionWidth&#96; UInt16,
+    &#96;ResolutionHeight&#96; UInt16,
+    &#96;ResolutionDepth&#96; UInt8,
+    &#96;FlashMajor&#96; UInt8,
+    &#96;FlashMinor&#96; UInt8,
+    &#96;FlashMinor2&#96; String,
+    &#96;NetMajor&#96; UInt8,
+    &#96;NetMinor&#96; UInt8,
+    &#96;UserAgentMajor&#96; UInt16,
+    &#96;UserAgentMinor&#96; FixedString(2),
+    &#96;CookieEnable&#96; UInt8,
+    &#96;JavascriptEnable&#96; UInt8,
+    &#96;IsMobile&#96; UInt8,
+    &#96;MobilePhone&#96; UInt8,
+    &#96;MobilePhoneModel&#96; String,
+    &#96;Params&#96; String,
+    &#96;IPNetworkID&#96; UInt32,
+    &#96;TraficSourceID&#96; Int8,
+    &#96;SearchEngineID&#96; UInt16,
+    &#96;SearchPhrase&#96; String,
+    &#96;AdvEngineID&#96; UInt8,
+    &#96;IsArtifical&#96; UInt8,
+    &#96;WindowClientWidth&#96; UInt16,
+    &#96;WindowClientHeight&#96; UInt16,
+    &#96;ClientTimeZone&#96; Int16,
+    &#96;ClientEventTime&#96; DateTime,
+    &#96;SilverlightVersion1&#96; UInt8,
+    &#96;SilverlightVersion2&#96; UInt8,
+    &#96;SilverlightVersion3&#96; UInt32,
+    &#96;SilverlightVersion4&#96; UInt16,
+    &#96;PageCharset&#96; String,
+    &#96;CodeVersion&#96; UInt32,
+    &#96;IsLink&#96; UInt8,
+    &#96;IsDownload&#96; UInt8,
+    &#96;IsNotBounce&#96; UInt8,
+    &#96;FUniqID&#96; UInt64,
+    &#96;HID&#96; UInt32,
+    &#96;IsOldCounter&#96; UInt8,
+    &#96;IsEvent&#96; UInt8,
+    &#96;IsParameter&#96; UInt8,
+    &#96;DontCountHits&#96; UInt8,
+    &#96;WithHash&#96; UInt8,
+    &#96;HitColor&#96; FixedString(1),
+    &#96;UTCEventTime&#96; DateTime,
+    &#96;Age&#96; UInt8,
+    &#96;Sex&#96; UInt8,
+    &#96;Income&#96; UInt8,
+    &#96;Interests&#96; UInt16,
+    &#96;Robotness&#96; UInt8,
+    &#96;GeneralInterests&#96; Array(UInt16),
+    &#96;RemoteIP&#96; UInt32,
+    &#96;RemoteIP6&#96; FixedString(16),
+    &#96;WindowName&#96; Int32,
+    &#96;OpenerName&#96; Int32,
+    &#96;HistoryLength&#96; Int16,
+    &#96;BrowserLanguage&#96; FixedString(2),
+    &#96;BrowserCountry&#96; FixedString(2),
+    &#96;SocialNetwork&#96; String,
+    &#96;SocialAction&#96; String,
+    &#96;HTTPError&#96; UInt16,
+    &#96;SendTiming&#96; Int32,
+    &#96;DNSTiming&#96; Int32,
+    &#96;ConnectTiming&#96; Int32,
+    &#96;ResponseStartTiming&#96; Int32,
+    &#96;ResponseEndTiming&#96; Int32,
+    &#96;FetchTiming&#96; Int32,
+    &#96;RedirectTiming&#96; Int32,
+    &#96;DOMInteractiveTiming&#96; Int32,
+    &#96;DOMContentLoadedTiming&#96; Int32,
+    &#96;DOMCompleteTiming&#96; Int32,
+    &#96;LoadEventStartTiming&#96; Int32,
+    &#96;LoadEventEndTiming&#96; Int32,
+    &#96;NSToDOMContentLoadedTiming&#96; Int32,
+    &#96;FirstPaintTiming&#96; Int32,
+    &#96;RedirectCount&#96; Int8,
+    &#96;SocialSourceNetworkID&#96; UInt8,
+    &#96;SocialSourcePage&#96; String,
+    &#96;ParamPrice&#96; Int64,
+    &#96;ParamOrderID&#96; String,
+    &#96;ParamCurrency&#96; FixedString(3),
+    &#96;ParamCurrencyID&#96; UInt16,
+    &#96;GoalsReached&#96; Array(UInt32),
+    &#96;OpenstatServiceName&#96; String,
+    &#96;OpenstatCampaignID&#96; String,
+    &#96;OpenstatAdID&#96; String,
+    &#96;OpenstatSourceID&#96; String,
+    &#96;UTMSource&#96; String,
+    &#96;UTMMedium&#96; String,
+    &#96;UTMCampaign&#96; String,
+    &#96;UTMContent&#96; String,
+    &#96;UTMTerm&#96; String,
+    &#96;FromTag&#96; String,
+    &#96;HasGCLID&#96; UInt8,
+    &#96;RefererHash&#96; UInt64,
+    &#96;URLHash&#96; UInt64,
+    &#96;CLID&#96; UInt32,
+    &#96;YCLID&#96; UInt64,
+    &#96;ShareService&#96; String,
+    &#96;ShareURL&#96; String,
+    &#96;ShareTitle&#96; String,
+    &#96;ParsedParams&#96; Nested(
+        Key1 String,
+        Key2 String,
+        Key3 String,
+        Key4 String,
+        Key5 String,
+        ValueDouble Float64),
+    &#96;IslandID&#96; FixedString(16),
+    &#96;RequestNum&#96; UInt32,
+    &#96;RequestTry&#96; UInt8
+)
+ENGINE &#x3D; MergeTree(EventDate, intHash32(UserID), (CounterID, EventDate, intHash32(UserID), EventTime), 8192);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">CREATE TABLE tutorial.hits_replica
+(
+    WatchID UInt64,
+    JavaEnable UInt8,
+    Title String,
+    GoodEvent Int16,
+    EventTime DateTime,
+    EventDate Date,
+    CounterID UInt32,
+    ClientIP UInt32,
+    ClientIP6 FixedString(16),
+    RegionID UInt32,
+    UserID UInt64,
+    CounterClass Int8,
+    OS UInt8,
+    UserAgent UInt8,
+    URL String,
+    Referer String,
+    URLDomain String,
+    RefererDomain String,
+    Refresh UInt8,
+    IsRobot UInt8,
+    RefererCategories Array(UInt16),
+    URLCategories Array(UInt16),
+    URLRegions Array(UInt32),
+    RefererRegions Array(UInt32),
+    ResolutionWidth UInt16,
+    ResolutionHeight UInt16,
+    ResolutionDepth UInt8,
+    FlashMajor UInt8,
+    FlashMinor UInt8,
+    FlashMinor2 String,
+    NetMajor UInt8,
+    NetMinor UInt8,
+    UserAgentMajor UInt16,
+    UserAgentMinor FixedString(2),
+    CookieEnable UInt8,
+    JavascriptEnable UInt8,
+    IsMobile UInt8,
+    MobilePhone UInt8,
+    MobilePhoneModel String,
+    Params String,
+    IPNetworkID UInt32,
+    TraficSourceID Int8,
+    SearchEngineID UInt16,
+    SearchPhrase String,
+    AdvEngineID UInt8,
+    IsArtifical UInt8,
+    WindowClientWidth UInt16,
+    WindowClientHeight UInt16,
+    ClientTimeZone Int16,
+    ClientEventTime DateTime,
+    SilverlightVersion1 UInt8,
+    SilverlightVersion2 UInt8,
+    SilverlightVersion3 UInt32,
+    SilverlightVersion4 UInt16,
+    PageCharset String,
+    CodeVersion UInt32,
+    IsLink UInt8,
+    IsDownload UInt8,
+    IsNotBounce UInt8,
+    FUniqID UInt64,
+    HID UInt32,
+    IsOldCounter UInt8,
+    IsEvent UInt8,
+    IsParameter UInt8,
+    DontCountHits UInt8,
+    WithHash UInt8,
+    HitColor FixedString(1),
+    UTCEventTime DateTime,
+    Age UInt8,
+    Sex UInt8,
+    Income UInt8,
+    Interests UInt16,
+    Robotness UInt8,
+    GeneralInterests Array(UInt16),
+    RemoteIP UInt32,
+    RemoteIP6 FixedString(16),
+    WindowName Int32,
+    OpenerName Int32,
+    HistoryLength Int16,
+    BrowserLanguage FixedString(2),
+    BrowserCountry FixedString(2),
+    SocialNetwork String,
+    SocialAction String,
+    HTTPError UInt16,
+    SendTiming Int32,
+    DNSTiming Int32,
+    ConnectTiming Int32,
+    ResponseStartTiming Int32,
+    ResponseEndTiming Int32,
+    FetchTiming Int32,
+    RedirectTiming Int32,
+    DOMInteractiveTiming Int32,
+    DOMContentLoadedTiming Int32,
+    DOMCompleteTiming Int32,
+    LoadEventStartTiming Int32,
+    LoadEventEndTiming Int32,
+    NSToDOMContentLoadedTiming Int32,
+    FirstPaintTiming Int32,
+    RedirectCount Int8,
+    SocialSourceNetworkID UInt8,
+    SocialSourcePage String,
+    ParamPrice Int64,
+    ParamOrderID String,
+    ParamCurrency FixedString(3),
+    ParamCurrencyID UInt16,
+    GoalsReached Array(UInt32),
+    OpenstatServiceName String,
+    OpenstatCampaignID String,
+    OpenstatAdID String,
+    OpenstatSourceID String,
+    UTMSource String,
+    UTMMedium String,
+    UTMCampaign String,
+    UTMContent String,
+    UTMTerm String,
+    FromTag String,
+    HasGCLID UInt8,
+    RefererHash UInt64,
+    URLHash UInt64,
+    CLID UInt32,
+    YCLID UInt64,
+    ShareService String,
+    ShareURL String,
+    ShareTitle String,
+    ParsedParams Nested(
+        Key1 String,
+        Key2 String,
+        Key3 String,
+        Key4 String,
+        Key5 String,
+        ValueDouble Float64),
+    IslandID FixedString(16),
+    RequestNum UInt32,
+    RequestTry UInt8
+)
+ENGINE &#x3D; ReplicatedMergeTree(&#39;&#x2F;clickhouse&#x2F;tables&#x2F;&#123;layer&#125;-&#123;shard&#125;&#x2F;hits&#39;, &#39;&#123;replica&#125;&#39;, EventDate, intHash32(UserID), (CounterID, EventDate, intHash32(UserID), EventTime), 8192);
+
+(EventDate, intHash32(UserID), (CounterID, EventDate, intHash32(UserID), EventTime), 8192);
+ENGINE &#x3D; MergeTree(EventDate, intHash32(UserID), (CounterID, EventDate, intHash32(UserID), EventTime), 8192);
+
+ReplicatedMergeTree
+
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">CREATE DATABASE IF NOT EXISTS db_name;
+create table t1(id UInt8,name String,address String,EventDate Date)engine&#x3D;MergeTree(EventDate, (CounterID, EventDate, EventTime), 8192);
+
+INSERT INTO db_name.t1_all SELECT * FROM t1;
+INSERT INTO db_name.t1 SELECT * FROM t1_all;
+
+create table t1
+(
+	id UInt8,
+	name String,
+	address String,
+	create_date Date
+)engine&#x3D;MergeTree(create_date,id,8192);
+ORDER BY id
+
+
+CREATE TABLE db_name.t1_all
+(
+	id UInt8,
+	name String,
+	address String,
+	create_date Date
+)
+ENGINE &#x3D; Distributed(&#39;perftest_3shards_1replicas&#39;, &#39;db_name&#39;, &#39;t1&#39;, rand());
+
+select * from db_name.t1;
+
+INSERT INTO db_name.t1(id, name, address,create_date) VALUES(10, &#39;星期一&#39;, &#39;常州&#39;, toDate(&#39;2020-12-03&#39;));
+
+INSERT INTO db_name.t1(id, name, address,create_date) VALUES(11, &#39;星期二&#39;, &#39;杭州&#39;, toDate(&#39;2021-01-03&#39;));
+
+INSERT INTO db_name.t1_all(id, name, address,create_date) VALUES(11, &#39;星期四&#39;, &#39;泰州&#39;, toDate(&#39;2029-11-03&#39;));
+
+INSERT INTO db_name.t1_all
+(
+	id,
+	name,
+	address,
+	create_date
+) VALUES
+(
+	11,
+	&#39;迪迦1&#39;,
+	&#39;甘州&#39;,
+	toDate(&#39;1000-06-03&#39;)
+),
+(
+	11,
+	&#39;迪迦2&#39;,
+	&#39;甘州&#39;,
+	toDate(&#39;1000-06-03&#39;)
+),
+(
+	11,
+	&#39;迪迦3&#39;,
+	&#39;甘州&#39;,
+	toDate(&#39;1000-06-03&#39;)
+),
+(
+	11,
+	&#39;迪迦4&#39;,
+	&#39;甘州&#39;,
+	toDate(&#39;1000-06-03&#39;)
+),
+(
+	11,
+	&#39;迪迦5&#39;,
+	&#39;甘州&#39;,
+	toDate(&#39;1000-06-03&#39;)
+),
+(
+	11,
+	&#39;迪迦6&#39;,
+	&#39;甘州&#39;,
+	toDate(&#39;1000-06-03&#39;)
+),
+(
+	11,
+	&#39;迪迦7&#39;,
+	&#39;甘州&#39;,
+	toDate(&#39;1000-06-03&#39;)
+),
+(
+	11,
+	&#39;迪迦8&#39;,
+	&#39;甘州&#39;,
+	toDate(&#39;1000-06-03&#39;)
+),(
+	11,
+	&#39;迪迦9&#39;,
+	&#39;甘州&#39;,
+	toDate(&#39;1000-06-03&#39;)
+),
+(
+	11,
+	&#39;迪迦10&#39;,
+	&#39;甘州&#39;,
+	toDate(&#39;1000-06-03&#39;)
+);
+
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p><shard>aubin1</shard><br> <layer>aubin1</layer></p>
+<p> <shard>aubin3</shard><br>  <layer>aubin3</layer></p>
+<pre><code>&lt;shard&gt;aubin3&lt;/shard&gt;
+ &lt;layer&gt;aubin3&lt;/layer&gt;
+</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">CREATE TABLE tutorial.visits_v1
+(
+    &#96;CounterID&#96; UInt32,
+    &#96;StartDate&#96; Date,
+    &#96;Sign&#96; Int8,
+    &#96;IsNew&#96; UInt8,
+    &#96;VisitID&#96; UInt64,
+    &#96;UserID&#96; UInt64,
+    &#96;StartTime&#96; DateTime,
+    &#96;Duration&#96; UInt32,
+    &#96;UTCStartTime&#96; DateTime,
+    &#96;PageViews&#96; Int32,
+    &#96;Hits&#96; Int32,
+    &#96;IsBounce&#96; UInt8,
+    &#96;Referer&#96; String,
+    &#96;StartURL&#96; String,
+    &#96;RefererDomain&#96; String,
+    &#96;StartURLDomain&#96; String,
+    &#96;EndURL&#96; String,
+    &#96;LinkURL&#96; String,
+    &#96;IsDownload&#96; UInt8,
+    &#96;TraficSourceID&#96; Int8,
+    &#96;SearchEngineID&#96; UInt16,
+    &#96;SearchPhrase&#96; String,
+    &#96;AdvEngineID&#96; UInt8,
+    &#96;PlaceID&#96; Int32,
+    &#96;RefererCategories&#96; Array(UInt16),
+    &#96;URLCategories&#96; Array(UInt16),
+    &#96;URLRegions&#96; Array(UInt32),
+    &#96;RefererRegions&#96; Array(UInt32),
+    &#96;IsYandex&#96; UInt8,
+    &#96;GoalReachesDepth&#96; Int32,
+    &#96;GoalReachesURL&#96; Int32,
+    &#96;GoalReachesAny&#96; Int32,
+    &#96;SocialSourceNetworkID&#96; UInt8,
+    &#96;SocialSourcePage&#96; String,
+    &#96;MobilePhoneModel&#96; String,
+    &#96;ClientEventTime&#96; DateTime,
+    &#96;RegionID&#96; UInt32,
+    &#96;ClientIP&#96; UInt32,
+    &#96;ClientIP6&#96; FixedString(16),
+    &#96;RemoteIP&#96; UInt32,
+    &#96;RemoteIP6&#96; FixedString(16),
+    &#96;IPNetworkID&#96; UInt32,
+    &#96;SilverlightVersion3&#96; UInt32,
+    &#96;CodeVersion&#96; UInt32,
+    &#96;ResolutionWidth&#96; UInt16,
+    &#96;ResolutionHeight&#96; UInt16,
+    &#96;UserAgentMajor&#96; UInt16,
+    &#96;UserAgentMinor&#96; UInt16,
+    &#96;WindowClientWidth&#96; UInt16,
+    &#96;WindowClientHeight&#96; UInt16,
+    &#96;SilverlightVersion2&#96; UInt8,
+    &#96;SilverlightVersion4&#96; UInt16,
+    &#96;FlashVersion3&#96; UInt16,
+    &#96;FlashVersion4&#96; UInt16,
+    &#96;ClientTimeZone&#96; Int16,
+    &#96;OS&#96; UInt8,
+    &#96;UserAgent&#96; UInt8,
+    &#96;ResolutionDepth&#96; UInt8,
+    &#96;FlashMajor&#96; UInt8,
+    &#96;FlashMinor&#96; UInt8,
+    &#96;NetMajor&#96; UInt8,
+    &#96;NetMinor&#96; UInt8,
+    &#96;MobilePhone&#96; UInt8,
+    &#96;SilverlightVersion1&#96; UInt8,
+    &#96;Age&#96; UInt8,
+    &#96;Sex&#96; UInt8,
+    &#96;Income&#96; UInt8,
+    &#96;JavaEnable&#96; UInt8,
+    &#96;CookieEnable&#96; UInt8,
+    &#96;JavascriptEnable&#96; UInt8,
+    &#96;IsMobile&#96; UInt8,
+    &#96;BrowserLanguage&#96; UInt16,
+    &#96;BrowserCountry&#96; UInt16,
+    &#96;Interests&#96; UInt16,
+    &#96;Robotness&#96; UInt8,
+    &#96;GeneralInterests&#96; Array(UInt16),
+    &#96;Params&#96; Array(String),
+    &#96;Goals&#96; Nested(
+        ID UInt32,
+        Serial UInt32,
+        EventTime DateTime,
+        Price Int64,
+        OrderID String,
+        CurrencyID UInt32),
+    &#96;WatchIDs&#96; Array(UInt64),
+    &#96;ParamSumPrice&#96; Int64,
+    &#96;ParamCurrency&#96; FixedString(3),
+    &#96;ParamCurrencyID&#96; UInt16,
+    &#96;ClickLogID&#96; UInt64,
+    &#96;ClickEventID&#96; Int32,
+    &#96;ClickGoodEvent&#96; Int32,
+    &#96;ClickEventTime&#96; DateTime,
+    &#96;ClickPriorityID&#96; Int32,
+    &#96;ClickPhraseID&#96; Int32,
+    &#96;ClickPageID&#96; Int32,
+    &#96;ClickPlaceID&#96; Int32,
+    &#96;ClickTypeID&#96; Int32,
+    &#96;ClickResourceID&#96; Int32,
+    &#96;ClickCost&#96; UInt32,
+    &#96;ClickClientIP&#96; UInt32,
+    &#96;ClickDomainID&#96; UInt32,
+    &#96;ClickURL&#96; String,
+    &#96;ClickAttempt&#96; UInt8,
+    &#96;ClickOrderID&#96; UInt32,
+    &#96;ClickBannerID&#96; UInt32,
+    &#96;ClickMarketCategoryID&#96; UInt32,
+    &#96;ClickMarketPP&#96; UInt32,
+    &#96;ClickMarketCategoryName&#96; String,
+    &#96;ClickMarketPPName&#96; String,
+    &#96;ClickAWAPSCampaignName&#96; String,
+    &#96;ClickPageName&#96; String,
+    &#96;ClickTargetType&#96; UInt16,
+    &#96;ClickTargetPhraseID&#96; UInt64,
+    &#96;ClickContextType&#96; UInt8,
+    &#96;ClickSelectType&#96; Int8,
+    &#96;ClickOptions&#96; String,
+    &#96;ClickGroupBannerID&#96; Int32,
+    &#96;OpenstatServiceName&#96; String,
+    &#96;OpenstatCampaignID&#96; String,
+    &#96;OpenstatAdID&#96; String,
+    &#96;OpenstatSourceID&#96; String,
+    &#96;UTMSource&#96; String,
+    &#96;UTMMedium&#96; String,
+    &#96;UTMCampaign&#96; String,
+    &#96;UTMContent&#96; String,
+    &#96;UTMTerm&#96; String,
+    &#96;FromTag&#96; String,
+    &#96;HasGCLID&#96; UInt8,
+    &#96;FirstVisit&#96; DateTime,
+    &#96;PredLastVisit&#96; Date,
+    &#96;LastVisit&#96; Date,
+    &#96;TotalVisits&#96; UInt32,
+    &#96;TraficSource&#96; Nested(
+        ID Int8,
+        SearchEngineID UInt16,
+        AdvEngineID UInt8,
+        PlaceID UInt16,
+        SocialSourceNetworkID UInt8,
+        Domain String,
+        SearchPhrase String,
+        SocialSourcePage String),
+    &#96;Attendance&#96; FixedString(16),
+    &#96;CLID&#96; UInt32,
+    &#96;YCLID&#96; UInt64,
+    &#96;NormalizedRefererHash&#96; UInt64,
+    &#96;SearchPhraseHash&#96; UInt64,
+    &#96;RefererDomainHash&#96; UInt64,
+    &#96;NormalizedStartURLHash&#96; UInt64,
+    &#96;StartURLDomainHash&#96; UInt64,
+    &#96;NormalizedEndURLHash&#96; UInt64,
+    &#96;TopLevelDomain&#96; UInt64,
+    &#96;URLScheme&#96; UInt64,
+    &#96;OpenstatServiceNameHash&#96; UInt64,
+    &#96;OpenstatCampaignIDHash&#96; UInt64,
+    &#96;OpenstatAdIDHash&#96; UInt64,
+    &#96;OpenstatSourceIDHash&#96; UInt64,
+    &#96;UTMSourceHash&#96; UInt64,
+    &#96;UTMMediumHash&#96; UInt64,
+    &#96;UTMCampaignHash&#96; UInt64,
+    &#96;UTMContentHash&#96; UInt64,
+    &#96;UTMTermHash&#96; UInt64,
+    &#96;FromHash&#96; UInt64,
+    &#96;WebVisorEnabled&#96; UInt8,
+    &#96;WebVisorActivity&#96; UInt32,
+    &#96;ParsedParams&#96; Nested(
+        Key1 String,
+        Key2 String,
+        Key3 String,
+        Key4 String,
+        Key5 String,
+        ValueDouble Float64),
+    &#96;Market&#96; Nested(
+        Type UInt8,
+        GoalID UInt32,
+        OrderID String,
+        OrderPrice Int64,
+        PP UInt32,
+        DirectPlaceID UInt32,
+        DirectOrderID UInt32,
+        DirectBannerID UInt32,
+        GoodID String,
+        GoodName String,
+        GoodQuantity Int32,
+        GoodPrice Int64),
+    &#96;IslandID&#96; FixedString(16)
+)
+ENGINE &#x3D; CollapsingMergeTree(StartDate, intHash32(UserID), (CounterID, StartDate, intHash32(UserID), VisitID), 8192, Sign);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h1 id="创建分布式DDL"><a href="#创建分布式DDL" class="headerlink" title="创建分布式DDL"></a>创建分布式DDL</h1><blockquote>
+<p>默认情况下，CREATE、DROP、ALTER、RENAME操作仅仅在当前执行该命令的server上生效。<br>在集群环境下，可以使用ON CLUSTER语句，这样就可以在整个集群发挥作用。</p>
+</blockquote>
+<h3 id="集群名称"><a href="#集群名称" class="headerlink" title="集群名称"></a>集群名称</h3><ul>
+<li>perftest_3shards_1replicas</li>
+</ul>
+<h3 id="分布式表名称"><a href="#分布式表名称" class="headerlink" title="分布式表名称"></a>分布式表名称</h3><ul>
+<li>user_table</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">CREATE TABLE IF NOT EXISTS user_table AS table ENGINE &#x3D; Distributed(perftest_3shards_1replicas, user_database, user_table, rand());<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">CREATE TABLE tutorial.hits_local
+(
+    WatchID UInt64,
+    JavaEnable UInt8,
+    Title String,
+    GoodEvent Int16,
+    EventTime DateTime,
+    EventDate Date,
+    CounterID UInt32,
+    ClientIP UInt32,
+    ClientIP6 FixedString(16),
+    RegionID UInt32,
+    UserID UInt64,
+    CounterClass Int8,
+    OS UInt8,
+    UserAgent UInt8,
+    URL String,
+    Referer String,
+    URLDomain String,
+    RefererDomain String,
+    Refresh UInt8,
+    IsRobot UInt8,
+    RefererCategories Array(UInt16),
+    URLCategories Array(UInt16),
+    URLRegions Array(UInt32),
+    RefererRegions Array(UInt32),
+    ResolutionWidth UInt16,
+    ResolutionHeight UInt16,
+    ResolutionDepth UInt8,
+    FlashMajor UInt8,
+    FlashMinor UInt8,
+    FlashMinor2 String,
+    NetMajor UInt8,
+    NetMinor UInt8,
+    UserAgentMajor UInt16,
+    UserAgentMinor FixedString(2),
+    CookieEnable UInt8,
+    JavascriptEnable UInt8,
+    IsMobile UInt8,
+    MobilePhone UInt8,
+    MobilePhoneModel String,
+    Params String,
+    IPNetworkID UInt32,
+    TraficSourceID Int8,
+    SearchEngineID UInt16,
+    SearchPhrase String,
+    AdvEngineID UInt8,
+    IsArtifical UInt8,
+    WindowClientWidth UInt16,
+    WindowClientHeight UInt16,
+    ClientTimeZone Int16,
+    ClientEventTime DateTime,
+    SilverlightVersion1 UInt8,
+    SilverlightVersion2 UInt8,
+    SilverlightVersion3 UInt32,
+    SilverlightVersion4 UInt16,
+    PageCharset String,
+    CodeVersion UInt32,
+    IsLink UInt8,
+    IsDownload UInt8,
+    IsNotBounce UInt8,
+    FUniqID UInt64,
+    HID UInt32,
+    IsOldCounter UInt8,
+    IsEvent UInt8,
+    IsParameter UInt8,
+    DontCountHits UInt8,
+    WithHash UInt8,
+    HitColor FixedString(1),
+    UTCEventTime DateTime,
+    Age UInt8,
+    Sex UInt8,
+    Income UInt8,
+    Interests UInt16,
+    Robotness UInt8,
+    GeneralInterests Array(UInt16),
+    RemoteIP UInt32,
+    RemoteIP6 FixedString(16),
+    WindowName Int32,
+    OpenerName Int32,
+    HistoryLength Int16,
+    BrowserLanguage FixedString(2),
+    BrowserCountry FixedString(2),
+    SocialNetwork String,
+    SocialAction String,
+    HTTPError UInt16,
+    SendTiming Int32,
+    DNSTiming Int32,
+    ConnectTiming Int32,
+    ResponseStartTiming Int32,
+    ResponseEndTiming Int32,
+    FetchTiming Int32,
+    RedirectTiming Int32,
+    DOMInteractiveTiming Int32,
+    DOMContentLoadedTiming Int32,
+    DOMCompleteTiming Int32,
+    LoadEventStartTiming Int32,
+    LoadEventEndTiming Int32,
+    NSToDOMContentLoadedTiming Int32,
+    FirstPaintTiming Int32,
+    RedirectCount Int8,
+    SocialSourceNetworkID UInt8,
+    SocialSourcePage String,
+    ParamPrice Int64,
+    ParamOrderID String,
+    ParamCurrency FixedString(3),
+    ParamCurrencyID UInt16,
+    GoalsReached Array(UInt32),
+    OpenstatServiceName String,
+    OpenstatCampaignID String,
+    OpenstatAdID String,
+    OpenstatSourceID String,
+    UTMSource String,
+    UTMMedium String,
+    UTMCampaign String,
+    UTMContent String,
+    UTMTerm String,
+    FromTag String,
+    HasGCLID UInt8,
+    RefererHash UInt64,
+    URLHash UInt64,
+    CLID UInt32,
+    YCLID UInt64,
+    ShareService String,
+    ShareURL String,
+    ShareTitle String,
+    ParsedParams Nested(
+        Key1 String,
+        Key2 String,
+        Key3 String,
+        Key4 String,
+        Key5 String,
+        ValueDouble Float64),
+    IslandID FixedString(16),
+    RequestNum UInt32,
+    RequestTry UInt8
+)
+ENGINE &#x3D; MergeTree(EventDate, intHash32(UserID), (CounterID, EventDate, intHash32(UserID), EventTime), 8192);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">CREATE TABLE bank_dist AS CLUSTER perftest_3shards_1replicas \
+AS bank_replica \
+ENGINE &#x3D; Distributed(perftest_3shards_1replicas, default, bank_replica, rand());<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>create table t1(id Int8 , name String , age UInt8 ,gender String) engine=MergeTree(id)<br>order by (id);</p>
+<h2 id="遇到的问题-1"><a href="#遇到的问题-1" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><hr>
+<h3 id="No-1-为啥会报错-让我用-AS"><a href="#No-1-为啥会报错-让我用-AS" class="headerlink" title="No.1 为啥会报错 让我用 AS"></a>No.1 为啥会报错 让我用 AS</h3><p>建表</p>
+<pre class="line-numbers language-none"><code class="language-none">CREATE TABLE IF NOT EXISTS user_cluster ON CLUSTER perftest_3shards_1replicas
+(
+    id Int32,
+    name String
+)
+ENGINE &#x3D; Distributed(perftest_3shards_1replicas, default, user_local,id);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>报错</p>
+<pre class="line-numbers language-none"><code class="language-none">Syntax error: failed at position 41 (line 1, col 41):
+
+CREATE TABLE IF NOT EXISTS user_cluster ON CLUSTER perftest_3shards_1replicas(
+    id Int32,
+    name String) ENGINE &#x3D; Distributed(perftest_3shards_1replicas, default, user_local,id);
+
+Expected AS<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<h3 id="No-2-为啥会报错-开头order-by-是可以支持的却不识别"><a href="#No-2-为啥会报错-开头order-by-是可以支持的却不识别" class="headerlink" title="No.2 为啥会报错 开头order by 是可以支持的却不识别"></a>No.2 为啥会报错 开头order by 是可以支持的却不识别</h3><pre class="line-numbers language-none"><code class="language-none">create table t1
+(
+  id Int8 ,
+  name String ,
+  age UInt8 ,
+  gender String
+)
+engine&#x3D;MergeTree()
+order by (id);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>Narges</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="//post/programme/clickhouse/2021-04-07-clickhouse-xue-xi-liu-cheng.html" target="_blank" title="Clickhouse学习流程">http://whitebear7396.top//post/programme/clickhouse/2021-04-07-clickhouse-xue-xi-liu-cheng.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      许可协议。转载请注明出处!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      
+<div class="post-nav">
+
+
+
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img lazyload" data-original="/medias/1.jpg" style="background-size: cover; 
+      background-position: center center;">
+    </div>
+    <a href="/post/programme/selenium/2021-05-07-selenium2-zi-dong-hua-ce-shi-ji-yu-python.html" class="post-nav-link">
+      <div class="title">
+        <i class="fa fa-angle-left"></i> 上一篇:
+        <div></div>
+      </div>
+      
+      <!-- <div class="content">
+        Selenium2 自动化测试 基于Python第一章 自动化测试基础
+      </div> -->
+    </a>
+  </div>
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img lazyload" data-original="/medias/11.jpg" style="background-size: cover; 
+      background-position: center center;">
+    </div>
+    <a href="/post/programme/serverless/yun-han-shu-xi-lie-bai-du-wang-pan-qian-dao.html" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fa fa-angle-right"></i>
+        <div>【云函数系列】百度网盘签到</div>
+      </div>
+      <!-- <div class="content">
+        【云函数系列】百度网盘签到当前功能
+百度网盘签到
+获取签到信息，整合推送
+
+（以下云函数部署默认为腾讯云，其他服务器亲自
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
+
+
+    
+    
+    <!-- 评论 -->
+      
+        <div id="myComment">
+          
+        </div>
+      
+  </div>
+
+  
+    <div class="toc-aside">
+      <div class="toc-main">
+        <div class="toc-aside-title">
+          <i class="fa fa-list-ul" aria-hidden="true"></i><span>本文目录</span>
+          <div class="toc-open-close">本文目录</div>
+        </div>
+        <div class="toc-content">
+          <link href="/js/tocbot/tocbot.css" rel="stylesheet">
+<script src="/js/tocbot/tocbot.min.js"></script>
+<div class="toc"></div>
+
+<script>
+  if ($('.toc').length > 0) {
+    var headerEl = 'h2, h3, h4',  //headers 
+      content = '.post-detail',//文章容器
+      idArr = {};  //标题数组以确定是否增加索引id
+      //add #id
+
+    $(content).children(headerEl).each(function () {
+      //去除空格以及多余标点
+      var headerId = $(this).text().replace(/[\s|\~|`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\_|\+|\=|\||\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\：|\，|\。]/g, '');
+
+      headerId = headerId.toLowerCase();
+      if (idArr[headerId]) {
+        //id已经存在
+        $(this).attr('id', headerId + '-' + idArr[headerId]);
+        idArr[headerId]++;
+      }
+      else {
+        //id未存在
+        idArr[headerId] = 1;
+        $(this).attr('id', headerId);
+      }
+    });
+
+    tocbot.init({
+      // Where to render the table of contents.
+      tocSelector: '.toc',
+      // Where to grab the headings to build the table of contents.
+      contentSelector: content,
+      // Which headings to grab inside of the contentSelector element.
+      headingSelector: headerEl,
+      scrollSmooth: true,
+      scrollSmoothOffset: -80,
+      headingsOffset: -($(window).height() * 0.4 - 45),
+      positionFixedSelector: '.toc-main',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  }
+
+</script>
+
+<style>
+.is-position-fixed {
+  position:sticky !important;
+  top: 74px;
+}
+.toc-main ul {
+  counter-reset: show-list;
+}
+.toc-main ul li::before {
+  content: counter(item)".";
+  display: block;
+  position: absolute;
+  left: 12px;
+  top:0;
+}
+.toc > .toc-list {
+  padding-left: 35px;
+}
+.toc>.toc-list li {
+  list-style: decimal;
+}
+.toc-list {
+  padding-left: 25px;
+}
+</style>
+        </div>
+      </div>
+    </div>
+
+    
+      <script>
+        $(".toc-aside").css({'width': 0, 'padding': 0});
+        $(".toc-content").css({'width': 0});
+        $(".toc-aside-title span, .toc-aside-title i").css({'display': 'none'});
+        $(".main-content").css({'width': '75%', 'margin': '10px auto'});
+      </script>
+    
+
+    <script>
+      let openOrCloseBtn = $('.toc-aside .toc-aside-title .toc-open-close');
+      let open = eval('' || 'false');
+      openOrCloseBtn.click(function() {
+        if (open === true) {
+          $(".toc-aside").css({'width': 0, 'padding': 0});
+          $(".toc-content").css({'width': 0});
+          $(".toc-aside-title span, .toc-aside-title i").css({'display': 'none'});
+          $(".main-content").css({'width': '75%', 'margin': '10px auto'});
+          open = false;
+        } else {
+          $(".toc-aside").css({'width': '300px', 'padding': '0 10px'});
+          $(".toc-content").css({'width': '300px'});
+          $(".toc-aside-title span, .toc-aside-title i").css({'display': 'inline-block'});
+          $(".main-content").css({'width': '65%', 'margin-right': '10px', 'margin-left': 'calc(35% - 350px)'});
+          open = true;
+        }
+      });
+    </script>
+  
+
+
+</div>
+
+
+    </main>
+    <!--<div class="footer bg-color">
+  <div class="footer-main">
+    <div class="link">
+      <a target="_blank" rel="noopener" href="https://github.com/yuang01/hexo-theme-bamboo">
+        <i class="fa fa-github" aria-hidden="true"></i>
+      </a>
+      <a href="mailto:1730241541@qq.com">
+        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+      </a>
+      <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1730241541">
+        <i class="fa fa-qq" aria-hidden="true"></i>
+      </a>
+      <a href="/atom.xml" target="_blank">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="footer-copyright">
+      Copyright © 2019 - 2020 <a target="_blank" rel="noopener" href="https://github.com/yuang01">yuang01</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a> 
+    </div>
+  </div>
+</div>
+    <!-- 不蒜子统计 
+    
+      
+  <!-- 不蒜子统计 
+  <span id="busuanzi_container_site_pv">
+        <i class="fa fa-book" aria-hidden="true"></i>本站总阅读量：<span id="busuanzi_value_page_pv"></span> 次
+  </span>
+  <span id="busuanzi_container_site_pv">
+        <i class="fa fa-eye" aria-hidden="true"></i>本站总访问量：<span id="busuanzi_value_site_pv"></span> 次
+  </span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_uv" style='display:none'>
+        <i class="fa fa-users" aria-hidden="true"></i>本站访客数：<span id="busuanzi_value_site_uv"></span> 人
+  </span>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+    
+
+-->
+
+    
+      <div class="goTop top-btn-color border-color">
+  <i class="fa fa-arrow-up" aria-hidden="true"></i>
+</div>
+<script src="/js/goTop.js"></script>
+    
+
+    
+      <link rel="stylesheet" href="/js/aplayer/APlayer@1.10.1.min.css">
+<style>
+.aplayer .aplayer-lrc p {
+  
+  display: none;
+  
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px !important;
+}
+
+.aplayer .aplayer-lrc p.aplayer-lrc-current {
+  
+  display: none;
+  
+  font-size: 15px;
+  color: #4f5de5;
+}
+
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+  left: -66px !important;
+}
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+  left: 0px !important;
+}
+
+
+</style>
+<meting-js  
+  class=""
+  server="netease"
+  type="playlist"
+  id="442274724"
+  fixed='true'
+  autoplay='false'
+  theme='#4f5de5'
+  loop='all'
+  order='random'
+  preload='auto'
+  volume='0.7'
+  list-folded='true'
+>
+</meting-js>
+
+<!-- <style>
+  #aplayer {
+    position: fixed;
+    left: 0;
+    bottom: 300px;
+  }
+</style> -->
+<script src="https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    
+
+    <!-- 图片放大 -->
+    
+      <script src="/js/fancybox/jquery.fancybox.min.js"></script>
+    
+
+    <script src="/js/wrapImage.js"></script>
+    
+    <!-- 爱心点击 -->
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script type="text/javascript" size="100" alpha='0.4' zIndex="-1" src="/js/ribbon.min.js"></script>
+    
+      <script src="/js/aos/aos.js"></script>
+      <script>
+        // https://github.com/michalsnik/aos
+        const themeOffset = parseInt('120') || 120;
+        const themeDelay = parseInt('0')|| 0;
+        const themeDuration = parseInt('400') || 400;
+        const themeEasing = 'ease' || 'ease';
+        const themeOnce = eval('true') || false;
+        const themeMirror = eval('false') || false;
+        const themeAnchorPlacement = 'top-bottom' || 'top-bottom';
+        AOS.init({
+          // Global settings:
+          disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+          startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+          initClassName: 'aos-init', // class applied after initialization
+          animatedClassName: 'aos-animate', // class applied on animation
+          useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+          disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+          debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+          throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+          // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+          offset: themeOffset, // offset (in px) from the original trigger point
+          delay: themeDelay, // values from 0 to 3000, with step 50ms
+          duration: themeDuration, // values from 0 to 3000, with step 50ms
+          easing: themeEasing, // default easing for AOS animations
+          once: themeOnce, // whether animation should happen only once - while scrolling down
+          mirror: themeMirror, // whether elements should animate out while scrolling past them
+          anchorPlacement: themeAnchorPlacement, // defines which position of the element regarding to window should trigger the animation
+
+        });
+      </script>
+    
+
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/v-plugs-ayu/lib/ayu.css">
+<script src="https://cdn.jsdelivr.net/npm/v-plugs-ayu/lib/ayu.umd.min.js"></script>
+<div id="appCopy">
+</div>
+<script>
+  var vm = new Vue({
+    el: '#appCopy',
+    data: {
+    },
+    computed: {
+    },
+    mounted() {
+      const that = this;
+      //  监听 ctrl + c事件  
+      $(document).unbind('keypress').bind('keypress', function (e) {
+        if (e.ctrlKey && e.keyCode == 67) {
+          doSomething();
+          // 返回false, 防止重复触发copy事件  
+          return false;
+        }
+      })
+
+      // 鼠标右键的复制事件  
+      $(document).unbind('copy').bind('copy', function (e) {
+        doSomething();
+        // console.log('右键复制 监听成功');
+      });
+
+      function doSomething() {
+        that.$notify({
+          title: "成功",
+          content: "代码已复制，请遵守相关授权协议。",
+          type: 'success'
+        })
+        // console.log('ctrl + c 监听成功');  
+      }
+    },
+    methods: {
+    },
+    created() { }
+  })
+</script>
+    
+
+    <!-- 输入框打字特效 -->
+    
+      <script src="/js/activate-power-mode.js"></script>
+      <script>
+          POWERMODE.colorful = true;  // 打开随机颜色特效
+          POWERMODE.shake = false;    // 关闭输入框抖动
+          document.body.addEventListener('input', POWERMODE);//监听打字事件
+      </script>
+    
+
+    <!-- markdown代码一键复制功能 -->
+    <script src="/js/clipboard/clipboard.min.js"></script>
+    <script>
+      !function (e, t, a) {
+        var copy = '复制';
+        /* code */
+        var initCopyCode = function(){
+          var copyHtml = '';
+          copyHtml += '<button class="btn-copy" data-clipboard-snippet="" style="position:absolute;top:0;right:0;z-index:1;">';
+          copyHtml += '<i class="fa fa-copy"></i><span>' + copy + '</span>';
+          copyHtml += '</button>';
+          $(".post-detail pre").not('.gutter pre').wrap("<div class='codeBox' style='position:relative;width:100%;'></div>")
+          $(".post-detail pre").not('.gutter pre').before(copyHtml);
+          new ClipboardJS('.btn-copy', {
+              target: function(trigger) {
+                  return trigger.nextElementSibling;
+              }
+          });
+        }
+        initCopyCode();
+      }(window, document);
+    </script>
+
+    <script src="/js/lazyload/lazyload@1.9.1.js"></script>
+    <script>
+      $(function() {
+        $("div.lazyload, img.lazyload, a.lazyload").lazyload(
+            {
+                effect: "fadeIn",
+                placeholder: "https://img10.360buyimg.com/ddimg/jfs/t1/159345/8/2271/222193/5ff7b36fEe49f5663/a95287c20385127f.gif"    //图片未加载出来时显示的占位图
+            }
+        );
+    });
+    </script>
+    
+    <script src="/js/app.js"></script>
+  </body>
+</html>
